@@ -29,8 +29,11 @@
   "scripts": {
     "sync": "node scripts/sync.js",
     "build": "node scripts/build.js",
-    "test": "vitest run",
-    "test:watch": "vitest"
+    "check": "tsc --noEmit -p packages/react/tsconfig.json && tsc --noEmit -p packages/vue/tsconfig.json",
+    "test": "npm run check && vitest run",
+    "test:unit": "vitest run",
+    "test:watch": "vitest",
+    "release": "node scripts/release.js"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.2",

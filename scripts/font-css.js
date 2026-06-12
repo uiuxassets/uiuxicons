@@ -31,7 +31,8 @@ export async function generateFontCss(distDir, codepoints) {
       lines.push(`  src: url("${style}/${weight}.woff2") format("woff2"),`);
       lines.push(`       url("${style}/${weight}.ttf") format("truetype");`);
       lines.push('  font-style: normal;');
-      lines.push('  font-display: block;');
+      // swap avoids invisible icons while fonts load (FOIT)
+      lines.push('  font-display: swap;');
       lines.push('}');
       lines.push('');
     }

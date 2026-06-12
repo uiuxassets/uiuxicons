@@ -1,0 +1,65 @@
+name: Icon request
+description: Suggest a new icon for the library
+title: "[Icon request]: "
+labels: [icon-request]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Icon name
+      description: Kebab-case, following existing naming (e.g. arrow-down, file-x)
+      placeholder: cloud-upload
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - actions
+        - arrows
+        - buildings
+        - charts
+        - commerce
+        - communication
+        - connectivity
+        - development
+        - files
+        - general
+        - images
+        - layout
+        - links
+        - location
+        - media
+        - navigation
+        - notifications
+        - power
+        - search
+        - security
+        - settings
+        - shapes
+        - status
+        - system
+        - text
+        - time
+        - users
+        - weather
+        - not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: Where would you use this icon? Concrete use cases help prioritize.
+      placeholder: Settings page upload section...
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References (optional)
+      description: Links or screenshots of similar icons elsewhere.

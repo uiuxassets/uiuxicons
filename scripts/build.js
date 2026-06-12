@@ -53,11 +53,18 @@ async function build() {
   await createDownloads(DIST);
   await generateReact();
 
+  // Typecheck after codegen so freshly generated components are validated too
+  console.log('  Typechecking @uiuxicons/react...');
+  execSync('npx tsc --noEmit -p packages/react/tsconfig.json', { cwd: ROOT, stdio: 'inherit' });
+
   // Build React package
   console.log('  Building @uiuxicons/react...');
   execSync('npm run build -w @uiuxicons/react', { cwd: ROOT, stdio: 'inherit' });
 
   await generateVue();
+
+  console.log('  Typechecking @uiuxicons/vue...');
+  execSync('npx tsc --noEmit -p packages/vue/tsconfig.json', { cwd: ROOT, stdio: 'inherit' });
 
   // Build Vue package
   console.log('  Building @uiuxicons/vue...');

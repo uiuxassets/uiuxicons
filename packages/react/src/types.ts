@@ -14,6 +14,8 @@ export interface IconProps extends Omit<SVGProps<SVGSVGElement>, "children"> {
   weight?: IconWeight;
   size?: number | string;
   color?: string;
+  /** Accessible name rendered as an SVG <title> element */
+  title?: string;
   ref?: Ref<SVGSVGElement>;
   children?: never;
 }

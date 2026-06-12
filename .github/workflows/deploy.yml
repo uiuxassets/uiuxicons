@@ -30,8 +30,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # A red commit must never reach the live site
+      - name: Typecheck
+        run: npm run check
+
+      - name: Unit tests
+        run: npx vitest run
+
       - name: Build
         run: npm run build
+
+      - name: Integration tests
+        run: npx vitest run tests/build-output.test.js tests/site-output.test.js
 
       - name: Add custom domain
         run: echo "uiuxicons.com" > dist/CNAME

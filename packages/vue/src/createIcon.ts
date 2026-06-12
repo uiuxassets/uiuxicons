@@ -13,8 +13,7 @@ export function createIcon(name: string, variants: VariantMap) {
       title: { type: String, default: undefined },
     },
     setup(props, { attrs }) {
-      return () =>
-        h(Icon, { ...props, ...attrs, variants } as Record<string, unknown>);
+      return () => h(Icon, { ...props, ...attrs, variants });
     },
   });
 }

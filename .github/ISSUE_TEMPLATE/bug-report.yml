@@ -1,0 +1,42 @@
+name: Bug report
+description: Something broken in the packages, fonts, SVGs, or website
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - "@uiuxicons/react"
+        - "@uiuxicons/vue"
+        - Web font
+        - SVG files / download ZIP
+        - Website (uiuxicons.com)
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Package version, or "website" for site issues
+      placeholder: 0.1.1
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead? Include code or a reproduction link if relevant.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Framework versions, bundler, browser - whatever is relevant.
+      placeholder: React 19.1, Next.js 16, Chrome 140
