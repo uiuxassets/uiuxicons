@@ -38,7 +38,7 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.2",
     "@vue/server-renderer": "^3.5.31",
-    "archiver": "^7.0.1",
+    "archiver": "^8.0.0",
     "fantasticon": "^4.1.0",
     "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.1",
