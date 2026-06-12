@@ -1,0 +1,4 @@
+Reached 33 icons. Added support for 3 styles (line, duotone, solid) and 3 weights (light, regular, bold). Published Figma components library compatible with any design system.
+
+
+

@@ -1,0 +1,67 @@
+{
+  "name": "@uiuxicons/react",
+  "version": "0.1.0",
+  "description": "UI/UX Icons for React",
+  "author": "UI/UX Icons <hello@uiuxicons.com>",
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "peerDependencies": {
+    "react": ">=19"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "tsup"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uiuxassets/uiuxicons/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uiuxassets/uiuxicons.git",
+    "directory": "packages/react"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://uiuxicons.com",
+  "keywords": [
+    "icons",
+    "react",
+    "svg",
+    "ui",
+    "ux",
+    "components",
+    "duotone",
+    "line-icons",
+    "solid-icons"
+  ]
+}

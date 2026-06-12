@@ -1,0 +1,4 @@
+Project started. Set up Figma workflow with three style variants (line, duotone, solid), source page for raw builds, component page, and export page for SVGs. First 12 icons created.
+
+
+

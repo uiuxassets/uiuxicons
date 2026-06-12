@@ -1,0 +1,2 @@
+Added sun, moon, and gear icons. Theme toggle now uses custom sun and moon icons.
+

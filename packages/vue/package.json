@@ -1,0 +1,64 @@
+{
+  "name": "@uiuxicons/vue",
+  "version": "0.1.0",
+  "description": "UI/UX Icons for Vue",
+  "author": "UI/UX Icons <hello@uiuxicons.com>",
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "peerDependencies": {
+    "vue": ">=3.5"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.13"
+  },
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "tsup"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uiuxassets/uiuxicons/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uiuxassets/uiuxicons.git",
+    "directory": "packages/vue"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://uiuxicons.com",
+  "keywords": [
+    "icons",
+    "vue",
+    "svg",
+    "ui",
+    "ux",
+    "components",
+    "duotone",
+    "line-icons",
+    "solid-icons"
+  ]
+}

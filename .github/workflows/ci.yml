@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 22]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript check (React)
+        run: npx tsc --noEmit -p packages/react/tsconfig.json
+
+      - name: TypeScript check (Vue)
+        run: npx tsc --noEmit -p packages/vue/tsconfig.json
+
+      - name: Unit tests
+        run: npx vitest run
+
+      - name: Full build
+        run: npm run build
+
+      - name: Integration tests
+        run: npx vitest run tests/build-output.test.js

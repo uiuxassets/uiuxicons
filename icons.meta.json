@@ -1,0 +1,924 @@
+{
+  "$schema": "./icons.meta.schema.json",
+  "description": "Custom metadata for UI/UX Icons. Add categories and tags for each icon here.",
+  "icons": [
+    {
+      "name": "align-bottom",
+      "category": "layout",
+      "tags": [
+        "align",
+        "bottom"
+      ]
+    },
+    {
+      "name": "align-center-horizontal",
+      "category": "layout",
+      "tags": [
+        "align",
+        "center",
+        "horizontal"
+      ]
+    },
+    {
+      "name": "align-center-vertical",
+      "category": "layout",
+      "tags": [
+        "align",
+        "center",
+        "vertical"
+      ]
+    },
+    {
+      "name": "align-left",
+      "category": "layout",
+      "tags": [
+        "align",
+        "left"
+      ]
+    },
+    {
+      "name": "align-right",
+      "category": "layout",
+      "tags": [
+        "align",
+        "right"
+      ]
+    },
+    {
+      "name": "align-top",
+      "category": "layout",
+      "tags": [
+        "align",
+        "top"
+      ]
+    },
+    {
+      "name": "angle",
+      "category": "shapes",
+      "tags": [
+        "angle"
+      ]
+    },
+    {
+      "name": "app-window",
+      "category": "system",
+      "tags": [
+        "app",
+        "window"
+      ]
+    },
+    {
+      "name": "archive",
+      "category": "files",
+      "tags": [
+        "archive"
+      ]
+    },
+    {
+      "name": "archive-x",
+      "category": "files",
+      "tags": [
+        "archive",
+        "x"
+      ]
+    },
+    {
+      "name": "arrow-circle-down",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "circle",
+        "down"
+      ]
+    },
+    {
+      "name": "arrow-circle-down-left",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "circle",
+        "down",
+        "left"
+      ]
+    },
+    {
+      "name": "arrow-circle-down-right",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "circle",
+        "down",
+        "right"
+      ]
+    },
+    {
+      "name": "arrow-circle-left",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "circle",
+        "left"
+      ]
+    },
+    {
+      "name": "arrow-circle-right",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "circle",
+        "right"
+      ]
+    },
+    {
+      "name": "arrow-circle-up",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "circle",
+        "up"
+      ]
+    },
+    {
+      "name": "arrow-circle-up-left",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "circle",
+        "up",
+        "left"
+      ]
+    },
+    {
+      "name": "arrow-circle-up-right",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "circle",
+        "up",
+        "right"
+      ]
+    },
+    {
+      "name": "arrow-down",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "down"
+      ]
+    },
+    {
+      "name": "arrow-down-left",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "down",
+        "left"
+      ]
+    },
+    {
+      "name": "arrow-down-right",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "down",
+        "right"
+      ]
+    },
+    {
+      "name": "arrow-left",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "left"
+      ]
+    },
+    {
+      "name": "arrow-reload",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "reload"
+      ]
+    },
+    {
+      "name": "arrow-reset",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "reset"
+      ]
+    },
+    {
+      "name": "arrow-right",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "right"
+      ]
+    },
+    {
+      "name": "arrow-square-down",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "square",
+        "down"
+      ]
+    },
+    {
+      "name": "arrow-square-down-left",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "square",
+        "down",
+        "left"
+      ]
+    },
+    {
+      "name": "arrow-square-down-right",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "square",
+        "down",
+        "right"
+      ]
+    },
+    {
+      "name": "arrow-square-left",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "square",
+        "left"
+      ]
+    },
+    {
+      "name": "arrow-square-right",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "square",
+        "right"
+      ]
+    },
+    {
+      "name": "arrow-square-up",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "square",
+        "up"
+      ]
+    },
+    {
+      "name": "arrow-square-up-left",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "square",
+        "up",
+        "left"
+      ]
+    },
+    {
+      "name": "arrow-square-up-right",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "square",
+        "up",
+        "right"
+      ]
+    },
+    {
+      "name": "arrow-up",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "up"
+      ]
+    },
+    {
+      "name": "arrow-up-left",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "up",
+        "left"
+      ]
+    },
+    {
+      "name": "arrow-up-right",
+      "category": "arrows",
+      "tags": [
+        "arrow",
+        "up",
+        "right"
+      ]
+    },
+    {
+      "name": "calendar",
+      "category": "time",
+      "tags": [
+        "calendar"
+      ]
+    },
+    {
+      "name": "calendar-blank",
+      "category": "time",
+      "tags": [
+        "calendar",
+        "blank"
+      ]
+    },
+    {
+      "name": "calendar-check",
+      "category": "time",
+      "tags": [
+        "calendar",
+        "check"
+      ]
+    },
+    {
+      "name": "calendar-minus",
+      "category": "time",
+      "tags": [
+        "calendar",
+        "minus"
+      ]
+    },
+    {
+      "name": "calendar-plus",
+      "category": "time",
+      "tags": [
+        "calendar",
+        "plus"
+      ]
+    },
+    {
+      "name": "calendar-x",
+      "category": "time",
+      "tags": [
+        "calendar",
+        "x"
+      ]
+    },
+    {
+      "name": "chevron-circle-down",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "circle",
+        "down"
+      ]
+    },
+    {
+      "name": "chevron-circle-left",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "circle",
+        "left"
+      ]
+    },
+    {
+      "name": "chevron-circle-right",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "circle",
+        "right"
+      ]
+    },
+    {
+      "name": "chevron-circle-up",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "circle",
+        "up"
+      ]
+    },
+    {
+      "name": "chevron-down",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "down"
+      ]
+    },
+    {
+      "name": "chevron-left",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "left"
+      ]
+    },
+    {
+      "name": "chevron-right",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "right"
+      ]
+    },
+    {
+      "name": "chevron-up",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "up"
+      ]
+    },
+    {
+      "name": "circle",
+      "category": "shapes",
+      "tags": [
+        "circle"
+      ]
+    },
+    {
+      "name": "circle-dashed",
+      "category": "shapes",
+      "tags": [
+        "circle",
+        "dashed"
+      ]
+    },
+    {
+      "name": "clock",
+      "category": "time",
+      "tags": [
+        "clock"
+      ]
+    },
+    {
+      "name": "clock-am",
+      "category": "time",
+      "tags": [
+        "clock",
+        "am"
+      ]
+    },
+    {
+      "name": "clock-ccw",
+      "category": "time",
+      "tags": [
+        "clock",
+        "ccw"
+      ]
+    },
+    {
+      "name": "clock-cw",
+      "category": "time",
+      "tags": [
+        "clock",
+        "cw"
+      ]
+    },
+    {
+      "name": "clock-minus",
+      "category": "time",
+      "tags": [
+        "clock",
+        "minus"
+      ]
+    },
+    {
+      "name": "clock-plus",
+      "category": "time",
+      "tags": [
+        "clock",
+        "plus"
+      ]
+    },
+    {
+      "name": "clock-pm",
+      "category": "time",
+      "tags": [
+        "clock",
+        "pm"
+      ]
+    },
+    {
+      "name": "clock-z",
+      "category": "time",
+      "tags": [
+        "clock",
+        "z"
+      ]
+    },
+    {
+      "name": "ellipsis-horizontal",
+      "category": "general",
+      "tags": [
+        "ellipsis",
+        "horizontal"
+      ]
+    },
+    {
+      "name": "ellipsis-vertical",
+      "category": "general",
+      "tags": [
+        "ellipsis",
+        "vertical"
+      ]
+    },
+    {
+      "name": "envelope",
+      "category": "communication",
+      "tags": [
+        "envelope"
+      ]
+    },
+    {
+      "name": "envelope-open",
+      "category": "communication",
+      "tags": [
+        "envelope",
+        "open"
+      ]
+    },
+    {
+      "name": "file",
+      "category": "files",
+      "tags": [
+        "file"
+      ]
+    },
+    {
+      "name": "file-arrow-down",
+      "category": "files",
+      "tags": [
+        "file",
+        "arrow",
+        "down"
+      ]
+    },
+    {
+      "name": "file-arrow-up",
+      "category": "files",
+      "tags": [
+        "file",
+        "arrow",
+        "up"
+      ]
+    },
+    {
+      "name": "file-minus",
+      "category": "files",
+      "tags": [
+        "file",
+        "minus"
+      ]
+    },
+    {
+      "name": "file-plus",
+      "category": "files",
+      "tags": [
+        "file",
+        "plus"
+      ]
+    },
+    {
+      "name": "file-text",
+      "category": "files",
+      "tags": [
+        "file",
+        "text"
+      ]
+    },
+    {
+      "name": "file-x",
+      "category": "files",
+      "tags": [
+        "file",
+        "x"
+      ]
+    },
+    {
+      "name": "filter",
+      "category": "search",
+      "tags": [
+        "filter"
+      ]
+    },
+    {
+      "name": "gear",
+      "category": "system",
+      "tags": [
+        "gear"
+      ]
+    },
+    {
+      "name": "house",
+      "category": "buildings",
+      "tags": [
+        "house"
+      ]
+    },
+    {
+      "name": "inbox",
+      "category": "communication",
+      "tags": [
+        "inbox"
+      ]
+    },
+    {
+      "name": "inbox-arrow-down",
+      "category": "communication",
+      "tags": [
+        "inbox",
+        "arrow",
+        "down"
+      ]
+    },
+    {
+      "name": "inbox-arrow-up",
+      "category": "communication",
+      "tags": [
+        "inbox",
+        "arrow",
+        "up"
+      ]
+    },
+    {
+      "name": "list",
+      "category": "layout",
+      "tags": [
+        "list"
+      ]
+    },
+    {
+      "name": "menu",
+      "category": "navigation",
+      "tags": [
+        "menu"
+      ]
+    },
+    {
+      "name": "minus",
+      "category": "actions",
+      "tags": [
+        "minus"
+      ]
+    },
+    {
+      "name": "minus-circle",
+      "category": "actions",
+      "tags": [
+        "minus",
+        "circle"
+      ]
+    },
+    {
+      "name": "minus-square",
+      "category": "actions",
+      "tags": [
+        "minus",
+        "square"
+      ]
+    },
+    {
+      "name": "moon",
+      "category": "weather",
+      "tags": [
+        "moon"
+      ]
+    },
+    {
+      "name": "plus",
+      "category": "actions",
+      "tags": [
+        "plus"
+      ]
+    },
+    {
+      "name": "plus-circle",
+      "category": "actions",
+      "tags": [
+        "plus",
+        "circle"
+      ]
+    },
+    {
+      "name": "plus-square",
+      "category": "actions",
+      "tags": [
+        "plus",
+        "square"
+      ]
+    },
+    {
+      "name": "search",
+      "category": "search",
+      "tags": [
+        "search"
+      ]
+    },
+    {
+      "name": "server",
+      "category": "system",
+      "tags": [
+        "server"
+      ]
+    },
+    {
+      "name": "server-stack",
+      "category": "system",
+      "tags": [
+        "server",
+        "stack"
+      ]
+    },
+    {
+      "name": "square",
+      "category": "shapes",
+      "tags": [
+        "square"
+      ]
+    },
+    {
+      "name": "square-dashed",
+      "category": "shapes",
+      "tags": [
+        "square",
+        "dashed"
+      ]
+    },
+    {
+      "name": "sun",
+      "category": "weather",
+      "tags": [
+        "sun"
+      ]
+    },
+    {
+      "name": "sun-dim",
+      "category": "weather",
+      "tags": [
+        "sun",
+        "dim"
+      ]
+    },
+    {
+      "name": "sun-horizon",
+      "category": "weather",
+      "tags": [
+        "sun",
+        "horizon"
+      ]
+    },
+    {
+      "name": "sun-moon",
+      "category": "weather",
+      "tags": [
+        "sun",
+        "moon"
+      ]
+    },
+    {
+      "name": "sunrise",
+      "category": "weather",
+      "tags": [
+        "sunrise"
+      ]
+    },
+    {
+      "name": "sunset",
+      "category": "weather",
+      "tags": [
+        "sunset"
+      ]
+    },
+    {
+      "name": "table",
+      "category": "layout",
+      "tags": [
+        "table"
+      ]
+    },
+    {
+      "name": "target",
+      "category": "general",
+      "tags": [
+        "target"
+      ]
+    },
+    {
+      "name": "text",
+      "category": "text",
+      "tags": [
+        "text"
+      ]
+    },
+    {
+      "name": "text-align-center",
+      "category": "text",
+      "tags": [
+        "text",
+        "align",
+        "center"
+      ]
+    },
+    {
+      "name": "text-align-justify",
+      "category": "text",
+      "tags": [
+        "text",
+        "align",
+        "justify"
+      ]
+    },
+    {
+      "name": "text-align-left",
+      "category": "text",
+      "tags": [
+        "text",
+        "align",
+        "left"
+      ]
+    },
+    {
+      "name": "text-align-right",
+      "category": "text",
+      "tags": [
+        "text",
+        "align",
+        "right"
+      ]
+    },
+    {
+      "name": "text-initial",
+      "category": "text",
+      "tags": [
+        "text",
+        "initial"
+      ]
+    },
+    {
+      "name": "text-select",
+      "category": "text",
+      "tags": [
+        "text",
+        "select"
+      ]
+    },
+    {
+      "name": "trash",
+      "category": "actions",
+      "tags": [
+        "trash"
+      ]
+    },
+    {
+      "name": "triangle",
+      "category": "shapes",
+      "tags": [
+        "triangle"
+      ]
+    },
+    {
+      "name": "triangle-dashed",
+      "category": "shapes",
+      "tags": [
+        "triangle",
+        "dashed"
+      ]
+    },
+    {
+      "name": "ui-ux",
+      "category": "general",
+      "tags": [
+        "ui",
+        "ux"
+      ]
+    },
+    {
+      "name": "x",
+      "category": "status",
+      "tags": [
+        "x"
+      ]
+    },
+    {
+      "name": "x-circle",
+      "category": "status",
+      "tags": [
+        "x",
+        "circle"
+      ]
+    },
+    {
+      "name": "x-square",
+      "category": "status",
+      "tags": [
+        "x",
+        "square"
+      ]
+    }
+  ]
+}

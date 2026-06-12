@@ -1,0 +1,4 @@
+Added Files category with 4 new icons: file, file-minus, file-plus, file-text.
+
+
+

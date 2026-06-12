@@ -1,0 +1,4 @@
+Added Examples page and Changelog page. New icons: envelope, envelope-open.
+
+
+

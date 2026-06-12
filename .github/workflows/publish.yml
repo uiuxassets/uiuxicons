@@ -1,0 +1,43 @@
+name: Publish packages
+
+on:
+  push:
+    tags:
+      - "v*"
+
+# Auth uses npm Trusted Publishing (OIDC) - no tokens or secrets.
+# Both packages must have this repo + workflow configured as a trusted
+# publisher on npmjs.com (package Settings -> Trusted publisher).
+permissions:
+  contents: read
+  id-token: write # OIDC auth + npm provenance
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          # Node 24 ships npm 11.5.1+, required for OIDC trusted publishing
+          node-version: 24
+          cache: npm
+          registry-url: https://registry.npmjs.org
+
+      # Full build regenerates icon components from exports/, so a publish
+      # can never ship stale codegen.
+      - name: Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Test
+        run: npx vitest run
+
+      - name: Publish @uiuxicons/react
+        run: npm publish -w @uiuxicons/react --provenance --access public
+
+      - name: Publish @uiuxicons/vue
+        run: npm publish -w @uiuxicons/vue --provenance --access public

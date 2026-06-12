@@ -1,0 +1,57 @@
+{
+  "name": "uiuxicons",
+  "version": "0.1.0",
+  "description": "UI/UX Icons - A clean, consistent icon library for modern interfaces.",
+  "author": "UI/UX Icons <hello@uiuxicons.com>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "homepage": "https://uiuxicons.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uiuxassets/uiuxicons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uiuxassets/uiuxicons/issues"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "ui",
+    "ux",
+    "design",
+    "interface",
+    "icon-set",
+    "duotone",
+    "line-icons",
+    "solid-icons"
+  ],
+  "scripts": {
+    "sync": "node scripts/sync.js",
+    "build": "node scripts/build.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "@vue/server-renderer": "^3.5.31",
+    "archiver": "^7.0.1",
+    "fantasticon": "^4.1.0",
+    "highlight.js": "^11.11.1",
+    "markdown-it": "^14.1.1",
+    "svgo": "^4.0.1",
+    "tailwindcss": "^4.2.2",
+    "vitest": "^4.1.2",
+    "vue": "^3.5.31"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "overrides": {
+    "minimatch": "^10.2.4",
+    "@xmldom/xmldom": "^0.9.9"
+  }
+}

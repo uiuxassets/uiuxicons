@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UI/UX Icons Metadata",
+  "type": "object",
+  "required": ["icons"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "description": { "type": "string" },
+    "icons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "category", "tags"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "actions",
+              "arrows",
+              "buildings",
+              "charts",
+              "commerce",
+              "communication",
+              "connectivity",
+              "development",
+              "files",
+              "general",
+              "images",
+              "layout",
+              "links",
+              "location",
+              "media",
+              "navigation",
+              "notifications",
+              "power",
+              "search",
+              "security",
+              "settings",
+              "shapes",
+              "status",
+              "system",
+              "text",
+              "time",
+              "users",
+              "weather"
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          }
+        }
+      }
+    }
+  }
+}
