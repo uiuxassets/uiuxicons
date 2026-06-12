@@ -3,8 +3,9 @@
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { existsSync } from 'fs';
-import { mkdir, rm, readdir, readFile, copyFile } from 'fs/promises';
+import { mkdir, rm, readdir, readFile, copyFile, rename } from 'fs/promises';
 import { execSync } from 'child_process';
+import { createHash } from 'crypto';
 import { optimizeAll } from './optimize.js';
 import { generateMetadata } from './metadata.js';
 import { createDownloads } from './zip.js';
@@ -78,11 +79,18 @@ async function build() {
     }
   }
   
-  await generateSite();
-  
-  // Compile Tailwind CSS
+  // Compile Tailwind CSS first, then fingerprint it so generated pages can
+  // link a content-hashed filename (cache busting on every CSS change)
   console.log('  Compiling CSS...');
   execSync('npx tailwindcss -i styles/index.css -o dist/styles.css --minify', { cwd: ROOT, stdio: 'inherit' });
+  const cssHash = createHash('sha256')
+    .update(await readFile(join(DIST, 'styles.css')))
+    .digest('hex')
+    .slice(0, 10);
+  const cssFile = `styles.${cssHash}.css`;
+  await rename(join(DIST, 'styles.css'), join(DIST, cssFile));
+
+  await generateSite({ cssFile });
 
   console.log(`Done in ${((Date.now() - start) / 1000).toFixed(2)}s\n`);
 }

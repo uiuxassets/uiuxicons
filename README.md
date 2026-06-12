@@ -30,7 +30,7 @@ npm run build
 | `npm test` | Run test suite |
 | `npm run test:watch` | Run tests in watch mode |
 
-Site styles: [`styles/index.css`](styles/index.css) (Tailwind) compiles to `dist/styles.css`.
+Site styles: [`styles/index.css`](styles/index.css) (Tailwind) compiles to a content-hashed `dist/styles.<hash>.css` for cache busting.
 
 ## Adding Icons
 
@@ -45,7 +45,7 @@ Site styles: [`styles/index.css`](styles/index.css) (Tailwind) compiles to `dist
 dist/
 ├── index.html
 ├── examples.html
-├── styles.css
+├── styles.<hash>.css
 ├── icon.png             ← from assets/ (favicon, Apple touch, OG image)
 ├── uiuxicons.json
 ├── uiuxicons/

@@ -205,7 +205,7 @@ function sitePageHead({ title, description, pageFile, robotsNoindex = false, ext
 ${robotsLine}${seoHead({ title, description, pageFile })}
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="${SITE_CSS_FILE}">
   ${headThemeInitScript}${extraAfterTheme}
 </head>`;
 }
@@ -391,7 +391,12 @@ const sharedFooter = `
   </footer>
 `;
 
-async function generateSite() {
+// Stylesheet filename referenced by every generated page. The build passes a
+// content-hashed name (styles.<hash>.css) so browsers never serve stale CSS.
+let SITE_CSS_FILE = 'styles.css';
+
+async function generateSite({ cssFile } = {}) {
+  if (cssFile) SITE_CSS_FILE = cssFile;
   const metaPath = join(DIST, 'uiuxicons.json');
   if (!existsSync(metaPath)) {
     throw new Error('dist/uiuxicons.json not found - run npm run build first');

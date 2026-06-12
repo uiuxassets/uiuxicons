@@ -28,6 +28,16 @@ describe.skipIf(!hasDist)('site output', () => {
     expect(html).toContain('rel="icon"');
   });
 
+  it.each([...PAGES, '404.html'])(
+    '%s links a fingerprinted stylesheet that exists',
+    async (page) => {
+      const html = await readFile(join(DIST, page), 'utf8');
+      const match = html.match(/<link rel="stylesheet" href="(styles\.[a-f0-9]{10}\.css)">/);
+      expect(match, `${page} should link styles.<hash>.css`).not.toBeNull();
+      expect(existsSync(join(DIST, match[1]))).toBe(true);
+    }
+  );
+
   it('404 page exists and is noindex', async () => {
     const html = await readFile(join(DIST, '404.html'), 'utf8');
     expect(html).toContain('<meta name="robots" content="noindex">');
