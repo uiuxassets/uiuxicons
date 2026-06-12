@@ -210,6 +210,9 @@ code { font-family: inherit; }
   text-align: left;
   vertical-align: top;
   border-bottom: 1px solid var(--color-border);
+  /* Long unbreakable tokens (paths in <code>) must wrap instead of
+     forcing the table wider than small viewports */
+  overflow-wrap: anywhere;
 }
 
 .docs-section-inner table tbody tr:last-child td {
