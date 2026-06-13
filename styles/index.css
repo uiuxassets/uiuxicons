@@ -49,7 +49,7 @@
   --main: 255 255 255;
   --secondary: 244 244 245;
   --tertiary: 228 228 231;
-  --active: 255 255 255;
+  --active: 0 0 0;
   --fg: 0 0 0;
   --fg-secondary: 133 133 142;
   --fg-muted: 113 113 122;

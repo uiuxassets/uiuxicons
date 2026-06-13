@@ -570,7 +570,7 @@ async function generateSite({ cssFile } = {}) {
       <div id="icons" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
         ${icons.map(icon => `
           <div 
-            class="icon-item group relative flex flex-col items-center justify-center p-4 rounded-md bg-secondary hover:bg-tertiary cursor-pointer"
+            class="icon-item group relative flex flex-col items-center justify-center p-4 rounded-md bg-secondary/70 hover:bg-secondary cursor-pointer"
             data-name="${escapeHtmlAttr(icon.name)}"
             data-category="${escapeHtmlAttr(icon.category)}"
             data-tags="${escapeHtmlAttr(icon.tags.join(' '))}"
