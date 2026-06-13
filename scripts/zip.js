@@ -2,7 +2,7 @@ import { createWriteStream, existsSync } from 'fs';
 import { mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import archiver from 'archiver';
+import { ZipArchive } from 'archiver';
 import { STYLES, WEIGHTS } from './optimize.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -18,7 +18,7 @@ export async function createDownloads(distDir) {
 
   const size = await new Promise((resolve, reject) => {
     const output = createWriteStream(outputPath);
-    const archive = archiver('zip', { zlib: { level: 9 } });
+    const archive = new ZipArchive({ zlib: { level: 9 } });
 
     output.on('close', () => resolve(archive.pointer()));
     output.on('error', reject);
