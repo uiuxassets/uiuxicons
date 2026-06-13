@@ -267,6 +267,8 @@ function themeToggleIcons(moonIcon, sunIcon) {
 
 const CLOSE_ICON_SVG = `<svg class="size-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.2929 6.29289C17.6834 5.90237 18.3166 5.90237 18.7071 6.29289C19.0976 6.68342 19.0976 7.31658 18.7071 7.70711L13.4142 13L18.7071 18.2929C19.0976 18.6834 19.0976 19.3166 18.7071 19.7071C18.3166 20.0976 17.6834 20.0976 17.2929 19.7071L12 14.4142L6.70711 19.7071C6.31658 20.0976 5.68342 20.0976 5.29289 19.7071C4.90237 19.3166 4.90237 18.6834 5.29289 18.2929L10.5858 13L5.29289 7.70711C4.90237 7.31658 4.90237 6.68342 5.29289 6.29289C5.68342 5.90237 6.31658 5.90237 6.70711 6.29289L12 11.5858L17.2929 6.29289Z"/></svg>`;
 
+const GITHUB_ICON_SVG = readFileSync(join(ROOT, 'assets/logo-github.svg'), 'utf8');
+
 function sharedHeader(
   currentPage = 'icons',
   totalIcons = null,
@@ -316,6 +318,16 @@ function sharedHeader(
         >
           ${themeIcons}
         </button>
+        <a
+          href="https://github.com/uiuxassets/uiuxicons"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex shrink-0 items-center justify-center p-2 rounded-md border border-border bg-secondary hover:bg-tertiary text-fg"
+          title="View on GitHub"
+          aria-label="View source on GitHub (opens in new tab)"
+        >
+          <span class="inline-flex size-4 shrink-0 [&>svg]:size-4" aria-hidden="true">${GITHUB_ICON_SVG}</span>
+        </a>
         <a
           href="downloads/uiuxicons.zip"
           download="uiuxicons.zip"
@@ -497,7 +509,7 @@ async function generateSite({ cssFile } = {}) {
           <button 
             data-style-btn="${s}" 
             type="button"
-            class="style-btn px-3 py-1.5 text-sm rounded-md cursor-pointer ${i === 0 ? 'bg-active text-fg' : 'text-fg-secondary hover:text-fg'}"
+            class="style-btn px-3 py-1.5 text-sm rounded-md cursor-pointer ${i === 0 ? 'bg-active text-main hover:text-main' : 'text-fg-secondary hover:text-fg'}"
           >${s.charAt(0).toUpperCase() + s.slice(1)}</button>
         `).join('')}
       </div>
@@ -507,7 +519,7 @@ async function generateSite({ cssFile } = {}) {
           <button 
             data-weight-btn="${w}" 
             type="button"
-            class="weight-btn px-3 py-1.5 text-sm rounded-md cursor-pointer ${w === 'regular' ? 'bg-active text-fg' : 'text-fg-secondary hover:text-fg'}"
+            class="weight-btn px-3 py-1.5 text-sm rounded-md cursor-pointer ${w === 'regular' ? 'bg-active text-main hover:text-main' : 'text-fg-secondary hover:text-fg'}"
           >${w.charAt(0).toUpperCase() + w.slice(1)}</button>
         `).join('')}
       </div>
@@ -634,8 +646,10 @@ async function generateSite({ cssFile } = {}) {
       styleBtns.forEach(b => {
         const active = b.dataset.styleBtn === currentStyle;
         b.classList.toggle('bg-active', active);
-        b.classList.toggle('text-fg', active);
+        b.classList.toggle('text-main', active);
+        b.classList.toggle('hover:text-main', active);
         b.classList.toggle('text-fg-secondary', !active);
+        b.classList.toggle('hover:text-fg', !active);
       });
     }
 
@@ -644,8 +658,10 @@ async function generateSite({ cssFile } = {}) {
       weightBtns.forEach(b => {
         const active = b.dataset.weightBtn === currentWeight;
         b.classList.toggle('bg-active', active);
-        b.classList.toggle('text-fg', active);
+        b.classList.toggle('text-main', active);
+        b.classList.toggle('hover:text-main', active);
         b.classList.toggle('text-fg-secondary', !active);
+        b.classList.toggle('hover:text-fg', !active);
       });
     }
 
@@ -930,18 +946,22 @@ async function generateExamples(totalIcons, themeIcons, logoIcon, downloadIcon, 
   
   const icons = {
     // Bold for buttons
-    houseBold: await getIcon('house', 'bold'),
-    plusBold: await getIcon('plus', 'bold'),
+    filePlusBold: await getIcon('file-plus', 'bold'),
+    appWindowBold: await getIcon('app-window', 'bold'),
     xBold: await getIcon('x', 'bold'),
     arrowRightBold: await getIcon('arrow-circle-right', 'bold'),
     // Regular for other UI
+    search: await getIcon('search'),
     envelope: await getIcon('envelope'),
     plus: await getIcon('plus'),
     plusCircle: await getIcon('plus-circle'),
+    calendar: await getIcon('calendar'),
     target: await getIcon('target'),
     house: await getIcon('house'),
     table: await getIcon('table'),
-    arrowRight: await getIcon('arrow-circle-right'),
+    gear: await getIcon('gear'),
+    filter: await getIcon('filter'),
+    archive: await getIcon('archive'),
   };
 
   const examplesTitle = 'Examples - UI/UX Icons';
@@ -966,24 +986,24 @@ async function generateExamples(totalIcons, themeIcons, logoIcon, downloadIcon, 
       <div class="flex flex-wrap gap-3 items-center">
         <!-- Primary Button -->
         <button class="inline-flex items-center justify-center gap-1.5 pl-3 pr-4 py-2 bg-accent text-main rounded-md cursor-pointer hover:bg-accent/90">
-          <span class="inline-flex size-4.5">${icons.plusBold}</span>
+          <span class="inline-flex size-4.5">${icons.filePlusBold}</span>
           Create New
         </button>
         
         <!-- Secondary Button -->
         <button class="inline-flex items-center justify-center gap-1.5 pl-3 pr-4 py-2 bg-fg-secondary/20 text-fg rounded-md cursor-pointer hover:bg-fg-secondary/25">
-          <span class="inline-flex size-4.5">${icons.houseBold}</span>
+          <span class="inline-flex size-4.5">${icons.appWindowBold}</span>
           Dashboard
         </button>
         
         <!-- Outline Button -->
-        <button class="inline-flex items-center justify-center gap-1.5 pl-3 pr-4 py-[calc(0.5rem-1px)] border border-border text-fg rounded-md cursor-pointer hover:bg-fg-secondary/10">
+        <button class="inline-flex items-center justify-center gap-1.5 pl-3 pr-4 py-[calc(0.5rem-1px)] border border-border text-fg rounded-md cursor-pointer hover:bg-fg-secondary/20">
           Continue
           <span class="inline-flex size-4.5">${icons.arrowRightBold}</span>
         </button>
         
         <!-- Icon Only -->
-        <button class="inline-flex items-center justify-center px-2.5 py-2.5 border border-border text-fg rounded-md cursor-pointer hover:bg-fg-secondary/10">
+        <button class="inline-flex items-center justify-center px-2.5 py-2.5 border border-border text-fg rounded-md cursor-pointer hover:bg-fg-secondary/20">
           <span class="inline-flex size-4.5">${icons.xBold}</span>
         </button>
       </div>
@@ -994,17 +1014,13 @@ async function generateExamples(totalIcons, themeIcons, logoIcon, downloadIcon, 
       <h2 class="text-lg font-semibold mb-3">Input Fields</h2>
       <div class="space-y-4 max-w-md">
         <div class="relative">
-          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-fg-muted inline-flex size-5">${icons.target}</span>
-          <input type="text" placeholder="Enter target..." class="w-full pl-9 pr-4 py-2 bg-secondary border border-border hover:border-border-hover focus:border-border-hover rounded-md text-fg placeholder:text-fg-muted focus:outline-none">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-fg-muted inline-flex size-5">${icons.search}</span>
+          <input type="text" placeholder="Search..." class="w-full pl-9 pr-4 py-2 bg-secondary border border-border hover:border-border-hover focus:border-border-hover rounded-md text-fg placeholder:text-fg-muted focus:outline-none">
         </div>
         
-        <!-- Input With Button -->
-        <div class="flex gap-3">
-          <div class="relative w-full">
-            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-fg-muted inline-flex size-5">${icons.envelope}</span>
-            <input type="text" placeholder="Enter your email..." class="w-full pl-9 pr-4 py-2 bg-secondary border border-border hover:border-border-hover focus:border-border-hover rounded-md text-fg placeholder:text-fg-muted focus:outline-none">
-          </div>
-          <button class="inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-accent text-main rounded-md cursor-pointer hover:bg-accent/90">Subscribe</button>
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-fg-muted inline-flex size-5">${icons.envelope}</span>
+          <input type="text" placeholder="Enter your email..." class="w-full pl-9 pr-4 py-2 bg-secondary border border-border hover:border-border-hover focus:border-border-hover rounded-md text-fg placeholder:text-fg-muted focus:outline-none">
         </div>
       </div>
     </section>
@@ -1012,12 +1028,21 @@ async function generateExamples(totalIcons, themeIcons, logoIcon, downloadIcon, 
     <!-- Cards Section -->
     <section class="mt-6">
       <h2 class="text-lg font-semibold mb-3">Cards</h2>
-      <div class="p-6 bg-fg-secondary/5 rounded-md border border-border cursor-pointer hover:bg-fg-secondary/10">
-        <div class="w-10 h-10 bg-accent rounded-md flex items-center justify-center mb-2 text-main">
-          <span class="inline-flex size-5">${icons.plusCircle}</span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-6 bg-fg-secondary/5 rounded-md border border-border cursor-pointer hover:bg-fg-secondary/20">
+          <div class="w-10 h-10 bg-accent rounded-md flex items-center justify-center mb-2 text-main">
+            <span class="inline-flex size-5">${icons.plusCircle}</span>
+          </div>
+          <h3 class="font-semibold">Create Project</h3>
+          <p class="text-sm text-fg-secondary">Start a new project and invite team members to collaborate.</p>
         </div>
-        <h3 class="font-semibold">Create Project</h3>
-        <p class="text-sm text-fg-secondary">Start a new project and invite team members to collaborate.</p>
+        <div class="p-6 bg-fg-secondary/5 rounded-md border border-border cursor-pointer hover:bg-fg-secondary/20">
+          <div class="w-10 h-10 bg-accent rounded-md flex items-center justify-center mb-2 text-main">
+            <span class="inline-flex size-5">${icons.calendar}</span>
+          </div>
+          <h3 class="font-semibold">Schedule Event</h3>
+          <p class="text-sm text-fg-secondary">Pick a date and time, then notify everyone on the team.</p>
+        </div>
       </div>
     </section>
 
@@ -1025,17 +1050,17 @@ async function generateExamples(totalIcons, themeIcons, logoIcon, downloadIcon, 
     <section class="mt-6">
       <h2 class="text-lg font-semibold mb-3">List Items</h2>
       <div class="rounded-md border border-border divide-y divide-border">
-        <div class="flex items-center gap-3 p-3 cursor-pointer hover:bg-fg/5">
+        <div class="flex items-center gap-3 p-3 cursor-pointer hover:bg-fg-secondary/20">
           <span class="inline-flex size-5">${icons.house}</span>
           <span>Home</span>
         </div>
-        <div class="flex items-center gap-3 p-3 cursor-pointer hover:bg-fg/5">
+        <div class="flex items-center gap-3 p-3 cursor-pointer hover:bg-fg-secondary/20">
           <span class="inline-flex size-5">${icons.table}</span>
           <span>Data Table</span>
         </div>
-        <div class="flex items-center gap-3 p-3 cursor-pointer hover:bg-fg/5">
-          <span class="inline-flex size-5">${icons.target}</span>
-          <span>Goals</span>
+        <div class="flex items-center gap-3 p-3 cursor-pointer hover:bg-fg-secondary/20">
+          <span class="inline-flex size-5">${icons.gear}</span>
+          <span>Settings</span>
         </div>
       </div>
     </section>
@@ -1056,14 +1081,14 @@ async function generateExamples(totalIcons, themeIcons, logoIcon, downloadIcon, 
         <!-- Tags -->
         <div class="flex flex-wrap gap-3">
           <span class="inline-flex items-center gap-1 pl-2 pr-3 py-1 bg-secondary rounded-full text-xs uppercase">
-            <span class="inline-flex size-3.5">${icons.house}</span>
-            Home
+            <span class="inline-flex size-3.5">${icons.filter}</span>
+            Filter
           </span>
           <span class="inline-flex items-center gap-1 pl-2 pr-3 py-1 bg-secondary rounded-full text-xs uppercase">
-            <span class="inline-flex size-3.5">${icons.target}</span>
-            Target
+            <span class="inline-flex size-3.5">${icons.archive}</span>
+            Archive
           </span>
-          <span class="inline-flex items-center gap-1 pl-2 pr-3 py-[calc(0.25rem-1px)] border border-border hover:bg-fg-secondary/10 text-fg/50 hover:text-fg cursor-pointer rounded-full text-xs uppercase">
+          <span class="inline-flex items-center gap-1 pl-2 pr-3 py-[calc(0.25rem-1px)] border border-border hover:bg-fg-secondary/20 text-fg/50 hover:text-fg cursor-pointer rounded-full text-xs uppercase">
             <span class="inline-flex size-3.5">${icons.plus}</span>
             Add Tag
           </span>

@@ -24,13 +24,13 @@
   --site-icons-sidebar-sticky-top: 11.75rem; /* header + style/weight toolbar + search bar */
   --site-docs-aside-sticky-top: 5.1875rem; /* header + docs toolbar */
   --main: 0 0 0;
-  --secondary: 24 24 27;
+  --secondary: 43 43 46;
   --tertiary: 39 39 42;
-  --active: 39 39 42;
+  --active: 255 255 255;
   --fg: 255 255 255;
   --fg-secondary: 161 161 170;
   --fg-muted: 113 113 122;
-  --border: 39 39 42;
+  --border: 59 59 63;
   --border-hover: 83 83 90;
   --accent: 255 255 255;
   --accent-text: 255 255 255;
