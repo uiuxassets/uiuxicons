@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconEllipsisVertical = createIcon("ellipsis-vertical", {
+export const IconEllipsisVertical = /*#__PURE__*/ createIcon("ellipsis-vertical", {
     line: {
       light: `<path fill="currentColor" d="M10.5 20a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0m0-8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0m0-8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0"/>`,
       regular: `<path fill="currentColor" d="M10.25 20a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0m0-8a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0m0-8a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0"/>`,

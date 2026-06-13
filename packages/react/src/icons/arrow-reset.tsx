@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconArrowReset = createIcon("arrow-reset", {
+export const IconArrowReset = /*#__PURE__*/ createIcon("arrow-reset", {
     line: {
       light: <><path fill="currentColor" d="M3.722 1.393a.5.5 0 0 1 1 0v4.501q.264-.315.56-.612a9.501 9.501 0 0 1 13.436 13.436 9.5 9.5 0 0 1-16.216-6.513.5.5 0 0 1 1-.021A8.5 8.5 0 1 0 5.477 6.55h4.402a.5.5 0 0 1 0 1H4.722a1 1 0 0 1-1-1z"/></>,
       regular: <><path fill="currentColor" d="M3.472 1.393a.75.75 0 0 1 1.5 0v3.852l.134-.14c3.807-3.807 9.981-3.807 13.789 0s3.807 9.982 0 13.79-9.982 3.807-13.79 0a9.72 9.72 0 0 1-2.853-6.684.751.751 0 0 1 1.5-.032 8.25 8.25 0 1 0 2.414-6.012q-.065.066-.129.134H9.88a.75.75 0 0 1 0 1.5H4.722c-.69 0-1.25-.56-1.25-1.25z"/></>,

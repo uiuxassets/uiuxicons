@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconTarget = createIcon("target", {
+export const IconTarget = /*#__PURE__*/ createIcon("target", {
     line: {
       light: `<path fill="currentColor" d="M12 2.5a9.5 9.5 0 1 1 0 19 9.5 9.5 0 0 1 0-19m0 1a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17m0 3a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11m0 1a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9m0 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3"/>`,
       regular: `<path fill="currentColor" d="M12 2.25c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12 6.615 2.25 12 2.25m0 1.5a8.25 8.25 0 1 0 0 16.5 8.25 8.25 0 0 0 0-16.5m0 2.5a5.75 5.75 0 1 1 0 11.5 5.75 5.75 0 0 1 0-11.5m0 1.5a4.25 4.25 0 1 0 0 8.5 4.25 4.25 0 0 0 0-8.5m0 2.5a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5"/>`,

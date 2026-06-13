@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconChevronLeft = createIcon("chevron-left", {
+export const IconChevronLeft = /*#__PURE__*/ createIcon("chevron-left", {
     line: {
       light: <><path fill="currentColor" d="M14.854 5.146a.5.5 0 0 0-.707 0L8 11.293a1 1 0 0 0 0 1.414l6.147 6.147a.5.5 0 0 0 .707-.708L8.707 12l6.147-6.147a.5.5 0 0 0 0-.707"/></>,
       regular: <><path fill="currentColor" d="M15.03 4.97a.75.75 0 0 0-1.06 0l-6.147 6.146a1.25 1.25 0 0 0 0 1.768l6.147 6.146a.75.75 0 1 0 1.06-1.06L9.06 12l5.97-5.97a.75.75 0 0 0 0-1.06"/></>,

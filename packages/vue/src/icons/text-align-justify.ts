@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconTextAlignJustify = createIcon("text-align-justify", {
+export const IconTextAlignJustify = /*#__PURE__*/ createIcon("text-align-justify", {
     line: {
       light: `<path fill="currentColor" d="M20 17.5a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1zm0-4a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1zm0-4a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1zm0-4a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1z"/>`,
       regular: `<path fill="currentColor" d="M20 17.25a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5zm0-4a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5zm0-4a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5zm0-4a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5z"/>`,

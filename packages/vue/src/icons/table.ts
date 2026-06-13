@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconTable = createIcon("table", {
+export const IconTable = /*#__PURE__*/ createIcon("table", {
     line: {
       light: `<path fill="currentColor" d="M20.5 15h-11v4H19a1.5 1.5 0 0 0 1.5-1.5zm-11-1h11v-4h-11zm-6 0h5v-4h-5zm0 3.5A1.5 1.5 0 0 0 5 19h3.5v-4h-5zm17-11A1.5 1.5 0 0 0 19 5H5a1.5 1.5 0 0 0-1.5 1.5V9h17zm1 11A2.5 2.5 0 0 1 19 20H5a2.5 2.5 0 0 1-2.5-2.5v-11A2.5 2.5 0 0 1 5 4h14a2.5 2.5 0 0 1 2.5 2.5z"/>`,
       regular: `<path fill="currentColor" d="M20.25 15.25H9.75v3.5H19c.69 0 1.25-.56 1.25-1.25zm-10.5-1.5h10.5v-3.5H9.75zm-6 0h4.5v-3.5h-4.5zm0 3.75c0 .69.56 1.25 1.25 1.25h3.25v-3.5h-4.5zm16.5-11c0-.69-.56-1.25-1.25-1.25H5c-.69 0-1.25.56-1.25 1.25v2.25h16.5zm1.5 11A2.75 2.75 0 0 1 19 20.25H5a2.75 2.75 0 0 1-2.75-2.75v-11A2.75 2.75 0 0 1 5 3.75h14a2.75 2.75 0 0 1 2.75 2.75z"/>`,

@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconArrowSquareDown = createIcon("arrow-square-down", {
+export const IconArrowSquareDown = /*#__PURE__*/ createIcon("arrow-square-down", {
     line: {
       light: <><path fill="currentColor" d="M20.5 5A1.5 1.5 0 0 0 19 3.5H5A1.5 1.5 0 0 0 3.5 5v14A1.5 1.5 0 0 0 5 20.5h14a1.5 1.5 0 0 0 1.5-1.5zm-9 2a.5.5 0 0 1 1 0v8.793l3.146-3.146a.5.5 0 1 1 .707.707L12.708 17a1 1 0 0 1-1.414 0l-3.647-3.646a.5.5 0 1 1 .708-.707l3.146 3.146zm10 12a2.5 2.5 0 0 1-2.5 2.5H5A2.5 2.5 0 0 1 2.5 19V5A2.5 2.5 0 0 1 5 2.5h14A2.5 2.5 0 0 1 21.5 5z"/></>,
       regular: <><path fill="currentColor" d="M20.25 5c0-.69-.56-1.25-1.25-1.25H5c-.69 0-1.25.56-1.25 1.25v14c0 .69.56 1.25 1.25 1.25h14c.69 0 1.25-.56 1.25-1.25zm-9 2a.75.75 0 0 1 1.5 0v8.19l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.646 3.647a1.25 1.25 0 0 1-1.768 0L7.47 13.53a.75.75 0 1 1 1.06-1.06l2.72 2.72zm10.5 12A2.75 2.75 0 0 1 19 21.75H5A2.75 2.75 0 0 1 2.25 19V5A2.75 2.75 0 0 1 5 2.25h14A2.75 2.75 0 0 1 21.75 5z"/></>,

@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconMinus = createIcon("minus", {
+export const IconMinus = /*#__PURE__*/ createIcon("minus", {
     line: {
       light: <><path fill="currentColor" d="M20 11.5a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1z"/></>,
       regular: <><path fill="currentColor" d="M20 11.25a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5z"/></>,

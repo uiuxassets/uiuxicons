@@ -171,3 +171,17 @@ import { IconGear } from "@uiuxicons/vue";
   <IconGear />
 </template>
 ```
+
+### Tree-shaking
+
+The package ships one module per icon and is marked `sideEffects: false`, so your bundler keeps only the icons you import. You can also import a single icon module directly:
+
+```vue
+<script setup>
+// Standard (tree-shakeable)
+import { IconGear } from "@uiuxicons/vue";
+
+// Optional: import a single icon module directly
+import { IconGear } from "@uiuxicons/vue/icons/gear";
+</script>
+```

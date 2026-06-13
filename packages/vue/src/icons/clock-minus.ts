@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconClockMinus = createIcon("clock-minus", {
+export const IconClockMinus = /*#__PURE__*/ createIcon("clock-minus", {
     line: {
       light: `<path fill="currentColor" d="M22 18.5a.5.5 0 0 1 0 1h-6a.5.5 0 0 1 0-1zM20.5 12a8.5 8.5 0 1 0-8.5 8.5.5.5 0 0 1 0 1 9.5 9.5 0 1 1 8.959-6.333.5.5 0 1 1-.942-.334A8.5 8.5 0 0 0 20.5 12m-9-5a.5.5 0 0 1 1 0v4.5H16a.5.5 0 0 1 0 1h-3.75a.75.75 0 0 1-.75-.75z"/>`,
       regular: `<path fill="currentColor" d="M22 18.25a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1 0-1.5zM20.25 12A8.25 8.25 0 1 0 12 20.25a.75.75 0 0 1 0 1.5c-5.385 0-9.75-4.365-9.75-9.75S6.615 2.25 12 2.25s9.75 4.365 9.75 9.75a9.7 9.7 0 0 1-.555 3.25.75.75 0 0 1-1.415-.5 8.2 8.2 0 0 0 .47-2.75m-9-5a.75.75 0 0 1 1.5 0v4.25H16a.75.75 0 0 1 0 1.5h-3.75a1 1 0 0 1-1-1z"/>`,

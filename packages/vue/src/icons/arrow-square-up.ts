@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconArrowSquareUp = createIcon("arrow-square-up", {
+export const IconArrowSquareUp = /*#__PURE__*/ createIcon("arrow-square-up", {
     line: {
       light: `<path fill="currentColor" d="M20.5 19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19V5A1.5 1.5 0 0 1 5 3.5h14A1.5 1.5 0 0 1 20.5 5zm-9-2a.5.5 0 0 0 1 0V8.207l3.146 3.146a.5.5 0 1 0 .707-.707L12.708 7a1 1 0 0 0-1.414 0l-3.647 3.646a.5.5 0 1 0 .708.707L11.5 8.208zm10-12A2.5 2.5 0 0 0 19 2.5H5A2.5 2.5 0 0 0 2.5 5v14A2.5 2.5 0 0 0 5 21.5h14a2.5 2.5 0 0 0 2.5-2.5z"/>`,
       regular: `<path fill="currentColor" d="M20.25 19c0 .69-.56 1.25-1.25 1.25H5c-.69 0-1.25-.56-1.25-1.25V5c0-.69.56-1.25 1.25-1.25h14c.69 0 1.25.56 1.25 1.25zm-9-2a.75.75 0 0 0 1.5 0V8.81l2.72 2.72a.75.75 0 1 0 1.06-1.06l-3.646-3.647a1.25 1.25 0 0 0-1.768 0L7.47 10.47a.75.75 0 1 0 1.06 1.06l2.72-2.72zm10.5-12A2.75 2.75 0 0 0 19 2.25H5A2.75 2.75 0 0 0 2.25 5v14A2.75 2.75 0 0 0 5 21.75h14A2.75 2.75 0 0 0 21.75 19z"/>`,

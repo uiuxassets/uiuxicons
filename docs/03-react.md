@@ -151,3 +151,15 @@ function MyIcon(props: IconProps) {
   return <IconGear variant="solid" {...props} />;
 }
 ```
+
+### Tree-shaking
+
+The package ships one module per icon and is marked `sideEffects: false`, so your bundler keeps only the icons you import. You can also import a single icon module directly:
+
+```tsx
+// Standard (tree-shakeable)
+import { IconGear } from "@uiuxicons/react";
+
+// Optional: import a single icon module directly
+import { IconGear } from "@uiuxicons/react/icons/gear";
+```

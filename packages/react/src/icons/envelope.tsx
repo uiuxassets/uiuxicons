@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconEnvelope = createIcon("envelope", {
+export const IconEnvelope = /*#__PURE__*/ createIcon("envelope", {
     line: {
       light: <><path fill="currentColor" d="m20.5 8.85-8.015 4.452a1 1 0 0 1-.97 0L3.5 8.85v8.65A1.5 1.5 0 0 0 5 19h14a1.5 1.5 0 0 0 1.5-1.5zm0-2.35A1.5 1.5 0 0 0 19 5H5a1.5 1.5 0 0 0-1.5 1.5v1.205l8.5 4.723 8.5-4.723zm1 11A2.5 2.5 0 0 1 19 20H5a2.5 2.5 0 0 1-2.5-2.5v-11A2.5 2.5 0 0 1 5 4h14a2.5 2.5 0 0 1 2.5 2.5z"/></>,
       regular: <><path fill="currentColor" d="m20.25 9.273-7.643 4.248c-.377.21-.837.21-1.214 0L3.75 9.273V17.5c0 .69.56 1.25 1.25 1.25h14c.69 0 1.25-.56 1.25-1.25zm0-2.773c0-.69-.56-1.25-1.25-1.25H5c-.69 0-1.25.56-1.25 1.25v1.059L12 12.143l8.25-4.584zm1.5 11A2.75 2.75 0 0 1 19 20.25H5a2.75 2.75 0 0 1-2.75-2.75v-11A2.75 2.75 0 0 1 5 3.75h14a2.75 2.75 0 0 1 2.75 2.75z"/></>,

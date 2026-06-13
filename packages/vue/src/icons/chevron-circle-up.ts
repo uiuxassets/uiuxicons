@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconChevronCircleUp = createIcon("chevron-circle-up", {
+export const IconChevronCircleUp = /*#__PURE__*/ createIcon("chevron-circle-up", {
     line: {
       light: `<path fill="currentColor" d="M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17m-4.354 9.854a.5.5 0 0 1 0-.707L11.293 9a1 1 0 0 1 1.414 0l3.646 3.646a.5.5 0 1 1-.707.707L12 9.708l-3.646 3.646a.5.5 0 0 1-.708 0M12 2.5a9.5 9.5 0 1 1 0 19 9.5 9.5 0 0 1 0-19"/>`,
       regular: `<path fill="currentColor" d="M12 3.75a8.25 8.25 0 1 0 0 16.5 8.25 8.25 0 0 0 0-16.5m-4.53 9.78a.75.75 0 0 1 0-1.06l3.646-3.647a1.25 1.25 0 0 1 1.768 0l3.646 3.647a.75.75 0 1 1-1.06 1.06L12 10.06l-3.47 3.47a.75.75 0 0 1-1.06 0M12 2.25c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12 6.615 2.25 12 2.25"/>`,

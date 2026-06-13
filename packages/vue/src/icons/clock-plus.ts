@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconClockPlus = createIcon("clock-plus", {
+export const IconClockPlus = /*#__PURE__*/ createIcon("clock-plus", {
     line: {
       light: `<path fill="currentColor" d="M18.5 22v-2.5H16a.5.5 0 0 1 0-1h2.5V16a.5.5 0 0 1 1 0v2.5H22a.5.5 0 0 1 0 1h-2.5V22a.5.5 0 0 1-1 0m-7-15a.5.5 0 0 1 1 0v4.5H16a.5.5 0 0 1 0 1h-3.75a.75.75 0 0 1-.75-.75zm9 5a8.5 8.5 0 1 0-8.5 8.5.5.5 0 0 1 0 1 9.5 9.5 0 1 1 9.5-9.5.5.5 0 0 1-1 0"/>`,
       regular: `<path fill="currentColor" d="M18.25 22v-2.25H16a.75.75 0 0 1 0-1.5h2.25V16a.75.75 0 0 1 1.5 0v2.25H22a.75.75 0 0 1 0 1.5h-2.25V22a.75.75 0 0 1-1.5 0m-7-15a.75.75 0 0 1 1.5 0v4.25H16a.75.75 0 0 1 0 1.5h-3.75a1 1 0 0 1-1-1zm9 5A8.25 8.25 0 1 0 12 20.25a.75.75 0 0 1 0 1.5c-5.385 0-9.75-4.365-9.75-9.75S6.615 2.25 12 2.25s9.75 4.365 9.75 9.75a.75.75 0 0 1-1.5 0"/>`,

@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconAlignCenterVertical = createIcon("align-center-vertical", {
+export const IconAlignCenterVertical = /*#__PURE__*/ createIcon("align-center-vertical", {
     line: {
       light: <><path fill="currentColor" d="M21 12.5H3a.5.5 0 0 1 0-1h18a.5.5 0 0 1 0 1m-6.5 6h3v-2h-3zm0-11h3v-2h-3zm-8 13h3v-4h-3zm0-13h3v-4h-3zm11 8a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm0-11a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm-8 11a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1zm0-13a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z"/></>,
       regular: <><path fill="currentColor" d="M21 12.75H3a.75.75 0 0 1 0-1.5h18a.75.75 0 0 1 0 1.5m-3.75-5.5v-1.5h-2.5v1.5zm0 11v-1.5h-2.5v1.5zm-8-11v-3.5h-2.5v3.5zm0 13v-3.5h-2.5v3.5zm8.25-5c.69 0 1.25.56 1.25 1.25v2c0 .69-.56 1.25-1.25 1.25h-3c-.69 0-1.25-.56-1.25-1.25v-2c0-.69.56-1.25 1.25-1.25zm0-11c.69 0 1.25.56 1.25 1.25v2c0 .69-.56 1.25-1.25 1.25h-3c-.69 0-1.25-.56-1.25-1.25v-2c0-.69.56-1.25 1.25-1.25zm-8 11c.69 0 1.25.56 1.25 1.25v4c0 .69-.56 1.25-1.25 1.25h-3c-.69 0-1.25-.56-1.25-1.25v-4c0-.69.56-1.25 1.25-1.25zm0-13c.69 0 1.25.56 1.25 1.25v4c0 .69-.56 1.25-1.25 1.25h-3c-.69 0-1.25-.56-1.25-1.25v-4c0-.69.56-1.25 1.25-1.25z"/></>,

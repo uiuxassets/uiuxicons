@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconTextAlignLeft = createIcon("text-align-left", {
+export const IconTextAlignLeft = /*#__PURE__*/ createIcon("text-align-left", {
     line: {
       light: <><path fill="currentColor" d="M14 17.5a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1zm6-4a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1zm-6-4a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1zm6-4a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1z"/></>,
       regular: <><path fill="currentColor" d="M14 17.25a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5zm6-4a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5zm-6-4a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5zm6-4a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5z"/></>,

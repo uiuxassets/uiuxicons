@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconArrowSquareUpRight = createIcon("arrow-square-up-right", {
+export const IconArrowSquareUpRight = /*#__PURE__*/ createIcon("arrow-square-up-right", {
     line: {
       light: <><path fill="currentColor" d="M3.5 19A1.5 1.5 0 0 0 5 20.5h14a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 19 3.5H5A1.5 1.5 0 0 0 3.5 5zm4.854-2.646a.5.5 0 1 1-.708-.707L14.793 8.5H10a.5.5 0 0 1 0-1h5.5a1 1 0 0 1 1 1V14a.5.5 0 0 1-1 0V9.207zM2.5 5A2.5 2.5 0 0 1 5 2.5h14A2.5 2.5 0 0 1 21.5 5v14a2.5 2.5 0 0 1-2.5 2.5H5A2.5 2.5 0 0 1 2.5 19z"/></>,
       regular: <><path fill="currentColor" d="M3.75 19c0 .69.56 1.25 1.25 1.25h14c.69 0 1.25-.56 1.25-1.25V5c0-.69-.56-1.25-1.25-1.25H5c-.69 0-1.25.56-1.25 1.25zm4.78-2.47a.75.75 0 1 1-1.06-1.06l6.72-6.72H10a.75.75 0 0 1 0-1.5h5.5c.69 0 1.25.56 1.25 1.25V14a.75.75 0 0 1-1.5 0V9.81zM2.25 5A2.75 2.75 0 0 1 5 2.25h14A2.75 2.75 0 0 1 21.75 5v14A2.75 2.75 0 0 1 19 21.75H5A2.75 2.75 0 0 1 2.25 19z"/></>,

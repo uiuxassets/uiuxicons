@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconMenu = createIcon("menu", {
+export const IconMenu = /*#__PURE__*/ createIcon("menu", {
     line: {
       light: <><path fill="currentColor" d="M16 17.5a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1zm4-6a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1zm0-6a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1z"/></>,
       regular: <><path fill="currentColor" d="M16 17.25a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5zm4-6a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5zm0-6a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5z"/></>,

@@ -65,7 +65,17 @@ Icons are decorative by default (`aria-hidden="true"`). Add `aria-label` or `tit
 
 ## Tree-shaking
 
-The package is marked `sideEffects: false` with named exports. Import only the icons you need - unused icons are removed by your bundler.
+The package is marked `sideEffects: false` and ships one module per icon, so your bundler keeps only the icons you actually import:
+
+```vue
+<script setup>
+// Standard (tree-shakeable)
+import { IconGear } from "@uiuxicons/vue";
+
+// Optional: import a single icon module directly
+import { IconGear } from "@uiuxicons/vue/icons/gear";
+</script>
+```
 
 ## License
 

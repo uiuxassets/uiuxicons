@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconArrowReload = createIcon("arrow-reload", {
+export const IconArrowReload = /*#__PURE__*/ createIcon("arrow-reload", {
     line: {
       light: `<path fill="currentColor" d="M19.278 1.393a.5.5 0 0 1 1 0v5.158a1 1 0 0 1-1 1h-5.157a.5.5 0 0 1 0-1h4.402a8.5 8.5 0 1 0 1.975 5.633.5.5 0 0 1 1 .021 9.5 9.5 0 1 1-2.22-6.31z"/>`,
       regular: `<path fill="currentColor" d="M19.028 1.393a.75.75 0 0 1 1.5 0v5.158c0 .69-.56 1.25-1.25 1.25h-5.157a.75.75 0 0 1 0-1.5h3.842q-.064-.068-.129-.134a8.25 8.25 0 1 0 2.414 6.012.75.75 0 1 1 1.5.032 9.72 9.72 0 0 1-2.853 6.683c-3.808 3.808-9.982 3.808-13.79 0s-3.807-9.981 0-13.789 9.982-3.807 13.79 0l.133.14z"/>`,

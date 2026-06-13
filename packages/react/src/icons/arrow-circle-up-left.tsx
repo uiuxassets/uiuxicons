@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconArrowCircleUpLeft = createIcon("arrow-circle-up-left", {
+export const IconArrowCircleUpLeft = /*#__PURE__*/ createIcon("arrow-circle-up-left", {
     line: {
       light: <><path fill="currentColor" d="M5.99 5.99a8.5 8.5 0 1 1 12.02 12.02A8.5 8.5 0 0 1 5.99 5.99m8.631 2.474a.5.5 0 0 0-.5-.5H8.964a1 1 0 0 0-1 1v5.157a.5.5 0 1 0 1 0v-4.45l6.218 6.218a.5.5 0 0 0 .707-.707L9.672 8.964h4.45a.5.5 0 0 0 .5-.5m-9.34-3.182a9.5 9.5 0 0 0 0 13.436 9.5 9.5 0 0 0 13.436 0 9.5 9.5 0 0 0 0-13.436 9.5 9.5 0 0 0-13.436 0"/></>,
       regular: <><path fill="currentColor" d="M6.166 6.166a8.25 8.25 0 1 1 11.668 11.668A8.25 8.25 0 0 1 6.166 6.166m8.705 2.298a.75.75 0 0 0-.75-.75H8.964c-.69 0-1.25.56-1.25 1.25v5.157a.75.75 0 1 0 1.5 0v-3.846l5.791 5.79a.75.75 0 0 0 1.06-1.06l-5.79-5.79h3.846a.75.75 0 0 0 .75-.75M5.106 5.106c-3.808 3.807-3.808 9.98 0 13.788s9.98 3.808 13.788 0 3.808-9.98 0-13.788-9.98-3.808-13.788 0"/></>,

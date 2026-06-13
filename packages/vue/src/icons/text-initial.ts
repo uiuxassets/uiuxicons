@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconTextInitial = createIcon("text-initial", {
+export const IconTextInitial = /*#__PURE__*/ createIcon("text-initial", {
     line: {
       light: `<path fill="currentColor" d="M20 17.5a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1zm0-4a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1zM6 10V6.5H4a.5.5 0 0 1 0-1h5a.5.5 0 0 1 0 1H7V10a.5.5 0 0 1-1 0m14-.5a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1zm0-4a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z"/>`,
       regular: `<path fill="currentColor" d="M20 17.25a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5zm0-4a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5zM5.75 10V6.75H4a.75.75 0 0 1 0-1.5h5a.75.75 0 0 1 0 1.5H7.25V10a.75.75 0 0 1-1.5 0M20 9.25a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1 0-1.5zm0-4a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1 0-1.5z"/>`,

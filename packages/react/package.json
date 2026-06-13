@@ -1,6 +1,6 @@
 {
   "name": "@uiuxicons/react",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "UI/UX Icons for React",
   "author": "UI/UX Icons <hello@uiuxicons.com>",
   "sideEffects": false,
@@ -17,6 +17,16 @@
       "require": {
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
+      }
+    },
+    "./icons/*": {
+      "import": {
+        "types": "./dist/icons/*.d.ts",
+        "default": "./dist/icons/*.js"
+      },
+      "require": {
+        "types": "./dist/icons/*.d.cts",
+        "default": "./dist/icons/*.cjs"
       }
     }
   },

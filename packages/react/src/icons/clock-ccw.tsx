@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconClockCcw = createIcon("clock-ccw", {
+export const IconClockCcw = /*#__PURE__*/ createIcon("clock-ccw", {
     line: {
       light: <><path fill="currentColor" d="M5.282 5.282a9.5 9.5 0 1 1-2.78 6.923.5.5 0 0 1 1-.021A8.501 8.501 0 1 0 5.477 6.55h2.521a.5.5 0 0 1 0 1H4.721a1 1 0 0 1-1-1V3.27a.5.5 0 0 1 1 0v2.625q.265-.315.56-.613M11.502 7a.5.5 0 0 1 1 0v4.5h3.5a.5.5 0 0 1 0 1h-3.75a.75.75 0 0 1-.75-.75z"/></>,
       regular: <><path fill="currentColor" d="M5.104 5.105c3.807-3.807 9.981-3.807 13.789 0s3.807 9.982 0 13.79-9.982 3.807-13.79 0A9.72 9.72 0 0 1 2.25 12.21a.751.751 0 0 1 1.5-.032 8.25 8.25 0 1 0 2.414-6.013l-.128.134h1.962a.75.75 0 0 1 0 1.5H4.72c-.69 0-1.25-.56-1.25-1.25V3.27a.75.75 0 0 1 1.5 0v1.975zM11.25 7a.75.75 0 0 1 1.5 0v4.25H16a.75.75 0 0 1 0 1.5h-3.75a1 1 0 0 1-1-1z"/></>,

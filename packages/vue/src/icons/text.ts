@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconText = createIcon("text", {
+export const IconText = /*#__PURE__*/ createIcon("text", {
     line: {
       light: `<path fill="currentColor" d="M17.5 7v-.5h-5v11H14a.5.5 0 0 1 0 1h-4a.5.5 0 0 1 0-1h1.5v-11h-5V7a.5.5 0 0 1-1 0v-.5a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1V7a.5.5 0 0 1-1 0"/>`,
       regular: `<path fill="currentColor" d="M18.75 7a.75.75 0 0 1-1.5 0v-.25h-4.5v10.5H14a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5h1.25V6.75h-4.5V7a.75.75 0 0 1-1.5 0v-.5c0-.69.56-1.25 1.25-1.25h11c.69 0 1.25.56 1.25 1.25z"/>`,

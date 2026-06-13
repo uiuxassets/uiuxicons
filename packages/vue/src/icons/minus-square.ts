@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconMinusSquare = createIcon("minus-square", {
+export const IconMinusSquare = /*#__PURE__*/ createIcon("minus-square", {
     line: {
       light: `<path fill="currentColor" d="M20.5 5A1.5 1.5 0 0 0 19 3.5H5A1.5 1.5 0 0 0 3.5 5v14A1.5 1.5 0 0 0 5 20.5h14a1.5 1.5 0 0 0 1.5-1.5zm-4 6.5a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm5 7.5a2.5 2.5 0 0 1-2.5 2.5H5A2.5 2.5 0 0 1 2.5 19V5A2.5 2.5 0 0 1 5 2.5h14A2.5 2.5 0 0 1 21.5 5z"/>`,
       regular: `<path fill="currentColor" d="M20.25 5c0-.69-.56-1.25-1.25-1.25H5c-.69 0-1.25.56-1.25 1.25v14c0 .69.56 1.25 1.25 1.25h14c.69 0 1.25-.56 1.25-1.25zm-3.75 6.25a.75.75 0 0 1 0 1.5h-9a.75.75 0 0 1 0-1.5zM21.75 19A2.75 2.75 0 0 1 19 21.75H5A2.75 2.75 0 0 1 2.25 19V5A2.75 2.75 0 0 1 5 2.25h14A2.75 2.75 0 0 1 21.75 5z"/>`,

@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconTriangle = createIcon("triangle", {
+export const IconTriangle = /*#__PURE__*/ createIcon("triangle", {
     line: {
       light: `<path fill="currentColor" d="M10.284 4.386c.777-1.294 2.654-1.294 3.43 0l7.851 13.085c.8 1.333-.16 3.03-1.714 3.03H4.148c-1.554 0-2.514-1.697-1.714-3.03zm2.573.515a1 1 0 0 0-1.715 0L3.29 17.986a1 1 0 0 0 .857 1.514H19.85a1 1 0 0 0 .857-1.514z"/>`,
       regular: `<path fill="currentColor" d="M10.07 4.258c.875-1.456 2.985-1.456 3.86 0l7.85 13.084c.9 1.5-.18 3.408-1.929 3.409H4.15c-1.749 0-2.829-1.91-1.929-3.409zm2.573.772a.75.75 0 0 0-1.286 0l-7.85 13.084a.75.75 0 0 0 .642 1.136H19.85a.75.75 0 0 0 .643-1.136z"/>`,

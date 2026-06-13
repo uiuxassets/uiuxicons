@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconClockAm = createIcon("clock-am", {
+export const IconClockAm = /*#__PURE__*/ createIcon("clock-am", {
     line: {
       light: <><path fill="currentColor" d="M20.5 12a8.5 8.5 0 1 0-17 0 8.5 8.5 0 0 0 17 0m1 0a9.5 9.5 0 1 1-19 0 9.5 9.5 0 0 1 19 0m-9-.104a.75.75 0 0 1-.22.53l-2.755 2.756a.5.5 0 1 1-.707-.707l2.682-2.682V7a.5.5 0 0 1 1 0z"/></>,
       regular: <><path fill="currentColor" d="M20.25 12a8.25 8.25 0 1 0-16.5 0 8.25 8.25 0 0 0 16.5 0m1.5 0c0 5.385-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12 6.615 2.25 12 2.25s9.75 4.365 9.75 9.75m-9-.104a1 1 0 0 1-.293.707l-2.755 2.755a.75.75 0 1 1-1.06-1.06l2.608-2.608V7a.75.75 0 0 1 1.5 0z"/></>,

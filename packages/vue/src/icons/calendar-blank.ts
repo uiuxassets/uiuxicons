@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconCalendarBlank = createIcon("calendar-blank", {
+export const IconCalendarBlank = /*#__PURE__*/ createIcon("calendar-blank", {
     line: {
       light: `<path fill="currentColor" d="M20.5 7.5h-17V19A1.5 1.5 0 0 0 5 20.5h14a1.5 1.5 0 0 0 1.5-1.5zm-5-3.5v-.5h-7V4a.5.5 0 0 1-1 0v-.5H5A1.5 1.5 0 0 0 3.5 5v1.5h17V5A1.5 1.5 0 0 0 19 3.5h-2.5V4a.5.5 0 0 1-1 0m6 15a2.5 2.5 0 0 1-2.5 2.5H5A2.5 2.5 0 0 1 2.5 19V5A2.5 2.5 0 0 1 5 2.5h2.5V2a.5.5 0 0 1 1 0v.5h7V2a.5.5 0 0 1 1 0v.5H19A2.5 2.5 0 0 1 21.5 5z"/>`,
       regular: `<path fill="currentColor" d="M20.25 7.75H3.75V19c0 .69.56 1.25 1.25 1.25h14c.69 0 1.25-.56 1.25-1.25zm-5-3.75v-.25h-6.5V4a.75.75 0 0 1-1.5 0v-.25H5c-.69 0-1.25.56-1.25 1.25v1.25h16.5V5c0-.69-.56-1.25-1.25-1.25h-2.25V4a.75.75 0 0 1-1.5 0m6.5 15A2.75 2.75 0 0 1 19 21.75H5A2.75 2.75 0 0 1 2.25 19V5A2.75 2.75 0 0 1 5 2.25h2.25V2a.75.75 0 0 1 1.5 0v.25h6.5V2a.75.75 0 0 1 1.5 0v.25H19A2.75 2.75 0 0 1 21.75 5z"/>`,

@@ -95,7 +95,7 @@ async function generateIconFile(iconName) {
   const content = `// Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const ${componentName} = createIcon("${iconName}", {
+export const ${componentName} = /*#__PURE__*/ createIcon("${iconName}", {
 ${variantEntries}});
 `;
 

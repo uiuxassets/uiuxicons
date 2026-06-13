@@ -1,7 +1,7 @@
 // Auto-generated - DO NOT EDIT
 import { createIcon } from "../createIcon";
 
-export const IconTextAlignCenter = createIcon("text-align-center", {
+export const IconTextAlignCenter = /*#__PURE__*/ createIcon("text-align-center", {
     line: {
       light: `<path fill="currentColor" d="M17 17.5a.5.5 0 0 1 0 1H7a.5.5 0 0 1 0-1zm3-4a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1zm-3-4a.5.5 0 0 1 0 1H7a.5.5 0 0 1 0-1zm3-4a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1z"/>`,
       regular: `<path fill="currentColor" d="M17 17.25a.75.75 0 0 1 0 1.5H7a.75.75 0 0 1 0-1.5zm3-4a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5zm-3-4a.75.75 0 0 1 0 1.5H7a.75.75 0 0 1 0-1.5zm3-4a.75.75 0 0 1 0 1.5H4a.75.75 0 0 1 0-1.5z"/>`,
