@@ -55,6 +55,7 @@
   },
   "overrides": {
     "minimatch": "^10.2.4",
-    "@xmldom/xmldom": "^0.9.9"
+    "@xmldom/xmldom": "^0.9.9",
+    "esbuild": "^0.28.1"
   }
 }
