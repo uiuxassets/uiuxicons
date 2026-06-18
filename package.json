@@ -57,5 +57,12 @@
     "minimatch": "^10.2.4",
     "@xmldom/xmldom": "^0.9.9",
     "esbuild": "^0.28.1"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.5.1": true,
+    "es5-ext@0.10.64": true,
+    "esbuild@0.28.1": true,
+    "fsevents@2.3.3": true,
+    "ttf2woff2@8.0.1": true
   }
 }
