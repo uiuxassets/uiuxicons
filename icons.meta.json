@@ -614,6 +614,14 @@
       ]
     },
     {
+      "name": "graduation-cap",
+      "category": "general",
+      "tags": [
+        "graduation",
+        "cap"
+      ]
+    },
+    {
       "name": "house",
       "category": "buildings",
       "tags": [
@@ -732,6 +740,22 @@
       "tags": [
         "server",
         "stack"
+      ]
+    },
+    {
+      "name": "sliders-horizontal",
+      "category": "system",
+      "tags": [
+        "sliders",
+        "horizontal"
+      ]
+    },
+    {
+      "name": "sliders-vertical",
+      "category": "system",
+      "tags": [
+        "sliders",
+        "vertical"
       ]
     },
     {
