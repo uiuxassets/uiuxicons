@@ -2,6 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { readdirSync, readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { findUnsafeContent } from '../scripts/svg-safety.js';
+import { ICON_NAME_RE } from '../scripts/icon-names.js';
 
 // Pre-build integrity checks for the icon sources and committed metadata.
 // These run without a build, so a broken icon set fails fast in CI and locally.
@@ -54,6 +56,11 @@ describe('metadata sync', () => {
   it('icons.codepoints.json matches exports exactly', () => {
     expect(Object.keys(codepoints).sort()).toEqual(referenceNames);
   });
+
+  it('every export icon name matches the safe charset ^[a-z0-9-]+$', () => {
+    const offenders = referenceNames.filter((name) => !ICON_NAME_RE.test(name));
+    expect(offenders).toEqual([]);
+  });
 });
 
 describe('codepoint stability contract', () => {
@@ -84,6 +91,27 @@ describe('source SVG sanity', () => {
           expect(svg.endsWith('</svg>'), `${label} ends with </svg>`).toBe(true);
           expect(svg, label).toContain('viewBox="0 0 24 24"');
         }
+      });
+    }
+  }
+});
+
+describe('source SVG active-content safety', () => {
+  for (const style of STYLES) {
+    for (const weight of WEIGHTS) {
+      it(`${style}/${weight} SVGs contain no scripts, event handlers, or unsafe URLs`, () => {
+        const offenders = [];
+        for (const name of referenceNames) {
+          const svg = readFileSync(
+            join(EXPORTS, style, weight, `${name}.svg`),
+            'utf8'
+          );
+          const hits = findUnsafeContent(svg);
+          if (hits.length > 0) {
+            offenders.push(`${style}/${weight}/${name}.svg: ${hits.join(', ')}`);
+          }
+        }
+        expect(offenders).toEqual([]);
       });
     }
   }

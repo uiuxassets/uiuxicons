@@ -13,6 +13,7 @@ import { generateSite } from './site.js';
 import { generateReact } from './generate-react.js';
 import { generateVue } from './generate-vue.js';
 import { generateIconFonts } from './font.js';
+import { assertSafeIconName } from './icon-names.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -24,7 +25,10 @@ async function getIconNames() {
   const dir = join(EXPORTS, 'line', 'regular');
   if (!existsSync(dir)) return [];
   const files = await readdir(dir);
-  return files.filter(f => f.endsWith('.svg')).map(f => f.replace('.svg', '')).sort();
+  return files
+    .filter(f => f.endsWith('.svg'))
+    .map(f => assertSafeIconName(f.replace('.svg', '')))
+    .sort();
 }
 
 async function build() {

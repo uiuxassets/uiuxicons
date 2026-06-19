@@ -205,6 +205,34 @@ export const docsDrawerScript = `
   })();
 `;
 
+/**
+ * Desktop-only edge fade hint for the icons category sidebar. Toggles the mask
+ * fade sizes based on scroll position so the fade only shows when there is more
+ * to scroll in that direction.
+ */
+export const sidebarScrollFadeScript = `
+  (function () {
+    const el = document.querySelector('.sidebar-scroll');
+    if (!el) return;
+    const mq = window.matchMedia('(min-width: 768px)');
+    const size = getComputedStyle(el).getPropertyValue('--sidebar-fade').trim() || '1.75rem';
+    let frame = null;
+    function update() {
+      frame = null;
+      const max = el.scrollHeight - el.clientHeight;
+      const showTop = mq.matches && el.scrollTop > 1;
+      const showBottom = mq.matches && el.scrollTop < max - 1;
+      el.style.setProperty('--sidebar-fade-top', showTop ? size : '0px');
+      el.style.setProperty('--sidebar-fade-bottom', showBottom ? size : '0px');
+    }
+    function schedule() { if (frame == null) frame = requestAnimationFrame(update); }
+    el.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    (mq.addEventListener ? mq.addEventListener('change', schedule) : mq.addListener(schedule));
+    update();
+  })();
+`;
+
 /** 404, examples, changelog: focus trap + theme toggle + mobile nav. */
 export const simplePageScripts =
   focusTrapRuntime + themeToggleBodyScript + mobileNavScript;

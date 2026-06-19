@@ -18,6 +18,7 @@ import {
   focusTrapRuntime,
   mobileNavScript,
   categoriesDrawerScript,
+  sidebarScrollFadeScript,
   simplePageScripts,
   docsPageScripts,
 } from './site-snippets.js';
@@ -63,14 +64,37 @@ function highlightDocCode(str, lang) {
   return escapeMdHtml(str);
 }
 
-// SECURITY: html:true allows raw HTML in docs/*.md. This is safe only while
-// doc sources are trusted (internal maintainers). Disable if docs accept
-// external contributions to prevent XSS in generated pages.
+// SECURITY: html:true allows raw HTML in docs/*.md (needed for tables, tabs,
+// and the font demo). assertDocHtmlSafe() below rejects injected active content
+// (scripts, inline event handlers, javascript: URLs) at build time so a
+// malicious docs PR cannot introduce XSS into the generated pages.
 const markdownIt = new MarkdownIt({
   html: true,
   langPrefix: 'hljs language-',
   highlight: highlightDocCode,
 });
+
+// Tag-anchored so escaped code samples (where `<` becomes `&lt;`) never match;
+// only real rendered HTML elements can trip these.
+const DANGEROUS_DOC_HTML = [
+  { name: '<script>', re: /<\s*script[\s>]/i },
+  { name: '<iframe>', re: /<\s*iframe[\s>]/i },
+  { name: 'inline event handler (on*=)', re: /<[a-z][a-z0-9]*\b[^>]*?\son[a-z]+\s*=/i },
+  {
+    name: 'javascript: URL',
+    re: /<[a-z][a-z0-9]*\b[^>]*?(?:href|src|xlink:href)\s*=\s*["']?\s*javascript:/i,
+  },
+];
+
+function assertDocHtmlSafe(html, sourceName) {
+  const hits = DANGEROUS_DOC_HTML.filter((p) => p.re.test(html)).map((p) => p.name);
+  if (hits.length > 0) {
+    throw new Error(
+      `Unsafe HTML in docs/${sourceName}: ${hits.join(', ')}. ` +
+        `Scripts, inline event handlers, and javascript: URLs are not allowed in docs.`
+    );
+  }
+}
 
 const DEFAULT_DOC_TITLES = {
   introduction: 'Introduction',
@@ -82,8 +106,13 @@ const DEFAULT_DOC_TITLES = {
 };
 
 function getSiteOrigin() {
-  const raw = process.env.SITE_URL || 'https://uiuxicons.com';
-  return raw.replace(/\/$/, '');
+  const raw = (process.env.SITE_URL || 'https://uiuxicons.com').replace(/\/$/, '');
+  // Reject anything that is not a plain https origin so a compromised CI env
+  // cannot inject newlines/extra content into robots.txt, sitemap, or SEO tags.
+  if (!/^https:\/\/[a-z0-9.-]+(:\d+)?$/i.test(raw)) {
+    throw new Error(`Invalid SITE_URL "${raw}": expected an https origin like https://uiuxicons.com`);
+  }
+  return raw;
 }
 
 function escapeHtmlAttr(s) {
@@ -139,6 +168,7 @@ async function loadDocSections(meta) {
     const html = markdownIt
       .render(filled)
       .replace(/<pre><code>/g, '<pre><code class="hljs">');
+    assertDocHtmlSafe(html, name);
     sections.push({ id: slug, title, html });
   }
   return sections;
@@ -150,7 +180,7 @@ function docsNavLinksHtml(sections) {
   return sections
     .map(
       (s) => `
-          <a href="#${s.id}" class="${itemBase}">
+          <a href="#${escapeHtmlAttr(s.id)}" class="${itemBase}">
             <span class="min-w-0 flex-1 truncate text-left">${escapeHtmlText(s.title)}</span>
           </a>`
     )
@@ -200,6 +230,7 @@ function sitePageHead({ title, description, pageFile, robotsNoindex = false, ext
   return `<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <title>${escapeHtmlAttr(title)}</title>
   <meta name="description" content="${escapeHtmlAttr(description)}">
 ${robotsLine}${seoHead({ title, description, pageFile })}
@@ -557,7 +588,7 @@ async function generateSite({ cssFile } = {}) {
   <div class="max-w-7xl mx-auto p-3 flex gap-3">
     <!-- Sidebar -->
     <aside class="hidden md:block w-48 shrink-0">
-      <div class="sticky top-[var(--site-icons-sidebar-sticky-top)]">
+      <div class="sidebar-scroll no-scrollbar sticky top-[var(--site-icons-sidebar-sticky-top)] max-h-[calc(100dvh-var(--site-icons-sidebar-sticky-top))] overflow-y-auto">
         <nav class="space-y-1">
           ${categoryNavInnerHtml(meta, icons)}
         </nav>
@@ -788,6 +819,8 @@ async function generateSite({ cssFile } = {}) {
     });
 
     ${categoriesDrawerScript}
+
+    ${sidebarScrollFadeScript}
 
     ${mobileNavScript}
 

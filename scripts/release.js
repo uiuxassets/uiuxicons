@@ -14,7 +14,7 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { existsSync } from 'fs';
 import { readFile, writeFile, appendFile } from 'fs/promises';
-import { execSync } from 'child_process';
+import { execSync, execFileSync } from 'child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -27,6 +27,12 @@ const PACKAGE_FILES = [
 
 function run(cmd) {
   return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString().trim();
+}
+
+// Run a binary without a shell so arguments (e.g. tag names) can never be
+// interpreted as shell syntax.
+function runFile(file, args, opts = {}) {
+  return execFileSync(file, args, { cwd: ROOT, ...opts });
 }
 
 function bump(version, kind) {
@@ -90,11 +96,9 @@ async function release() {
     await writeFile(entryFile, line);
   }
 
-  execSync(`git add -A && git commit -m "Release ${tag}"`, {
-    cwd: ROOT,
-    stdio: 'inherit',
-  });
-  execSync(`git tag ${tag}`, { cwd: ROOT, stdio: 'inherit' });
+  runFile('git', ['add', '-A'], { stdio: 'inherit' });
+  runFile('git', ['commit', '-m', `Release ${tag}`], { stdio: 'inherit' });
+  runFile('git', ['tag', tag], { stdio: 'inherit' });
 
   console.log(`\nDone. Publish with:\n  git push origin main ${tag}\n`);
 }

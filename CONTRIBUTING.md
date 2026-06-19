@@ -15,8 +15,8 @@ Open a [bug report](https://github.com/uiuxassets/uiuxicons/issues/new?template=
 1. Fork the repo and create a branch.
 2. For icons: add SVGs to all 9 variant folders under `exports/{style}/{weight}/` (line, duotone, solid x light, regular, bold). Icons are 24x24 with `currentColor` - see the [README specs](README.md#specs).
 3. Run `npm run sync` to update metadata, then review the generated entries in `icons.meta.json`.
-4. Run `npm test` - this typechecks both packages and validates icon-set integrity (all 9 folders must contain identical icon sets).
-5. Run `npm run build` to verify the full pipeline passes.
+4. Run `npm run build` - this assigns codepoints for new icons and regenerates the React/Vue package sources.
+5. Run `npm test` - this typechecks both packages and validates icon-set integrity (all 9 folders must contain identical icon sets). Run it after the build, since the integrity check only passes once `npm run build` has assigned codepoints.
 6. Open a pull request. CI must be green before merge.
 
 ## What CI checks

@@ -17,7 +17,7 @@ import { existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { inferCategory, generateTags } from './categories.js';
-import { parseExportSvgFilename } from './icon-names.js';
+import { parseExportSvgFilename, assertSafeIconName } from './icon-names.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -31,6 +31,7 @@ async function getExportedIcons() {
   
   const files = await readdir(lineDir);
   const parsed = files.filter(f => f.endsWith('.svg')).map((file) => {
+    assertSafeIconName(file.replace(/\.svg$/, ''));
     const p = parseExportSvgFilename(file);
     if (p.invalidPrefix) {
       console.warn(`  Invalid category prefix "${p.invalidPrefix}" in ${file} (not in schema enum)`);

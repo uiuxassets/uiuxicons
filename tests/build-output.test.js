@@ -3,6 +3,7 @@ import { existsSync } from 'fs';
 import { readFile, readdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { findUnsafeContent } from '../scripts/svg-safety.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -92,6 +93,27 @@ describe.skipIf(!hasDist)('build output', () => {
 
   it('ZIP download exists', () => {
     expect(existsSync(join(DIST, 'downloads', 'uiuxicons.zip'))).toBe(true);
+  });
+
+  it('no optimized SVG contains active/unsafe content', async () => {
+    // These SVGs are inlined into the site HTML, bundled in the ZIP, and
+    // compiled into the npm packages, so they must be free of scripts,
+    // event handlers, and unsafe URLs.
+    const baseDir = join(DIST, 'uiuxicons');
+    const offenders = [];
+    const variants = await readdir(baseDir);
+    for (const variant of variants) {
+      const variantDir = join(baseDir, variant);
+      const files = (await readdir(variantDir)).filter((f) => f.endsWith('.svg'));
+      for (const file of files) {
+        const content = await readFile(join(variantDir, file), 'utf8');
+        const hits = findUnsafeContent(content);
+        if (hits.length > 0) {
+          offenders.push(`${variant}/${file}: ${hits.join(', ')}`);
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
   });
 
   it('index.html exists', () => {

@@ -16,15 +16,29 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           # Node 24 ships npm 11.5.1+, required for OIDC trusted publishing
           node-version: 24
           cache: npm
           registry-url: https://registry.npmjs.org
+
+      # Refuse to publish if the git tag does not match the package versions,
+      # preventing a mistaken tag from shipping the wrong version to npm.
+      - name: Verify tag matches package versions
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          for pkg in package.json packages/react/package.json packages/vue/package.json; do
+            PKG_VERSION="$(node -p "require('./$pkg').version")"
+            if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
+              echo "::error::Version mismatch in $pkg ($PKG_VERSION) vs tag $TAG_VERSION"
+              exit 1
+            fi
+          done
+          echo "All package versions match tag $TAG_VERSION"
 
       # Full build regenerates icon components from exports/, so a publish
       # can never ship stale codegen.

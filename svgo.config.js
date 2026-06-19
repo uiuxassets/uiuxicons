@@ -2,6 +2,10 @@ export default {
   multipass: true,
   plugins: [
     'preset-default',
+    // SVGO 4's preset-default does NOT strip active content. These remove
+    // <script>, on* event handler attributes, javascript: URLs, and <style>.
+    'removeScripts',
+    'removeStyleElement',
     'removeTitle',
     'removeDesc',
     { name: 'removeViewBox', active: false },

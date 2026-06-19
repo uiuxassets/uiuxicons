@@ -5,6 +5,8 @@ import { existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { STYLES, WEIGHTS } from './optimize.js';
+import { assertSafeIconName } from './icon-names.js';
+import { assertSvgSafe, assertAllowedSvgElements } from './svg-safety.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -95,12 +97,17 @@ async function readSvgVariant(iconName, style, weight) {
     throw new Error(`Missing SVG: ${filePath}`);
   }
   const svg = await readFile(filePath, 'utf8');
+  const label = `${style}-${weight}/${iconName}.svg`;
+  assertSvgSafe(svg, label);
   const inner = extractInnerSvg(svg);
+  assertAllowedSvgElements(inner, label);
   validateSvgContent(inner, style, iconName, weight);
   return convertElementToJsx(inner);
 }
 
 async function generateIconFile(iconName) {
+  // Name is interpolated into TS source and file paths; enforce charset.
+  assertSafeIconName(iconName);
   const pascalName = toPascalCase(iconName);
   const componentName = `Icon${pascalName}`;
 
