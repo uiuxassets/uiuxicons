@@ -7,7 +7,9 @@
       "category": "layout",
       "tags": [
         "align",
-        "bottom"
+        "bottom",
+        "alignment",
+        "down"
       ]
     },
     {
@@ -16,7 +18,9 @@
       "tags": [
         "align",
         "center",
-        "horizontal"
+        "horizontal",
+        "alignment",
+        "middle"
       ]
     },
     {
@@ -25,7 +29,9 @@
       "tags": [
         "align",
         "center",
-        "vertical"
+        "vertical",
+        "alignment",
+        "middle"
       ]
     },
     {
@@ -33,7 +39,8 @@
       "category": "layout",
       "tags": [
         "align",
-        "left"
+        "left",
+        "alignment"
       ]
     },
     {
@@ -41,7 +48,8 @@
       "category": "layout",
       "tags": [
         "align",
-        "right"
+        "right",
+        "alignment"
       ]
     },
     {
@@ -49,14 +57,20 @@
       "category": "layout",
       "tags": [
         "align",
-        "top"
+        "top",
+        "alignment",
+        "up"
       ]
     },
     {
       "name": "angle",
       "category": "shapes",
       "tags": [
-        "angle"
+        "angle",
+        "degree",
+        "geometry",
+        "corner",
+        "math"
       ]
     },
     {
@@ -64,14 +78,21 @@
       "category": "system",
       "tags": [
         "app",
-        "window"
+        "window",
+        "application",
+        "browser",
+        "screen"
       ]
     },
     {
       "name": "archive",
       "category": "files",
       "tags": [
-        "archive"
+        "archive",
+        "box",
+        "storage",
+        "backup",
+        "save"
       ]
     },
     {
@@ -79,7 +100,17 @@
       "category": "files",
       "tags": [
         "archive",
-        "x"
+        "x",
+        "box",
+        "storage",
+        "backup",
+        "save",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
       ]
     },
     {
@@ -88,7 +119,12 @@
       "tags": [
         "arrow",
         "circle",
-        "down"
+        "down",
+        "direction",
+        "navigate",
+        "round",
+        "ring",
+        "downward"
       ]
     },
     {
@@ -98,7 +134,12 @@
         "arrow",
         "circle",
         "down",
-        "left"
+        "left",
+        "direction",
+        "navigate",
+        "round",
+        "ring",
+        "downward"
       ]
     },
     {
@@ -108,7 +149,12 @@
         "arrow",
         "circle",
         "down",
-        "right"
+        "right",
+        "direction",
+        "navigate",
+        "round",
+        "ring",
+        "downward"
       ]
     },
     {
@@ -117,7 +163,11 @@
       "tags": [
         "arrow",
         "circle",
-        "left"
+        "left",
+        "direction",
+        "navigate",
+        "round",
+        "ring"
       ]
     },
     {
@@ -126,7 +176,11 @@
       "tags": [
         "arrow",
         "circle",
-        "right"
+        "right",
+        "direction",
+        "navigate",
+        "round",
+        "ring"
       ]
     },
     {
@@ -135,7 +189,12 @@
       "tags": [
         "arrow",
         "circle",
-        "up"
+        "up",
+        "direction",
+        "navigate",
+        "round",
+        "ring",
+        "upward"
       ]
     },
     {
@@ -145,7 +204,12 @@
         "arrow",
         "circle",
         "up",
-        "left"
+        "left",
+        "direction",
+        "navigate",
+        "round",
+        "ring",
+        "upward"
       ]
     },
     {
@@ -155,7 +219,12 @@
         "arrow",
         "circle",
         "up",
-        "right"
+        "right",
+        "direction",
+        "navigate",
+        "round",
+        "ring",
+        "upward"
       ]
     },
     {
@@ -163,7 +232,10 @@
       "category": "arrows",
       "tags": [
         "arrow",
-        "down"
+        "down",
+        "direction",
+        "navigate",
+        "downward"
       ]
     },
     {
@@ -172,7 +244,10 @@
       "tags": [
         "arrow",
         "down",
-        "left"
+        "left",
+        "direction",
+        "navigate",
+        "downward"
       ]
     },
     {
@@ -181,7 +256,10 @@
       "tags": [
         "arrow",
         "down",
-        "right"
+        "right",
+        "direction",
+        "navigate",
+        "downward"
       ]
     },
     {
@@ -189,7 +267,9 @@
       "category": "arrows",
       "tags": [
         "arrow",
-        "left"
+        "left",
+        "direction",
+        "navigate"
       ]
     },
     {
@@ -197,7 +277,14 @@
       "category": "arrows",
       "tags": [
         "arrow",
-        "reload"
+        "reload",
+        "direction",
+        "navigate",
+        "refresh",
+        "sync",
+        "repeat",
+        "rotate",
+        "update"
       ]
     },
     {
@@ -205,7 +292,13 @@
       "category": "arrows",
       "tags": [
         "arrow",
-        "reset"
+        "reset",
+        "direction",
+        "navigate",
+        "refresh",
+        "undo",
+        "restore",
+        "revert"
       ]
     },
     {
@@ -213,7 +306,9 @@
       "category": "arrows",
       "tags": [
         "arrow",
-        "right"
+        "right",
+        "direction",
+        "navigate"
       ]
     },
     {
@@ -222,7 +317,12 @@
       "tags": [
         "arrow",
         "square",
-        "down"
+        "down",
+        "direction",
+        "navigate",
+        "box",
+        "rectangle",
+        "downward"
       ]
     },
     {
@@ -232,7 +332,12 @@
         "arrow",
         "square",
         "down",
-        "left"
+        "left",
+        "direction",
+        "navigate",
+        "box",
+        "rectangle",
+        "downward"
       ]
     },
     {
@@ -242,7 +347,12 @@
         "arrow",
         "square",
         "down",
-        "right"
+        "right",
+        "direction",
+        "navigate",
+        "box",
+        "rectangle",
+        "downward"
       ]
     },
     {
@@ -251,7 +361,11 @@
       "tags": [
         "arrow",
         "square",
-        "left"
+        "left",
+        "direction",
+        "navigate",
+        "box",
+        "rectangle"
       ]
     },
     {
@@ -260,7 +374,11 @@
       "tags": [
         "arrow",
         "square",
-        "right"
+        "right",
+        "direction",
+        "navigate",
+        "box",
+        "rectangle"
       ]
     },
     {
@@ -269,7 +387,12 @@
       "tags": [
         "arrow",
         "square",
-        "up"
+        "up",
+        "direction",
+        "navigate",
+        "box",
+        "rectangle",
+        "upward"
       ]
     },
     {
@@ -279,7 +402,12 @@
         "arrow",
         "square",
         "up",
-        "left"
+        "left",
+        "direction",
+        "navigate",
+        "box",
+        "rectangle",
+        "upward"
       ]
     },
     {
@@ -289,7 +417,12 @@
         "arrow",
         "square",
         "up",
-        "right"
+        "right",
+        "direction",
+        "navigate",
+        "box",
+        "rectangle",
+        "upward"
       ]
     },
     {
@@ -297,7 +430,10 @@
       "category": "arrows",
       "tags": [
         "arrow",
-        "up"
+        "up",
+        "direction",
+        "navigate",
+        "upward"
       ]
     },
     {
@@ -306,7 +442,10 @@
       "tags": [
         "arrow",
         "up",
-        "left"
+        "left",
+        "direction",
+        "navigate",
+        "upward"
       ]
     },
     {
@@ -315,14 +454,22 @@
       "tags": [
         "arrow",
         "up",
-        "right"
+        "right",
+        "direction",
+        "navigate",
+        "upward"
       ]
     },
     {
       "name": "calendar",
       "category": "time",
       "tags": [
-        "calendar"
+        "calendar",
+        "date",
+        "schedule",
+        "event",
+        "month",
+        "day"
       ]
     },
     {
@@ -330,7 +477,13 @@
       "category": "time",
       "tags": [
         "calendar",
-        "blank"
+        "blank",
+        "date",
+        "schedule",
+        "event",
+        "month",
+        "day",
+        "empty"
       ]
     },
     {
@@ -338,7 +491,18 @@
       "category": "time",
       "tags": [
         "calendar",
-        "check"
+        "check",
+        "date",
+        "schedule",
+        "event",
+        "month",
+        "day",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
       ]
     },
     {
@@ -346,7 +510,16 @@
       "category": "time",
       "tags": [
         "calendar",
-        "minus"
+        "minus",
+        "date",
+        "schedule",
+        "event",
+        "month",
+        "day",
+        "remove",
+        "subtract",
+        "delete",
+        "less"
       ]
     },
     {
@@ -354,7 +527,16 @@
       "category": "time",
       "tags": [
         "calendar",
-        "plus"
+        "plus",
+        "date",
+        "schedule",
+        "event",
+        "month",
+        "day",
+        "add",
+        "new",
+        "create",
+        "more"
       ]
     },
     {
@@ -362,7 +544,18 @@
       "category": "time",
       "tags": [
         "calendar",
-        "x"
+        "x",
+        "date",
+        "schedule",
+        "event",
+        "month",
+        "day",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
       ]
     },
     {
@@ -371,7 +564,14 @@
       "tags": [
         "chevron",
         "circle",
-        "down"
+        "down",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret",
+        "round",
+        "ring",
+        "downward"
       ]
     },
     {
@@ -380,7 +580,13 @@
       "tags": [
         "chevron",
         "circle",
-        "left"
+        "left",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret",
+        "round",
+        "ring"
       ]
     },
     {
@@ -389,7 +595,13 @@
       "tags": [
         "chevron",
         "circle",
-        "right"
+        "right",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret",
+        "round",
+        "ring"
       ]
     },
     {
@@ -398,7 +610,14 @@
       "tags": [
         "chevron",
         "circle",
-        "up"
+        "up",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret",
+        "round",
+        "ring",
+        "upward"
       ]
     },
     {
@@ -406,7 +625,12 @@
       "category": "arrows",
       "tags": [
         "chevron",
-        "down"
+        "down",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret",
+        "downward"
       ]
     },
     {
@@ -414,7 +638,11 @@
       "category": "arrows",
       "tags": [
         "chevron",
-        "left"
+        "left",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret"
       ]
     },
     {
@@ -422,7 +650,11 @@
       "category": "arrows",
       "tags": [
         "chevron",
-        "right"
+        "right",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret"
       ]
     },
     {
@@ -430,14 +662,21 @@
       "category": "arrows",
       "tags": [
         "chevron",
-        "up"
+        "up",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret",
+        "upward"
       ]
     },
     {
       "name": "circle",
       "category": "shapes",
       "tags": [
-        "circle"
+        "circle",
+        "round",
+        "ring"
       ]
     },
     {
@@ -445,14 +684,133 @@
       "category": "shapes",
       "tags": [
         "circle",
-        "dashed"
+        "dashed",
+        "round",
+        "ring",
+        "dotted",
+        "outline",
+        "dash"
+      ]
+    },
+    {
+      "name": "clipboard",
+      "category": "actions",
+      "tags": [
+        "clipboard",
+        "board",
+        "copy",
+        "paste"
+      ]
+    },
+    {
+      "name": "clipboard-check",
+      "category": "actions",
+      "tags": [
+        "clipboard",
+        "check",
+        "done",
+        "complete",
+        "approved",
+        "task",
+        "tick",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "clipboard-copy",
+      "category": "actions",
+      "tags": [
+        "clipboard",
+        "copy",
+        "duplicate"
+      ]
+    },
+    {
+      "name": "clipboard-list",
+      "category": "actions",
+      "tags": [
+        "clipboard",
+        "list",
+        "tasks",
+        "todo",
+        "checklist",
+        "menu",
+        "items",
+        "lines",
+        "bullets"
+      ]
+    },
+    {
+      "name": "clipboard-minus",
+      "category": "actions",
+      "tags": [
+        "clipboard",
+        "minus",
+        "remove",
+        "delete",
+        "subtract",
+        "less"
+      ]
+    },
+    {
+      "name": "clipboard-paste",
+      "category": "actions",
+      "tags": [
+        "clipboard",
+        "paste",
+        "insert"
+      ]
+    },
+    {
+      "name": "clipboard-plus",
+      "category": "actions",
+      "tags": [
+        "clipboard",
+        "plus",
+        "add",
+        "new",
+        "create",
+        "more"
+      ]
+    },
+    {
+      "name": "clipboard-text",
+      "category": "actions",
+      "tags": [
+        "clipboard",
+        "text",
+        "document",
+        "notes",
+        "type",
+        "font",
+        "typography",
+        "content"
+      ]
+    },
+    {
+      "name": "clipboard-x",
+      "category": "actions",
+      "tags": [
+        "clipboard",
+        "x",
+        "remove",
+        "delete",
+        "cancel",
+        "close",
+        "clear",
+        "no"
       ]
     },
     {
       "name": "clock",
       "category": "time",
       "tags": [
-        "clock"
+        "clock",
+        "time",
+        "watch",
+        "schedule"
       ]
     },
     {
@@ -460,7 +818,11 @@
       "category": "time",
       "tags": [
         "clock",
-        "am"
+        "am",
+        "time",
+        "watch",
+        "schedule",
+        "morning"
       ]
     },
     {
@@ -468,7 +830,14 @@
       "category": "time",
       "tags": [
         "clock",
-        "ccw"
+        "ccw",
+        "time",
+        "watch",
+        "schedule",
+        "counterclockwise",
+        "rotate",
+        "undo",
+        "anticlockwise"
       ]
     },
     {
@@ -476,7 +845,13 @@
       "category": "time",
       "tags": [
         "clock",
-        "cw"
+        "cw",
+        "time",
+        "watch",
+        "schedule",
+        "clockwise",
+        "rotate",
+        "redo"
       ]
     },
     {
@@ -484,7 +859,14 @@
       "category": "time",
       "tags": [
         "clock",
-        "minus"
+        "minus",
+        "time",
+        "watch",
+        "schedule",
+        "remove",
+        "subtract",
+        "delete",
+        "less"
       ]
     },
     {
@@ -492,7 +874,14 @@
       "category": "time",
       "tags": [
         "clock",
-        "plus"
+        "plus",
+        "time",
+        "watch",
+        "schedule",
+        "add",
+        "new",
+        "create",
+        "more"
       ]
     },
     {
@@ -500,7 +889,12 @@
       "category": "time",
       "tags": [
         "clock",
-        "pm"
+        "pm",
+        "time",
+        "watch",
+        "schedule",
+        "afternoon",
+        "evening"
       ]
     },
     {
@@ -508,7 +902,23 @@
       "category": "time",
       "tags": [
         "clock",
-        "z"
+        "z",
+        "time",
+        "watch",
+        "schedule",
+        "snooze",
+        "sleep",
+        "timezone"
+      ]
+    },
+    {
+      "name": "copy",
+      "category": "actions",
+      "tags": [
+        "copy",
+        "duplicate",
+        "clone",
+        "squares"
       ]
     },
     {
@@ -516,7 +926,12 @@
       "category": "general",
       "tags": [
         "ellipsis",
-        "horizontal"
+        "horizontal",
+        "more",
+        "dots",
+        "menu",
+        "options",
+        "overflow"
       ]
     },
     {
@@ -524,14 +939,24 @@
       "category": "general",
       "tags": [
         "ellipsis",
-        "vertical"
+        "vertical",
+        "more",
+        "dots",
+        "menu",
+        "options",
+        "overflow"
       ]
     },
     {
       "name": "envelope",
       "category": "communication",
       "tags": [
-        "envelope"
+        "envelope",
+        "mail",
+        "email",
+        "message",
+        "letter",
+        "contact"
       ]
     },
     {
@@ -539,14 +964,23 @@
       "category": "communication",
       "tags": [
         "envelope",
-        "open"
+        "open",
+        "mail",
+        "email",
+        "message",
+        "letter",
+        "contact",
+        "opened"
       ]
     },
     {
       "name": "file",
       "category": "files",
       "tags": [
-        "file"
+        "file",
+        "document",
+        "page",
+        "paper"
       ]
     },
     {
@@ -555,7 +989,15 @@
       "tags": [
         "file",
         "arrow",
-        "down"
+        "down",
+        "document",
+        "page",
+        "paper",
+        "direction",
+        "navigate",
+        "downward",
+        "download",
+        "save"
       ]
     },
     {
@@ -564,7 +1006,14 @@
       "tags": [
         "file",
         "arrow",
-        "up"
+        "up",
+        "document",
+        "page",
+        "paper",
+        "direction",
+        "navigate",
+        "upward",
+        "upload"
       ]
     },
     {
@@ -572,7 +1021,14 @@
       "category": "files",
       "tags": [
         "file",
-        "minus"
+        "minus",
+        "document",
+        "page",
+        "paper",
+        "remove",
+        "subtract",
+        "delete",
+        "less"
       ]
     },
     {
@@ -580,7 +1036,14 @@
       "category": "files",
       "tags": [
         "file",
-        "plus"
+        "plus",
+        "document",
+        "page",
+        "paper",
+        "add",
+        "new",
+        "create",
+        "more"
       ]
     },
     {
@@ -588,7 +1051,14 @@
       "category": "files",
       "tags": [
         "file",
-        "text"
+        "text",
+        "document",
+        "page",
+        "paper",
+        "type",
+        "font",
+        "typography",
+        "content"
       ]
     },
     {
@@ -596,21 +1066,39 @@
       "category": "files",
       "tags": [
         "file",
-        "x"
+        "x",
+        "document",
+        "page",
+        "paper",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
       ]
     },
     {
       "name": "filter",
       "category": "search",
       "tags": [
-        "filter"
+        "filter",
+        "funnel",
+        "sort",
+        "refine"
       ]
     },
     {
       "name": "gear",
       "category": "system",
       "tags": [
-        "gear"
+        "gear",
+        "settings",
+        "preferences",
+        "options",
+        "config",
+        "cog",
+        "setup"
       ]
     },
     {
@@ -618,21 +1106,35 @@
       "category": "general",
       "tags": [
         "graduation",
-        "cap"
+        "cap",
+        "education",
+        "school",
+        "learn",
+        "student",
+        "university",
+        "degree",
+        "hat"
       ]
     },
     {
       "name": "house",
       "category": "buildings",
       "tags": [
-        "house"
+        "house",
+        "home",
+        "building",
+        "residence"
       ]
     },
     {
       "name": "inbox",
       "category": "communication",
       "tags": [
-        "inbox"
+        "inbox",
+        "mail",
+        "messages",
+        "tray",
+        "email"
       ]
     },
     {
@@ -641,7 +1143,16 @@
       "tags": [
         "inbox",
         "arrow",
-        "down"
+        "down",
+        "mail",
+        "messages",
+        "tray",
+        "email",
+        "direction",
+        "navigate",
+        "downward",
+        "receive",
+        "download"
       ]
     },
     {
@@ -650,28 +1161,49 @@
       "tags": [
         "inbox",
         "arrow",
-        "up"
+        "up",
+        "mail",
+        "messages",
+        "tray",
+        "email",
+        "direction",
+        "navigate",
+        "upward",
+        "send",
+        "upload"
       ]
     },
     {
       "name": "list",
       "category": "layout",
       "tags": [
-        "list"
+        "list",
+        "menu",
+        "items",
+        "lines",
+        "bullets"
       ]
     },
     {
       "name": "menu",
       "category": "navigation",
       "tags": [
-        "menu"
+        "menu",
+        "hamburger",
+        "navigation",
+        "bars",
+        "list"
       ]
     },
     {
       "name": "minus",
       "category": "actions",
       "tags": [
-        "minus"
+        "minus",
+        "remove",
+        "subtract",
+        "delete",
+        "less"
       ]
     },
     {
@@ -679,7 +1211,13 @@
       "category": "actions",
       "tags": [
         "minus",
-        "circle"
+        "circle",
+        "remove",
+        "subtract",
+        "delete",
+        "less",
+        "round",
+        "ring"
       ]
     },
     {
@@ -687,21 +1225,35 @@
       "category": "actions",
       "tags": [
         "minus",
-        "square"
+        "square",
+        "remove",
+        "subtract",
+        "delete",
+        "less",
+        "box",
+        "rectangle"
       ]
     },
     {
       "name": "moon",
       "category": "weather",
       "tags": [
-        "moon"
+        "moon",
+        "night",
+        "dark",
+        "sleep",
+        "lunar"
       ]
     },
     {
       "name": "plus",
       "category": "actions",
       "tags": [
-        "plus"
+        "plus",
+        "add",
+        "new",
+        "create",
+        "more"
       ]
     },
     {
@@ -709,7 +1261,13 @@
       "category": "actions",
       "tags": [
         "plus",
-        "circle"
+        "circle",
+        "add",
+        "new",
+        "create",
+        "more",
+        "round",
+        "ring"
       ]
     },
     {
@@ -717,21 +1275,38 @@
       "category": "actions",
       "tags": [
         "plus",
-        "square"
+        "square",
+        "add",
+        "new",
+        "create",
+        "more",
+        "box",
+        "rectangle"
       ]
     },
     {
       "name": "search",
       "category": "search",
       "tags": [
-        "search"
+        "search",
+        "find",
+        "magnify",
+        "magnifier",
+        "zoom",
+        "lookup",
+        "glass"
       ]
     },
     {
       "name": "server",
       "category": "system",
       "tags": [
-        "server"
+        "server",
+        "database",
+        "hosting",
+        "data",
+        "rack",
+        "storage"
       ]
     },
     {
@@ -739,7 +1314,26 @@
       "category": "system",
       "tags": [
         "server",
-        "stack"
+        "stack",
+        "database",
+        "hosting",
+        "data",
+        "rack",
+        "storage",
+        "layers",
+        "group",
+        "pile"
+      ]
+    },
+    {
+      "name": "share",
+      "category": "communication",
+      "tags": [
+        "share",
+        "export",
+        "upload",
+        "send",
+        "social"
       ]
     },
     {
@@ -747,7 +1341,13 @@
       "category": "system",
       "tags": [
         "sliders",
-        "horizontal"
+        "horizontal",
+        "settings",
+        "controls",
+        "adjust",
+        "options",
+        "equalizer",
+        "tune"
       ]
     },
     {
@@ -755,14 +1355,22 @@
       "category": "system",
       "tags": [
         "sliders",
-        "vertical"
+        "vertical",
+        "settings",
+        "controls",
+        "adjust",
+        "options",
+        "equalizer",
+        "tune"
       ]
     },
     {
       "name": "square",
       "category": "shapes",
       "tags": [
-        "square"
+        "square",
+        "box",
+        "rectangle"
       ]
     },
     {
@@ -770,14 +1378,24 @@
       "category": "shapes",
       "tags": [
         "square",
-        "dashed"
+        "dashed",
+        "box",
+        "rectangle",
+        "dotted",
+        "outline",
+        "dash"
       ]
     },
     {
       "name": "sun",
       "category": "weather",
       "tags": [
-        "sun"
+        "sun",
+        "day",
+        "light",
+        "weather",
+        "bright",
+        "sunny"
       ]
     },
     {
@@ -785,7 +1403,14 @@
       "category": "weather",
       "tags": [
         "sun",
-        "dim"
+        "dim",
+        "day",
+        "light",
+        "weather",
+        "bright",
+        "sunny",
+        "brightness",
+        "low"
       ]
     },
     {
@@ -793,7 +1418,14 @@
       "category": "weather",
       "tags": [
         "sun",
-        "horizon"
+        "horizon",
+        "day",
+        "light",
+        "weather",
+        "bright",
+        "sunny",
+        "dawn",
+        "dusk"
       ]
     },
     {
@@ -801,42 +1433,73 @@
       "category": "weather",
       "tags": [
         "sun",
-        "moon"
+        "moon",
+        "day",
+        "light",
+        "weather",
+        "bright",
+        "sunny",
+        "night",
+        "dark",
+        "sleep",
+        "lunar",
+        "theme",
+        "dark-mode"
       ]
     },
     {
       "name": "sunrise",
       "category": "weather",
       "tags": [
-        "sunrise"
+        "sunrise",
+        "dawn",
+        "morning",
+        "sun"
       ]
     },
     {
       "name": "sunset",
       "category": "weather",
       "tags": [
-        "sunset"
+        "sunset",
+        "dusk",
+        "evening",
+        "sun"
       ]
     },
     {
       "name": "table",
       "category": "layout",
       "tags": [
-        "table"
+        "table",
+        "grid",
+        "data",
+        "spreadsheet",
+        "rows",
+        "columns"
       ]
     },
     {
       "name": "target",
       "category": "general",
       "tags": [
-        "target"
+        "target",
+        "goal",
+        "aim",
+        "bullseye",
+        "focus",
+        "objective"
       ]
     },
     {
       "name": "text",
       "category": "text",
       "tags": [
-        "text"
+        "text",
+        "type",
+        "font",
+        "typography",
+        "content"
       ]
     },
     {
@@ -845,7 +1508,13 @@
       "tags": [
         "text",
         "align",
-        "center"
+        "center",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "alignment",
+        "middle"
       ]
     },
     {
@@ -854,7 +1523,12 @@
       "tags": [
         "text",
         "align",
-        "justify"
+        "justify",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "alignment"
       ]
     },
     {
@@ -863,7 +1537,12 @@
       "tags": [
         "text",
         "align",
-        "left"
+        "left",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "alignment"
       ]
     },
     {
@@ -872,7 +1551,12 @@
       "tags": [
         "text",
         "align",
-        "right"
+        "right",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "alignment"
       ]
     },
     {
@@ -880,7 +1564,14 @@
       "category": "text",
       "tags": [
         "text",
-        "initial"
+        "initial",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "letter",
+        "first",
+        "capital"
       ]
     },
     {
@@ -888,21 +1579,34 @@
       "category": "text",
       "tags": [
         "text",
-        "select"
+        "select",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "selection",
+        "highlight",
+        "cursor"
       ]
     },
     {
       "name": "trash",
       "category": "actions",
       "tags": [
-        "trash"
+        "trash",
+        "delete",
+        "remove",
+        "bin",
+        "garbage",
+        "discard"
       ]
     },
     {
       "name": "triangle",
       "category": "shapes",
       "tags": [
-        "triangle"
+        "triangle",
+        "shape"
       ]
     },
     {
@@ -910,7 +1614,11 @@
       "category": "shapes",
       "tags": [
         "triangle",
-        "dashed"
+        "dashed",
+        "shape",
+        "dotted",
+        "outline",
+        "dash"
       ]
     },
     {
@@ -918,14 +1626,24 @@
       "category": "general",
       "tags": [
         "ui",
-        "ux"
+        "ux",
+        "interface",
+        "design",
+        "experience",
+        "product"
       ]
     },
     {
       "name": "x",
       "category": "status",
       "tags": [
-        "x"
+        "x",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
       ]
     },
     {
@@ -933,7 +1651,15 @@
       "category": "status",
       "tags": [
         "x",
-        "circle"
+        "circle",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no",
+        "round",
+        "ring"
       ]
     },
     {
@@ -941,7 +1667,15 @@
       "category": "status",
       "tags": [
         "x",
-        "square"
+        "square",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no",
+        "box",
+        "rectangle"
       ]
     }
   ]

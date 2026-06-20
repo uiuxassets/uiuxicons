@@ -16,7 +16,7 @@ import { readFile, writeFile, readdir } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { inferCategory, generateTags } from './categories.js';
+import { inferCategory, enrichTags } from './categories.js';
 import { parseExportSvgFilename, assertSafeIconName } from './icon-names.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -127,7 +127,7 @@ async function sync() {
       const entry = {
         name: icon.name,
         category,
-        tags: generateTags(icon.name)
+        tags: enrichTags(icon.name)
       };
       meta.icons.push(entry);
       console.log(`  + ${icon.name} → ${category}`);

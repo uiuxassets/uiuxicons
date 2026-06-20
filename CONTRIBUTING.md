@@ -14,10 +14,18 @@ Open a [bug report](https://github.com/uiuxassets/uiuxicons/issues/new?template=
 
 1. Fork the repo and create a branch.
 2. For icons: add SVGs to all 9 variant folders under `exports/{style}/{weight}/` (line, duotone, solid x light, regular, bold). Icons are 24x24 with `currentColor` - see the [README specs](README.md#specs).
-3. Run `npm run sync` to update metadata, then review the generated entries in `icons.meta.json`.
+3. Run `npm run sync` to update metadata, then review the generated entries in `icons.meta.json`. New icons get an inferred `category` and enriched search `tags` automatically - see [Search tags](#search-tags) below.
 4. Run `npm run build` - this assigns codepoints for new icons and regenerates the React/Vue package sources.
 5. Run `npm test` - this typechecks both packages and validates icon-set integrity (all 9 folders must contain identical icon sets). Run it after the build, since the integrity check only passes once `npm run build` has assigned codepoints.
 6. Open a pull request. CI must be green before merge.
+
+## Search tags
+
+Search tags power filtering on [uiuxicons.com](https://uiuxicons.com). When you run `npm run sync`, each new icon's `tags` are generated automatically by `enrichTags()` in [`scripts/categories.js`](scripts/categories.js): the icon name is split on `-`, then expanded with synonyms so icons surface for related terms (for example `gear` also matches `settings`/`cog`, and `trash` matches `delete`/`bin`).
+
+- To add or adjust synonyms, edit the `TOKEN_SYNONYMS` map (keyed by a name token, e.g. `arrow`) or `NAME_EXTRAS` map (keyed by the full icon name, e.g. `file-arrow-down` -> `download`) in `scripts/categories.js`.
+- To hand-tune a single icon, edit its `tags` array directly in `icons.meta.json`. Custom tags there always take precedence over the generated ones, so `sync` and `build` will not overwrite them.
+- `inferCategory()` (same file) assigns the `category`; override it per-icon in `icons.meta.json` when the inference is wrong.
 
 ## What CI checks
 

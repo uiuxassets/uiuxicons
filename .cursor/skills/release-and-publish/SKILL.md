@@ -44,7 +44,7 @@ git push origin main   # triggers CI + deploy.yml
 Run these in this exact order (do not run `npm test` before `npm run build`):
 
 ```bash
-npm run sync                  # update icons.meta.json from exports/
+npm run sync                  # update icons.meta.json from exports/ (auto-fills category + enriched tags)
 npm run build                 # assigns codepoints + regenerates React/Vue package sources
 npm test                      # typecheck + integrity (passes only after build)
 npm run release -- minor      # see bump convention below; commits "Release vX.Y.Z" and tags
@@ -67,6 +67,7 @@ git push origin main vX.Y.Z   # pushes BOTH refs: main (CI + deploy) and tag (np
 
 ## Gotchas
 
+- `npm run sync` auto-assigns each new icon a `category` (`inferCategory`) and enriched search `tags` (`enrichTags`, from the synonym dictionary in `scripts/categories.js`). Eyeball the new `icons.meta.json` entries; to fine-tune, edit `TOKEN_SYNONYMS`/`NAME_EXTRAS` in `scripts/categories.js` or override `category`/`tags` per-icon in `icons.meta.json` (custom values win and are never overwritten).
 - Codepoints are assigned during the build (`buildCodepointMap` in `scripts/font.js`), not by sync. `npm test` only passes after `npm run build`, so never run test between sync and build.
 - `npm run release` requires a clean working tree and verifies all three `package.json` versions match before bumping (`scripts/release.js`).
 - Pushing `main` triggers CI (`.github/workflows/ci.yml`) and site deploy (`.github/workflows/deploy.yml`). Pushing the `vX.Y.Z` tag triggers npm publish via OIDC (`.github/workflows/publish.yml`). The tag is the only publish trigger.

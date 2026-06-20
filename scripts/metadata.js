@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join } from 'path';
 import { STYLES, WEIGHTS } from './optimize.js';
-import { inferCategory, generateTags, isValidMetaCategory } from './categories.js';
+import { inferCategory, enrichTags, isValidMetaCategory } from './categories.js';
 import { parseExportSvgFilename } from './icon-names.js';
 
 async function loadCustomMeta(rootDir) {
@@ -50,7 +50,7 @@ function customForStem(customMeta, stem) {
 
 function tagsForIcon(custom, logicalName) {
   if (Array.isArray(custom.tags) && custom.tags.length > 0) return custom.tags;
-  return generateTags(logicalName);
+  return enrichTags(logicalName);
 }
 
 export async function generateMetadata(rootDir, distDir, iconNames, version = '0.1.0') {

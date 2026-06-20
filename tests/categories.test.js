@@ -7,6 +7,7 @@ import {
   isValidMetaCategory,
   inferCategory,
   generateTags,
+  enrichTags,
 } from '../scripts/categories.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -100,5 +101,39 @@ describe('generateTags', () => {
 
   it('handles single-word names', () => {
     expect(generateTags('gear')).toEqual(['gear']);
+  });
+});
+
+describe('enrichTags', () => {
+  it('preserves the base kebab split first, in order', () => {
+    expect(enrichTags('arrow-circle-down').slice(0, 3)).toEqual([
+      'arrow',
+      'circle',
+      'down',
+    ]);
+  });
+
+  it('adds token synonyms', () => {
+    const tags = enrichTags('gear');
+    expect(tags).toContain('settings');
+    expect(tags).toContain('cog');
+  });
+
+  it('adds name-specific extras', () => {
+    expect(enrichTags('file-arrow-down')).toContain('download');
+  });
+
+  it('still filters numeric-only parts (inherited from generateTags)', () => {
+    expect(enrichTags('icon-24-big')).not.toContain('24');
+  });
+
+  it('produces no duplicate tags', () => {
+    const tags = enrichTags('clipboard-copy');
+    expect(new Set(tags).size).toBe(tags.length);
+  });
+
+  it('returns lowercase tags', () => {
+    const tags = enrichTags('sun-moon');
+    expect(tags.every(t => t === t.toLowerCase())).toBe(true);
   });
 });

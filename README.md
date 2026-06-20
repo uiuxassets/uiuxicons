@@ -35,8 +35,8 @@ Site styles: [`styles/index.css`](styles/index.css) (Tailwind) compiles to a con
 ## Adding Icons
 
 1. Export SVGs from Figma to `exports/{style}/{weight}/`
-2. Run `npm run sync` - generates metadata for new icons
-3. Review `icons.meta.json`, adjust categories/tags if needed
+2. Run `npm run sync` - generates metadata for new icons, including an inferred category and enriched search tags (synonyms) via `scripts/categories.js`
+3. Review `icons.meta.json`; any `category`/`tags` you set there override the generated values and are never overwritten
 4. Run `npm run build`
 
 ## Output
