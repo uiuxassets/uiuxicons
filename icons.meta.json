@@ -1089,6 +1089,82 @@
       ]
     },
     {
+      "name": "folder",
+      "category": "files",
+      "tags": [
+        "folder"
+      ]
+    },
+    {
+      "name": "folder-check",
+      "category": "files",
+      "tags": [
+        "folder",
+        "check",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "folder-code",
+      "category": "files",
+      "tags": [
+        "folder",
+        "code"
+      ]
+    },
+    {
+      "name": "folder-minus",
+      "category": "files",
+      "tags": [
+        "folder",
+        "minus",
+        "remove",
+        "subtract",
+        "delete",
+        "less"
+      ]
+    },
+    {
+      "name": "folder-open",
+      "category": "files",
+      "tags": [
+        "folder",
+        "open",
+        "opened"
+      ]
+    },
+    {
+      "name": "folder-plus",
+      "category": "files",
+      "tags": [
+        "folder",
+        "plus",
+        "add",
+        "new",
+        "create",
+        "more"
+      ]
+    },
+    {
+      "name": "folder-x",
+      "category": "files",
+      "tags": [
+        "folder",
+        "x",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
+      ]
+    },
+    {
       "name": "gear",
       "category": "system",
       "tags": [
