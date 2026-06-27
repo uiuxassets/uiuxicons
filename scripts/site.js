@@ -198,7 +198,9 @@ function escapeXml(s) {
 function absolutePageUrl(pageFile) {
   const origin = getSiteOrigin();
   if (pageFile === 'index.html') return `${origin}/`;
-  return `${origin}/${pageFile}`;
+  // Emit clean, extensionless URLs (e.g. /docs) for canonical/OG/sitemap.
+  // GitHub Pages still serves the on-disk docs.html for the /docs request.
+  return `${origin}/${pageFile.replace(/\.html$/, '')}`;
 }
 
 function seoHead({ title, description, pageFile }) {
@@ -264,9 +266,9 @@ async function writeSeoAuxFiles() {
   const origin = getSiteOrigin();
   const urls = [
     `${origin}/`,
-    `${origin}/docs.html`,
-    `${origin}/examples.html`,
-    `${origin}/changelog.html`,
+    `${origin}/docs`,
+    `${origin}/examples`,
+    `${origin}/changelog`,
   ];
   const sitemap =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
@@ -309,10 +311,10 @@ function sharedHeader(
   menuIcon = ''
 ) {
   const navLinks = [
-    { id: 'icons', href: 'index.html', label: 'Icons' },
-    { id: 'docs', href: 'docs.html', label: 'Docs' },
-    { id: 'examples', href: 'examples.html', label: 'Examples' },
-    { id: 'changelog', href: 'changelog.html', label: 'Changelog' },
+    { id: 'icons', href: '/', label: 'Icons' },
+    { id: 'docs', href: '/docs', label: 'Docs' },
+    { id: 'examples', href: '/examples', label: 'Examples' },
+    { id: 'changelog', href: '/changelog', label: 'Changelog' },
   ];
   
   const badge = totalIcons
@@ -329,7 +331,7 @@ function sharedHeader(
   <header class="border-b border-border sticky top-0 bg-main/90 backdrop-blur-sm z-30">
     <div class="max-w-7xl mx-auto p-3 flex items-center justify-between gap-3">
       <div class="flex items-center gap-3 min-w-0">
-        <a href="index.html" class="flex items-center shrink-0" title="UI/UX Icons">
+        <a href="/" class="flex items-center shrink-0" title="UI/UX Icons">
           <span class="inline-flex size-8">${logoIcon}</span>
         </a>
         <nav class="hidden md:flex items-center gap-3" aria-label="Primary">
@@ -386,7 +388,7 @@ function sharedHeader(
     <div id="mobile-nav-backdrop" class="absolute inset-0 bg-black/60" aria-hidden="true"></div>
     <div id="mobile-nav-panel" class="absolute inset-0 w-full h-full bg-main flex flex-col overflow-y-auto shadow-xl">
       <div class="flex items-center justify-between gap-3 p-3 border-b border-border shrink-0">
-        <a href="index.html" class="inline-flex shrink-0 items-center" title="UI/UX Icons">
+        <a href="/" class="inline-flex shrink-0 items-center" title="UI/UX Icons">
           <span class="inline-flex size-8">${logoIcon}</span>
         </a>
         <button type="button" id="mobile-nav-close" class="inline-flex shrink-0 items-center justify-center rounded-md border border-border bg-secondary p-2 text-fg hover:bg-tertiary cursor-pointer" aria-label="Close menu">
@@ -572,7 +574,7 @@ async function generateSite({ cssFile } = {}) {
     <div id="categories-drawer-backdrop" class="absolute inset-0 bg-black/60" aria-hidden="true"></div>
     <div id="categories-drawer-panel" class="absolute inset-0 w-full h-full bg-main flex flex-col overflow-y-auto shadow-xl">
       <div class="flex items-center justify-between gap-3 p-3 border-b border-border shrink-0">
-        <a href="index.html" class="inline-flex shrink-0" title="UI/UX Icons">
+        <a href="/" class="inline-flex shrink-0" title="UI/UX Icons">
           <span class="inline-flex size-8">${logoIcon}</span>
         </a>
         <button type="button" id="categories-drawer-close" class="inline-flex shrink-0 items-center justify-center rounded-md border border-border bg-secondary p-2 text-fg hover:bg-tertiary cursor-pointer" aria-label="Close category menu">
@@ -958,8 +960,8 @@ async function generate404Page(
     <h1 class="text-3xl font-bold mb-3">Page not found</h1>
     <p class="text-fg mb-8">That URL does not exist or has moved.</p>
     <p class="flex flex-wrap items-center justify-center gap-3">
-      <a href="index.html" class="inline-flex items-center px-4 py-2 rounded-md border border-border bg-secondary hover:bg-tertiary text-fg text-sm">Browse icons</a>
-      <a href="docs.html" class="inline-flex items-center px-4 py-2 rounded-md border border-border bg-secondary hover:bg-tertiary text-fg text-sm">Documentation</a>
+      <a href="/" class="inline-flex items-center px-4 py-2 rounded-md border border-border bg-secondary hover:bg-tertiary text-fg text-sm">Browse icons</a>
+      <a href="/docs" class="inline-flex items-center px-4 py-2 rounded-md border border-border bg-secondary hover:bg-tertiary text-fg text-sm">Documentation</a>
     </p>
   </main>
 `,
@@ -1233,7 +1235,7 @@ async function generateDocs(meta, themeIcons, logoIcon, downloadIcon, menuIcon, 
     <div id="docs-drawer-backdrop" class="absolute inset-0 bg-black/60" aria-hidden="true"></div>
     <div id="docs-drawer-panel" class="absolute inset-0 w-full h-full bg-main flex flex-col overflow-y-auto shadow-xl">
       <div class="flex items-center justify-between gap-3 p-3 border-b border-border shrink-0">
-        <a href="index.html" class="inline-flex shrink-0" title="UI/UX Icons">
+        <a href="/" class="inline-flex shrink-0" title="UI/UX Icons">
           <span class="inline-flex size-8">${logoIcon}</span>
         </a>
         <button type="button" id="docs-drawer-close" class="inline-flex shrink-0 items-center justify-center rounded-md border border-border bg-secondary p-2 text-fg hover:bg-tertiary cursor-pointer" aria-label="Close documentation menu">

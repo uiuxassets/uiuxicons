@@ -51,7 +51,7 @@ describe.skipIf(!hasDist)('site output', () => {
   it('sitemap.xml lists every page with absolute URLs', async () => {
     const xml = await readFile(join(DIST, 'sitemap.xml'), 'utf8');
     for (const page of PAGES) {
-      const path = page === 'index.html' ? '' : page;
+      const path = page === 'index.html' ? '' : page.replace(/\.html$/, '');
       expect(xml).toContain(`<loc>https://uiuxicons.com/${path}</loc>`);
     }
     expect(xml).not.toContain('localhost');
