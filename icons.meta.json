@@ -461,6 +461,66 @@
       ]
     },
     {
+      "name": "book",
+      "category": "education",
+      "tags": [
+        "book",
+        "reading",
+        "read",
+        "literature",
+        "education",
+        "library",
+        "manual"
+      ]
+    },
+    {
+      "name": "book-open",
+      "category": "education",
+      "tags": [
+        "book",
+        "open",
+        "reading",
+        "read",
+        "literature",
+        "education",
+        "library",
+        "manual",
+        "opened"
+      ]
+    },
+    {
+      "name": "book-open-text",
+      "category": "education",
+      "tags": [
+        "book",
+        "open",
+        "text",
+        "reading",
+        "read",
+        "literature",
+        "education",
+        "library",
+        "manual",
+        "opened",
+        "type",
+        "font",
+        "typography",
+        "content"
+      ]
+    },
+    {
+      "name": "bookmark",
+      "category": "actions",
+      "tags": [
+        "bookmark",
+        "save",
+        "favorite",
+        "ribbon",
+        "tag",
+        "saved"
+      ]
+    },
+    {
       "name": "calendar",
       "category": "time",
       "tags": [
@@ -1179,7 +1239,7 @@
     },
     {
       "name": "graduation-cap",
-      "category": "general",
+      "category": "education",
       "tags": [
         "graduation",
         "cap",

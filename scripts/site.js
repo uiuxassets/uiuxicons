@@ -498,7 +498,7 @@ async function generateSite({ cssFile } = {}) {
             type="text" 
             id="search" 
             placeholder="Search..." 
-            class="h-10 w-full box-border px-3 bg-secondary border border-border hover:border-border-hover focus:border-border-hover rounded-md text-sm leading-normal focus:outline-none placeholder:text-fg-muted"
+            class="h-10 w-full box-border px-3 bg-secondary border border-border hover:border-border-hover focus:border-border-hover rounded-md text-base md:text-sm leading-normal focus:outline-none placeholder:text-fg-muted"
           >
         </div>
         <button
