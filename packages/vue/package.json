@@ -1,6 +1,6 @@
 {
   "name": "@uiuxicons/vue",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "UI/UX Icons for Vue",
   "author": "UI/UX Icons <hello@uiuxicons.com>",
   "sideEffects": false,
