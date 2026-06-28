@@ -9,7 +9,7 @@ export const IconArrowUpLeft = /*#__PURE__*/ createIcon("arrow-up-left", {
     },
     duotone: {
       light: `<path fill="var(--uiux-accent, currentColor)" fill-opacity="0.25" d="M6.343 6.343v6.364l6.718 6.718a2 2 0 0 0 2.828 0l3.536-3.536a2 2 0 0 0 0-2.828l-6.718-6.718z"/><path fill="currentColor" d="M13.207 6.343a.5.5 0 0 0-.5-.5H6.843a1 1 0 0 0-1 1v5.864a.5.5 0 1 0 1 0V7.55l10.46 10.46a.5.5 0 1 0 .707-.707L7.55 6.843h5.157a.5.5 0 0 0 .5-.5"/>`,
-      regular: `<path fill="var(--uiux-accent, currentColor)" fill-opacity="0.25" d="M6.343 6.343v6.364l6.718 6.718a2 2 0 0 0 2.828 0l3.536-3.536a2 2 0 0 0 0-2.828l-6.718-6.718z"/><path fill="currentColor" d="M13.457 6.343a.75.75 0 0 0-.75-.75H6.843c-.69 0-1.25.56-1.25 1.25v5.864a.75.75 0 1 0 1.5 0V8.154l10.034 10.033a.75.75 0 0 0 1.06-1.06L8.154 7.092h4.553a.75.75 0 0 0 .75-.75"/>`,
+      regular: `<path fill="var(--uiux-accent, currentColor)" fill-opacity="0.25" d="M6.343 6.343v6.364l6.718 6.718a2 2 0 0 0 2.828 0l3.536-3.536a2 2 0 0 0 0-2.828l-6.718-6.718z"/><path fill="currentColor" d="M13.457 6.343a.75.75 0 0 0-.75-.75H6.843c-.69 0-1.25.56-1.25 1.25v5.864a.75.75 0 1 0 1.5 0V8.154l10.034 10.033a.75.75 0 0 0 1.06-1.06L8.154 7.093h4.553a.75.75 0 0 0 .75-.75"/>`,
       bold: `<path fill="var(--uiux-accent, currentColor)" fill-opacity="0.25" d="M6.343 6.343v6.364l6.718 6.718a2 2 0 0 0 2.828 0l3.536-3.536a2 2 0 0 0 0-2.828l-6.718-6.718z"/><path fill="currentColor" d="M13.707 6.343a1 1 0 0 0-1-1H6.843a1.5 1.5 0 0 0-1.5 1.5v5.864a1 1 0 1 0 2 0v-3.95l9.607 9.607a1 1 0 0 0 1.414-1.414L8.757 7.343h3.95a1 1 0 0 0 1-1"/>`,
     },
     solid: {

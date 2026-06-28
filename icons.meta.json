@@ -972,6 +972,69 @@
       ]
     },
     {
+      "name": "columns",
+      "category": "layout",
+      "tags": [
+        "columns",
+        "column",
+        "layout",
+        "vertical",
+        "split"
+      ]
+    },
+    {
+      "name": "columns-check",
+      "category": "layout",
+      "tags": [
+        "columns",
+        "check",
+        "column",
+        "layout",
+        "vertical",
+        "split",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "columns-plus",
+      "category": "layout",
+      "tags": [
+        "columns",
+        "plus",
+        "column",
+        "layout",
+        "vertical",
+        "split",
+        "add",
+        "new",
+        "create",
+        "more"
+      ]
+    },
+    {
+      "name": "columns-x",
+      "category": "layout",
+      "tags": [
+        "columns",
+        "x",
+        "column",
+        "layout",
+        "vertical",
+        "split",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
+      ]
+    },
+    {
       "name": "copy",
       "category": "actions",
       "tags": [
@@ -1253,6 +1316,77 @@
       ]
     },
     {
+      "name": "grid",
+      "category": "layout",
+      "tags": [
+        "grid",
+        "layout",
+        "cells",
+        "gallery",
+        "dashboard",
+        "apps",
+        "tiles"
+      ]
+    },
+    {
+      "name": "grid-check",
+      "category": "layout",
+      "tags": [
+        "grid",
+        "check",
+        "layout",
+        "cells",
+        "gallery",
+        "dashboard",
+        "apps",
+        "tiles",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "grid-plus",
+      "category": "layout",
+      "tags": [
+        "grid",
+        "plus",
+        "layout",
+        "cells",
+        "gallery",
+        "dashboard",
+        "apps",
+        "tiles",
+        "add",
+        "new",
+        "create",
+        "more"
+      ]
+    },
+    {
+      "name": "grid-x",
+      "category": "layout",
+      "tags": [
+        "grid",
+        "x",
+        "layout",
+        "cells",
+        "gallery",
+        "dashboard",
+        "apps",
+        "tiles",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
+      ]
+    },
+    {
       "name": "house",
       "category": "buildings",
       "tags": [
@@ -1382,6 +1516,100 @@
       ]
     },
     {
+      "name": "padding",
+      "category": "layout",
+      "tags": [
+        "padding",
+        "spacing",
+        "space",
+        "margin",
+        "inset",
+        "layout"
+      ]
+    },
+    {
+      "name": "padding-bottom",
+      "category": "layout",
+      "tags": [
+        "padding",
+        "bottom",
+        "spacing",
+        "space",
+        "margin",
+        "inset",
+        "layout",
+        "down"
+      ]
+    },
+    {
+      "name": "padding-horizontal",
+      "category": "layout",
+      "tags": [
+        "padding",
+        "horizontal",
+        "spacing",
+        "space",
+        "margin",
+        "inset",
+        "layout",
+        "x"
+      ]
+    },
+    {
+      "name": "padding-left",
+      "category": "layout",
+      "tags": [
+        "padding",
+        "left",
+        "spacing",
+        "space",
+        "margin",
+        "inset",
+        "layout"
+      ]
+    },
+    {
+      "name": "padding-right",
+      "category": "layout",
+      "tags": [
+        "padding",
+        "right",
+        "spacing",
+        "space",
+        "margin",
+        "inset",
+        "layout"
+      ]
+    },
+    {
+      "name": "padding-top",
+      "category": "layout",
+      "tags": [
+        "padding",
+        "top",
+        "spacing",
+        "space",
+        "margin",
+        "inset",
+        "layout",
+        "up"
+      ]
+    },
+    {
+      "name": "padding-vertical",
+      "category": "layout",
+      "tags": [
+        "padding",
+        "vertical",
+        "spacing",
+        "space",
+        "margin",
+        "inset",
+        "layout",
+        "y"
+      ]
+    },
+    {
       "name": "plus",
       "category": "actions",
       "tags": [
@@ -1418,6 +1646,69 @@
         "more",
         "box",
         "rectangle"
+      ]
+    },
+    {
+      "name": "rows",
+      "category": "layout",
+      "tags": [
+        "rows",
+        "row",
+        "layout",
+        "horizontal",
+        "stack"
+      ]
+    },
+    {
+      "name": "rows-check",
+      "category": "layout",
+      "tags": [
+        "rows",
+        "check",
+        "row",
+        "layout",
+        "horizontal",
+        "stack",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "rows-plus",
+      "category": "layout",
+      "tags": [
+        "rows",
+        "plus",
+        "row",
+        "layout",
+        "horizontal",
+        "stack",
+        "add",
+        "new",
+        "create",
+        "more"
+      ]
+    },
+    {
+      "name": "rows-x",
+      "category": "layout",
+      "tags": [
+        "rows",
+        "x",
+        "row",
+        "layout",
+        "horizontal",
+        "stack",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
       ]
     },
     {
