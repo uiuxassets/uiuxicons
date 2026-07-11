@@ -50,7 +50,9 @@ function convertAttrToJsx(attr) {
 }
 
 function convertElementToJsx(html) {
-  const attrPattern = /\b([a-z-]+)="([^"]*)"/g;
+  // Match single- and double-quoted attributes, any letter case, so an
+  // unrecognized attribute can never slip past the allowlist check.
+  const attrPattern = /\b([a-zA-Z-]+)\s*=\s*(?:"[^"]*"|'[^']*')/g;
   let match;
   const foundAttrs = [];
 

@@ -21,6 +21,7 @@ const ROOT = join(__dirname, '..');
 
 const PACKAGE_FILES = [
   'package.json',
+  'packages/core/package.json',
   'packages/react/package.json',
   'packages/vue/package.json',
 ];
@@ -51,6 +52,19 @@ async function release() {
 
   if (run('git status --porcelain') !== '') {
     console.error('Working tree is not clean. Commit or stash changes first.');
+    process.exit(1);
+  }
+
+  // Full build regenerates packages/*/src icons and codepoints from exports/,
+  // so a release can never be tagged from stale codegen or unsynced metadata.
+  console.log('  Running full build...');
+  execSync('npm run build', { cwd: ROOT, stdio: 'inherit' });
+
+  if (run('git status --porcelain') !== '') {
+    console.error(
+      'The build changed tracked files (stale generated sources or codepoints).\n' +
+        'Review the changes, commit them, and run the release again.'
+    );
     process.exit(1);
   }
 
@@ -89,7 +103,7 @@ async function release() {
   const today = new Date().toISOString().slice(0, 10);
   const entryFile = join(ROOT, 'changelog', `${today}.txt`);
   const meta = JSON.parse(await readFile(join(ROOT, 'icons.meta.json'), 'utf8'));
-  const line = `Released ${tag}: @uiuxicons/react and @uiuxicons/vue at ${next}, ${meta.icons.length} icons.\n`;
+  const line = `Released ${tag}: @uiuxicons/core, @uiuxicons/react, and @uiuxicons/vue at ${next}, ${meta.icons.length} icons.\n`;
   if (existsSync(entryFile)) {
     await appendFile(entryFile, line);
   } else {

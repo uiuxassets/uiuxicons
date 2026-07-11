@@ -3,7 +3,7 @@ import { existsSync } from 'fs';
 import { join } from 'path';
 import { optimize } from 'svgo';
 import svgoConfig, { transformToCurrentColor } from '../svgo.config.js';
-import { assertSvgSafe } from './svg-safety.js';
+import { assertSvgSafe, assertAllowedSvgElements } from './svg-safety.js';
 import { assertSafeIconName } from './icon-names.js';
 
 export const STYLES = ['line', 'duotone', 'solid'];
@@ -21,6 +21,9 @@ async function optimizeSvg(inputPath, outputPath, style) {
 
   const transformed = transformToCurrentColor(result.data, style);
   assertSvgSafe(transformed, outputPath);
+  // The optimized output is inlined into the site HTML and bundled in the ZIP,
+  // so enforce the same element allowlist the React/Vue codegen applies.
+  assertAllowedSvgElements(transformed, outputPath);
 
   await mkdir(join(outputPath, '..'), { recursive: true });
   await writeFile(outputPath, transformed);

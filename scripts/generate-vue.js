@@ -36,7 +36,9 @@ function extractInnerSvg(svg) {
 }
 
 function validateAttrs(html) {
-  const attrPattern = /\b([a-z-]+)="([^"]*)"/g;
+  // Match single- and double-quoted attributes, any letter case, so an
+  // unrecognized attribute can never slip past the allowlist check.
+  const attrPattern = /\b([a-zA-Z-]+)\s*=\s*(?:"[^"]*"|'[^']*')/g;
   let match;
   let temp = html;
   while ((match = attrPattern.exec(temp)) !== null) {

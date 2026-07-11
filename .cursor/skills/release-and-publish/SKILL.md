@@ -12,7 +12,7 @@ description: >-
 Two ways to ship changes in this repo, driven by two independent triggers:
 
 - Push to `main` -> CI + site deploy (uiuxicons.com).
-- Push a `vX.Y.Z` tag -> npm publish of `@uiuxicons/react` and `@uiuxicons/vue` (OIDC, no tokens).
+- Push a `vX.Y.Z` tag -> npm publish of `@uiuxicons/core`, `@uiuxicons/react`, and `@uiuxicons/vue` (OIDC, no tokens).
 
 ## Pick the path
 
@@ -59,9 +59,10 @@ git push origin main vX.Y.Z   # pushes BOTH refs: main (CI + deploy) and tag (np
 
 ### What `npm run release` does
 
-- Bumps the version in `package.json`, `packages/react/package.json`, and `packages/vue/package.json` in lockstep, then syncs `package-lock.json` (`npm install --package-lock-only`).
+- Runs a full `npm run build` and aborts if the build changed tracked files (stale codegen guard).
+- Bumps the version in `package.json`, `packages/core/package.json`, `packages/react/package.json`, and `packages/vue/package.json` in lockstep, then syncs `package-lock.json` (`npm install --package-lock-only`).
 - Runs `npm test`.
-- Writes/appends a changelog entry to `changelog/<YYYY-MM-DD>.txt`, format: `Released vX.Y.Z: @uiuxicons/react and @uiuxicons/vue at X.Y.Z, <N> icons.`
+- Writes/appends a changelog entry to `changelog/<YYYY-MM-DD>.txt`, format: `Released vX.Y.Z: @uiuxicons/core, @uiuxicons/react, and @uiuxicons/vue at X.Y.Z, <N> icons.`
 - Commits `Release vX.Y.Z` and creates the `vX.Y.Z` tag.
 - Does NOT push (pushing the tag is the deliberate publish trigger).
 
@@ -69,7 +70,8 @@ git push origin main vX.Y.Z   # pushes BOTH refs: main (CI + deploy) and tag (np
 
 - `npm run sync` auto-assigns each new icon a `category` (`inferCategory`) and enriched search `tags` (`enrichTags`, from the synonym dictionary in `scripts/categories.js`). Eyeball the new `icons.meta.json` entries; to fine-tune, edit `TOKEN_SYNONYMS`/`NAME_EXTRAS` in `scripts/categories.js` or override `category`/`tags` per-icon in `icons.meta.json` (custom values win and are never overwritten).
 - Codepoints are assigned during the build (`buildCodepointMap` in `scripts/font.js`), not by sync. `npm test` only passes after `npm run build`, so never run test between sync and build.
-- `npm run release` requires a clean working tree and verifies all three `package.json` versions match before bumping (`scripts/release.js`).
+- `npm run release` requires a clean working tree and verifies all four `package.json` versions match before bumping (`scripts/release.js`).
+- `@uiuxicons/core` contents (`svg/`, `font/`, `uiuxicons.json`, `codepoints.json`) are generated from `dist/` by the build and gitignored. Never commit them; a build must run before publishing so they exist.
 - Pushing `main` triggers CI (`.github/workflows/ci.yml`) and site deploy (`.github/workflows/deploy.yml`). Pushing the `vX.Y.Z` tag triggers npm publish via OIDC (`.github/workflows/publish.yml`). The tag is the only publish trigger.
 - `dist/` is generated and gitignored. Never commit it.
 - Ignore the `npm warn Unknown env config "devdir"` line in command output. It is sandbox env noise, not a repo issue.
@@ -79,8 +81,9 @@ git push origin main vX.Y.Z   # pushes BOTH refs: main (CI + deploy) and tag (np
 After the publish workflow finishes:
 
 ```bash
+npm view @uiuxicons/core version
 npm view @uiuxicons/react version
 npm view @uiuxicons/vue version
 ```
 
-Both should report the new version.
+All three should report the new version.

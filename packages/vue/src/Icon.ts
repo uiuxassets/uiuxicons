@@ -43,7 +43,10 @@ export const Icon = defineComponent({
         ? { role: "img" }
         : { "aria-hidden": "true", focusable: "false" };
 
-      const style = color ? { color } : undefined;
+      // Merge the color prop with any incoming style attr (matching the React
+      // package): an explicit color in the style attr wins over the prop.
+      const { style: attrStyle, ...restAttrs } = attrs;
+      const style = color ? [{ color }, attrStyle] : attrStyle;
 
       return h("svg", {
         xmlns: "http://www.w3.org/2000/svg",
@@ -52,7 +55,7 @@ export const Icon = defineComponent({
         height: size,
         style,
         ...a11yAttrs,
-        ...attrs,
+        ...restAttrs,
         innerHTML:
           (props.title ? `<title>${escapeHtml(props.title)}</title>` : "") +
           content,

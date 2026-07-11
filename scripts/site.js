@@ -22,6 +22,7 @@ import {
   simplePageScripts,
   docsPageScripts,
 } from './site-snippets.js';
+import { assertDocHtmlSafe } from './doc-safety.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -65,36 +66,15 @@ function highlightDocCode(str, lang) {
 }
 
 // SECURITY: html:true allows raw HTML in docs/*.md (needed for tables, tabs,
-// and the font demo). assertDocHtmlSafe() below rejects injected active content
-// (scripts, inline event handlers, javascript: URLs) at build time so a
-// malicious docs PR cannot introduce XSS into the generated pages.
+// and the font demo). assertDocHtmlSafe (scripts/doc-safety.js) rejects
+// injected active content (scripts, embeds, inline event handlers, unsafe
+// URLs) at build time so a malicious docs PR cannot introduce XSS into the
+// generated pages.
 const markdownIt = new MarkdownIt({
   html: true,
   langPrefix: 'hljs language-',
   highlight: highlightDocCode,
 });
-
-// Tag-anchored so escaped code samples (where `<` becomes `&lt;`) never match;
-// only real rendered HTML elements can trip these.
-const DANGEROUS_DOC_HTML = [
-  { name: '<script>', re: /<\s*script[\s>]/i },
-  { name: '<iframe>', re: /<\s*iframe[\s>]/i },
-  { name: 'inline event handler (on*=)', re: /<[a-z][a-z0-9]*\b[^>]*?\son[a-z]+\s*=/i },
-  {
-    name: 'javascript: URL',
-    re: /<[a-z][a-z0-9]*\b[^>]*?(?:href|src|xlink:href)\s*=\s*["']?\s*javascript:/i,
-  },
-];
-
-function assertDocHtmlSafe(html, sourceName) {
-  const hits = DANGEROUS_DOC_HTML.filter((p) => p.re.test(html)).map((p) => p.name);
-  if (hits.length > 0) {
-    throw new Error(
-      `Unsafe HTML in docs/${sourceName}: ${hits.join(', ')}. ` +
-        `Scripts, inline event handlers, and javascript: URLs are not allowed in docs.`
-    );
-  }
-}
 
 const DEFAULT_DOC_TITLES = {
   introduction: 'Introduction',
@@ -318,7 +298,7 @@ function sharedHeader(
   ];
   
   const badge = totalIcons
-    ? `<span class="inline-flex shrink-0 items-center rounded-md bg-secondary px-1.5 py-1 text-xs font-medium leading-none tabular-nums text-fg">${totalIcons}</span>`
+    ? `<span class="inline-flex shrink-0 items-center rounded-md bg-active px-1.5 py-1 text-xs font-medium leading-none tabular-nums text-main">${totalIcons}</span>`
     : '';
   const linkClass = (link) =>
     currentPage === link.id ? 'text-fg' : 'text-fg-secondary hover:text-fg';
@@ -341,7 +321,11 @@ function sharedHeader(
         </nav>
       </div>
       <div class="flex items-center gap-3 shrink-0">
-        <a href="https://uiuxassets.com" class="hidden md:inline text-sm text-fg-muted hover:text-fg" target="_blank" rel="noopener noreferrer">By UI/UX Assets</a>
+        <div class="hidden md:flex items-center gap-3 text-sm">
+          ${SITE_VERSION ? `<span class="text-fg-muted tabular-nums">v${escapeHtmlText(SITE_VERSION)}</span>
+          <span class="h-3 w-px bg-border" aria-hidden="true"></span>` : ''}
+          <a href="https://uiuxassets.com" class="text-fg-muted hover:text-fg" target="_blank" rel="noopener noreferrer">By UI/UX Assets</a>
+        </div>
         <button
           id="theme-toggle"
           type="button"
@@ -400,8 +384,10 @@ function sharedHeader(
           <a href="${link.href}"${currentPage === link.id ? ' aria-current="page"' : ''} class="inline-flex items-center gap-3 px-3 py-2 text-base rounded-md ${mobileNavLinkClass(link)}"><span class="shrink-0">${link.label}</span>${link.id === 'icons' ? badge : ''}</a>
         `).join('')}
       </nav>
-      <div class="mt-auto p-3 border-t border-border shrink-0">
-        <a id="mobile-nav-footer-link" href="https://uiuxassets.com" class="text-sm text-fg-muted hover:text-fg" target="_blank" rel="noopener noreferrer">By UI/UX Assets</a>
+      <div class="mt-auto p-3 border-t border-border shrink-0 flex items-center gap-3 text-sm">
+        ${SITE_VERSION ? `<span class="text-fg-muted tabular-nums">v${escapeHtmlText(SITE_VERSION)}</span>
+        <span class="h-3 w-px bg-border" aria-hidden="true"></span>` : ''}
+        <a id="mobile-nav-footer-link" href="https://uiuxassets.com" class="text-fg-muted hover:text-fg" target="_blank" rel="noopener noreferrer">By UI/UX Assets</a>
       </div>
     </div>
   </div>`;
@@ -439,6 +425,7 @@ const sharedFooter = `
 // Stylesheet filename referenced by every generated page. The build passes a
 // content-hashed name (styles.<hash>.css) so browsers never serve stale CSS.
 let SITE_CSS_FILE = 'styles.css';
+let SITE_VERSION = '';
 
 async function generateSite({ cssFile } = {}) {
   if (cssFile) SITE_CSS_FILE = cssFile;
@@ -453,6 +440,7 @@ async function generateSite({ cssFile } = {}) {
   } catch (err) {
     throw new Error(`Failed to parse dist/uiuxicons.json: ${err.message}`);
   }
+  SITE_VERSION = meta.version || '';
   
   // Load all SVGs for all style-weight combinations
   const icons = [];
@@ -500,6 +488,7 @@ async function generateSite({ cssFile } = {}) {
             type="text" 
             id="search" 
             placeholder="Search..." 
+            aria-label="Search icons"
             class="h-10 w-full box-border px-3 bg-secondary border border-border hover:border-border-hover focus:border-border-hover rounded-md text-base md:text-sm leading-normal focus:outline-none placeholder:text-fg-muted"
           >
         </div>
@@ -542,7 +531,7 @@ async function generateSite({ cssFile } = {}) {
           <button 
             data-style-btn="${s}" 
             type="button"
-            class="style-btn px-3 py-1.5 text-sm rounded-md cursor-pointer ${i === 0 ? 'bg-active text-main hover:text-main' : 'text-fg-secondary hover:text-fg'}"
+            class="style-btn px-3 py-1.5 text-sm rounded-sm cursor-pointer ${i === 0 ? 'bg-active text-main hover:text-main' : 'text-fg-secondary hover:text-fg'}"
           >${s.charAt(0).toUpperCase() + s.slice(1)}</button>
         `).join('')}
       </div>
@@ -552,7 +541,7 @@ async function generateSite({ cssFile } = {}) {
           <button 
             data-weight-btn="${w}" 
             type="button"
-            class="weight-btn px-3 py-1.5 text-sm rounded-md cursor-pointer ${w === 'regular' ? 'bg-active text-main hover:text-main' : 'text-fg-secondary hover:text-fg'}"
+            class="weight-btn px-3 py-1.5 text-sm rounded-sm cursor-pointer ${w === 'regular' ? 'bg-active text-main hover:text-main' : 'text-fg-secondary hover:text-fg'}"
           >${w.charAt(0).toUpperCase() + w.slice(1)}</button>
         `).join('')}
       </div>
@@ -604,6 +593,9 @@ async function generateSite({ cssFile } = {}) {
         ${icons.map(icon => `
           <div 
             class="icon-item group relative flex flex-col items-center justify-center p-4 rounded-md bg-secondary/70 hover:bg-secondary cursor-pointer"
+            role="button"
+            tabindex="0"
+            aria-label="Copy ${escapeHtmlAttr(icon.name)} SVG"
             data-name="${escapeHtmlAttr(icon.name)}"
             data-category="${escapeHtmlAttr(icon.category)}"
             data-tags="${escapeHtmlAttr(icon.tags.join(' '))}"
@@ -612,7 +604,7 @@ async function generateSite({ cssFile } = {}) {
               meta.weights.map(weight => {
                 const key = `${style}-${weight}`;
                 const isDefault = style === 'line' && weight === 'regular';
-                return `<div data-variant="${key}" class="${isDefault ? 'active' : ''}">${icon.svgs[key] || ''}</div>`;
+                return `<div data-variant="${key}" class="${isDefault ? 'active' : ''}" aria-hidden="true">${icon.svgs[key] || ''}</div>`;
               }).join('')
             ).join('')}
             <span class="mt-2 text-xs text-fg-muted truncate w-full text-center group-hover:text-fg-secondary">${escapeHtmlText(icon.name)}</span>
@@ -875,6 +867,12 @@ async function generateSite({ cssFile } = {}) {
         copySvgMarkup(svg.outerHTML).then((ok) => {
           showToast(ok ? 'Copied SVG' : 'Could not copy - try selecting the icon or use HTTPS');
         });
+      });
+      icon.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          icon.click();
+        }
       });
     });
 

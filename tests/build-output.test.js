@@ -3,7 +3,7 @@ import { existsSync } from 'fs';
 import { readFile, readdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { findUnsafeContent } from '../scripts/svg-safety.js';
+import { findUnsafeContent, findDisallowedElements } from '../scripts/svg-safety.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -116,8 +116,63 @@ describe.skipIf(!hasDist)('build output', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('no optimized SVG contains disallowed elements', async () => {
+    const baseDir = join(DIST, 'uiuxicons');
+    const offenders = [];
+    const variants = await readdir(baseDir);
+    for (const variant of variants) {
+      const variantDir = join(baseDir, variant);
+      const files = (await readdir(variantDir)).filter((f) => f.endsWith('.svg'));
+      for (const file of files) {
+        const content = await readFile(join(variantDir, file), 'utf8');
+        const bad = findDisallowedElements(content);
+        if (bad.length > 0) {
+          offenders.push(`${variant}/${file}: ${bad.join(', ')}`);
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
   it('index.html exists', () => {
     expect(existsSync(join(DIST, 'index.html'))).toBe(true);
+  });
+
+  it('core package has the full SVG set for every variant', async () => {
+    const meta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
+    const coreDir = join(ROOT, 'packages', 'core', 'svg');
+    expect(existsSync(coreDir)).toBe(true);
+    const missing = [];
+    for (const icon of meta.icons) {
+      for (const variant of icon.variants) {
+        const svgPath = join(coreDir, variant, `${icon.name}.svg`);
+        if (!existsSync(svgPath)) missing.push(`${variant}/${icon.name}.svg`);
+      }
+    }
+    expect(missing).toEqual([]);
+  });
+
+  it('core package has font files, CSS, and codepoints', async () => {
+    const fontDir = join(ROOT, 'packages', 'core', 'font');
+    for (const style of ['line', 'duotone', 'solid']) {
+      const files = await readdir(join(fontDir, style));
+      expect(files.filter((f) => f.endsWith('.woff2')).length).toBeGreaterThan(0);
+    }
+    const css = await readFile(join(fontDir, 'uiuxicons.css'), 'utf8');
+    expect(css).toContain('@font-face');
+    const codepoints = JSON.parse(
+      await readFile(join(ROOT, 'packages', 'core', 'codepoints.json'), 'utf8')
+    );
+    expect(Object.keys(codepoints).length).toBeGreaterThan(0);
+  });
+
+  it('core package metadata matches dist metadata', async () => {
+    const distMeta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
+    const coreMeta = JSON.parse(
+      await readFile(join(ROOT, 'packages', 'core', 'uiuxicons.json'), 'utf8')
+    );
+    expect(coreMeta.total).toBe(distMeta.total);
+    expect(coreMeta.version).toBe(distMeta.version);
   });
 
   it('React package dist exists', () => {

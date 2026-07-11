@@ -18,6 +18,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { inferCategory, enrichTags } from './categories.js';
 import { parseExportSvgFilename, assertSafeIconName } from './icon-names.js';
+import { assertValidMetaIcons } from './meta-validation.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -87,6 +88,8 @@ async function loadMeta() {
   if (!Array.isArray(meta.icons)) {
     throw new Error('icons.meta.json must contain an "icons" array');
   }
+  // Hard gate: committed metadata must conform to icons.meta.schema.json.
+  assertValidMetaIcons(meta.icons);
   return meta;
 }
 

@@ -1,0 +1,48 @@
+{
+  "name": "@uiuxicons/core",
+  "version": "0.4.0",
+  "description": "UI/UX Icons core assets - optimized SVGs, web font, and metadata",
+  "author": "UI/UX Icons <hello@uiuxicons.com>",
+  "sideEffects": false,
+  "exports": {
+    "./uiuxicons.json": "./uiuxicons.json",
+    "./codepoints.json": "./codepoints.json",
+    "./svg/*": "./svg/*",
+    "./font/*": "./font/*"
+  },
+  "files": [
+    "svg",
+    "font",
+    "uiuxicons.json",
+    "codepoints.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uiuxassets/uiuxicons/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uiuxassets/uiuxicons.git",
+    "directory": "packages/core"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://uiuxicons.com",
+  "keywords": [
+    "icons",
+    "svg",
+    "icon-font",
+    "webfont",
+    "ui",
+    "ux",
+    "design",
+    "interface",
+    "icon-set",
+    "duotone",
+    "line-icons",
+    "solid-icons"
+  ]
+}

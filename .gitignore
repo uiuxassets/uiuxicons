@@ -4,6 +4,12 @@ node_modules/
 # Build output
 dist/
 
+# Generated @uiuxicons/core assets (populated from dist/ on every build)
+packages/core/svg/
+packages/core/font/
+packages/core/uiuxicons.json
+packages/core/codepoints.json
+
 # OS files
 .DS_Store
 Thumbs.db

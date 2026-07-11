@@ -31,7 +31,7 @@ jobs:
       - name: Verify tag matches package versions
         run: |
           TAG_VERSION="${GITHUB_REF_NAME#v}"
-          for pkg in package.json packages/react/package.json packages/vue/package.json; do
+          for pkg in package.json packages/core/package.json packages/react/package.json packages/vue/package.json; do
             PKG_VERSION="$(node -p "require('./$pkg').version")"
             if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
               echo "::error::Version mismatch in $pkg ($PKG_VERSION) vs tag $TAG_VERSION"
@@ -47,8 +47,14 @@ jobs:
           npm ci
           npm run build
 
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+
       - name: Test
         run: npx vitest run
+
+      - name: Publish @uiuxicons/core
+        run: npm publish -w @uiuxicons/core --provenance --access public
 
       - name: Publish @uiuxicons/react
         run: npm publish -w @uiuxicons/react --provenance --access public

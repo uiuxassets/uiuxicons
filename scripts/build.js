@@ -13,6 +13,7 @@ import { generateSite } from './site.js';
 import { generateReact } from './generate-react.js';
 import { generateVue } from './generate-vue.js';
 import { generateIconFonts } from './font.js';
+import { populateCorePackage } from './core-package.js';
 import { assertSafeIconName } from './icon-names.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -55,6 +56,7 @@ async function build() {
   await optimizeAll(EXPORTS, DIST);
   await generateIconFonts();
   await generateMetadata(ROOT, DIST, iconNames, pkg.version);
+  await populateCorePackage(DIST);
   await createDownloads(DIST);
   await generateReact();
 

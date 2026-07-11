@@ -4,6 +4,7 @@ import { join } from 'path';
 import { STYLES, WEIGHTS } from './optimize.js';
 import { inferCategory, enrichTags, isValidMetaCategory } from './categories.js';
 import { parseExportSvgFilename } from './icon-names.js';
+import { assertValidMetaIcons } from './meta-validation.js';
 
 async function loadCustomMeta(rootDir) {
   const metaPath = join(rootDir, 'icons.meta.json');
@@ -26,6 +27,8 @@ async function loadCustomMeta(rootDir) {
   if (!Array.isArray(data.icons)) {
     throw new Error('icons.meta.json must contain an "icons" array');
   }
+  // Hard gate: committed metadata must conform to icons.meta.schema.json.
+  assertValidMetaIcons(data.icons);
 
   const map = {};
   for (const icon of data.icons) {

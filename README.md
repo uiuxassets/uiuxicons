@@ -21,12 +21,19 @@ npm install
 npm run build
 ```
 
+Then preview the built site locally with clean URLs (so `/docs`, `/examples`, etc. resolve just like production):
+
+```bash
+npm run preview
+```
+
 ## Commands
 
 | Command | Description |
 |---------|-------------|
 | `npm run sync` | Sync metadata with exports folder |
 | `npm run build` | Full build (optimize + JSON + ZIPs + site) |
+| `npm run preview` | Serve `dist/` locally with clean URLs (preview the built site) |
 | `npm test` | Run test suite |
 | `npm run test:watch` | Run tests in watch mode |
 
@@ -67,6 +74,28 @@ dist/
 └── downloads/
     └── uiuxicons.zip    ← svg/, font/ (+ uiuxicons.css, codepoints.json), LICENSE, README.md
 ```
+
+## Using the Assets Directly (npm / CDN)
+
+The raw assets (SVGs, web font, metadata) are published as [`@uiuxicons/core`](https://www.npmjs.com/package/@uiuxicons/core) - no code, no dependencies:
+
+```bash
+npm install @uiuxicons/core
+```
+
+```js
+import gear from "@uiuxicons/core/svg/line-regular/gear.svg";
+import meta from "@uiuxicons/core/uiuxicons.json";
+```
+
+Or straight from a CDN without any build tools:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@uiuxicons/core@0/font/uiuxicons.css" />
+<span class="uiuxicon uiux-line uiux-regular uiux-gear" aria-hidden="true"></span>
+```
+
+See [packages/core/README.md](packages/core/README.md) for full documentation.
 
 ## Using with React
 
@@ -182,6 +211,7 @@ Icons use `currentColor` - set color via CSS:
 ```
 exports/          ← source SVGs from Figma (line/duotone/solid × light/regular/bold)
 scripts/          ← build pipeline (optimize, fonts, metadata, React/Vue codegen, site)
+packages/core/    ← @uiuxicons/core npm package (SVGs, web font, metadata; populated by the build)
 packages/react/   ← @uiuxicons/react npm package (TypeScript, dual ESM/CJS)
 packages/vue/     ← @uiuxicons/vue npm package (TypeScript, dual ESM/CJS)
 docs/             ← markdown content for the docs site
