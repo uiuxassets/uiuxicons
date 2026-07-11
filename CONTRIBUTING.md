@@ -39,7 +39,7 @@ Three targets get updated by Git pushes, driven by two independent triggers:
 |--------|---------|----------|
 | Repo on GitHub | push to `main` | - |
 | Live site ([uiuxicons.com](https://uiuxicons.com)) | push to `main` | [`deploy.yml`](.github/workflows/deploy.yml) |
-| npm packages (`@uiuxicons/react`, `@uiuxicons/vue`) | push a `vX.Y.Z` tag | [`publish.yml`](.github/workflows/publish.yml) |
+| npm packages (`@uiuxicons/core`, `@uiuxicons/react`, `@uiuxicons/vue`) | push a `vX.Y.Z` tag | [`publish.yml`](.github/workflows/publish.yml) |
 
 CI ([`ci.yml`](.github/workflows/ci.yml)) also runs on every push and PR to `main`.
 

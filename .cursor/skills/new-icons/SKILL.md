@@ -123,7 +123,8 @@ directly in `icons.meta.json`).
 npm run build
 ```
 
-Assigns codepoints and regenerates `dist/` plus the React/Vue package sources.
+Assigns codepoints and regenerates `dist/`, the React/Vue package sources, and
+the `@uiuxicons/core` assets (`packages/core/svg`, `font`, metadata - gitignored).
 Required before tests.
 
 ### 7. npm test

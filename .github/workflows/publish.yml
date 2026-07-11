@@ -6,7 +6,7 @@ on:
       - "v*"
 
 # Auth uses npm Trusted Publishing (OIDC) - no tokens or secrets.
-# Both packages must have this repo + workflow configured as a trusted
+# All three packages must have this repo + workflow configured as a trusted
 # publisher on npmjs.com (package Settings -> Trusted publisher).
 permissions:
   contents: read

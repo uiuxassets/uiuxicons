@@ -930,7 +930,7 @@ async function writeLlmsTxt(meta) {
     '> Every icon uses a 24x24 viewBox with currentColor.',
     '',
     '- Website: https://uiuxicons.com',
-    '- Packages: @uiuxicons/react, @uiuxicons/vue',
+    '- Packages: @uiuxicons/core, @uiuxicons/react, @uiuxicons/vue',
     '- License: MIT',
     '',
   ].join('\n');
@@ -1215,7 +1215,7 @@ async function generateDocs(meta, themeIcons, logoIcon, downloadIcon, menuIcon, 
 
   const docsTitle = 'Docs - UI/UX Icons';
   const docsDescription =
-    'Documentation for UI/UX Icons - React (@uiuxicons/react) and Vue (@uiuxicons/vue) packages, SVG download, and web fonts (WOFF2/TTF).';
+    'Documentation for UI/UX Icons - React (@uiuxicons/react) and Vue (@uiuxicons/vue) packages, core assets (@uiuxicons/core), SVG download, and web fonts (WOFF2/TTF).';
 
   const html = layoutSitePage({
     headOptions: {
