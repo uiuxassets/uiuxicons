@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readFile, writeFile, readdir } from 'fs/promises';
+import { readFile, writeFile, readdir, mkdir } from 'fs/promises';
 import { readFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -185,7 +185,7 @@ function absolutePageUrl(pageFile) {
 
 function seoHead({ title, description, pageFile }) {
   const url = absolutePageUrl(pageFile);
-  const imageUrl = `${getSiteOrigin()}/icon.png`;
+  const imageUrl = `${getSiteOrigin()}/og.png`;
   const t = escapeHtmlAttr(title);
   const d = escapeHtmlAttr(description);
   const u = escapeHtmlAttr(url);
@@ -197,6 +197,9 @@ function seoHead({ title, description, pageFile }) {
   <meta property="og:description" content="${d}">
   <meta property="og:url" content="${u}">
   <meta property="og:image" content="${i}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="UI/UX Icons - free icon library">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${t}">
   <meta name="twitter:description" content="${d}">
@@ -216,9 +219,9 @@ function sitePageHead({ title, description, pageFile, robotsNoindex = false, ext
   <title>${escapeHtmlAttr(title)}</title>
   <meta name="description" content="${escapeHtmlAttr(description)}">
 ${robotsLine}${seoHead({ title, description, pageFile })}
-  <link rel="icon" type="image/png" href="icon.png">
-  <link rel="apple-touch-icon" href="icon.png">
-  <link rel="stylesheet" href="${SITE_CSS_FILE}">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <link rel="stylesheet" href="/${SITE_CSS_FILE}">
   ${headThemeInitScript}${extraAfterTheme}
 </head>`;
 }
@@ -242,18 +245,22 @@ ${bodyHtml}
 </html>`;
 }
 
-async function writeSeoAuxFiles() {
+async function writeSeoAuxFiles(meta) {
   const origin = getSiteOrigin();
   const urls = [
     `${origin}/`,
     `${origin}/docs`,
     `${origin}/examples`,
     `${origin}/changelog`,
+    ...meta.icons.map((icon) => `${origin}/icons/${icon.name}`),
   ];
+  const lastmod = new Date().toISOString().slice(0, 10);
   const sitemap =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    urls.map((loc) => `  <url><loc>${escapeXml(loc)}</loc></url>`).join('\n') +
+    urls
+      .map((loc) => `  <url><loc>${escapeXml(loc)}</loc><lastmod>${lastmod}</lastmod></url>`)
+      .join('\n') +
     `\n</urlset>\n`;
   const robots = `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`;
   await writeFile(join(DIST, 'sitemap.xml'), sitemap);
@@ -346,7 +353,7 @@ function sharedHeader(
           <span class="inline-flex size-4 shrink-0 [&>svg]:size-4" aria-hidden="true">${GITHUB_ICON_SVG}</span>
         </a>
         <a
-          href="downloads/uiuxicons.zip"
+          href="/downloads/uiuxicons.zip"
           download="uiuxicons.zip"
           class="inline-flex items-center gap-1.5 px-2.5 py-1.5 max-md:p-2 text-sm rounded-md border border-border bg-secondary hover:bg-tertiary text-fg"
           title="Download all icons (ZIP: SVG, fonts)"
@@ -469,12 +476,22 @@ async function generateSite({ cssFile } = {}) {
   const indexTitle = 'UI/UX Icons - Free Icon Library';
   const indexDescription = `A clean, consistent icon library for modern interfaces. ${meta.total} icons in 3 styles and 3 weights. Free and open source.`;
 
+  const origin = getSiteOrigin();
+  const websiteJsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'UI/UX Icons',
+    url: `${origin}/`,
+    description: indexDescription,
+  }).replace(/</g, '\\u003c');
+
   const html = layoutSitePage({
     headOptions: {
       title: indexTitle,
       description: indexDescription,
       pageFile: 'index.html',
-      extraAfterTheme: '',
+      extraAfterTheme: `
+  <script type="application/ld+json">${websiteJsonLd}</script>`,
     },
     bodyHtml: `  ${sharedHeader('icons', meta.total, themeIcons, logoIcon, downloadIcon, menuIcon)}
   
@@ -589,27 +606,16 @@ async function generateSite({ cssFile } = {}) {
     <!-- Icons Grid -->
     <main class="flex-1">
       <h1 class="sr-only">${escapeHtmlAttr(indexTitle)}</h1>
+      <p class="mb-3 text-sm text-fg-secondary">${meta.total} free, open source icons in 3 styles and 3 weights, crafted for modern interfaces. Click any icon to copy the SVG, or view it for code snippets and downloads. MIT licensed.</p>
       <div id="icons" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
-        ${icons.map(icon => `
-          <div 
-            class="icon-item group relative flex flex-col items-center justify-center p-4 rounded-md bg-secondary/70 hover:bg-secondary cursor-pointer"
-            role="button"
-            tabindex="0"
-            aria-label="Copy ${escapeHtmlAttr(icon.name)} SVG"
-            data-name="${escapeHtmlAttr(icon.name)}"
-            data-category="${escapeHtmlAttr(icon.category)}"
-            data-tags="${escapeHtmlAttr(icon.tags.join(' '))}"
-          >
-            ${meta.styles.map(style => 
-              meta.weights.map(weight => {
-                const key = `${style}-${weight}`;
-                const isDefault = style === 'line' && weight === 'regular';
-                return `<div data-variant="${key}" class="${isDefault ? 'active' : ''}" aria-hidden="true">${icon.svgs[key] || ''}</div>`;
-              }).join('')
-            ).join('')}
-            <span class="mt-2 text-xs text-fg-muted truncate w-full text-center group-hover:text-fg-secondary">${escapeHtmlText(icon.name)}</span>
-          </div>
-        `).join('')}
+        ${icons.map(icon =>
+          `<div class="icon-item" data-name="${escapeHtmlAttr(icon.name)}" data-category="${escapeHtmlAttr(icon.category)}" data-tags="${escapeHtmlAttr(icon.tags.join(' '))}">` +
+          `<div class="icon-svg" aria-hidden="true">${icon.svgs['line-regular'] || ''}</div>` +
+          `<span class="icon-name">${escapeHtmlText(icon.name)}</span>` +
+          // Copy button is added by JS at load (interactive-only); the View
+          // anchor stays static as the crawl path to every icon page.
+          `<div class="icon-actions"><a href="/icons/${icon.name}" class="icon-action">View</a></div></div>`
+        ).join('\n        ')}
       </div>
       
       <!-- No Results -->
@@ -659,10 +665,42 @@ async function generateSite({ cssFile } = {}) {
     }
     updateCategoryLabels();
 
+    // Only the default line-regular variant is inlined in the HTML; other
+    // variants are fetched on demand (same-origin static SVGs) and cached.
+    const variantCache = new Map();
+    iconItems.forEach(icon => {
+      const holder = icon.querySelector('.icon-svg');
+      if (holder) variantCache.set('line-regular/' + icon.dataset.name, holder.innerHTML);
+    });
+
+    function fetchVariantSvg(variant, name) {
+      const key = variant + '/' + name;
+      if (variantCache.has(key)) return Promise.resolve(variantCache.get(key));
+      return fetch('/uiuxicons/' + variant + '/' + name + '.svg')
+        .then(r => {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.text();
+        })
+        .then(text => {
+          if (!text.trimStart().startsWith('<svg')) throw new Error('unexpected content');
+          variantCache.set(key, text);
+          return text;
+        });
+    }
+
     function updateVariant() {
       const variant = currentStyle + '-' + currentWeight;
-      document.querySelectorAll('[data-variant]').forEach(el => {
-        el.classList.toggle('active', el.dataset.variant === variant);
+      iconItems.forEach(icon => {
+        if (icon.classList.contains('hidden')) return; // updated when they become visible
+        const holder = icon.querySelector('.icon-svg');
+        if (!holder || (holder.dataset.shownVariant || 'line-regular') === variant) return;
+        fetchVariantSvg(variant, icon.dataset.name)
+          .then(svg => {
+            if (currentStyle + '-' + currentWeight !== variant) return; // stale switch
+            holder.innerHTML = svg;
+            holder.dataset.shownVariant = variant;
+          })
+          .catch(() => {});
       });
     }
 
@@ -833,6 +871,8 @@ async function generateSite({ cssFile } = {}) {
         if (show) visible++;
       });
       noResults.classList.toggle('hidden', visible > 0);
+      // Newly revealed tiles may still show a previously selected variant
+      updateVariant();
     }
 
     function copySvgMarkup(text) {
@@ -861,18 +901,28 @@ async function generateSite({ cssFile } = {}) {
     }
 
     iconItems.forEach(icon => {
-      icon.addEventListener('click', () => {
-        const svg = icon.querySelector('[data-variant].active svg');
-        if (!svg) return;
-        copySvgMarkup(svg.outerHTML).then((ok) => {
-          showToast(ok ? 'Copied SVG' : 'Could not copy - try selecting the icon or use HTTPS');
-        });
-      });
-      icon.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          icon.click();
-        }
+      // The Copy button only works with JS, so it is injected here instead of
+      // being shipped as static HTML for every tile (saves ~30 KB on the index).
+      const actions = icon.querySelector('.icon-actions');
+      if (actions) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'icon-action';
+        btn.textContent = 'Copy';
+        btn.setAttribute('aria-label', 'Copy ' + icon.dataset.name + ' SVG');
+        actions.insertBefore(btn, actions.firstChild);
+        actions.querySelector('a')?.setAttribute('aria-label', 'View ' + icon.dataset.name + ' icon details');
+      }
+      icon.addEventListener('click', (e) => {
+        // The View link navigates; everything else on the tile copies.
+        if (e.target.closest('a')) return;
+        const variant = currentStyle + '-' + currentWeight;
+        fetchVariantSvg(variant, icon.dataset.name)
+          .then((svg) => copySvgMarkup(svg))
+          .then((ok) => {
+            showToast(ok ? 'Copied SVG' : 'Could not copy - try selecting the icon or use HTTPS');
+          })
+          .catch(() => showToast('Could not copy'));
       });
     });
 
@@ -900,11 +950,14 @@ async function generateSite({ cssFile } = {}) {
   // Generate docs page
   await generateDocs(meta, themeIcons, logoIcon, downloadIcon, menuIcon, listIcon);
 
+  // Generate per-icon detail pages (/icons/{name})
+  await generateIconPages(meta, icons, themeIcons, logoIcon, downloadIcon, menuIcon);
+
   await generate404Page(meta.total, themeIcons, logoIcon, downloadIcon, menuIcon);
 
   await writeLlmsTxt(meta);
 
-  await writeSeoAuxFiles();
+  await writeSeoAuxFiles(meta);
 }
 
 async function writeLlmsTxt(meta) {
@@ -938,6 +991,322 @@ async function writeLlmsTxt(meta) {
   const content = header + sections.join('\n\n---\n\n') + '\n';
   await writeFile(join(DIST, 'llms.txt'), content, 'utf8');
   console.log('  Generated llms.txt');
+}
+
+// ============================================================================
+// PER-ICON PAGES (/icons/{name})
+// ============================================================================
+
+function iconDisplayName(name) {
+  return name
+    .split('-')
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join(' ');
+}
+
+/** Up to `count` icons from the same category, alphabetically nearest to `icon`. */
+function relatedIcons(icon, icons, count = 8) {
+  const siblings = icons
+    .filter((i) => i.category === icon.category && i.name !== icon.name)
+    .sort((a, b) => a.name.localeCompare(b.name));
+  if (siblings.length <= count) return siblings;
+  // Window centered on the icon's alphabetical position for varied cross-links.
+  let pos = siblings.findIndex((i) => i.name.localeCompare(icon.name) > 0);
+  if (pos === -1) pos = siblings.length;
+  const start = Math.max(0, Math.min(pos - Math.floor(count / 2), siblings.length - count));
+  return siblings.slice(start, start + count);
+}
+
+function iconPageJsonLd(icon, display, description) {
+  const origin = getSiteOrigin();
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'All icons', item: `${origin}/` },
+      { '@type': 'ListItem', position: 2, name: icon.name },
+    ],
+  };
+  const image = {
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    name: `${display} icon`,
+    description,
+    contentUrl: `${origin}/uiuxicons/line-regular/${icon.name}.svg`,
+    thumbnailUrl: `${origin}/uiuxicons/line-regular/${icon.name}.svg`,
+    encodingFormat: 'image/svg+xml',
+    license: 'https://github.com/uiuxassets/uiuxicons/blob/main/LICENSE',
+    acquireLicensePage: `${origin}/docs`,
+    creator: { '@type': 'Organization', name: 'UI/UX Icons', url: `${origin}/` },
+    creditText: 'UI/UX Icons',
+    copyrightNotice: 'UI/UX Icons',
+  };
+  // JSON.stringify never emits "</" unescaped in these fields (names are
+  // [a-z0-9-], other strings are ours), but guard anyway for script contexts.
+  const safe = (obj) => JSON.stringify(obj).replace(/</g, '\\u003c');
+  return `
+  <script type="application/ld+json">${safe(breadcrumb)}</script>
+  <script type="application/ld+json">${safe(image)}</script>`;
+}
+
+function iconSnippets(icon, pascalName) {
+  const e = escapeHtmlText;
+  return [
+    {
+      id: 'react',
+      label: 'React',
+      code: e(`import { Icon${pascalName} } from "@uiuxicons/react";\n\n<Icon${pascalName} />`),
+    },
+    {
+      id: 'vue',
+      label: 'Vue',
+      code: e(`import { Icon${pascalName} } from "@uiuxicons/vue";\n\n<Icon${pascalName} />`),
+    },
+    {
+      id: 'font',
+      label: 'Font',
+      code: e(`<span class="uiuxicon uiux-line uiux-regular uiux-${icon.name}" aria-hidden="true"></span>`),
+    },
+    {
+      id: 'cdn',
+      label: 'CDN',
+      code: e(`https://cdn.jsdelivr.net/npm/@uiuxicons/core@0/svg/line-regular/${icon.name}.svg`),
+    },
+  ];
+}
+
+function iconInActionHtml(defaultSvg) {
+  const iconSpan = (extra = '') =>
+    `<span class="inline-flex size-4 shrink-0 [&>svg]:size-4${extra}" aria-hidden="true">${defaultSvg}</span>`;
+  return `
+      <div class="rounded-lg border border-border bg-secondary/70 p-5 flex flex-col gap-4 max-w-md" aria-hidden="true">
+        <div class="inline-flex items-center gap-2 self-start px-3.5 py-2 rounded-md bg-active text-main text-sm font-medium">
+          ${iconSpan()}
+          <span>Button</span>
+        </div>
+        <div class="flex items-center gap-2.5 h-10 px-3 rounded-md border border-border bg-main text-sm text-fg-muted">
+          ${iconSpan()}
+          <span>Placeholder text</span>
+        </div>
+        <div class="flex items-center gap-2.5 px-3 py-2.5 rounded-md bg-tertiary/60 text-sm text-fg">
+          ${iconSpan()}
+          <span class="flex-1 min-w-0 truncate">List item</span>
+          <span class="text-fg-muted text-xs">Detail</span>
+        </div>
+      </div>`;
+}
+
+async function generateIconPages(meta, icons, themeIcons, logoIcon, downloadIcon, menuIcon) {
+  await mkdir(join(DIST, 'icons'), { recursive: true });
+
+  for (const icon of icons) {
+    const name = icon.name;
+    const display = iconDisplayName(name);
+    const pascalName = name.split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('');
+    const title = `${display} Icon - UI/UX Icons`;
+    const tagText = icon.tags.slice(0, 6).join(', ');
+    const description = `Free ${display} icon in 3 styles (line, duotone, solid) and 3 weights. Copy the SVG or use it via React, Vue, icon font, or CDN. Tags: ${tagText}. MIT licensed.`;
+    const related = relatedIcons(icon, icons);
+    const snippets = iconSnippets(icon, pascalName);
+    const defaultSvg = icon.svgs['line-regular'] || '';
+    const categoryLabel = icon.category.charAt(0).toUpperCase() + icon.category.slice(1);
+
+    const bodyHtml = `  ${sharedHeader('icons', meta.total, themeIcons, logoIcon, downloadIcon, menuIcon)}
+
+  <main class="max-w-5xl mx-auto p-3 md:px-6 md:py-8">
+    <nav aria-label="Breadcrumb" class="mb-6 text-sm">
+      <ol class="flex items-center gap-2">
+        <li><a href="/" class="text-fg-secondary hover:text-fg">All icons</a></li>
+        <li class="text-fg-muted" aria-hidden="true">/</li>
+        <li class="text-fg" aria-current="page">${escapeHtmlText(name)}</li>
+      </ol>
+    </nav>
+
+    <div class="flex flex-col sm:flex-row gap-6 md:gap-10">
+      <div class="shrink-0">
+        <div id="icon-preview" class="flex items-center justify-center size-40 sm:size-48 rounded-lg border border-border bg-secondary/70 text-fg [&_svg]:size-20 sm:[&_svg]:size-24">
+          ${meta.styles.map((style) =>
+            meta.weights.map((weight) => {
+              const key = `${style}-${weight}`;
+              const isDefault = key === 'line-regular';
+              return `<div data-variant="${key}" class="${isDefault ? 'active' : ''}" aria-hidden="true">${icon.svgs[key] || ''}</div>`;
+            }).join('')
+          ).join('')}
+        </div>
+      </div>
+
+      <div class="flex-1 min-w-0">
+        <h1 class="text-2xl font-bold leading-tight">${escapeHtmlText(display)} Icon</h1>
+        <p class="mt-1.5 text-sm text-fg-muted">${escapeHtmlText(icon.tags.join(' \u00b7 '))}</p>
+        <p class="mt-1.5 text-sm text-fg-secondary">Category: <span class="text-fg">${escapeHtmlText(categoryLabel)}</span></p>
+
+        <div class="mt-5 flex flex-wrap gap-3">
+          <div class="flex gap-1 bg-secondary p-1 rounded-md">
+            ${meta.styles.map((s, i) => `
+            <button type="button" data-style-btn="${s}" class="style-btn px-3 py-1.5 text-sm rounded-sm cursor-pointer ${i === 0 ? 'bg-active text-main hover:text-main' : 'text-fg-secondary hover:text-fg'}">${s.charAt(0).toUpperCase() + s.slice(1)}</button>`).join('')}
+          </div>
+          <div class="flex gap-1 bg-secondary p-1 rounded-md">
+            ${meta.weights.map((w) => `
+            <button type="button" data-weight-btn="${w}" class="weight-btn px-3 py-1.5 text-sm rounded-sm cursor-pointer ${w === 'regular' ? 'bg-active text-main hover:text-main' : 'text-fg-secondary hover:text-fg'}">${w.charAt(0).toUpperCase() + w.slice(1)}</button>`).join('')}
+          </div>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-3">
+          <button type="button" id="copy-svg-btn" class="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm rounded-md bg-active text-main font-medium cursor-pointer hover:opacity-90">Copy SVG</button>
+          <a id="download-svg-link" href="/uiuxicons/line-regular/${name}.svg" download="${name}.svg" class="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm rounded-md border border-border bg-secondary hover:bg-tertiary text-fg">Download SVG</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="mt-12 icon-snippets">
+      <h2 class="text-lg font-semibold mb-3">Use this icon</h2>
+      <div class="docs-pkg-tabs" data-icon-snippets>
+        <div class="docs-pkg-tabs-bar" role="tablist">
+          ${snippets.map((s, i) => `<button role="tab" data-snippet="${s.id}" aria-selected="${i === 0 ? 'true' : 'false'}">${s.label}</button>`).join('\n          ')}
+        </div>
+        <div class="docs-pkg-tabs-panels relative">
+          ${snippets.map((s, i) => `<pre data-snippet="${s.id}"${i === 0 ? '' : ' hidden'}><code>${s.code}</code></pre>`).join('\n          ')}
+          <button type="button" id="copy-snippet-btn" class="absolute top-2 right-2 px-2 py-1 text-xs rounded-md border border-border bg-secondary hover:bg-tertiary text-fg-secondary hover:text-fg cursor-pointer">Copy</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-lg font-semibold mb-3">In action</h2>
+${iconInActionHtml(defaultSvg)}
+    </section>
+
+    ${related.length ? `<section class="mt-12">
+      <h2 class="text-lg font-semibold mb-3">Related icons</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+        ${related.map((r) => `
+        <a href="/icons/${r.name}" class="group flex flex-col items-center justify-center p-4 rounded-md bg-secondary/70 hover:bg-secondary text-fg">
+          <span class="inline-flex [&>svg]:size-6" aria-hidden="true">${r.svgs['line-regular'] || ''}</span>
+          <span class="mt-2 text-xs text-fg-muted truncate w-full text-center group-hover:text-fg-secondary">${escapeHtmlText(r.name)}</span>
+        </a>`).join('')}
+      </div>
+    </section>` : ''}
+  </main>
+
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 px-3 py-2 bg-tertiary text-sm rounded-md hidden"></div>
+`;
+
+    const scriptInner = `${simplePageScripts}
+
+    // Style/weight switcher (icon page: updates preview + download link)
+    (function () {
+      const styleBtns = document.querySelectorAll('[data-style-btn]');
+      const weightBtns = document.querySelectorAll('[data-weight-btn]');
+      const downloadLink = document.getElementById('download-svg-link');
+      const iconName = ${JSON.stringify(name)};
+      let currentStyle = 'line';
+      let currentWeight = 'regular';
+
+      function setActive(entries) {
+        entries.forEach(({ btn, active }) => {
+          btn.classList.toggle('bg-active', active);
+          btn.classList.toggle('text-main', active);
+          btn.classList.toggle('hover:text-main', active);
+          btn.classList.toggle('text-fg-secondary', !active);
+          btn.classList.toggle('hover:text-fg', !active);
+        });
+      }
+
+      function update() {
+        const variant = currentStyle + '-' + currentWeight;
+        document.querySelectorAll('#icon-preview [data-variant]').forEach((el) => {
+          el.classList.toggle('active', el.dataset.variant === variant);
+        });
+        setActive([...styleBtns].map((btn) => ({ btn, active: btn.dataset.styleBtn === currentStyle })));
+        setActive([...weightBtns].map((btn) => ({ btn, active: btn.dataset.weightBtn === currentWeight })));
+        if (downloadLink) {
+          downloadLink.href = '/uiuxicons/' + variant + '/' + iconName + '.svg';
+          downloadLink.setAttribute('download', iconName + '-' + variant + '.svg');
+        }
+      }
+
+      styleBtns.forEach((btn) => btn.addEventListener('click', () => { currentStyle = btn.dataset.styleBtn; update(); }));
+      weightBtns.forEach((btn) => btn.addEventListener('click', () => { currentWeight = btn.dataset.weightBtn; update(); }));
+    })();
+
+    // Copy actions + toast
+    (function () {
+      const toast = document.getElementById('toast');
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.remove('hidden');
+        toast.classList.add('toast');
+        setTimeout(() => { toast.classList.add('hidden'); toast.classList.remove('toast'); }, 2000);
+      }
+      function copyText(text) {
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          return navigator.clipboard.writeText(text).then(() => true, () => false);
+        }
+        return new Promise((resolve) => {
+          try {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            const ok = document.execCommand('copy');
+            document.body.removeChild(ta);
+            resolve(ok);
+          } catch (e) {
+            resolve(false);
+          }
+        });
+      }
+
+      document.getElementById('copy-svg-btn')?.addEventListener('click', () => {
+        const svg = document.querySelector('#icon-preview [data-variant].active svg');
+        if (!svg) return;
+        copyText(svg.outerHTML).then((ok) => showToast(ok ? 'Copied SVG' : 'Could not copy - use HTTPS'));
+      });
+
+      // Snippet tabs + copy
+      const tabs = document.querySelectorAll('[data-icon-snippets] [role="tab"]');
+      const panels = document.querySelectorAll('[data-icon-snippets] pre[data-snippet]');
+      const KEY = 'uiuxicons-snippet';
+      function activate(id) {
+        let found = false;
+        panels.forEach((p) => { if (p.dataset.snippet === id) found = true; });
+        if (!found) return;
+        tabs.forEach((t) => t.setAttribute('aria-selected', t.dataset.snippet === id ? 'true' : 'false'));
+        panels.forEach((p) => { p.hidden = p.dataset.snippet !== id; });
+        try { localStorage.setItem(KEY, id); } catch (_) {}
+      }
+      tabs.forEach((t) => t.addEventListener('click', () => activate(t.dataset.snippet)));
+      try {
+        const saved = localStorage.getItem(KEY);
+        if (saved) activate(saved);
+      } catch (_) {}
+
+      document.getElementById('copy-snippet-btn')?.addEventListener('click', () => {
+        const visible = [...panels].find((p) => !p.hidden);
+        if (!visible) return;
+        copyText(visible.textContent.trim()).then((ok) => showToast(ok ? 'Copied' : 'Could not copy - use HTTPS'));
+      });
+    })();
+`;
+
+    const html = layoutSitePage({
+      headOptions: {
+        title,
+        description,
+        pageFile: `icons/${name}.html`,
+        extraAfterTheme: iconPageJsonLd(icon, display, description),
+      },
+      bodyHtml,
+      scriptInner,
+    });
+
+    await writeFile(join(DIST, 'icons', `${name}.html`), html);
+  }
+
+  console.log(`  Generated ${icons.length} icon pages (icons/{name}.html)`);
 }
 
 async function generate404Page(

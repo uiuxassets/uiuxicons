@@ -127,6 +127,67 @@ select.toolbar-select {
 .icon-item.hidden { display: none; }
 .icon-item svg { width: var(--icon-size, 24px); height: var(--icon-size, 24px); }
 
+/* Grid tile component classes: repeated on every icon, so utility strings
+   would bloat index.html by tens of KB. Mirrors the shared tile look. */
+.icon-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  background: rgb(var(--secondary) / 0.7);
+  cursor: pointer;
+}
+
+.icon-item:hover { background: rgb(var(--secondary)); }
+
+.icon-name {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: rgb(var(--fg-muted));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+}
+
+.icon-item:hover .icon-name { color: rgb(var(--fg-secondary)); }
+
+/* Copy/View overlay on grid tiles (component classes keep 157 tiles light) */
+.icon-actions {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  border-radius: 0.375rem;
+  background: rgb(var(--main) / 0.7);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.icon-item:hover .icon-actions,
+.icon-item:focus-within .icon-actions { opacity: 1; }
+
+.icon-action {
+  padding: 0.375rem 0.625rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgb(var(--border));
+  background: rgb(var(--secondary));
+  color: rgb(var(--fg));
+  cursor: pointer;
+}
+
+.icon-action:hover { background: rgb(var(--tertiary)); }
+
 .toast { animation: fadeInOut 2s ease-in-out forwards; }
 
 @keyframes fadeInOut {
@@ -248,6 +309,22 @@ code { font-family: inherit; }
 
 .docs-section-inner table.docs-table--props tbody td:last-child {
   color: var(--color-fg);
+}
+
+/* Icon detail pages - snippet panels (tab bar styling shared with docs-pkg-tabs) */
+.icon-snippets pre code {
+  display: block;
+  padding: 1rem;
+  padding-right: 4.5rem; /* room for the floating Copy button */
+  background: var(--color-code);
+  border: 1px solid var(--color-border);
+  border-top: none;
+  border-radius: 0 0 0.375rem 0.375rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 /* Docs package manager tabs */

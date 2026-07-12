@@ -127,6 +127,10 @@ Assigns codepoints and regenerates `dist/`, the React/Vue package sources, and
 the `@uiuxicons/core` assets (`packages/core/svg`, `font`, metadata - gitignored).
 Required before tests.
 
+The build also generates a detail page per icon (`dist/icons/<name>.html`) and
+adds it to `sitemap.xml` - fully automatic, no per-icon work. Optional
+spot-check: `npm run preview`, then open `/icons/<new-name>`.
+
 ### 7. npm test
 
 ```bash

@@ -29,11 +29,11 @@ describe.skipIf(!hasDist)('site output', () => {
   });
 
   it.each([...PAGES, '404.html'])(
-    '%s links a fingerprinted stylesheet that exists',
+    '%s links a root-absolute fingerprinted stylesheet that exists',
     async (page) => {
       const html = await readFile(join(DIST, page), 'utf8');
-      const match = html.match(/<link rel="stylesheet" href="(styles\.[a-f0-9]{10}\.css)">/);
-      expect(match, `${page} should link styles.<hash>.css`).not.toBeNull();
+      const match = html.match(/<link rel="stylesheet" href="\/(styles\.[a-f0-9]{10}\.css)">/);
+      expect(match, `${page} should link /styles.<hash>.css`).not.toBeNull();
       expect(existsSync(join(DIST, match[1]))).toBe(true);
     }
   );
@@ -67,6 +67,72 @@ describe.skipIf(!hasDist)('site output', () => {
     const css = await readFile(join(DIST, 'font', 'uiuxicons.css'), 'utf8');
     expect(css).toContain('font-display: swap');
     expect(css).not.toContain('font-display: block');
+  });
+
+  it('index.html stays under the size budget', async () => {
+    const html = await readFile(join(DIST, 'index.html'), 'utf8');
+    expect(html.length).toBeLessThan(200 * 1024);
+  });
+
+  it('index.html has WebSite JSON-LD and Copy/View tile overlays', async () => {
+    const html = await readFile(join(DIST, 'index.html'), 'utf8');
+    const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+    expect(blocks.length).toBeGreaterThanOrEqual(1);
+    const types = blocks.map((b) => JSON.parse(b[1])['@type']);
+    expect(types).toContain('WebSite');
+    expect(html).toContain('class="icon-actions"');
+  });
+
+  describe('icon pages', () => {
+    it('exist for every icon in the metadata', async () => {
+      const meta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
+      expect(meta.icons.length).toBeGreaterThan(0);
+      for (const icon of meta.icons) {
+        expect(
+          existsSync(join(DIST, 'icons', `${icon.name}.html`)),
+          `missing icon page for ${icon.name}`
+        ).toBe(true);
+      }
+    });
+
+    it('have SEO head, actions, breadcrumb, and valid JSON-LD', async () => {
+      const meta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
+      // Structure is identical across pages; sample a spread instead of all 150+.
+      const sample = [
+        meta.icons[0],
+        meta.icons[Math.floor(meta.icons.length / 2)],
+        meta.icons[meta.icons.length - 1],
+      ];
+      for (const icon of sample) {
+        const html = await readFile(join(DIST, 'icons', `${icon.name}.html`), 'utf8');
+        expect(html).toContain(`<link rel="canonical" href="https://uiuxicons.com/icons/${icon.name}">`);
+        expect(html).toContain('Copy SVG');
+        expect(html).toContain('Download SVG');
+        expect(html).toMatch(/<a href="\/"[^>]*>All icons<\/a>/);
+        expect(html).toContain(`/uiuxicons/line-regular/${icon.name}.svg`);
+        const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+        const types = blocks.map((b) => JSON.parse(b[1])['@type']);
+        expect(types).toContain('BreadcrumbList');
+        expect(types).toContain('ImageObject');
+      }
+    });
+  });
+
+  it('sitemap.xml lists every icon page with lastmod', async () => {
+    const xml = await readFile(join(DIST, 'sitemap.xml'), 'utf8');
+    const meta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
+    const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    expect(locs.length).toBe(PAGES.length + meta.icons.length);
+    for (const icon of meta.icons) {
+      expect(locs).toContain(`https://uiuxicons.com/icons/${icon.name}`);
+    }
+    expect(xml).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/);
+  });
+
+  it('og.png exists and pages reference it', async () => {
+    expect(existsSync(join(DIST, 'og.png'))).toBe(true);
+    const html = await readFile(join(DIST, 'index.html'), 'utf8');
+    expect(html).toContain('property="og:image" content="https://uiuxicons.com/og.png"');
   });
 
   it('React bundles carry the "use client" directive', async () => {

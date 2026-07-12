@@ -74,6 +74,7 @@ git push origin main vX.Y.Z   # pushes BOTH refs: main (CI + deploy) and tag (np
 - `@uiuxicons/core` contents (`svg/`, `font/`, `uiuxicons.json`, `codepoints.json`) are generated from `dist/` by the build and gitignored. Never commit them; a build must run before publishing so they exist.
 - Pushing `main` triggers CI (`.github/workflows/ci.yml`) and site deploy (`.github/workflows/deploy.yml`). Pushing the `vX.Y.Z` tag triggers npm publish via OIDC (`.github/workflows/publish.yml`). The tag is the only publish trigger.
 - `dist/` is generated and gitignored. Never commit it.
+- The site (including the per-icon pages under `/icons/` and the sitemap) regenerates on every build; deploying `main` ships them automatically - no separate step.
 - Ignore the `npm warn Unknown env config "devdir"` line in command output. It is sandbox env noise, not a repo issue.
 
 ## Verify a release
