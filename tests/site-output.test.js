@@ -108,13 +108,38 @@ describe.skipIf(!hasDist)('site output', () => {
         expect(html).toContain(`<link rel="canonical" href="https://uiuxicons.com/icons/${icon.name}">`);
         expect(html).toContain('Copy SVG');
         expect(html).toContain('Download SVG');
-        expect(html).toMatch(/<a href="\/"[^>]*>All icons<\/a>/);
+        expect(html).toMatch(/<a href="\/"[^>]*>All Icons<\/a>/);
         expect(html).toContain(`/uiuxicons/line-regular/${icon.name}.svg`);
         const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
         const types = blocks.map((b) => JSON.parse(b[1])['@type']);
         expect(types).toContain('BreadcrumbList');
         expect(types).toContain('ImageObject');
       }
+    });
+
+    it('use shared tiles, a single preview holder, and responsive controls', async () => {
+      const meta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
+      const html = await readFile(join(DIST, 'icons', `${meta.icons[0].name}.html`), 'utf8');
+      // Hero preview is one swap holder, not a stack of inlined variants
+      const preview = html.match(/<div id="icon-preview"[\s\S]*?<\/div>\s*<\/div>/)[0];
+      expect(preview).toContain('class="icon-svg"');
+      expect(preview).not.toContain('data-variant');
+      // Related icons reuse the homepage .icon-item component with hover actions
+      expect(html).toContain('id="related-icons"');
+      expect(html).toMatch(/<div id="related-icons"[\s\S]*?class="icon-item"/);
+      expect(html).toMatch(/<div id="related-icons"[\s\S]*?class="icon-actions"/);
+      // Breadcrumb is a component: chip for the current page, chevron separators
+      expect(html).toMatch(/<span[^>]*aria-current="page"[^>]*>/);
+      // Copyable slug chip under the h1
+      expect(html).toContain('id="copy-name-btn"');
+      // Grids enforce a minimum tile width via auto-fill columns
+      expect(html).toContain('grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))]');
+      // Style/weight selects below md, button toggles at md+
+      expect(html).toMatch(/<div class="mt-5 grid grid-cols-2 gap-3 md:hidden">\s*<select id="style-select"/);
+      expect(html).toContain('id="weight-select"');
+      expect(html).toContain('class="mt-5 hidden md:flex flex-wrap gap-3"');
+      // In action demo has a real, focusable search input
+      expect(html).toMatch(/<input type="text" placeholder="Search\.\.\." aria-label="Example search input"/);
     });
   });
 

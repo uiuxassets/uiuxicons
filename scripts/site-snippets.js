@@ -8,6 +8,87 @@ export const headThemeInitScript = `<script>(function(){try{var t=localStorage.g
 /** Defines window.uiuxStartFocusTrap(panel) → stop function; restores focus on stop. */
 export const focusTrapRuntime = `(function(){function q(p){return[].slice.call(p.querySelectorAll("a[href],button:not([disabled]),textarea:not([disabled]),input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex=\\"-1\\"])")).filter(function(el){return el.offsetWidth>0||el.offsetHeight>0||el.getClientRects().length>0;});}window.uiuxStartFocusTrap=function(panel){var prev=document.activeElement;if(!panel.hasAttribute("tabindex"))panel.setAttribute("tabindex","-1");panel.style.outline="none";panel.focus();function onKey(e){if(e.key!=="Tab")return;var list=q(panel);if(!list.length)return;var a=list[0],b=list[list.length-1],act=document.activeElement;if(e.shiftKey){if(act===a||act===panel){e.preventDefault();b.focus();}}else if(act===b){e.preventDefault();a.focus();}}panel.addEventListener("keydown",onKey);return function(){panel.removeEventListener("keydown",onKey);if(prev&&typeof prev.focus==="function")prev.focus();}};})();`;
 
+/**
+ * Icon tile runtime shared by the homepage grid and the related-icons grid on
+ * icon detail pages. Only the line-regular variant is inlined in the HTML;
+ * other variants are fetched on demand (same-origin static SVGs) and cached.
+ *
+ * Defines:
+ * - window.uiuxVariantSvg(variant, name) → Promise<svg markup>
+ * - window.uiuxUpdateTiles(rootSel, variant, isCurrent) → swap visible .icon-svg holders
+ * - window.uiuxInitIconTiles(rootSel, opts) → seed cache, inject Copy button, wire click-to-copy
+ *   opts: { getVariant, copyText, onCopy }
+ */
+export const iconTileRuntime = `
+  (function () {
+    const cache = new Map();
+
+    function fetchVariantSvg(variant, name) {
+      const key = variant + '/' + name;
+      if (cache.has(key)) return Promise.resolve(cache.get(key));
+      return fetch('/uiuxicons/' + variant + '/' + name + '.svg')
+        .then((r) => {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.text();
+        })
+        .then((text) => {
+          if (!text.trimStart().startsWith('<svg')) throw new Error('unexpected content');
+          cache.set(key, text);
+          return text;
+        });
+    }
+    window.uiuxVariantSvg = fetchVariantSvg;
+
+    // Seed the cache from markup already inlined in the HTML
+    window.uiuxSeedVariant = function (variant, name, svg) {
+      cache.set(variant + '/' + name, svg);
+    };
+
+    window.uiuxUpdateTiles = function (rootSel, variant, isCurrent) {
+      document.querySelectorAll(rootSel + ' .icon-item').forEach((tile) => {
+        if (tile.classList.contains('hidden')) return; // updated when they become visible
+        const holder = tile.querySelector('.icon-svg');
+        if (!holder || (holder.dataset.shownVariant || 'line-regular') === variant) return;
+        fetchVariantSvg(variant, tile.dataset.name)
+          .then((svg) => {
+            if (isCurrent && !isCurrent(variant)) return; // stale switch
+            holder.innerHTML = svg;
+            holder.dataset.shownVariant = variant;
+          })
+          .catch(() => {});
+      });
+    };
+
+    window.uiuxInitIconTiles = function (rootSel, opts) {
+      document.querySelectorAll(rootSel + ' .icon-item').forEach((tile) => {
+        const holder = tile.querySelector('.icon-svg');
+        if (holder) cache.set('line-regular/' + tile.dataset.name, holder.innerHTML);
+        // The Copy button only works with JS, so it is injected here instead
+        // of being shipped as static HTML for every tile (saves ~30 KB on the
+        // index). The View anchor stays static as the crawl path.
+        const actions = tile.querySelector('.icon-actions');
+        if (actions) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'icon-action';
+          btn.textContent = 'Copy';
+          btn.setAttribute('aria-label', 'Copy ' + tile.dataset.name + ' SVG');
+          actions.insertBefore(btn, actions.firstChild);
+          actions.querySelector('a')?.setAttribute('aria-label', 'View ' + tile.dataset.name + ' icon details');
+        }
+        tile.addEventListener('click', (e) => {
+          // The View link navigates; everything else on the tile copies.
+          if (e.target.closest('a')) return;
+          fetchVariantSvg(opts.getVariant(), tile.dataset.name)
+            .then((svg) => opts.copyText(svg))
+            .then((ok) => opts.onCopy(ok))
+            .catch(() => opts.onCopy(false));
+        });
+      });
+    };
+  })();
+`;
+
 /** Theme toggle for pages without the index color picker (docs, examples, changelog). */
 export const themeToggleBodyScript = `
   const themeToggle = document.getElementById('theme-toggle');

@@ -123,7 +123,6 @@ select.toolbar-select {
 }
 
 /* Icons page */
-[data-variant]:not(.active) { display: none; }
 .icon-item.hidden { display: none; }
 .icon-item svg { width: var(--icon-size, 24px); height: var(--icon-size, 24px); }
 
@@ -157,17 +156,20 @@ select.toolbar-select {
 
 .icon-item:hover .icon-name { color: rgb(var(--fg-secondary)); }
 
-/* Copy/View overlay on grid tiles (component classes keep 157 tiles light) */
+/* Copy/View overlay on grid tiles (component classes keep 157 tiles light).
+   Anchored to the bottom; on hover the name label fades out and the buttons
+   take its place, so the icon itself stays fully visible. */
 .icon-actions {
   position: absolute;
-  inset: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.375rem;
-  border-radius: 0.375rem;
-  background: rgb(var(--main) / 0.7);
+  padding: 0.375rem;
   opacity: 0;
   transition: opacity 0.1s ease;
 }
@@ -175,15 +177,20 @@ select.toolbar-select {
 .icon-item:hover .icon-actions,
 .icon-item:focus-within .icon-actions { opacity: 1; }
 
+.icon-item:hover .icon-name,
+.icon-item:focus-within .icon-name { opacity: 0; }
+
 .icon-action {
-  padding: 0.375rem 0.625rem;
+  padding: 0.125rem 0.375rem;
   font-size: 0.75rem;
   line-height: 1rem;
-  border-radius: 0.375rem;
+  border-radius: 0.25rem;
   border: 1px solid rgb(var(--border));
   background: rgb(var(--secondary));
   color: rgb(var(--fg));
   cursor: pointer;
+  width: 100%;
+  text-align: center;
 }
 
 .icon-action:hover { background: rgb(var(--tertiary)); }
@@ -326,6 +333,12 @@ code { font-family: inherit; }
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+
+/* Snippet copy button: hidden until the code block is hovered or the button
+   is focused. On touch devices the first tap triggers sticky hover. */
+.snippet-copy-btn { opacity: 0; transition: opacity 0.1s ease; }
+.docs-pkg-tabs-panels:hover .snippet-copy-btn,
+.snippet-copy-btn:focus-visible { opacity: 1; }
 
 /* Docs package manager tabs */
 .docs-pkg-tabs { margin-bottom: 1rem; }
