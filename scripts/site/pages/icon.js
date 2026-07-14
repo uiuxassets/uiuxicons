@@ -83,7 +83,7 @@ function iconInActionHtml(defaultSvg, chevronSvg) {
         <div class="rounded-lg border border-border bg-secondary/70 p-6 flex items-center min-h-32">
           <div class="group relative w-full">
             <span class="in-action-icon pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 inline-flex size-4 [&>svg]:size-4 text-fg-muted group-focus-within:text-fg" aria-hidden="true">${defaultSvg}</span>
-            <input type="text" placeholder="Search..." aria-label="Example search input" class="h-10 w-full box-border pl-9 pr-12 bg-main border border-border hover:border-border-hover focus:border-border-hover rounded-md text-sm text-fg placeholder:text-fg-muted focus:outline-none">
+            <input type="text" placeholder="Search..." aria-label="Example search input" class="h-10 w-full box-border pl-9 pr-12 bg-main border border-border hover:border-border-hover focus:border-border-hover rounded-md text-base md:text-sm text-fg placeholder:text-fg-muted focus:outline-none">
             <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rounded-sm border border-border px-1.5 py-0.5 text-[10px] leading-none text-fg-muted" aria-hidden="true">\u2318K</span>
           </div>
         </div>
