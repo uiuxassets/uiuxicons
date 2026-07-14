@@ -125,7 +125,7 @@ describe.skipIf(!hasDist)('site output', () => {
         expect(html).toContain(`<link rel="canonical" href="https://uiuxicons.com/icons/${icon.name}">`);
         expect(html).toContain('Copy SVG');
         expect(html).toContain('Download SVG');
-        expect(html).toMatch(/<a href="\/"[^>]*>All Icons<\/a>/);
+        expect(html).toMatch(/<a href="\/"[^>]*>All<\/a>/);
         expect(html).toContain(`/uiuxicons/line-regular/${icon.name}.svg`);
         const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
         const types = blocks.map((b) => JSON.parse(b[1])['@type']);
