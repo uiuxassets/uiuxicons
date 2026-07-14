@@ -120,12 +120,12 @@ export async function generateIconPages(meta, icons, shared) {
 
   <main class="max-w-7xl mx-auto px-3 py-6">
     <nav aria-label="Breadcrumb" class="mb-6 text-sm">
-      <ol class="flex flex-wrap items-center gap-1 -ml-2">
-        <li><a href="/" class="inline-flex items-center px-2 py-1 rounded-md text-fg-secondary hover:text-fg hover:bg-secondary">All Icons</a></li>
+      <ol class="flex items-center gap-1 -ml-2 min-w-0">
+        <li class="shrink-0"><a href="/" class="inline-flex items-center px-2 py-1 rounded-md text-fg-secondary hover:text-fg hover:bg-secondary">All</a></li>
         <li class="inline-flex size-3.5 shrink-0 [&>svg]:size-3.5 text-fg-muted" aria-hidden="true">${chevronSvg}</li>
-        <li><a href="/?category=${icon.category}" class="inline-flex items-center px-2 py-1 rounded-md text-fg-secondary hover:text-fg hover:bg-secondary">${escapeHtmlText(categoryLabel)}</a></li>
+        <li class="shrink-0"><a href="/?category=${icon.category}" class="inline-flex items-center px-2 py-1 rounded-md text-fg-secondary hover:text-fg hover:bg-secondary">${escapeHtmlText(categoryLabel)}</a></li>
         <li class="inline-flex size-3.5 shrink-0 [&>svg]:size-3.5 text-fg-muted" aria-hidden="true">${chevronSvg}</li>
-        <li><button type="button" id="copy-name-btn" aria-current="page" aria-label="Copy icon name" title="Copy icon name" class="inline-flex items-center px-2 py-1 rounded-md bg-secondary hover:bg-tertiary text-fg font-mono cursor-pointer">${escapeHtmlText(name)}</button></li>
+        <li class="min-w-0"><button type="button" id="copy-name-btn" aria-current="page" aria-label="Copy icon name" title="Copy icon name" class="inline-flex max-w-full items-center px-2 py-1 rounded-md bg-secondary hover:bg-tertiary text-fg font-mono cursor-pointer"><span class="truncate">${escapeHtmlText(name)}</span></button></li>
       </ol>
     </nav>
 
