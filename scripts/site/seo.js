@@ -135,7 +135,7 @@ export function iconPageJsonLd(icon, display, description) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'All Icons', item: `${origin}/` },
+      { '@type': 'ListItem', position: 1, name: 'All', item: `${origin}/` },
       { '@type': 'ListItem', position: 2, name: categoryLabel, item: `${origin}/?category=${icon.category}` },
       { '@type': 'ListItem', position: 3, name: icon.name },
     ],
