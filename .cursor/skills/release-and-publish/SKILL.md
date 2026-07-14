@@ -75,6 +75,7 @@ git push origin main vX.Y.Z   # pushes BOTH refs: main (CI + deploy) and tag (np
 - Pushing `main` triggers CI (`.github/workflows/ci.yml`) and site deploy (`.github/workflows/deploy.yml`). Pushing the `vX.Y.Z` tag triggers npm publish via OIDC (`.github/workflows/publish.yml`). The tag is the only publish trigger.
 - `dist/` is generated and gitignored. Never commit it.
 - The site (including the per-icon pages under `/icons/` and the sitemap) regenerates on every build; deploying `main` ships them automatically - no separate step.
+- The build also generates a per-icon Open Graph PNG for every icon page (`scripts/og-images.js`, rasterized with `@resvg/resvg-js` using the fonts committed in `assets/og/`). They land in `dist/og/` and deploy with the site - no separate step, but expect the build to take a bit longer.
 - Ignore the `npm warn Unknown env config "devdir"` line in command output. It is sandbox env noise, not a repo issue.
 
 ## Verify a release

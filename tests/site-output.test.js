@@ -48,6 +48,23 @@ describe.skipIf(!hasDist)('site output', () => {
     expect(html).toContain(`id="${section}"`);
   });
 
+  it('docs.html ships the code copy button runtime and toast', async () => {
+    const html = await readFile(join(DIST, 'docs.html'), 'utf8');
+    expect(html).toContain('snippet-copy-btn');
+    expect(html).toContain('function copyText');
+    expect(html).toContain('id="toast"');
+  });
+
+  it('docs.html ships both syntax highlight palettes', async () => {
+    const html = await readFile(join(DIST, 'docs.html'), 'utf8');
+    // Dark palette (default) and light palette scoped under html.light
+    expect(html).toContain('.hljs-keyword');
+    expect(html).toContain('.light .hljs-keyword');
+    expect(html).toContain('.light .hljs{color:');
+    // Scoped light theme must not carry backgrounds; --code owns the block bg
+    expect(html).not.toMatch(/\.light [^{}]*\{[^}]*background/);
+  });
+
   it('sitemap.xml lists every page with absolute URLs', async () => {
     const xml = await readFile(join(DIST, 'sitemap.xml'), 'utf8');
     for (const page of PAGES) {
@@ -117,6 +134,45 @@ describe.skipIf(!hasDist)('site output', () => {
       }
     });
 
+    it('reference a per-icon OG image that exists', async () => {
+      const meta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
+      const sample = [
+        meta.icons[0],
+        meta.icons[Math.floor(meta.icons.length / 2)],
+        meta.icons[meta.icons.length - 1],
+      ];
+      for (const icon of sample) {
+        const html = await readFile(join(DIST, 'icons', `${icon.name}.html`), 'utf8');
+        expect(html).toContain(
+          `<meta property="og:image" content="https://uiuxicons.com/og/icon-${icon.name}.png">`
+        );
+        expect(html).toContain(
+          `<meta name="twitter:image" content="https://uiuxicons.com/og/icon-${icon.name}.png">`
+        );
+        expect(html).toMatch(/<meta property="og:image:alt" content="[^"]+ icon - UI\/UX Icons">/);
+        expect(
+          existsSync(join(DIST, 'og', `icon-${icon.name}.png`)),
+          `missing OG image for ${icon.name}`
+        ).toBe(true);
+      }
+    });
+
+    it('every icon has an OG image and the PNGs are non-trivial', async () => {
+      const meta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
+      for (const icon of meta.icons) {
+        expect(
+          existsSync(join(DIST, 'og', `icon-${icon.name}.png`)),
+          `missing og/icon-${icon.name}.png`
+        ).toBe(true);
+      }
+      const png = await readFile(join(DIST, 'og', `icon-${meta.icons[0].name}.png`));
+      // PNG signature + a sanity floor: an empty/black card renders far smaller
+      expect(png.subarray(0, 8)).toEqual(
+        Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])
+      );
+      expect(png.length).toBeGreaterThan(5 * 1024);
+    });
+
     it('use shared tiles, a single preview holder, and responsive controls', async () => {
       const meta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
       const html = await readFile(join(DIST, 'icons', `${meta.icons[0].name}.html`), 'utf8');
@@ -128,10 +184,10 @@ describe.skipIf(!hasDist)('site output', () => {
       expect(html).toContain('id="related-icons"');
       expect(html).toMatch(/<div id="related-icons"[\s\S]*?class="icon-item"/);
       expect(html).toMatch(/<div id="related-icons"[\s\S]*?class="icon-actions"/);
-      // Breadcrumb is a component: chip for the current page, chevron separators
-      expect(html).toMatch(/<span[^>]*aria-current="page"[^>]*>/);
-      // Copyable slug chip under the h1
-      expect(html).toContain('id="copy-name-btn"');
+      // Breadcrumb is a component: the current-page crumb is the copyable
+      // mono name chip, with chevron separators
+      expect(html).toMatch(/<button[^>]*id="copy-name-btn"[^>]*aria-current="page"[^>]*>/);
+      expect(html).toMatch(/id="copy-name-btn"[^>]*font-mono/);
       // Grids enforce a minimum tile width via auto-fill columns
       expect(html).toContain('grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))]');
       // Style/weight selects below md, button toggles at md+
@@ -143,7 +199,7 @@ describe.skipIf(!hasDist)('site output', () => {
     });
   });
 
-  it('sitemap.xml lists every icon page with lastmod', async () => {
+  it('sitemap.xml lists every icon page with a valid lastmod', async () => {
     const xml = await readFile(join(DIST, 'sitemap.xml'), 'utf8');
     const meta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
     const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
@@ -151,7 +207,28 @@ describe.skipIf(!hasDist)('site output', () => {
     for (const icon of meta.icons) {
       expect(locs).toContain(`https://uiuxicons.com/icons/${icon.name}`);
     }
-    expect(xml).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/);
+    // Every URL carries its own lastmod, each a parseable, non-future date
+    const lastmods = [...xml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]);
+    expect(lastmods.length).toBe(locs.length);
+    const today = new Date().toISOString().slice(0, 10);
+    for (const date of lastmods) {
+      expect(date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(Number.isNaN(Date.parse(date))).toBe(false);
+      expect(date <= today).toBe(true);
+    }
+  });
+
+  it('index.html ships the ranked search and URL state runtime', async () => {
+    const html = await readFile(join(DIST, 'index.html'), 'utf8');
+    expect(html).toContain('function scoreWord');
+    expect(html).toContain('function scoreIcon');
+    expect(html).toContain('function normalizeQuery');
+    expect(html).toContain('function syncUrl');
+    // URL params restored on load
+    expect(html).toContain("params.get('q')");
+    expect(html).toContain("params.get('style')");
+    expect(html).toContain("params.get('weight')");
+    expect(html).toContain("params.get('category')");
   });
 
   it('og.png exists and pages reference it', async () => {

@@ -37,6 +37,7 @@
     "release": "node scripts/release.js"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/cli": "^4.3.1",
     "@vue/server-renderer": "^3.5.38",
     "archiver": "^8.0.0",

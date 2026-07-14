@@ -77,11 +77,13 @@ async function build() {
   console.log('  Building @uiuxicons/vue...');
   execSync('npm run build -w @uiuxicons/vue', { cwd: ROOT, stdio: 'inherit' });
 
-  // Copy assets
+  // Copy assets (top-level files only; subdirectories like assets/og hold
+  // build inputs that are not served)
   if (existsSync(ASSETS)) {
-    const assets = await readdir(ASSETS);
-    for (const file of assets) {
-      await copyFile(join(ASSETS, file), join(DIST, file));
+    const assets = await readdir(ASSETS, { withFileTypes: true });
+    for (const entry of assets) {
+      if (!entry.isFile()) continue;
+      await copyFile(join(ASSETS, entry.name), join(DIST, entry.name));
     }
   }
   

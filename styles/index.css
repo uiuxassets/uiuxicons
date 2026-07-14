@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Theming is class-based (dark by default, `.light` on <html> switches), so
+   remap the dark: variant from prefers-color-scheme to the absence of .light */
+@custom-variant dark (&:where(html:not(.light), html:not(.light) *));
+
 /* Custom theme colors (all RGB for opacity support) */
 @theme {
   --color-main: rgb(var(--main));
@@ -14,8 +18,11 @@
   --color-accent: rgb(var(--accent));
   --color-accent-text: rgb(var(--accent-text));
   --color-code: rgb(var(--code));
+  --color-code-fg: rgb(var(--code-fg));
   --color-code-text: rgb(var(--code-text));
   --color-text: rgb(var(--text));
+  --color-tab-active: rgb(var(--tab-active));
+  --color-button-secondary: rgb(var(--button-secondary));
 }
 
 /* Theme + layout (RGB values for opacity modifiers; sticky offsets match header + toolbars) */
@@ -35,8 +42,13 @@
   --accent: 255 255 255;
   --accent-text: 255 255 255;
   --code: 24 24 27;
+  /* --code-fg: base text in code blocks (on the --code background);
+     --code-text: inline code in docs prose (on the page background) */
+  --code-fg: 218 218 218;
   --code-text: 236 152 103;
   --text: 218 218 218;
+  --tab-active: 59 59 63;
+  --button-secondary: 43 43 46;
 }
 
 @media (min-width: 768px) {
@@ -57,9 +69,12 @@
   --border-hover: 191 191 194;
   --accent: 0 0 0;
   --accent-text: 0 0 0;
-  --code: 24 24 27;
-  --code-text: 221 104 35;
+  --code: 244 244 245;
+  --code-fg: 0 0 0;
+  --code-text: 212 107 46;
   --text: 31 31 31;
+  --tab-active: 255 255 255;
+  --button-secondary: 255 255 255;
 }
 
 /* Browser-specific input styling */
@@ -186,7 +201,7 @@ select.toolbar-select {
   line-height: 1rem;
   border-radius: 0.25rem;
   border: 1px solid rgb(var(--border));
-  background: rgb(var(--secondary));
+  background: rgb(var(--button-secondary));
   color: rgb(var(--fg));
   cursor: pointer;
   width: 100%;
@@ -230,26 +245,28 @@ html { scroll-padding-top: calc(var(--site-header-h) + 5rem); }
   transition: --sidebar-fade-top 0.2s ease, --sidebar-fade-bottom 0.2s ease;
 }
 
-/* Docs code blocks */
+/* Code blocks (shared by docs and icon pages) */
 pre { overflow-x: auto; }
 code { font-family: inherit; }
 
-.docs-section-inner pre code { font-size: 0.8125rem; }
-
-.docs-section-inner pre code.hljs {
+/* Covers highlighted blocks (class="hljs") and the plain <code> inside
+   package-manager tab panels, which come as raw HTML from the docs markdown */
+pre code.hljs,
+.docs-pkg-tabs-panels pre code {
+  display: block;
+  padding: 1rem;
   background: var(--color-code);
   border: 1px solid var(--color-border);
   border-radius: 0.375rem;
-  line-height: 1.6;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-code-fg);
 }
 
-.docs-section-inner pre code:not(.hljs) {
-  display: block;
-  padding: 1rem;
-  background: var(--color-secondary);
-  border-radius: 0.375rem;
-  border: 1px solid var(--color-border);
-  line-height: 1.6;
+/* Blocks under a tab bar attach to it: squared top corners, no double border */
+.docs-pkg-tabs-panels pre code {
+  border-top: none;
+  border-radius: 0 0 0.375rem 0.375rem;
 }
 
 .docs-section-inner :not(pre) > code {
@@ -318,18 +335,9 @@ code { font-family: inherit; }
   color: var(--color-fg);
 }
 
-/* Icon detail pages - snippet panels (tab bar styling shared with docs-pkg-tabs) */
-.icon-snippets pre code {
-  display: block;
-  padding: 1rem;
-  padding-right: 4.5rem; /* room for the floating Copy button */
-  background: var(--color-code);
-  border: 1px solid var(--color-border);
-  border-top: none;
-  border-radius: 0 0 0.375rem 0.375rem;
-  font-size: 0.8125rem;
-  line-height: 1.6;
-  color: var(--color-text);
+/* Icon snippets: floating copy button + short one-line snippets that wrap */
+.icon-snippets pre code.hljs {
+  padding-right: 4.5rem;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
@@ -338,7 +346,12 @@ code { font-family: inherit; }
    is focused. On touch devices the first tap triggers sticky hover. */
 .snippet-copy-btn { opacity: 0; transition: opacity 0.1s ease; }
 .docs-pkg-tabs-panels:hover .snippet-copy-btn,
+.docs-section-inner pre:hover .snippet-copy-btn,
 .snippet-copy-btn:focus-visible { opacity: 1; }
+
+/* Anchors for the copy buttons injected into docs code blocks */
+.docs-pkg-tabs-panels { position: relative; }
+.docs-section-inner pre { position: relative; }
 
 /* Docs package manager tabs */
 .docs-pkg-tabs { margin-bottom: 1rem; }
@@ -362,16 +375,18 @@ code { font-family: inherit; }
   background: transparent;
   border: none;
   border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   cursor: pointer;
-  transition: color 0.15s, background-color 0.15s;
 }
 
 .docs-pkg-tabs-bar button:last-child { border-right: none; }
 .docs-pkg-tabs-bar button:hover { color: var(--color-fg); background: var(--color-tertiary); }
 
-.docs-pkg-tabs-bar button[aria-selected="true"] {
+.docs-pkg-tabs-bar button[aria-selected="true"],
+.docs-pkg-tabs-bar button[aria-selected="true"]:hover {
   color: var(--color-fg);
-  box-shadow: inset 0 -2px 0 var(--color-accent);
+  background: var(--color-tab-active);
+  border-bottom-color: rgb(var(--fg) / 0.5);
 }
 
 .docs-pkg-tabs-panels pre {

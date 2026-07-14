@@ -89,6 +89,46 @@ export const iconTileRuntime = `
   })();
 `;
 
+/** Clipboard copy with execCommand fallback for non-secure contexts.
+ *  Resolves true/false; never rejects. Shared by the homepage and icon pages. */
+export const copyTextRuntime = `
+    function copyText(text) {
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        return navigator.clipboard.writeText(text).then(() => true, () => false);
+      }
+      return new Promise((resolve) => {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          const ok = document.execCommand('copy');
+          document.body.removeChild(ta);
+          resolve(ok);
+        } catch (e) {
+          resolve(false);
+        }
+      });
+    }
+`;
+
+/** Bottom-center toast; expects the #toast element in the page body. */
+export const toastRuntime = `
+    const toastEl = document.getElementById('toast');
+    function showToast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.remove('hidden');
+      toastEl.classList.add('toast');
+      setTimeout(() => {
+        toastEl.classList.add('hidden');
+        toastEl.classList.remove('toast');
+      }, 2000);
+    }
+`;
+
 /** Theme toggle for pages without the index color picker (docs, examples, changelog). */
 export const themeToggleBodyScript = `
   const themeToggle = document.getElementById('theme-toggle');
@@ -111,180 +151,124 @@ export const themeToggleBodyScript = `
   }
 `;
 
-export const mobileNavScript = `
-  (function () {
-    const root = document.getElementById('mobile-nav');
-    const toggle = document.getElementById('mobile-nav-toggle');
-    if (!root || !toggle) return;
-    const backdrop = document.getElementById('mobile-nav-backdrop');
-    const panel = document.getElementById('mobile-nav-panel');
-    let trapStop = null;
+/** Identity of each full-screen overlay (mobile nav + drawers) so any one of
+ *  them can close the others when it opens. */
+const OVERLAYS = {
+  mobileNav: {
+    rootId: 'mobile-nav',
+    toggleId: 'mobile-nav-toggle',
+    releaseName: 'uiuxReleaseMobileNavFocusTrap',
+  },
+  categories: {
+    rootId: 'categories-drawer',
+    toggleId: 'categories-toggle',
+    releaseName: 'uiuxReleaseCategoriesFocusTrap',
+  },
+  docs: {
+    rootId: 'docs-drawer',
+    toggleId: 'docs-nav-toggle',
+    releaseName: 'uiuxReleaseDocsFocusTrap',
+  },
+};
 
-    window.uiuxReleaseMobileNavFocusTrap = function () {
-      if (trapStop) {
-        trapStop();
-        trapStop = null;
-      }
-    };
-
-    function closeCategoriesDrawer() {
-      if (window.uiuxReleaseCategoriesFocusTrap) window.uiuxReleaseCategoriesFocusTrap();
-      const cd = document.getElementById('categories-drawer');
-      const ct = document.getElementById('categories-toggle');
-      if (cd && !cd.classList.contains('hidden')) {
-        cd.classList.add('hidden');
-        if (ct) ct.setAttribute('aria-expanded', 'false');
-      }
-    }
-
-    function closeDocsDrawer() {
-      if (window.uiuxReleaseDocsFocusTrap) window.uiuxReleaseDocsFocusTrap();
-      const dd = document.getElementById('docs-drawer');
-      const dt = document.getElementById('docs-nav-toggle');
-      if (dd && !dd.classList.contains('hidden')) {
-        dd.classList.add('hidden');
-        if (dt) dt.setAttribute('aria-expanded', 'false');
-      }
-    }
-
-    function setOpen(open) {
-      root.classList.toggle('hidden', !open);
-      toggle.setAttribute('aria-expanded', String(open));
-      if (open) {
-        closeCategoriesDrawer();
-        closeDocsDrawer();
-        document.body.style.overflow = 'hidden';
-        window.uiuxReleaseMobileNavFocusTrap();
-        trapStop = panel && window.uiuxStartFocusTrap ? window.uiuxStartFocusTrap(panel) : null;
-      } else {
-        window.uiuxReleaseMobileNavFocusTrap();
-        document.body.style.overflow = '';
-      }
-    }
-
-    toggle.addEventListener('click', () => setOpen(root.classList.contains('hidden')));
-    backdrop?.addEventListener('click', () => setOpen(false));
-    document.getElementById('mobile-nav-close')?.addEventListener('click', () => setOpen(false));
-    document.getElementById('mobile-nav-footer-link')?.addEventListener('click', () => setOpen(false));
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !root.classList.contains('hidden')) setOpen(false);
-    });
-  })();
-`;
-
-export const categoriesDrawerScript = `
-  (function () {
-    const root = document.getElementById('categories-drawer');
-    const toggle = document.getElementById('categories-toggle');
-    if (!root || !toggle) return;
-    const backdrop = document.getElementById('categories-drawer-backdrop');
-    const panel = document.getElementById('categories-drawer-panel');
-    let trapStop = null;
-
-    window.uiuxReleaseCategoriesFocusTrap = function () {
-      if (trapStop) {
-        trapStop();
-        trapStop = null;
-      }
-    };
-
-    function closeMobileNav() {
-      if (window.uiuxReleaseMobileNavFocusTrap) window.uiuxReleaseMobileNavFocusTrap();
-      const mn = document.getElementById('mobile-nav');
-      const mnt = document.getElementById('mobile-nav-toggle');
-      if (mn && !mn.classList.contains('hidden')) {
-        mn.classList.add('hidden');
-        if (mnt) mnt.setAttribute('aria-expanded', 'false');
-      }
-    }
-
-    function setOpen(open) {
-      root.classList.toggle('hidden', !open);
-      toggle.setAttribute('aria-expanded', String(open));
-      if (open) {
-        closeMobileNav();
-        document.body.style.overflow = 'hidden';
-        window.uiuxReleaseCategoriesFocusTrap();
-        trapStop = panel && window.uiuxStartFocusTrap ? window.uiuxStartFocusTrap(panel) : null;
-      } else {
-        window.uiuxReleaseCategoriesFocusTrap();
-        if (document.getElementById('mobile-nav')?.classList.contains('hidden')) {
+/**
+ * Emits the open/close/focus-trap runtime for one full-screen overlay.
+ * All three overlays (mobile nav, categories drawer, docs drawer) share this
+ * behavior; only ids, sibling overlays, and a few extras differ.
+ *
+ * @param {object} overlay - entry from OVERLAYS (rootId, toggleId, releaseName)
+ * @param {object} opts
+ * @param {string} opts.closeId - id of the close button inside the panel
+ * @param {object[]} [opts.siblings] - OVERLAYS entries force-closed when this one opens
+ * @param {boolean} [opts.guardOverflowOnClose] - drawers only restore body scroll
+ *   when the mobile nav is not open underneath; the mobile nav restores it always
+ * @param {string} [opts.extraCloseSelector] - extra elements inside the overlay
+ *   that close it on click (footer link, in-page anchors)
+ */
+function drawerScript(overlay, { closeId, siblings = [], guardOverflowOnClose = false, extraCloseSelector = '' }) {
+  const { rootId, toggleId, releaseName } = overlay;
+  const closeSiblings = siblings
+    .map(
+      (s) => `
+        if (window.${s.releaseName}) window.${s.releaseName}();
+        closeOverlay('${s.rootId}', '${s.toggleId}');`
+    )
+    .join('');
+  const restoreOverflow = guardOverflowOnClose
+    ? `if (document.getElementById('${OVERLAYS.mobileNav.rootId}')?.classList.contains('hidden')) {
           document.body.style.overflow = '';
-        }
-      }
-    }
-
-    toggle.addEventListener('click', () => setOpen(root.classList.contains('hidden')));
-    backdrop?.addEventListener('click', () => setOpen(false));
-    document.getElementById('categories-drawer-close')?.addEventListener('click', () => setOpen(false));
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !root.classList.contains('hidden')) setOpen(false);
-    });
-  })();
-`;
-
-export const docsDrawerScript = `
+        }`
+    : `document.body.style.overflow = '';`;
+  const extraCloseWiring = extraCloseSelector
+    ? `
+    root.querySelectorAll('${extraCloseSelector}').forEach((el) => el.addEventListener('click', () => setOpen(false)));`
+    : '';
+  return `
   (function () {
-    const root = document.getElementById('docs-drawer');
-    const toggle = document.getElementById('docs-nav-toggle');
+    const root = document.getElementById('${rootId}');
+    const toggle = document.getElementById('${toggleId}');
     if (!root || !toggle) return;
-    const backdrop = document.getElementById('docs-drawer-backdrop');
-    const panel = document.getElementById('docs-drawer-panel');
+    const backdrop = document.getElementById('${rootId}-backdrop');
+    const panel = document.getElementById('${rootId}-panel');
     let trapStop = null;
 
-    window.uiuxReleaseDocsFocusTrap = function () {
+    window.${releaseName} = function () {
       if (trapStop) {
         trapStop();
         trapStop = null;
       }
     };
 
-    function closeCategoriesDrawer() {
-      if (window.uiuxReleaseCategoriesFocusTrap) window.uiuxReleaseCategoriesFocusTrap();
-      const cd = document.getElementById('categories-drawer');
-      const ct = document.getElementById('categories-toggle');
-      if (cd && !cd.classList.contains('hidden')) {
-        cd.classList.add('hidden');
-        if (ct) ct.setAttribute('aria-expanded', 'false');
-      }
-    }
-
-    function closeMobileNav() {
-      if (window.uiuxReleaseMobileNavFocusTrap) window.uiuxReleaseMobileNavFocusTrap();
-      const mn = document.getElementById('mobile-nav');
-      const mnt = document.getElementById('mobile-nav-toggle');
-      if (mn && !mn.classList.contains('hidden')) {
-        mn.classList.add('hidden');
-        if (mnt) mnt.setAttribute('aria-expanded', 'false');
+    function closeOverlay(rootId, toggleId) {
+      const el = document.getElementById(rootId);
+      const tg = document.getElementById(toggleId);
+      if (el && !el.classList.contains('hidden')) {
+        el.classList.add('hidden');
+        if (tg) tg.setAttribute('aria-expanded', 'false');
       }
     }
 
     function setOpen(open) {
       root.classList.toggle('hidden', !open);
       toggle.setAttribute('aria-expanded', String(open));
-      if (open) {
-        closeMobileNav();
-        closeCategoriesDrawer();
+      if (open) {${closeSiblings}
         document.body.style.overflow = 'hidden';
-        window.uiuxReleaseDocsFocusTrap();
+        window.${releaseName}();
         trapStop = panel && window.uiuxStartFocusTrap ? window.uiuxStartFocusTrap(panel) : null;
       } else {
-        window.uiuxReleaseDocsFocusTrap();
-        if (document.getElementById('mobile-nav')?.classList.contains('hidden')) {
-          document.body.style.overflow = '';
-        }
+        window.${releaseName}();
+        ${restoreOverflow}
       }
     }
 
     toggle.addEventListener('click', () => setOpen(root.classList.contains('hidden')));
     backdrop?.addEventListener('click', () => setOpen(false));
-    document.getElementById('docs-drawer-close')?.addEventListener('click', () => setOpen(false));
-    root.querySelectorAll('a[href^="#"]').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    document.getElementById('${closeId}')?.addEventListener('click', () => setOpen(false));${extraCloseWiring}
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !root.classList.contains('hidden')) setOpen(false);
     });
   })();
 `;
+}
+
+export const mobileNavScript = drawerScript(OVERLAYS.mobileNav, {
+  closeId: 'mobile-nav-close',
+  siblings: [OVERLAYS.categories, OVERLAYS.docs],
+  extraCloseSelector: '#mobile-nav-footer-link',
+});
+
+export const categoriesDrawerScript = drawerScript(OVERLAYS.categories, {
+  closeId: 'categories-drawer-close',
+  siblings: [OVERLAYS.mobileNav],
+  guardOverflowOnClose: true,
+});
+
+export const docsDrawerScript = drawerScript(OVERLAYS.docs, {
+  closeId: 'docs-drawer-close',
+  siblings: [OVERLAYS.mobileNav, OVERLAYS.categories],
+  guardOverflowOnClose: true,
+  extraCloseSelector: 'a[href^="#"]',
+});
 
 /**
  * Desktop-only edge fade hint for the icons category sidebar. Toggles the mask
