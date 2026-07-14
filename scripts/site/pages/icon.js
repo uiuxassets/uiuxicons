@@ -37,29 +37,47 @@ function relatedIcons(icon, icons, count = 8) {
 }
 
 // Snippets are highlighted at build time with the same hljs setup the docs use.
-function iconSnippets(icon, pascalName) {
+function iconSnippets(icon, pascalName, style, weight) {
+  // line-regular is the packages' default, so the React/Vue snippets omit props
+  const isDefault = style === 'line' && weight === 'regular';
+  const componentProps = isDefault ? '' : ` variant="${style}" weight="${weight}"`;
   return [
     {
       id: 'react',
       label: 'React',
-      code: highlightDocCode(`import { Icon${pascalName} } from "@uiuxicons/react";\n\n<Icon${pascalName} />`, 'tsx'),
+      code: highlightDocCode(`import { Icon${pascalName} } from "@uiuxicons/react";\n\n<Icon${pascalName}${componentProps} />`, 'tsx'),
     },
     {
       id: 'vue',
       label: 'Vue',
-      code: highlightDocCode(`import { Icon${pascalName} } from "@uiuxicons/vue";\n\n<Icon${pascalName} />`, 'tsx'),
+      code: highlightDocCode(`import { Icon${pascalName} } from "@uiuxicons/vue";\n\n<Icon${pascalName}${componentProps} />`, 'tsx'),
     },
     {
       id: 'font',
       label: 'Font',
-      code: highlightDocCode(`<span class="uiuxicon uiux-line uiux-regular uiux-${icon.name}" aria-hidden="true"></span>`, 'html'),
+      code: highlightDocCode(`<span class="uiuxicon uiux-${style} uiux-${weight} uiux-${icon.name}" aria-hidden="true"></span>`, 'html'),
     },
     {
       id: 'cdn',
       label: 'CDN',
-      code: highlightDocCode(`https://cdn.jsdelivr.net/npm/@uiuxicons/core@0/svg/line-regular/${icon.name}.svg`, ''),
+      code: highlightDocCode(`https://cdn.jsdelivr.net/npm/@uiuxicons/core@0/svg/${style}-${weight}/${icon.name}.svg`, ''),
     },
   ];
+}
+
+/** Pre-rendered snippet HTML for every style/weight combination, keyed by
+ *  "{style}-{weight}" then snippet id, so the client can swap snippets when
+ *  the variant changes without shipping a highlighter. */
+function iconSnippetVariants(icon, pascalName, styles, weights) {
+  const map = {};
+  for (const style of styles) {
+    for (const weight of weights) {
+      map[`${style}-${weight}`] = Object.fromEntries(
+        iconSnippets(icon, pascalName, style, weight).map((s) => [s.id, s.code])
+      );
+    }
+  }
+  return map;
 }
 
 /** Static mock UI cards showing the icon in realistic component contexts.
@@ -112,7 +130,8 @@ export async function generateIconPages(meta, icons, shared) {
     const tagText = icon.tags.slice(0, 6).join(', ');
     const description = `Free ${display} icon in 3 styles (line, duotone, solid) and 3 weights. Copy the SVG or use it via React, Vue, icon font, or CDN. Tags: ${tagText}. MIT licensed.`;
     const related = relatedIcons(icon, icons);
-    const snippets = iconSnippets(icon, pascalName);
+    const snippets = iconSnippets(icon, pascalName, 'line', 'regular');
+    const snippetVariants = iconSnippetVariants(icon, pascalName, meta.styles, meta.weights);
     const defaultSvg = icon.svgs['line-regular'] || '';
     const categoryLabel = icon.category.charAt(0).toUpperCase() + icon.category.slice(1);
 
@@ -209,8 +228,8 @@ ${iconInActionHtml(defaultSvg, chevronSvg)}
     ${toastRuntime}
 
     // Style/weight switcher (icon page: updates preview, In action mocks,
-    // download link, and related icons; selection is shared with the
-    // homepage via localStorage)
+    // download link, usage snippets, and related icons; selection is shared
+    // with the homepage via localStorage)
     (function () {
       const styleBtns = document.querySelectorAll('[data-style-btn]');
       const weightBtns = document.querySelectorAll('[data-weight-btn]');
@@ -219,6 +238,8 @@ ${iconInActionHtml(defaultSvg, chevronSvg)}
       const downloadLink = document.getElementById('download-svg-link');
       const previewHolder = document.querySelector('#icon-preview .icon-svg');
       const inActionIcons = document.querySelectorAll('.in-action-icon');
+      const snippetPanels = document.querySelectorAll('[data-icon-snippets] pre[data-snippet] code');
+      const snippetVariants = ${JSON.stringify(snippetVariants)};
       const iconName = ${JSON.stringify(name)};
       let currentStyle = 'line';
       let currentWeight = 'regular';
@@ -266,6 +287,13 @@ ${iconInActionHtml(defaultSvg, chevronSvg)}
         if (downloadLink) {
           downloadLink.href = '/uiuxicons/' + variant + '/' + iconName + '.svg';
           downloadLink.setAttribute('download', iconName + '-' + variant + '.svg');
+        }
+        const variantSnippets = snippetVariants[variant];
+        if (variantSnippets) {
+          snippetPanels.forEach((code) => {
+            const html = variantSnippets[code.parentElement.dataset.snippet];
+            if (html != null) code.innerHTML = html;
+          });
         }
         uiuxUpdateTiles('#related-icons', variant, (v) => v === currentVariant());
         try {
