@@ -66,6 +66,9 @@ export const CATEGORY_PATTERNS = [
   [/^(wifi|bluetooth|signal|network|antenna|link|external|connect|chain)/, 'connectivity'],
   [/^(battery|power|bolt|lightning|energy|electric)/, 'power'],
   [/^(text|font|type|bold|italic|underline|align|paragraph)/, 'text'],
+  [/^(fullscreen|expand|collapse)/, 'system'],
+  [/^tray/, 'actions'],
+  [/^(log|sign)-(in|out)$/, 'users'],
 ];
 
 export function inferCategory(name) {
@@ -111,6 +114,10 @@ export const TOKEN_SYNONYMS = {
   pm: ['afternoon', 'evening', 'time'],
   ccw: ['counterclockwise', 'rotate', 'undo', 'anticlockwise'],
   cw: ['clockwise', 'rotate', 'redo'],
+  collapse: ['shrink', 'minimize', 'reduce', 'contract', 'arrows-in'],
+  expand: ['maximize', 'grow', 'enlarge', 'resize', 'arrows-out'],
+  fullscreen: ['screen', 'display', 'window'],
+  tray: ['inbox', 'container'],
   ellipsis: ['more', 'dots', 'menu', 'options', 'overflow'],
   envelope: ['mail', 'email', 'message', 'letter', 'contact'],
   open: ['opened'],
@@ -168,6 +175,12 @@ export const NAME_EXTRAS = {
   'ui-ux': ['design', 'product'],
   'text-initial': ['letter', 'first', 'capital'],
   'app-window': ['application', 'browser', 'screen'],
+  'fullscreen': ['maximize', 'enter', 'corners-out', 'arrows-out'],
+  'fullscreen-exit': ['minimize', 'restore', 'corners-in', 'arrows-in'],
+  'log-in': ['login', 'signin', 'sign-in', 'enter', 'access', 'account', 'authentication'],
+  'log-out': ['logout', 'signout', 'sign-out', 'exit', 'leave', 'account', 'door'],
+  'tray-arrow-down': ['download', 'save', 'import', 'receive'],
+  'tray-arrow-up': ['upload', 'export', 'send', 'share'],
 };
 
 /**

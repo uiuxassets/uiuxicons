@@ -972,6 +972,18 @@
       ]
     },
     {
+      "name": "collapse",
+      "category": "system",
+      "tags": [
+        "collapse",
+        "shrink",
+        "minimize",
+        "reduce",
+        "contract",
+        "arrows-in"
+      ]
+    },
+    {
       "name": "columns",
       "category": "layout",
       "tags": [
@@ -1094,6 +1106,18 @@
         "letter",
         "contact",
         "opened"
+      ]
+    },
+    {
+      "name": "expand",
+      "category": "system",
+      "tags": [
+        "expand",
+        "maximize",
+        "grow",
+        "enlarge",
+        "resize",
+        "arrows-out"
       ]
     },
     {
@@ -1288,6 +1312,35 @@
       ]
     },
     {
+      "name": "fullscreen",
+      "category": "system",
+      "tags": [
+        "fullscreen",
+        "screen",
+        "display",
+        "window",
+        "maximize",
+        "enter",
+        "corners-out",
+        "arrows-out"
+      ]
+    },
+    {
+      "name": "fullscreen-exit",
+      "category": "system",
+      "tags": [
+        "fullscreen",
+        "exit",
+        "screen",
+        "display",
+        "window",
+        "minimize",
+        "restore",
+        "corners-in",
+        "arrows-in"
+      ]
+    },
+    {
       "name": "gear",
       "category": "system",
       "tags": [
@@ -1452,6 +1505,36 @@
         "items",
         "lines",
         "bullets"
+      ]
+    },
+    {
+      "name": "log-in",
+      "category": "users",
+      "tags": [
+        "log",
+        "in",
+        "login",
+        "signin",
+        "sign-in",
+        "enter",
+        "access",
+        "account",
+        "authentication"
+      ]
+    },
+    {
+      "name": "log-out",
+      "category": "users",
+      "tags": [
+        "log",
+        "out",
+        "logout",
+        "signout",
+        "sign-out",
+        "exit",
+        "leave",
+        "account",
+        "door"
       ]
     },
     {
@@ -2026,6 +2109,42 @@
         "bin",
         "garbage",
         "discard"
+      ]
+    },
+    {
+      "name": "tray-arrow-down",
+      "category": "actions",
+      "tags": [
+        "tray",
+        "arrow",
+        "down",
+        "inbox",
+        "container",
+        "direction",
+        "navigate",
+        "downward",
+        "download",
+        "save",
+        "import",
+        "receive"
+      ]
+    },
+    {
+      "name": "tray-arrow-up",
+      "category": "actions",
+      "tags": [
+        "tray",
+        "arrow",
+        "up",
+        "inbox",
+        "container",
+        "direction",
+        "navigate",
+        "upward",
+        "upload",
+        "export",
+        "send",
+        "share"
       ]
     },
     {
