@@ -19,7 +19,7 @@ import {
 } from '../../site-snippets.js';
 
 export async function generateIndex(meta, icons, shared) {
-  const { themeIcons, logoIcon, downloadIcon, menuIcon, listIcon } = shared;
+  const { themeIcons, logoIcon, downloadIcon, menuIcon, listIcon, resetIcon } = shared;
 
   const indexTitle = 'UI/UX Icons - Free Icon Library';
   const indexDescription = `A clean, consistent icon library for modern interfaces. ${meta.total} icons in 3 styles and 3 weights. Free and open source.`;
@@ -118,7 +118,7 @@ export async function generateIndex(meta, icons, shared) {
         </div>
         <input type="color" id="color" class="size-10 shrink-0 rounded-md cursor-pointer bg-transparent border-0">
         <button type="button" id="reset-btn" class="inline-flex size-10 shrink-0 items-center justify-center rounded-md cursor-pointer bg-main border border-border text-fg hover:bg-tertiary dark:bg-secondary" title="Reset to defaults">
-          <svg class="size-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.47195 1.39342C3.47195 0.979215 3.80774 0.643431 4.22195 0.643425C4.63616 0.643425 4.97195 0.979211 4.97195 1.39342V5.24499C5.0165 5.19867 5.0601 5.15097 5.10574 5.10534C8.91336 1.29788 15.0872 1.29779 18.8948 5.10534C22.7024 8.9129 22.7023 15.0868 18.8948 18.8944C15.0872 22.702 8.91335 22.702 5.10574 18.8944C3.25579 17.0445 2.30432 14.6343 2.25222 12.2108C2.24333 11.7967 2.57248 11.4531 2.9866 11.4442C3.40049 11.4356 3.74333 11.7646 3.75222 12.1786C3.79635 14.231 4.60054 16.2681 6.16628 17.8339C9.38799 21.0556 14.6114 21.0553 17.8333 17.8339C21.0551 14.612 21.0551 9.38869 17.8333 6.16686C14.6114 2.94505 9.38811 2.94504 6.16628 6.16686C6.12237 6.21078 6.08008 6.25602 6.03738 6.30065H9.87917C10.2932 6.30085 10.6292 6.63656 10.6292 7.05065C10.629 7.46457 10.2931 7.80046 9.87917 7.80065H4.72195C4.03172 7.80065 3.47215 7.24083 3.47195 6.55065V1.39342Z"/></svg>
+          <span class="inline-flex size-5 shrink-0 [&>svg]:size-5" aria-hidden="true">${resetIcon}</span>
         </button>
       </div>
     </div>

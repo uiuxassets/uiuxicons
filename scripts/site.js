@@ -16,7 +16,7 @@ import { existsSync } from 'fs';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
 import { DIST, loadSvg } from './site/common.js';
-import { setSiteCssFile, setSiteVersion, themeToggleIcons } from './site/templates.js';
+import { setSiteCssFile, setSiteVersion, setCloseIcon, themeToggleIcons } from './site/templates.js';
 import { writeSeoAuxFiles, writeLlmsTxt } from './site/seo.js';
 import { generateIndex } from './site/pages/index.js';
 import { generateIconPages } from './site/pages/icon.js';
@@ -57,12 +57,14 @@ async function generateSite({ cssFile } = {}) {
   // Icons shared by every page chrome (header, drawers, toolbars)
   const moonIcon = await loadSvg('line', 'regular', 'moon') || '';
   const sunIcon = await loadSvg('line', 'regular', 'sun') || '';
+  setCloseIcon(await loadSvg('line', 'bold', 'x'));
   const shared = {
     themeIcons: themeToggleIcons(moonIcon, sunIcon),
     logoIcon: await loadSvg('solid', 'regular', 'ui-ux') || '',
     downloadIcon: await loadSvg('line', 'regular', 'file-arrow-down') || '',
     menuIcon: await loadSvg('line', 'regular', 'menu') || '',
     listIcon: await loadSvg('solid', 'regular', 'list') || '',
+    resetIcon: await loadSvg('line', 'regular', 'arrow-ccw') || '',
   };
 
   await generateOgImages(icons);
