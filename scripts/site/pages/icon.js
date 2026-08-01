@@ -166,16 +166,17 @@ export async function generateIconPages(meta, icons, shared) {
         <p class="mt-1.5 text-sm text-fg-muted">${escapeHtmlText(icon.tags.join(' \u00b7 '))}</p>
         <p class="mt-1.5 text-sm text-fg-secondary">Category: <a href="/?category=${icon.category}" class="text-fg hover:underline">${escapeHtmlText(categoryLabel)}</a></p>
 
-        <div class="mt-5 grid grid-cols-2 gap-3 md:hidden">
+        <div class="mt-5 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] gap-3 md:hidden">
           <select id="style-select" aria-label="Style" class="toolbar-select h-10 min-w-0 w-full box-border text-sm leading-normal rounded-md bg-secondary border border-border hover:border-border-hover focus:border-border-hover text-fg focus:outline-none cursor-pointer">
             ${meta.styles.map((s, i) => `<option value="${s}"${i === 0 ? ' selected' : ''}>${s.charAt(0).toUpperCase() + s.slice(1)}</option>`).join('\n            ')}
           </select>
           <select id="weight-select" aria-label="Weight" class="toolbar-select h-10 min-w-0 w-full box-border text-sm leading-normal rounded-md bg-secondary border border-border hover:border-border-hover focus:border-border-hover text-fg focus:outline-none cursor-pointer">
             ${meta.weights.map((w) => `<option value="${w}"${w === 'regular' ? ' selected' : ''}>${w.charAt(0).toUpperCase() + w.slice(1)}</option>`).join('\n            ')}
           </select>
+          <input type="color" aria-label="Icon color" class="icon-color-picker size-10 shrink-0 rounded-md cursor-pointer bg-transparent border-0">
         </div>
 
-        <div class="mt-5 hidden md:flex flex-wrap gap-3">
+        <div class="mt-5 hidden md:flex flex-wrap items-center gap-3">
           <div class="border border-border flex gap-1 bg-secondary p-0.75 rounded-md">
             ${meta.styles.map((s, i) => `
             <button type="button" data-style-btn="${s}" class="style-btn px-3 py-1.5 text-sm rounded-sm cursor-pointer ${i === 0 ? 'bg-active text-main hover:text-main' : 'text-fg-secondary hover:text-fg'}">${s.charAt(0).toUpperCase() + s.slice(1)}</button>`).join('')}
@@ -184,6 +185,7 @@ export async function generateIconPages(meta, icons, shared) {
             ${meta.weights.map((w) => `
             <button type="button" data-weight-btn="${w}" class="weight-btn px-3 py-1.5 text-sm rounded-sm cursor-pointer ${w === 'regular' ? 'bg-active text-main hover:text-main' : 'text-fg-secondary hover:text-fg'}">${w.charAt(0).toUpperCase() + w.slice(1)}</button>`).join('')}
           </div>
+          <input type="color" aria-label="Icon color" class="icon-color-picker size-10 shrink-0 rounded-md cursor-pointer bg-transparent border-0">
         </div>
       </div>
     </div>
@@ -318,6 +320,33 @@ ${iconInActionHtml(defaultSvg, chevronSvg)}
 
       // Apply a restored non-default variant on load
       if (currentStyle !== 'line' || currentWeight !== 'regular') update();
+    })();
+
+    // Icon color picker (shared with the homepage via localStorage.userColor;
+    // colors the hero preview and related icons, defaults follow the theme)
+    (function () {
+      const pickers = document.querySelectorAll('.icon-color-picker');
+      const preview = document.getElementById('icon-preview');
+      const relatedGrid = document.getElementById('related-icons');
+      if (!pickers.length) return;
+
+      function applyColor() {
+        const isLight = document.documentElement.classList.contains('light');
+        const color = localStorage.userColor || (isLight ? '#000000' : '#ffffff');
+        pickers.forEach((p) => { p.value = color; });
+        if (preview) preview.style.color = color;
+        if (relatedGrid) relatedGrid.style.color = color;
+      }
+      applyColor();
+
+      pickers.forEach((picker) => picker.addEventListener('input', (e) => {
+        try { localStorage.userColor = e.target.value; } catch (_) {}
+        applyColor();
+      }));
+
+      // The shared theme toggle script flips the theme class; re-derive the
+      // default color after it runs so an unset color follows the theme.
+      document.getElementById('theme-toggle')?.addEventListener('click', applyColor);
     })();
 
     // Copy actions + snippet tabs

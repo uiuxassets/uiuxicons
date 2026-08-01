@@ -191,9 +191,11 @@ describe.skipIf(!hasDist)('site output', () => {
       // Grids enforce a minimum tile width via auto-fill columns
       expect(html).toContain('grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))]');
       // Style/weight selects below md, button toggles at md+
-      expect(html).toMatch(/<div class="mt-5 grid grid-cols-2 gap-3 md:hidden">\s*<select id="style-select"/);
+      expect(html).toMatch(/<div class="mt-5 grid grid-cols-\[minmax\(0,1fr\)_minmax\(0,1fr\)_auto\] gap-3 md:hidden">\s*<select id="style-select"/);
       expect(html).toContain('id="weight-select"');
-      expect(html).toContain('class="mt-5 hidden md:flex flex-wrap gap-3"');
+      expect(html).toContain('class="mt-5 hidden md:flex flex-wrap items-center gap-3"');
+      // Color picker present in both control layouts, synced via localStorage
+      expect(html.match(/class="icon-color-picker/g)?.length).toBe(2);
       // In action demo has a real, focusable search input
       expect(html).toMatch(/<input type="text" placeholder="Search\.\.\." aria-label="Example search input"/);
     });
