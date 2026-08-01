@@ -176,7 +176,7 @@ export async function generateIconPages(meta, icons, shared) {
           <input type="color" aria-label="Icon color" class="icon-color-picker size-10 shrink-0 rounded-md cursor-pointer bg-transparent border-0">
         </div>
 
-        <div class="mt-5 hidden md:flex flex-wrap items-center gap-3">
+        <div class="mt-5 hidden md:flex flex-wrap items-center gap-2">
           <div class="border border-border flex gap-1 bg-secondary p-0.75 rounded-md">
             ${meta.styles.map((s, i) => `
             <button type="button" data-style-btn="${s}" class="style-btn px-3 py-1.5 text-sm rounded-sm cursor-pointer ${i === 0 ? 'bg-active text-main hover:text-main' : 'text-fg-secondary hover:text-fg'}">${s.charAt(0).toUpperCase() + s.slice(1)}</button>`).join('')}
