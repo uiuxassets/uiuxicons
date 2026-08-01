@@ -47,15 +47,21 @@ Run these in this exact order (do not run `npm test` before `npm run build`):
 npm run sync                  # update icons.meta.json from exports/ (auto-fills category + enriched tags)
 npm run build                 # assigns codepoints + regenerates React/Vue package sources
 npm test                      # typecheck + integrity (passes only after build)
-npm run release -- minor      # see bump convention below; commits "Release vX.Y.Z" and tags
+npm run release -- patch      # see bump convention below; commits "Release vX.Y.Z" and tags
 git push origin main vX.Y.Z   # pushes BOTH refs: main (CI + deploy) and tag (npm publish)
 ```
 
-### Bump convention
+### Bump convention (pre-1.0)
 
-- New or changed icons -> `minor` (icons are additive features).
-- Breaking changes -> `major`.
-- Fixes only (no new icons/API) -> `patch`.
+While the library is 0.x, routine releases bump `patch` so versions grow slowly
+during the icon build-out phase:
+
+- New or changed icons, fixes, docs -> `patch` (default). Additive and safe;
+  consumers on `^0.x.y` receive these automatically.
+- Breaking changes (icon renames/removals, component API changes) -> `minor`.
+  Caret ranges pin the minor at 0.x, so breaking releases are opt-in for consumers.
+- `major` is reserved for the 1.0 release (after which: breaking -> major,
+  new icons -> minor, fixes -> patch).
 
 ### What `npm run release` does
 
