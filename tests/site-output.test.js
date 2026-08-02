@@ -220,6 +220,23 @@ describe.skipIf(!hasDist)('site output', () => {
     }
   });
 
+  it('llms.txt is clean markdown with install commands and intact examples', async () => {
+    const txt = await readFile(join(DIST, 'llms.txt'), 'utf8');
+    // Presentational HTML is stripped whole - no tags or orphan closers leak
+    // into the prose (code fences may legitimately contain divs, e.g. JSX)
+    const prose = txt.replace(/```[\s\S]*?```/g, '');
+    expect(prose).not.toContain('<div');
+    expect(prose).not.toContain('</div>');
+    expect(prose).not.toContain('<table');
+    // Blank line between the header list and the first doc section
+    expect(txt).toContain('- License: MIT\n\n## Introduction');
+    // Install tab blocks are replaced by their npm command in a bash fence
+    expect(txt).toContain('```bash\nnpm install @uiuxicons/react\n```');
+    expect(txt).toContain('```bash\nnpm install @uiuxicons/vue\n```');
+    // Fenced code examples pass through untouched (JSX div kept)
+    expect(txt).toMatch(/<div>\s*<IconGear \/>/);
+  });
+
   it('index.html ships the ranked search and URL state runtime', async () => {
     const html = await readFile(join(DIST, 'index.html'), 'utf8');
     expect(html).toContain('function scoreWord');

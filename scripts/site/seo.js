@@ -95,6 +95,41 @@ export async function writeSeoAuxFiles(meta) {
   console.log('  Generated sitemap.xml, robots.txt');
 }
 
+/** End index (exclusive) of the balanced <div>...</div> block starting at
+ *  `start`, or -1 if the block never closes. */
+function balancedDivEnd(text, start) {
+  const tagRe = /<\/?div\b[^>]*>/g;
+  tagRe.lastIndex = start;
+  let depth = 0;
+  let m;
+  while ((m = tagRe.exec(text))) {
+    depth += m[0].startsWith('</') ? -1 : 1;
+    if (depth === 0) return tagRe.lastIndex;
+  }
+  return -1;
+}
+
+/** Strips presentational HTML from doc markdown: tables are dropped, and each
+ *  balanced <div> block is removed whole (nested divs included, so no orphan
+ *  closing tags). Package-install tab blocks are replaced with a bash fence
+ *  holding their npm command instead of being lost. */
+function cleanHtmlBlocks(text) {
+  let out = text.replace(/<table[\s\S]*?<\/table>/g, '');
+  let start;
+  while ((start = out.search(/<div\b/)) !== -1) {
+    const end = balancedDivEnd(out, start);
+    if (end === -1) break;
+    const block = out.slice(start, end);
+    let replacement = '';
+    if (block.includes('docs-pkg-tabs')) {
+      const cmd = block.match(/<pre data-pm="npm"><code>([\s\S]*?)<\/code><\/pre>/);
+      if (cmd) replacement = '```bash\n' + cmd[1].trim() + '\n```';
+    }
+    out = out.slice(0, start) + replacement + out.slice(end);
+  }
+  return out;
+}
+
 export async function writeLlmsTxt(meta) {
   const docFiles = (await readdir(DOCS_DIR)).filter(f => DOC_FILE_RE.test(f)).sort();
   const sections = [];
@@ -102,10 +137,13 @@ export async function writeLlmsTxt(meta) {
     const raw = await readFile(join(DOCS_DIR, name), 'utf8');
     const { meta: fm, body } = parseDocFrontmatter(raw);
     const title = fm.title || name.replace(DOC_FILE_RE, '$2');
+    // Fenced code blocks pass through untouched (odd split indices); HTML
+    // cleanup only applies to the prose between them.
     const cleaned = body
       .replace(/\{\{total\}\}/g, String(meta.total))
-      .replace(/<table[\s\S]*?<\/table>/g, '')
-      .replace(/<div[\s\S]*?<\/div>/g, '')
+      .split(/(```[\s\S]*?```)/)
+      .map((seg, i) => (i % 2 ? seg : cleanHtmlBlocks(seg)))
+      .join('')
       .replace(/\n{3,}/g, '\n\n')
       .trim();
     sections.push(`## ${title}\n\n${cleaned}`);
@@ -120,6 +158,7 @@ export async function writeLlmsTxt(meta) {
     '- Website: https://uiuxicons.com',
     '- Packages: @uiuxicons/core, @uiuxicons/react, @uiuxicons/vue',
     '- License: MIT',
+    '',
     '',
   ].join('\n');
 
