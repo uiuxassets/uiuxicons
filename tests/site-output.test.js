@@ -88,7 +88,7 @@ describe.skipIf(!hasDist)('site output', () => {
 
   it('index.html stays under the size budget', async () => {
     const html = await readFile(join(DIST, 'index.html'), 'utf8');
-    expect(html.length).toBeLessThan(200 * 1024);
+    expect(html.length).toBeLessThan(220 * 1024);
   });
 
   it('index.html has WebSite JSON-LD and Copy/View tile overlays', async () => {

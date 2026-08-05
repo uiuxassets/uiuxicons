@@ -42,7 +42,13 @@ New icons appear as untracked `.svg` files. The canonical source is
 ### 2. Check names against conventions (before sync)
 
 Validate every new icon name and flag anything that diverges. Propose a corrected
-name and only rename if the user approves.
+name and **stop** — do not rename files in the repo yourself.
+
+Figma is the source of truth. Icon filenames come from the Figma export into
+`exports/`. If a name is wrong, ask the user to rename the component in Figma and
+re-export; then continue from step 1 once the new SVGs land. Never `git mv` /
+`mv` icon files under `exports/` to “fix” a name — that drifts from Figma and
+must be done across all 9 variant folders anyway.
 
 - **Hard rule:** the name must match `ICON_NAME_RE` `/^[a-z0-9-]+$/` (lowercase
   letters, digits, hyphens only), enforced by `assertSafeIconName` in
@@ -58,15 +64,8 @@ name and only rename if the user approves.
     before horizontal (`arrow-down-left`, not `arrow-left-down`).
   - Match singular/plural to siblings (`rows`, `columns`).
 
-Renaming an icon means renaming the file in ALL 9 variant folders so the integrity
-test still sees identical sets:
-
-```
-exports/{line,duotone,solid}/{light,regular,bold}/<name>.svg
-```
-
-Do the rename before `npm run sync`, since the metadata `name` is derived from the
-filename.
+When reporting, “no renames” means every new name already matched conventions —
+not that renaming is forbidden in general.
 
 ### 3. npm run sync
 
@@ -153,8 +152,9 @@ new category applied; and confirm the build and tests passed. Hand off to
 - A category lives in TWO places that must stay identical: `category.enum` in
   `icons.meta.schema.json` and `META_CATEGORIES` in `scripts/categories.js`.
 - Custom `category` / `tags` in `icons.meta.json` are never overwritten by sync.
-- Renaming an icon means renaming all 9 variant SVGs; a mismatch fails the integrity
-  test.
+- Never rename icons in `exports/` yourself. Propose the corrected name, wait for
+  the user to rename in Figma and re-export, then resume. A partial rename across
+  the 9 variant folders fails the integrity test.
 - `dist/` is generated and gitignored - never stage or commit it.
 - Do NOT run `npm run release`, create tags, commit, or push. The tag is the
   deliberate publish trigger, handled by `release-and-publish`.

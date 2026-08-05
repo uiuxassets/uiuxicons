@@ -1161,6 +1161,19 @@
       ]
     },
     {
+      "name": "fast-forward",
+      "category": "media",
+      "tags": [
+        "fast",
+        "forward",
+        "speed",
+        "media",
+        "player",
+        "ff",
+        "next"
+      ]
+    },
+    {
       "name": "file",
       "category": "files",
       "tags": [
@@ -1733,6 +1746,30 @@
       ]
     },
     {
+      "name": "pause",
+      "category": "media",
+      "tags": [
+        "pause",
+        "hold",
+        "media",
+        "video",
+        "audio",
+        "player"
+      ]
+    },
+    {
+      "name": "play",
+      "category": "media",
+      "tags": [
+        "play",
+        "start",
+        "media",
+        "video",
+        "audio",
+        "player"
+      ]
+    },
+    {
       "name": "plus",
       "category": "actions",
       "tags": [
@@ -1769,6 +1806,29 @@
         "more",
         "box",
         "rectangle"
+      ]
+    },
+    {
+      "name": "record",
+      "category": "media",
+      "tags": [
+        "record",
+        "rec",
+        "recording",
+        "capture",
+        "media"
+      ]
+    },
+    {
+      "name": "rewind",
+      "category": "media",
+      "tags": [
+        "rewind",
+        "reverse",
+        "back",
+        "media",
+        "player",
+        "previous"
       ]
     },
     {
@@ -1887,6 +1947,36 @@
       ]
     },
     {
+      "name": "skip-back",
+      "category": "media",
+      "tags": [
+        "skip",
+        "back",
+        "track",
+        "media",
+        "player",
+        "previous",
+        "prev",
+        "previous-track",
+        "beginning",
+        "start"
+      ]
+    },
+    {
+      "name": "skip-forward",
+      "category": "media",
+      "tags": [
+        "skip",
+        "forward",
+        "track",
+        "media",
+        "player",
+        "next",
+        "next-track",
+        "end"
+      ]
+    },
+    {
       "name": "sliders-horizontal",
       "category": "system",
       "tags": [
@@ -1934,6 +2024,46 @@
         "dotted",
         "outline",
         "dash"
+      ]
+    },
+    {
+      "name": "step-back",
+      "category": "media",
+      "tags": [
+        "step",
+        "back",
+        "frame",
+        "media",
+        "player",
+        "previous",
+        "prev",
+        "previous-frame"
+      ]
+    },
+    {
+      "name": "step-forward",
+      "category": "media",
+      "tags": [
+        "step",
+        "forward",
+        "frame",
+        "media",
+        "player",
+        "next",
+        "next-frame"
+      ]
+    },
+    {
+      "name": "stop",
+      "category": "media",
+      "tags": [
+        "stop",
+        "end",
+        "halt",
+        "media",
+        "video",
+        "audio",
+        "player"
       ]
     },
     {

@@ -43,7 +43,7 @@ export const CATEGORY_PATTERNS = [
   [/^chevron/, 'arrows'],
   [/^(circle|square|triangle|rectangle|polygon|hexagon|octagon|star|heart)/, 'shapes'],
   [/^(menu|back|forward|sidebar|navbar|tabs?(-|$))/, 'navigation'],
-  [/^(play|pause|stop|skip|rewind|forward|volume|mute|music|video|audio|media)/, 'media'],
+  [/^(play|pause|stop|record|skip|step|rewind|fast|forward|volume|mute|music|video|audio|media)/, 'media'],
   [/^(mail|email|envelope|message|chat|phone|call|inbox|send|reply|share|export|import)/, 'communication'],
   [/^(file|folder|document|attachment|paperclip)/, 'files'],
   [/^(book($|-)|graduation|library|notebook|journal|education|course|lesson|diploma|certificate)/, 'education'],
@@ -158,6 +158,14 @@ export const TOKEN_SYNONYMS = {
   paste: ['insert'],
   clipboard: ['board'],
   share: ['export', 'upload', 'send', 'social'],
+  play: ['start', 'media', 'video', 'audio', 'player'],
+  pause: ['hold', 'media', 'video', 'audio', 'player'],
+  stop: ['end', 'halt', 'media', 'video', 'audio', 'player'],
+  record: ['rec', 'recording', 'capture', 'media'],
+  rewind: ['reverse', 'back', 'media', 'player'],
+  skip: ['track', 'media', 'player'],
+  step: ['frame', 'media', 'player'],
+  fast: ['speed', 'media', 'player'],
 };
 
 // Extras keyed by full icon name, for meanings the tokens alone cannot capture.
@@ -183,6 +191,12 @@ export const NAME_EXTRAS = {
   'log-out': ['logout', 'signout', 'sign-out', 'exit', 'leave', 'account', 'door'],
   'tray-arrow-down': ['download', 'save', 'import', 'receive'],
   'tray-arrow-up': ['upload', 'export', 'send', 'share'],
+  'fast-forward': ['ff', 'next', 'speed'],
+  rewind: ['previous'],
+  'skip-forward': ['next', 'next-track', 'end'],
+  'skip-back': ['previous', 'prev', 'previous-track', 'beginning', 'start'],
+  'step-forward': ['next', 'next-frame'],
+  'step-back': ['previous', 'prev', 'previous-frame'],
 };
 
 /**
