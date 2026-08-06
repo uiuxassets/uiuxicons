@@ -41,14 +41,12 @@ New icons appear as untracked `.svg` files. The canonical source is
 
 ### 2. Check names against conventions (before sync)
 
-Validate every new icon name and flag anything that diverges. Propose a corrected
-name and **stop** — do not rename files in the repo yourself.
-
-Figma is the source of truth. Icon filenames come from the Figma export into
-`exports/`. If a name is wrong, ask the user to rename the component in Figma and
-re-export; then continue from step 1 once the new SVGs land. Never `git mv` /
-`mv` icon files under `exports/` to “fix” a name — that drifts from Figma and
-must be done across all 9 variant folders anyway.
+This is a **check only** — never rename files in the repo. Figma is the source
+of truth: icon filenames come from the Figma export into `exports/`. If a name
+diverges, report the proposed correct name and **stop**; the user renames the
+component in Figma and does a fresh export, then the workflow resumes from
+step 1. Never `git mv` / `mv` icon files under `exports/` — that drifts from
+Figma and must be done across all 9 variant folders anyway.
 
 - **Hard rule:** the name must match `ICON_NAME_RE` `/^[a-z0-9-]+$/` (lowercase
   letters, digits, hyphens only), enforced by `assertSafeIconName` in
@@ -59,13 +57,18 @@ must be done across all 9 variant folders anyway.
   - `base-modifier` order: `grid-plus`, not `plus-grid` or `gridplus`.
   - Shared modifier vocabulary: prefer `plus` / `minus` / `x` / `check` over
     `add` / `remove` / `close` / `done`.
-  - Shape qualifiers: `-circle`, `-square` (e.g. `arrow-circle-down`).
-  - Directional suffixes: `-up` / `-down` / `-left` / `-right`, with vertical
-    before horizontal (`arrow-down-left`, not `arrow-left-down`).
+  - Shape qualifiers come right after the glyph: `{glyph}-{shape}` when there is
+    no direction (`plus-circle`, `x-square`), `{glyph}-{shape}-{direction}` when
+    there is one (`arrow-circle-down`, `chevron-circle-up`). Never
+    `arrow-left-square` or `circle-plus`.
+  - Directional suffixes: `-up` / `-down` / `-left` / `-right`, always the final
+    segment, with vertical before horizontal (`arrow-down-left`, not
+    `arrow-left-down`).
   - Match singular/plural to siblings (`rows`, `columns`).
 
-When reporting, “no renames” means every new name already matched conventions —
-not that renaming is forbidden in general.
+The public naming convention is documented in
+[docs/01-introduction.md](docs/01-introduction.md) — keep the two in sync if
+conventions evolve.
 
 ### 3. npm run sync
 
@@ -140,9 +143,10 @@ Typecheck plus integrity checks. Passes only after the build.
 
 ### 8. Stop and report
 
-List the new icons with their final name, category, and tags; note any rename or
-new category applied; and confirm the build and tests passed. Hand off to
-`release-and-publish` only when the user is ready.
+List the new icons with their final name, category, and tags; note any naming
+issues flagged (awaiting a Figma rename + re-export) or new category applied;
+and confirm the build and tests passed. Hand off to `release-and-publish` only
+when the user is ready.
 
 ## Gotchas
 
