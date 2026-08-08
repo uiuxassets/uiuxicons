@@ -561,6 +561,18 @@
       ]
     },
     {
+      "name": "building",
+      "category": "buildings",
+      "tags": [
+        "building",
+        "office",
+        "company",
+        "apartment",
+        "city",
+        "skyscraper"
+      ]
+    },
+    {
       "name": "calendar",
       "category": "time",
       "tags": [
@@ -1908,6 +1920,47 @@
       ]
     },
     {
+      "name": "search-minus",
+      "category": "search",
+      "tags": [
+        "search",
+        "minus",
+        "find",
+        "magnify",
+        "magnifier",
+        "zoom",
+        "lookup",
+        "glass",
+        "remove",
+        "subtract",
+        "delete",
+        "less",
+        "zoom-out",
+        "reduce",
+        "shrink"
+      ]
+    },
+    {
+      "name": "search-plus",
+      "category": "search",
+      "tags": [
+        "search",
+        "plus",
+        "find",
+        "magnify",
+        "magnifier",
+        "zoom",
+        "lookup",
+        "glass",
+        "add",
+        "new",
+        "create",
+        "more",
+        "zoom-in",
+        "enlarge"
+      ]
+    },
+    {
       "name": "server",
       "category": "system",
       "tags": [
@@ -2064,6 +2117,18 @@
         "video",
         "audio",
         "player"
+      ]
+    },
+    {
+      "name": "store",
+      "category": "buildings",
+      "tags": [
+        "store",
+        "shop",
+        "storefront",
+        "retail",
+        "market",
+        "commerce"
       ]
     },
     {
@@ -2347,6 +2412,18 @@
         "design",
         "experience",
         "product"
+      ]
+    },
+    {
+      "name": "warehouse",
+      "category": "buildings",
+      "tags": [
+        "warehouse",
+        "storage",
+        "depot",
+        "inventory",
+        "logistics",
+        "building"
       ]
     },
     {
