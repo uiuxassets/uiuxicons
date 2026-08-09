@@ -1173,6 +1173,19 @@
       ]
     },
     {
+      "name": "factory",
+      "category": "buildings",
+      "tags": [
+        "factory",
+        "industry",
+        "industrial",
+        "plant",
+        "manufacturing",
+        "production",
+        "building"
+      ]
+    },
+    {
       "name": "fast-forward",
       "category": "media",
       "tags": [
@@ -1502,6 +1515,20 @@
         "delete",
         "clear",
         "no"
+      ]
+    },
+    {
+      "name": "hospital",
+      "category": "buildings",
+      "tags": [
+        "hospital",
+        "medical",
+        "clinic",
+        "healthcare",
+        "health",
+        "emergency",
+        "cross",
+        "building"
       ]
     },
     {

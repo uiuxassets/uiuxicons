@@ -130,6 +130,8 @@ export const TOKEN_SYNONYMS = {
   building: ['office', 'company', 'apartment', 'city', 'skyscraper'],
   store: ['shop', 'storefront', 'retail', 'market', 'commerce'],
   warehouse: ['storage', 'depot', 'inventory', 'logistics', 'building'],
+  factory: ['industry', 'industrial', 'plant', 'manufacturing', 'production', 'building'],
+  hospital: ['medical', 'clinic', 'healthcare', 'health', 'emergency', 'cross', 'building'],
   inbox: ['mail', 'messages', 'tray', 'email'],
   list: ['menu', 'items', 'lines', 'bullets'],
   menu: ['hamburger', 'navigation', 'bars', 'list'],
