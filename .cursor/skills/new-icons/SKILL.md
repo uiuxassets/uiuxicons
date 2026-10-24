@@ -39,14 +39,21 @@ git status --short exports/
 New icons appear as untracked `.svg` files. The canonical source is
 `exports/line/regular/` - `npm run sync` reads names from there.
 
+New icons normally come from the icons engine
+(`../uiuxicons-engine`, `npm run export` there), which writes all 9 variant files at
+once. Each exported icon has `../uiuxicons-engine/icons/<name>/icon.json` with its
+intended `category` and a one-line `concept`; use them in steps 4 and 8.
+
 ### 2. Check names against conventions (before sync)
 
-This is a **check only** — never rename files in the repo. Figma is the source
-of truth: icon filenames come from the Figma export into `exports/`. If a name
-diverges, report the proposed correct name and **stop**; the user renames the
-component in Figma and does a fresh export, then the workflow resumes from
-step 1. Never `git mv` / `mv` icon files under `exports/` — that drifts from
-Figma and must be done across all 9 variant folders anyway.
+This is a **check only** — never rename files in the repo. The icons engine
+(`../uiuxicons-engine`) is the source of truth: icon filenames come from its
+export into `exports/` (older icons came from Figma). The engine already lints
+names with these same rules, so a divergence here is rare. If a name diverges,
+report the proposed correct name and **stop**; the user renames the icon in the
+engine (`icons/<name>/`) and re-exports, then the workflow resumes from step 1.
+Never `git mv` / `mv` icon files under `exports/` — that drifts from the engine
+and must be done across all 9 variant folders anyway.
 
 - **Hard rule:** the name must match `ICON_NAME_RE` `/^[a-z0-9-]+$/` (lowercase
   letters, digits, hyphens only), enforced by `assertSafeIconName` in
@@ -144,7 +151,7 @@ Typecheck plus integrity checks. Passes only after the build.
 ### 8. Stop and report
 
 List the new icons with their final name, category, and tags; note any naming
-issues flagged (awaiting a Figma rename + re-export) or new category applied;
+issues flagged (awaiting a rename + re-export from the engine) or new category applied;
 and confirm the build and tests passed. Hand off to `release-and-publish` only
 when the user is ready.
 
@@ -157,8 +164,10 @@ when the user is ready.
   `icons.meta.schema.json` and `META_CATEGORIES` in `scripts/categories.js`.
 - Custom `category` / `tags` in `icons.meta.json` are never overwritten by sync.
 - Never rename icons in `exports/` yourself. Propose the corrected name, wait for
-  the user to rename in Figma and re-export, then resume. A partial rename across
+  the user to rename in the engine and re-export, then resume. A partial rename across
   the 9 variant folders fails the integrity test.
+- Never hand-edit exported SVGs here. Fixes happen in the engine's `source.svg`
+  and are re-exported, so all 9 variants stay consistent.
 - `dist/` is generated and gitignored - never stage or commit it.
 - Do NOT run `npm run release`, create tags, commit, or push. The tag is the
   deliberate publish trigger, handled by `release-and-publish`.

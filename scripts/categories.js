@@ -120,6 +120,8 @@ export const TOKEN_SYNONYMS = {
   tray: ['inbox', 'container'],
   ellipsis: ['more', 'dots', 'menu', 'options', 'overflow'],
   envelope: ['mail', 'email', 'message', 'letter', 'contact'],
+  eye: ['view', 'visible', 'visibility', 'show', 'preview', 'watch', 'look'],
+  lock: ['secure', 'security', 'password', 'padlock', 'private', 'protected'],
   open: ['opened'],
   file: ['document', 'page', 'paper'],
   filter: ['funnel', 'sort', 'refine'],
@@ -204,6 +206,7 @@ export const NAME_EXTRAS = {
   'skip-back': ['previous', 'prev', 'previous-track', 'beginning', 'start'],
   'step-forward': ['next', 'next-frame'],
   'step-back': ['previous', 'prev', 'previous-frame'],
+  'lock-open': ['unlock', 'unlocked', 'unsecure', 'public'],
 };
 
 /**

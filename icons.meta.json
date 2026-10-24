@@ -671,6 +671,51 @@
       ]
     },
     {
+      "name": "check",
+      "category": "status",
+      "tags": [
+        "check",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "check-circle",
+      "category": "status",
+      "tags": [
+        "check",
+        "circle",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes",
+        "round",
+        "ring"
+      ]
+    },
+    {
+      "name": "check-square",
+      "category": "status",
+      "tags": [
+        "check",
+        "square",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes",
+        "box",
+        "rectangle"
+      ]
+    },
+    {
       "name": "chevron-circle-down",
       "category": "arrows",
       "tags": [
@@ -1173,6 +1218,20 @@
       ]
     },
     {
+      "name": "eye",
+      "category": "security",
+      "tags": [
+        "eye",
+        "view",
+        "visible",
+        "visibility",
+        "show",
+        "preview",
+        "watch",
+        "look"
+      ]
+    },
+    {
       "name": "factory",
       "category": "buildings",
       "tags": [
@@ -1597,6 +1656,35 @@
         "items",
         "lines",
         "bullets"
+      ]
+    },
+    {
+      "name": "lock",
+      "category": "security",
+      "tags": [
+        "lock",
+        "secure",
+        "security",
+        "password",
+        "padlock",
+        "private",
+        "protected"
+      ]
+    },
+    {
+      "name": "lock-open",
+      "category": "security",
+      "tags": [
+        "lock",
+        "open",
+        "opened",
+        "unlock",
+        "unlocked",
+        "padlock",
+        "unsecure",
+        "public",
+        "security",
+        "password"
       ]
     },
     {
