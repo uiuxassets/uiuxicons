@@ -39,15 +39,15 @@
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/cli": "^4.3.1",
-    "@vue/server-renderer": "^3.5.38",
+    "@vue/server-renderer": "^3.5.44",
     "archiver": "^8.0.0",
     "fantasticon": "^4.1.0",
     "highlight.js": "^11.11.1",
     "markdown-it": "^14.2.0",
     "svgo": "^4.0.1",
     "tailwindcss": "^4.2.2",
-    "vitest": "^4.1.8",
-    "vue": "^3.5.31"
+    "vitest": "^4.1.12",
+    "vue": "^3.5.44"
   },
   "workspaces": [
     "packages/*"
@@ -58,12 +58,12 @@
   "overrides": {
     "minimatch": "^10.2.4",
     "@xmldom/xmldom": "^0.9.9",
-    "esbuild": "^0.28.1"
+    "esbuild": "^0.28.2"
   },
   "allowScripts": {
     "@parcel/watcher@2.5.1": true,
     "es5-ext@0.10.64": true,
-    "esbuild@0.28.1": true,
+    "esbuild@0.28.2": true,
     "fsevents@2.3.3": true,
     "ttf2woff2@8.0.1": true
   }
