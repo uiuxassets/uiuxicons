@@ -501,6 +501,116 @@
       ]
     },
     {
+      "name": "battery",
+      "category": "power",
+      "tags": [
+        "battery",
+        "charge",
+        "energy",
+        "power",
+        "level"
+      ]
+    },
+    {
+      "name": "battery-full",
+      "category": "power",
+      "tags": [
+        "battery",
+        "full",
+        "charge",
+        "energy",
+        "power",
+        "level",
+        "charged",
+        "complete",
+        "max"
+      ]
+    },
+    {
+      "name": "battery-high",
+      "category": "power",
+      "tags": [
+        "battery",
+        "high",
+        "charge",
+        "energy",
+        "power",
+        "level",
+        "charged",
+        "mostly"
+      ]
+    },
+    {
+      "name": "battery-low",
+      "category": "power",
+      "tags": [
+        "battery",
+        "low",
+        "charge",
+        "energy",
+        "power",
+        "level",
+        "empty",
+        "drained",
+        "weak"
+      ]
+    },
+    {
+      "name": "battery-medium",
+      "category": "power",
+      "tags": [
+        "battery",
+        "medium",
+        "charge",
+        "energy",
+        "power",
+        "level",
+        "half"
+      ]
+    },
+    {
+      "name": "bell",
+      "category": "notifications",
+      "tags": [
+        "bell",
+        "notification",
+        "alert",
+        "alarm",
+        "ring",
+        "reminder"
+      ]
+    },
+    {
+      "name": "bell-off",
+      "category": "notifications",
+      "tags": [
+        "bell",
+        "off",
+        "notification",
+        "alert",
+        "alarm",
+        "ring",
+        "reminder",
+        "disabled",
+        "slash",
+        "mute",
+        "muted",
+        "silent",
+        "notifications-off"
+      ]
+    },
+    {
+      "name": "bluetooth",
+      "category": "connectivity",
+      "tags": [
+        "bluetooth",
+        "wireless",
+        "connection",
+        "pairing",
+        "device"
+      ]
+    },
+    {
       "name": "book",
       "category": "education",
       "tags": [
@@ -558,6 +668,18 @@
         "ribbon",
         "tag",
         "saved"
+      ]
+    },
+    {
+      "name": "bug",
+      "category": "development",
+      "tags": [
+        "bug",
+        "debug",
+        "issue",
+        "error",
+        "insect",
+        "beetle"
       ]
     },
     {
@@ -668,6 +790,93 @@
         "delete",
         "clear",
         "no"
+      ]
+    },
+    {
+      "name": "camera",
+      "category": "images",
+      "tags": [
+        "camera",
+        "photo",
+        "picture",
+        "capture",
+        "snapshot",
+        "lens"
+      ]
+    },
+    {
+      "name": "cart",
+      "category": "commerce",
+      "tags": [
+        "cart",
+        "shopping",
+        "basket",
+        "checkout",
+        "buy",
+        "store"
+      ]
+    },
+    {
+      "name": "chart-bar",
+      "category": "charts",
+      "tags": [
+        "chart",
+        "bar",
+        "graph",
+        "analytics",
+        "statistics",
+        "data",
+        "report",
+        "column",
+        "histogram",
+        "bars"
+      ]
+    },
+    {
+      "name": "chart-line",
+      "category": "charts",
+      "tags": [
+        "chart",
+        "line",
+        "graph",
+        "analytics",
+        "statistics",
+        "data",
+        "report",
+        "trend",
+        "growth",
+        "progress",
+        "area"
+      ]
+    },
+    {
+      "name": "chart-pie",
+      "category": "charts",
+      "tags": [
+        "chart",
+        "pie",
+        "graph",
+        "analytics",
+        "statistics",
+        "data",
+        "report",
+        "donut",
+        "proportion",
+        "percentage",
+        "share"
+      ]
+    },
+    {
+      "name": "chat",
+      "category": "communication",
+      "tags": [
+        "chat",
+        "message",
+        "conversation",
+        "talk",
+        "comment",
+        "bubble",
+        "speech"
       ]
     },
     {
@@ -1069,6 +1278,18 @@
       ]
     },
     {
+      "name": "code",
+      "category": "development",
+      "tags": [
+        "code",
+        "brackets",
+        "developer",
+        "programming",
+        "html",
+        "source"
+      ]
+    },
+    {
       "name": "collapse",
       "category": "system",
       "tags": [
@@ -1154,6 +1375,31 @@
       ]
     },
     {
+      "name": "credit-card",
+      "category": "commerce",
+      "tags": [
+        "credit",
+        "card",
+        "payment",
+        "debit",
+        "bank",
+        "pay",
+        "purchase",
+        "checkout"
+      ]
+    },
+    {
+      "name": "download",
+      "category": "actions",
+      "tags": [
+        "download",
+        "save",
+        "import",
+        "receive",
+        "transfer"
+      ]
+    },
+    {
       "name": "ellipsis-horizontal",
       "category": "general",
       "tags": [
@@ -1229,6 +1475,27 @@
         "preview",
         "watch",
         "look"
+      ]
+    },
+    {
+      "name": "eye-off",
+      "category": "security",
+      "tags": [
+        "eye",
+        "off",
+        "view",
+        "visible",
+        "visibility",
+        "show",
+        "preview",
+        "watch",
+        "look",
+        "disabled",
+        "slash",
+        "hide",
+        "hidden",
+        "invisible",
+        "unseen"
       ]
     },
     {
@@ -1491,6 +1758,19 @@
       ]
     },
     {
+      "name": "globe",
+      "category": "location",
+      "tags": [
+        "globe",
+        "world",
+        "earth",
+        "internet",
+        "web",
+        "international",
+        "language"
+      ]
+    },
+    {
       "name": "graduation-cap",
       "category": "education",
       "tags": [
@@ -1577,6 +1857,17 @@
       ]
     },
     {
+      "name": "heart",
+      "category": "shapes",
+      "tags": [
+        "heart",
+        "like",
+        "love",
+        "favorite",
+        "health"
+      ]
+    },
+    {
       "name": "hospital",
       "category": "buildings",
       "tags": [
@@ -1598,6 +1889,18 @@
         "home",
         "building",
         "residence"
+      ]
+    },
+    {
+      "name": "image",
+      "category": "images",
+      "tags": [
+        "image",
+        "picture",
+        "photo",
+        "gallery",
+        "media",
+        "landscape"
       ]
     },
     {
@@ -1645,6 +1948,44 @@
         "upward",
         "send",
         "upload"
+      ]
+    },
+    {
+      "name": "info-circle",
+      "category": "notifications",
+      "tags": [
+        "info",
+        "circle",
+        "information",
+        "about",
+        "details",
+        "help",
+        "round",
+        "ring"
+      ]
+    },
+    {
+      "name": "key",
+      "category": "security",
+      "tags": [
+        "key",
+        "password",
+        "access",
+        "unlock",
+        "credentials",
+        "login"
+      ]
+    },
+    {
+      "name": "link",
+      "category": "connectivity",
+      "tags": [
+        "link",
+        "url",
+        "hyperlink",
+        "chain",
+        "attach",
+        "connect"
       ]
     },
     {
@@ -1715,6 +2056,20 @@
         "leave",
         "account",
         "door"
+      ]
+    },
+    {
+      "name": "map-pin",
+      "category": "location",
+      "tags": [
+        "map",
+        "pin",
+        "location",
+        "navigation",
+        "marker",
+        "place",
+        "gps",
+        "address"
       ]
     },
     {
@@ -1873,6 +2228,17 @@
       ]
     },
     {
+      "name": "paperclip",
+      "category": "files",
+      "tags": [
+        "paperclip",
+        "attachment",
+        "attach",
+        "clip",
+        "file"
+      ]
+    },
+    {
       "name": "pause",
       "category": "media",
       "tags": [
@@ -1882,6 +2248,30 @@
         "video",
         "audio",
         "player"
+      ]
+    },
+    {
+      "name": "pencil",
+      "category": "actions",
+      "tags": [
+        "pencil",
+        "edit",
+        "write",
+        "draw",
+        "compose",
+        "pen"
+      ]
+    },
+    {
+      "name": "phone",
+      "category": "communication",
+      "tags": [
+        "phone",
+        "call",
+        "telephone",
+        "contact",
+        "handset",
+        "dial"
       ]
     },
     {
@@ -1933,6 +2323,33 @@
         "more",
         "box",
         "rectangle"
+      ]
+    },
+    {
+      "name": "power",
+      "category": "power",
+      "tags": [
+        "power",
+        "on",
+        "off",
+        "shutdown",
+        "start",
+        "switch"
+      ]
+    },
+    {
+      "name": "question-circle",
+      "category": "notifications",
+      "tags": [
+        "question",
+        "circle",
+        "help",
+        "support",
+        "faq",
+        "unknown",
+        "ask",
+        "round",
+        "ring"
       ]
     },
     {
@@ -2076,6 +2493,18 @@
       ]
     },
     {
+      "name": "send",
+      "category": "communication",
+      "tags": [
+        "send",
+        "submit",
+        "paper-plane",
+        "message",
+        "share",
+        "deliver"
+      ]
+    },
+    {
       "name": "server",
       "category": "system",
       "tags": [
@@ -2112,6 +2541,41 @@
         "upload",
         "send",
         "social"
+      ]
+    },
+    {
+      "name": "shield",
+      "category": "security",
+      "tags": [
+        "shield",
+        "security",
+        "protection",
+        "safe",
+        "guard",
+        "secure",
+        "defense"
+      ]
+    },
+    {
+      "name": "shield-check",
+      "category": "security",
+      "tags": [
+        "shield",
+        "check",
+        "security",
+        "protection",
+        "safe",
+        "guard",
+        "secure",
+        "defense",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes",
+        "verified",
+        "protected"
       ]
     },
     {
@@ -2192,6 +2656,18 @@
         "dotted",
         "outline",
         "dash"
+      ]
+    },
+    {
+      "name": "star",
+      "category": "shapes",
+      "tags": [
+        "star",
+        "favorite",
+        "rating",
+        "bookmark",
+        "rate",
+        "featured"
       ]
     },
     {
@@ -2340,6 +2816,17 @@
       ]
     },
     {
+      "name": "tag",
+      "category": "commerce",
+      "tags": [
+        "tag",
+        "label",
+        "price",
+        "category",
+        "badge"
+      ]
+    },
+    {
       "name": "target",
       "category": "general",
       "tags": [
@@ -2349,6 +2836,19 @@
         "bullseye",
         "focus",
         "objective"
+      ]
+    },
+    {
+      "name": "terminal",
+      "category": "development",
+      "tags": [
+        "terminal",
+        "console",
+        "command",
+        "shell",
+        "cli",
+        "prompt",
+        "bash"
       ]
     },
     {
@@ -2530,6 +3030,61 @@
       ]
     },
     {
+      "name": "upload",
+      "category": "actions",
+      "tags": [
+        "upload",
+        "send",
+        "export",
+        "transfer",
+        "publish"
+      ]
+    },
+    {
+      "name": "user",
+      "category": "users",
+      "tags": [
+        "user",
+        "person",
+        "account",
+        "profile",
+        "avatar",
+        "member"
+      ]
+    },
+    {
+      "name": "user-plus",
+      "category": "users",
+      "tags": [
+        "user",
+        "plus",
+        "person",
+        "account",
+        "profile",
+        "avatar",
+        "member",
+        "add",
+        "new",
+        "create",
+        "more",
+        "invite",
+        "add-user",
+        "signup"
+      ]
+    },
+    {
+      "name": "users",
+      "category": "users",
+      "tags": [
+        "users",
+        "people",
+        "group",
+        "team",
+        "members",
+        "community"
+      ]
+    },
+    {
       "name": "warehouse",
       "category": "buildings",
       "tags": [
@@ -2539,6 +3094,31 @@
         "inventory",
         "logistics",
         "building"
+      ]
+    },
+    {
+      "name": "warning",
+      "category": "notifications",
+      "tags": [
+        "warning",
+        "alert",
+        "caution",
+        "danger",
+        "error",
+        "attention",
+        "exclamation"
+      ]
+    },
+    {
+      "name": "wifi",
+      "category": "connectivity",
+      "tags": [
+        "wifi",
+        "wireless",
+        "internet",
+        "network",
+        "signal",
+        "connection"
       ]
     },
     {
