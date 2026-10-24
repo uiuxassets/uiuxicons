@@ -17,11 +17,17 @@ import {
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
+// Commit dates in UTC, matching the UTC build date; %cs uses the committer's
+// local offset and can land a day ahead of the build.
+const GIT_UTC_DATE = ['--date=format-local:%Y-%m-%d'];
+const GIT_UTC_ENV = { ...process.env, TZ: 'UTC' };
+
 /** Last commit date (YYYY-MM-DD) touching any of the given paths, or null. */
 function gitLastCommitDate(paths) {
   try {
-    const out = execFileSync('git', ['log', '-1', '--format=%cs', '--', ...paths], {
+    const out = execFileSync('git', ['log', '-1', ...GIT_UTC_DATE, '--format=%cd', '--', ...paths], {
       cwd: ROOT,
+      env: GIT_UTC_ENV,
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
     }).trim();
@@ -40,8 +46,9 @@ function gitIconDates() {
   const dates = new Map();
   let out;
   try {
-    out = execFileSync('git', ['log', '--format=COMMIT:%cs', '--name-only', '--', 'exports'], {
+    out = execFileSync('git', ['log', ...GIT_UTC_DATE, '--format=COMMIT:%cd', '--name-only', '--', 'exports'], {
       cwd: ROOT,
+      env: GIT_UTC_ENV,
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
       maxBuffer: 64 * 1024 * 1024,
