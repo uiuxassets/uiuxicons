@@ -1568,6 +1568,23 @@
       ]
     },
     {
+      "name": "file-check",
+      "category": "files",
+      "tags": [
+        "file",
+        "check",
+        "document",
+        "page",
+        "paper",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
       "name": "file-minus",
       "category": "files",
       "tags": [
@@ -2081,6 +2098,38 @@
         "navigation",
         "bars",
         "list"
+      ]
+    },
+    {
+      "name": "microphone",
+      "category": "media",
+      "tags": [
+        "microphone",
+        "mic",
+        "audio",
+        "voice",
+        "record",
+        "speak",
+        "input"
+      ]
+    },
+    {
+      "name": "microphone-off",
+      "category": "media",
+      "tags": [
+        "microphone",
+        "off",
+        "mic",
+        "audio",
+        "voice",
+        "record",
+        "speak",
+        "input",
+        "disabled",
+        "slash",
+        "mute",
+        "muted",
+        "mic-off"
       ]
     },
     {
@@ -3053,6 +3102,45 @@
       ]
     },
     {
+      "name": "user-check",
+      "category": "users",
+      "tags": [
+        "user",
+        "check",
+        "person",
+        "account",
+        "profile",
+        "avatar",
+        "member",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes",
+        "verified",
+        "approved"
+      ]
+    },
+    {
+      "name": "user-minus",
+      "category": "users",
+      "tags": [
+        "user",
+        "minus",
+        "person",
+        "account",
+        "profile",
+        "avatar",
+        "member",
+        "remove",
+        "subtract",
+        "delete",
+        "less",
+        "remove-user"
+      ]
+    },
+    {
       "name": "user-plus",
       "category": "users",
       "tags": [
@@ -3073,6 +3161,27 @@
       ]
     },
     {
+      "name": "user-x",
+      "category": "users",
+      "tags": [
+        "user",
+        "x",
+        "person",
+        "account",
+        "profile",
+        "avatar",
+        "member",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no",
+        "remove-user",
+        "block"
+      ]
+    },
+    {
       "name": "users",
       "category": "users",
       "tags": [
@@ -3082,6 +3191,68 @@
         "team",
         "members",
         "community"
+      ]
+    },
+    {
+      "name": "volume",
+      "category": "media",
+      "tags": [
+        "volume",
+        "sound",
+        "audio",
+        "speaker",
+        "media"
+      ]
+    },
+    {
+      "name": "volume-high",
+      "category": "media",
+      "tags": [
+        "volume",
+        "high",
+        "sound",
+        "audio",
+        "speaker",
+        "media",
+        "loud",
+        "max",
+        "unmute"
+      ]
+    },
+    {
+      "name": "volume-low",
+      "category": "media",
+      "tags": [
+        "volume",
+        "low",
+        "sound",
+        "audio",
+        "speaker",
+        "media",
+        "quiet",
+        "soft"
+      ]
+    },
+    {
+      "name": "volume-x",
+      "category": "media",
+      "tags": [
+        "volume",
+        "x",
+        "sound",
+        "audio",
+        "speaker",
+        "media",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no",
+        "mute",
+        "muted",
+        "silent",
+        "sound-off"
       ]
     },
     {
@@ -3107,6 +3278,22 @@
         "error",
         "attention",
         "exclamation"
+      ]
+    },
+    {
+      "name": "warning-circle",
+      "category": "notifications",
+      "tags": [
+        "warning",
+        "circle",
+        "alert",
+        "caution",
+        "danger",
+        "error",
+        "attention",
+        "exclamation",
+        "round",
+        "ring"
       ]
     },
     {

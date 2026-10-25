@@ -43,7 +43,7 @@ export const CATEGORY_PATTERNS = [
   [/^chevron/, 'arrows'],
   [/^(circle|square|triangle|rectangle|polygon|hexagon|octagon|star|heart)/, 'shapes'],
   [/^(menu|back|forward|sidebar|navbar|tabs?(-|$))/, 'navigation'],
-  [/^(play|pause|stop|record|skip|step|rewind|fast|forward|volume|mute|music|video|audio|media)/, 'media'],
+  [/^(play|pause|stop|record|skip|step|rewind|fast|forward|volume|mute|music|video|audio|media|microphone)/, 'media'],
   [/^(mail|email|envelope|message|chat|phone|call|inbox|send|reply|share|export|import)/, 'communication'],
   [/^(file|folder|document|attachment|paperclip)/, 'files'],
   [/^(book($|-)|graduation|library|notebook|journal|education|course|lesson|diploma|certificate)/, 'education'],
@@ -173,6 +173,8 @@ export const TOKEN_SYNONYMS = {
   skip: ['track', 'media', 'player'],
   step: ['frame', 'media', 'player'],
   fast: ['speed', 'media', 'player'],
+  microphone: ['mic', 'audio', 'voice', 'record', 'speak', 'input'],
+  volume: ['sound', 'audio', 'speaker', 'media'],
   battery: ['charge', 'energy', 'power', 'level'],
   bell: ['notification', 'alert', 'alarm', 'ring', 'reminder'],
   off: ['disabled', 'slash'],
@@ -253,6 +255,13 @@ export const NAME_EXTRAS = {
   'credit-card': ['payment', 'debit', 'bank', 'pay', 'purchase', 'checkout'],
   'shield-check': ['verified', 'protected'],
   'user-plus': ['invite', 'add-user', 'signup'],
+  'user-minus': ['remove-user'],
+  'user-x': ['remove-user', 'block'],
+  'user-check': ['verified', 'approved'],
+  'microphone-off': ['mute', 'muted', 'mic-off'],
+  'volume-high': ['loud', 'max', 'unmute'],
+  'volume-low': ['quiet', 'soft'],
+  'volume-x': ['mute', 'muted', 'silent', 'sound-off'],
 };
 
 /**
