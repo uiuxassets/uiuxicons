@@ -3,6 +3,18 @@
   "description": "Custom metadata for UI/UX Icons. Add categories and tags for each icon here.",
   "icons": [
     {
+      "name": "alarm",
+      "category": "time",
+      "tags": [
+        "alarm",
+        "clock",
+        "wake",
+        "reminder",
+        "ring",
+        "time"
+      ]
+    },
+    {
       "name": "align-bottom",
       "category": "layout",
       "tags": [
@@ -501,6 +513,46 @@
       ]
     },
     {
+      "name": "arrows-down-up",
+      "category": "arrows",
+      "tags": [
+        "arrows",
+        "down",
+        "up",
+        "downward",
+        "upward",
+        "sort",
+        "swap",
+        "exchange",
+        "vertical"
+      ]
+    },
+    {
+      "name": "arrows-left-right",
+      "category": "arrows",
+      "tags": [
+        "arrows",
+        "left",
+        "right",
+        "swap",
+        "exchange",
+        "transfer",
+        "horizontal"
+      ]
+    },
+    {
+      "name": "bag",
+      "category": "commerce",
+      "tags": [
+        "bag",
+        "shopping",
+        "purchase",
+        "buy",
+        "store",
+        "tote"
+      ]
+    },
+    {
       "name": "battery",
       "category": "power",
       "tags": [
@@ -509,6 +561,21 @@
         "energy",
         "power",
         "level"
+      ]
+    },
+    {
+      "name": "battery-charging",
+      "category": "power",
+      "tags": [
+        "battery",
+        "charging",
+        "charge",
+        "energy",
+        "power",
+        "level",
+        "plugged",
+        "bolt",
+        "charger"
       ]
     },
     {
@@ -880,6 +947,25 @@
       ]
     },
     {
+      "name": "chat-text",
+      "category": "communication",
+      "tags": [
+        "chat",
+        "text",
+        "message",
+        "conversation",
+        "talk",
+        "comment",
+        "bubble",
+        "speech",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "transcript"
+      ]
+    },
+    {
       "name": "check",
       "category": "status",
       "tags": [
@@ -1024,6 +1110,68 @@
       ]
     },
     {
+      "name": "chevron-square-down",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "square",
+        "down",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret",
+        "box",
+        "rectangle",
+        "downward"
+      ]
+    },
+    {
+      "name": "chevron-square-left",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "square",
+        "left",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret",
+        "box",
+        "rectangle"
+      ]
+    },
+    {
+      "name": "chevron-square-right",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "square",
+        "right",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret",
+        "box",
+        "rectangle"
+      ]
+    },
+    {
+      "name": "chevron-square-up",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "square",
+        "up",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret",
+        "box",
+        "rectangle",
+        "upward"
+      ]
+    },
+    {
       "name": "chevron-up",
       "category": "arrows",
       "tags": [
@@ -1034,6 +1182,25 @@
         "collapse",
         "caret",
         "upward"
+      ]
+    },
+    {
+      "name": "chevron-up-down",
+      "category": "arrows",
+      "tags": [
+        "chevron",
+        "up",
+        "down",
+        "arrow",
+        "expand",
+        "collapse",
+        "caret",
+        "upward",
+        "downward",
+        "select",
+        "dropdown",
+        "sort",
+        "unfold"
       ]
     },
     {
@@ -1278,6 +1445,52 @@
       ]
     },
     {
+      "name": "cloud",
+      "category": "connectivity",
+      "tags": [
+        "cloud",
+        "storage",
+        "sync",
+        "online",
+        "server"
+      ]
+    },
+    {
+      "name": "cloud-arrow-down",
+      "category": "connectivity",
+      "tags": [
+        "cloud",
+        "arrow",
+        "down",
+        "storage",
+        "sync",
+        "online",
+        "server",
+        "direction",
+        "navigate",
+        "downward",
+        "download"
+      ]
+    },
+    {
+      "name": "cloud-arrow-up",
+      "category": "connectivity",
+      "tags": [
+        "cloud",
+        "arrow",
+        "up",
+        "storage",
+        "sync",
+        "online",
+        "server",
+        "direction",
+        "navigate",
+        "upward",
+        "upload",
+        "backup"
+      ]
+    },
+    {
       "name": "code",
       "category": "development",
       "tags": [
@@ -1362,6 +1575,18 @@
         "delete",
         "clear",
         "no"
+      ]
+    },
+    {
+      "name": "compass",
+      "category": "location",
+      "tags": [
+        "compass",
+        "navigation",
+        "direction",
+        "explore",
+        "north",
+        "orientation"
       ]
     },
     {
@@ -1657,10 +1882,67 @@
       ]
     },
     {
+      "name": "fingerprint",
+      "category": "security",
+      "tags": [
+        "fingerprint",
+        "biometric",
+        "identity",
+        "touch-id",
+        "authentication",
+        "scan"
+      ]
+    },
+    {
+      "name": "flag",
+      "category": "general",
+      "tags": [
+        "flag",
+        "report",
+        "mark",
+        "milestone",
+        "country",
+        "banner"
+      ]
+    },
+    {
       "name": "folder",
       "category": "files",
       "tags": [
         "folder"
+      ]
+    },
+    {
+      "name": "folder-arrow-down",
+      "category": "files",
+      "tags": [
+        "folder",
+        "arrow",
+        "down",
+        "directory",
+        "files",
+        "direction",
+        "navigate",
+        "downward",
+        "download",
+        "save",
+        "import"
+      ]
+    },
+    {
+      "name": "folder-arrow-up",
+      "category": "files",
+      "tags": [
+        "folder",
+        "arrow",
+        "up",
+        "directory",
+        "files",
+        "direction",
+        "navigate",
+        "upward",
+        "upload",
+        "export"
       ]
     },
     {
@@ -1772,6 +2054,61 @@
         "config",
         "cog",
         "setup"
+      ]
+    },
+    {
+      "name": "gift",
+      "category": "commerce",
+      "tags": [
+        "gift",
+        "present",
+        "reward",
+        "birthday",
+        "surprise"
+      ]
+    },
+    {
+      "name": "git-branch",
+      "category": "development",
+      "tags": [
+        "git",
+        "branch",
+        "version-control",
+        "repository",
+        "source",
+        "code",
+        "fork",
+        "version"
+      ]
+    },
+    {
+      "name": "git-commit",
+      "category": "development",
+      "tags": [
+        "git",
+        "commit",
+        "version-control",
+        "repository",
+        "source",
+        "code",
+        "revision",
+        "version",
+        "save"
+      ]
+    },
+    {
+      "name": "git-merge",
+      "category": "development",
+      "tags": [
+        "git",
+        "merge",
+        "version-control",
+        "repository",
+        "source",
+        "code",
+        "combine",
+        "join",
+        "pull-request"
       ]
     },
     {
@@ -1899,6 +2236,19 @@
       ]
     },
     {
+      "name": "hourglass",
+      "category": "time",
+      "tags": [
+        "hourglass",
+        "wait",
+        "loading",
+        "pending",
+        "sand",
+        "timer",
+        "time"
+      ]
+    },
+    {
       "name": "house",
       "category": "buildings",
       "tags": [
@@ -1994,6 +2344,19 @@
       ]
     },
     {
+      "name": "lightning",
+      "category": "power",
+      "tags": [
+        "lightning",
+        "bolt",
+        "flash",
+        "energy",
+        "electric",
+        "power",
+        "fast"
+      ]
+    },
+    {
       "name": "link",
       "category": "connectivity",
       "tags": [
@@ -2073,6 +2436,15 @@
         "leave",
         "account",
         "door"
+      ]
+    },
+    {
+      "name": "map",
+      "category": "location",
+      "tags": [
+        "map",
+        "location",
+        "navigation"
       ]
     },
     {
@@ -2402,6 +2774,18 @@
       ]
     },
     {
+      "name": "receipt",
+      "category": "commerce",
+      "tags": [
+        "receipt",
+        "invoice",
+        "bill",
+        "order",
+        "transaction",
+        "purchase"
+      ]
+    },
+    {
       "name": "record",
       "category": "media",
       "tags": [
@@ -2628,6 +3012,17 @@
       ]
     },
     {
+      "name": "sidebar",
+      "category": "navigation",
+      "tags": [
+        "sidebar",
+        "panel",
+        "drawer",
+        "layout",
+        "navigation"
+      ]
+    },
+    {
       "name": "skip-back",
       "category": "media",
       "tags": [
@@ -2683,6 +3078,18 @@
         "options",
         "equalizer",
         "tune"
+      ]
+    },
+    {
+      "name": "sparkle",
+      "category": "general",
+      "tags": [
+        "sparkle",
+        "ai",
+        "magic",
+        "shine",
+        "spark",
+        "new"
       ]
     },
     {
@@ -2969,6 +3376,21 @@
       ]
     },
     {
+      "name": "text-bold",
+      "category": "text",
+      "tags": [
+        "text",
+        "bold",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "strong",
+        "weight",
+        "format"
+      ]
+    },
+    {
       "name": "text-initial",
       "category": "text",
       "tags": [
@@ -2984,6 +3406,21 @@
       ]
     },
     {
+      "name": "text-italic",
+      "category": "text",
+      "tags": [
+        "text",
+        "italic",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "emphasis",
+        "slant",
+        "format"
+      ]
+    },
+    {
       "name": "text-select",
       "category": "text",
       "tags": [
@@ -2996,6 +3433,107 @@
         "selection",
         "highlight",
         "cursor"
+      ]
+    },
+    {
+      "name": "text-strikethrough",
+      "category": "text",
+      "tags": [
+        "text",
+        "strikethrough",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "strike",
+        "cross-out",
+        "format"
+      ]
+    },
+    {
+      "name": "text-underline",
+      "category": "text",
+      "tags": [
+        "text",
+        "underline",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "format",
+        "emphasis"
+      ]
+    },
+    {
+      "name": "thumbs-down",
+      "category": "general",
+      "tags": [
+        "thumbs",
+        "down",
+        "hand",
+        "feedback",
+        "vote",
+        "rating",
+        "downward",
+        "dislike",
+        "disapprove",
+        "downvote"
+      ]
+    },
+    {
+      "name": "thumbs-up",
+      "category": "general",
+      "tags": [
+        "thumbs",
+        "up",
+        "hand",
+        "feedback",
+        "vote",
+        "rating",
+        "upward",
+        "like",
+        "approve",
+        "agree",
+        "upvote"
+      ]
+    },
+    {
+      "name": "timer",
+      "category": "time",
+      "tags": [
+        "timer",
+        "stopwatch",
+        "countdown",
+        "duration",
+        "time"
+      ]
+    },
+    {
+      "name": "toggle-left",
+      "category": "system",
+      "tags": [
+        "toggle",
+        "left",
+        "switch",
+        "setting",
+        "enable",
+        "disable",
+        "disabled",
+        "inactive"
+      ]
+    },
+    {
+      "name": "toggle-right",
+      "category": "system",
+      "tags": [
+        "toggle",
+        "right",
+        "switch",
+        "setting",
+        "enable",
+        "disable",
+        "enabled",
+        "active"
       ]
     },
     {
@@ -3194,6 +3732,38 @@
       ]
     },
     {
+      "name": "video",
+      "category": "media",
+      "tags": [
+        "video",
+        "camera",
+        "movie",
+        "film",
+        "record",
+        "call",
+        "media"
+      ]
+    },
+    {
+      "name": "video-off",
+      "category": "media",
+      "tags": [
+        "video",
+        "off",
+        "camera",
+        "movie",
+        "film",
+        "record",
+        "call",
+        "media",
+        "disabled",
+        "slash",
+        "camera-off",
+        "no-video",
+        "muted"
+      ]
+    },
+    {
       "name": "volume",
       "category": "media",
       "tags": [
@@ -3256,6 +3826,18 @@
       ]
     },
     {
+      "name": "wallet",
+      "category": "commerce",
+      "tags": [
+        "wallet",
+        "money",
+        "payment",
+        "finance",
+        "cash",
+        "purse"
+      ]
+    },
+    {
       "name": "warehouse",
       "category": "buildings",
       "tags": [
@@ -3306,6 +3888,37 @@
         "network",
         "signal",
         "connection"
+      ]
+    },
+    {
+      "name": "wifi-off",
+      "category": "connectivity",
+      "tags": [
+        "wifi",
+        "off",
+        "wireless",
+        "internet",
+        "network",
+        "signal",
+        "connection",
+        "disabled",
+        "slash",
+        "offline",
+        "disconnected",
+        "no-internet"
+      ]
+    },
+    {
+      "name": "wrench",
+      "category": "system",
+      "tags": [
+        "wrench",
+        "tool",
+        "settings",
+        "repair",
+        "fix",
+        "maintenance",
+        "spanner"
       ]
     },
     {
