@@ -632,6 +632,32 @@
       ]
     },
     {
+      "name": "bank",
+      "category": "buildings",
+      "tags": [
+        "bank",
+        "finance",
+        "banking",
+        "money",
+        "institution",
+        "building",
+        "government"
+      ]
+    },
+    {
+      "name": "barcode",
+      "category": "system",
+      "tags": [
+        "barcode",
+        "scan",
+        "scanner",
+        "product",
+        "sku",
+        "upc",
+        "inventory"
+      ]
+    },
+    {
       "name": "battery",
       "category": "power",
       "tags": [
@@ -829,6 +855,73 @@
       ]
     },
     {
+      "name": "bookmark-check",
+      "category": "actions",
+      "tags": [
+        "bookmark",
+        "check",
+        "save",
+        "favorite",
+        "ribbon",
+        "tag",
+        "saved",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes",
+        "bookmarked",
+        "saved-item"
+      ]
+    },
+    {
+      "name": "bookmark-plus",
+      "category": "actions",
+      "tags": [
+        "bookmark",
+        "plus",
+        "save",
+        "favorite",
+        "ribbon",
+        "tag",
+        "saved",
+        "add",
+        "new",
+        "create",
+        "more",
+        "add-bookmark",
+        "save-for-later"
+      ]
+    },
+    {
+      "name": "briefcase",
+      "category": "general",
+      "tags": [
+        "briefcase",
+        "work",
+        "job",
+        "business",
+        "portfolio",
+        "career",
+        "office",
+        "bag"
+      ]
+    },
+    {
+      "name": "brush",
+      "category": "images",
+      "tags": [
+        "brush",
+        "paint",
+        "paintbrush",
+        "art",
+        "design",
+        "draw",
+        "style"
+      ]
+    },
+    {
       "name": "bug",
       "category": "development",
       "tags": [
@@ -850,6 +943,19 @@
         "apartment",
         "city",
         "skyscraper"
+      ]
+    },
+    {
+      "name": "calculator",
+      "category": "education",
+      "tags": [
+        "calculator",
+        "math",
+        "calculate",
+        "finance",
+        "accounting",
+        "numbers",
+        "sum"
       ]
     },
     {
@@ -978,6 +1084,18 @@
       ]
     },
     {
+      "name": "captions",
+      "category": "media",
+      "tags": [
+        "captions",
+        "subtitles",
+        "cc",
+        "closed-captions",
+        "transcript",
+        "accessibility"
+      ]
+    },
+    {
       "name": "cart",
       "category": "commerce",
       "tags": [
@@ -987,6 +1105,32 @@
         "checkout",
         "buy",
         "store"
+      ]
+    },
+    {
+      "name": "cast",
+      "category": "connectivity",
+      "tags": [
+        "cast",
+        "chromecast",
+        "screen-share",
+        "airplay",
+        "stream",
+        "broadcast",
+        "tv"
+      ]
+    },
+    {
+      "name": "certificate",
+      "category": "education",
+      "tags": [
+        "certificate",
+        "award",
+        "diploma",
+        "credential",
+        "license",
+        "achievement",
+        "verified"
       ]
     },
     {
@@ -1364,6 +1508,22 @@
       ]
     },
     {
+      "name": "circle-half",
+      "category": "shapes",
+      "tags": [
+        "circle",
+        "half",
+        "round",
+        "ring",
+        "contrast",
+        "theme",
+        "dark-mode",
+        "partial",
+        "progress",
+        "split"
+      ]
+    },
+    {
       "name": "clipboard",
       "category": "actions",
       "tags": [
@@ -1629,6 +1789,22 @@
       ]
     },
     {
+      "name": "cloud-fog",
+      "category": "weather",
+      "tags": [
+        "cloud",
+        "fog",
+        "storage",
+        "sync",
+        "online",
+        "server",
+        "mist",
+        "haze",
+        "foggy",
+        "weather"
+      ]
+    },
+    {
       "name": "cloud-lightning",
       "category": "weather",
       "tags": [
@@ -1890,6 +2066,19 @@
       ]
     },
     {
+      "name": "cpu",
+      "category": "system",
+      "tags": [
+        "cpu",
+        "processor",
+        "chip",
+        "hardware",
+        "computer",
+        "microchip",
+        "performance"
+      ]
+    },
+    {
       "name": "credit-card",
       "category": "commerce",
       "tags": [
@@ -1969,6 +2158,19 @@
       ]
     },
     {
+      "name": "diamond",
+      "category": "shapes",
+      "tags": [
+        "diamond",
+        "gem",
+        "jewel",
+        "premium",
+        "rhombus",
+        "shape",
+        "value"
+      ]
+    },
+    {
       "name": "download",
       "category": "actions",
       "tags": [
@@ -1977,6 +2179,19 @@
         "import",
         "receive",
         "transfer"
+      ]
+    },
+    {
+      "name": "droplet",
+      "category": "weather",
+      "tags": [
+        "droplet",
+        "water",
+        "drop",
+        "liquid",
+        "humidity",
+        "rain",
+        "ink"
       ]
     },
     {
@@ -2032,6 +2247,19 @@
       ]
     },
     {
+      "name": "eraser",
+      "category": "actions",
+      "tags": [
+        "eraser",
+        "erase",
+        "clear",
+        "delete",
+        "rubber",
+        "clean",
+        "remove"
+      ]
+    },
+    {
       "name": "expand",
       "category": "system",
       "tags": [
@@ -2055,6 +2283,19 @@
         "preview",
         "watch",
         "look"
+      ]
+    },
+    {
+      "name": "eye-dropper",
+      "category": "images",
+      "tags": [
+        "eye",
+        "dropper",
+        "color-picker",
+        "picker",
+        "pipette",
+        "sample",
+        "color"
       ]
     },
     {
@@ -2291,6 +2532,45 @@
         "milestone",
         "country",
         "banner"
+      ]
+    },
+    {
+      "name": "flame",
+      "category": "general",
+      "tags": [
+        "flame",
+        "fire",
+        "hot",
+        "trending",
+        "popular",
+        "burn",
+        "heat"
+      ]
+    },
+    {
+      "name": "flask",
+      "category": "education",
+      "tags": [
+        "flask",
+        "lab",
+        "science",
+        "experiment",
+        "chemistry",
+        "beaker",
+        "test",
+        "beta"
+      ]
+    },
+    {
+      "name": "floppy-disk",
+      "category": "actions",
+      "tags": [
+        "floppy",
+        "disk",
+        "save",
+        "storage",
+        "diskette",
+        "file"
       ]
     },
     {
@@ -2658,6 +2938,20 @@
       ]
     },
     {
+      "name": "hard-drive",
+      "category": "system",
+      "tags": [
+        "hard",
+        "drive",
+        "storage",
+        "disk",
+        "hdd",
+        "ssd",
+        "device",
+        "hardware"
+      ]
+    },
+    {
       "name": "hash",
       "category": "text",
       "tags": [
@@ -2668,6 +2962,19 @@
         "channel",
         "tag",
         "sharp"
+      ]
+    },
+    {
+      "name": "headphones",
+      "category": "media",
+      "tags": [
+        "headphones",
+        "audio",
+        "music",
+        "listen",
+        "sound",
+        "earphones",
+        "headset"
       ]
     },
     {
@@ -2692,6 +2999,17 @@
         "love",
         "favorite",
         "health"
+      ]
+    },
+    {
+      "name": "hexagon",
+      "category": "shapes",
+      "tags": [
+        "hexagon",
+        "shape",
+        "polygon",
+        "six",
+        "honeycomb"
       ]
     },
     {
@@ -2732,6 +3050,20 @@
       ]
     },
     {
+      "name": "id-card",
+      "category": "users",
+      "tags": [
+        "id",
+        "card",
+        "identity",
+        "badge",
+        "identification",
+        "license",
+        "profile",
+        "member"
+      ]
+    },
+    {
       "name": "image",
       "category": "images",
       "tags": [
@@ -2758,6 +3090,41 @@
         "new",
         "create",
         "more"
+      ]
+    },
+    {
+      "name": "image-x",
+      "category": "images",
+      "tags": [
+        "image",
+        "x",
+        "picture",
+        "photo",
+        "gallery",
+        "media",
+        "landscape",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no",
+        "remove-image",
+        "delete-image",
+        "broken-image"
+      ]
+    },
+    {
+      "name": "images",
+      "category": "images",
+      "tags": [
+        "images",
+        "photos",
+        "gallery",
+        "pictures",
+        "album",
+        "collection",
+        "media"
       ]
     },
     {
@@ -3111,6 +3478,30 @@
       ]
     },
     {
+      "name": "map-pin-check",
+      "category": "location",
+      "tags": [
+        "map",
+        "pin",
+        "check",
+        "location",
+        "navigation",
+        "marker",
+        "place",
+        "gps",
+        "address",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes",
+        "visited",
+        "checked-in",
+        "confirmed-location"
+      ]
+    },
+    {
       "name": "map-pin-plus",
       "category": "location",
       "tags": [
@@ -3127,6 +3518,29 @@
         "new",
         "create",
         "more"
+      ]
+    },
+    {
+      "name": "map-pin-x",
+      "category": "location",
+      "tags": [
+        "map",
+        "pin",
+        "x",
+        "location",
+        "navigation",
+        "marker",
+        "place",
+        "gps",
+        "address",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no",
+        "remove-location",
+        "unavailable"
       ]
     },
     {
@@ -3248,6 +3662,19 @@
       ]
     },
     {
+      "name": "mouse",
+      "category": "system",
+      "tags": [
+        "mouse",
+        "cursor",
+        "click",
+        "pointer",
+        "device",
+        "hardware",
+        "scroll"
+      ]
+    },
+    {
       "name": "music-note",
       "category": "media",
       "tags": [
@@ -3272,6 +3699,17 @@
         "cursor",
         "pointer",
         "navigate"
+      ]
+    },
+    {
+      "name": "octagon",
+      "category": "shapes",
+      "tags": [
+        "octagon",
+        "shape",
+        "polygon",
+        "stop",
+        "eight"
       ]
     },
     {
@@ -3402,6 +3840,20 @@
         "attach",
         "clip",
         "file"
+      ]
+    },
+    {
+      "name": "password",
+      "category": "security",
+      "tags": [
+        "password",
+        "passcode",
+        "pin",
+        "secret",
+        "credentials",
+        "login",
+        "input",
+        "masked"
       ]
     },
     {
@@ -3572,6 +4024,19 @@
       ]
     },
     {
+      "name": "prohibit",
+      "category": "status",
+      "tags": [
+        "prohibit",
+        "forbidden",
+        "ban",
+        "block",
+        "not-allowed",
+        "disabled",
+        "no-entry"
+      ]
+    },
+    {
       "name": "pulse",
       "category": "charts",
       "tags": [
@@ -3709,6 +4174,19 @@
       ]
     },
     {
+      "name": "route",
+      "category": "location",
+      "tags": [
+        "route",
+        "path",
+        "directions",
+        "journey",
+        "trip",
+        "way",
+        "navigation"
+      ]
+    },
+    {
       "name": "rows",
       "category": "layout",
       "tags": [
@@ -3769,6 +4247,19 @@
         "delete",
         "clear",
         "no"
+      ]
+    },
+    {
+      "name": "school",
+      "category": "buildings",
+      "tags": [
+        "school",
+        "education",
+        "learning",
+        "academy",
+        "building",
+        "university",
+        "class"
       ]
     },
     {
@@ -3976,6 +4467,31 @@
       ]
     },
     {
+      "name": "signpost",
+      "category": "navigation",
+      "tags": [
+        "signpost",
+        "direction",
+        "directions",
+        "guide",
+        "wayfinding",
+        "sign"
+      ]
+    },
+    {
+      "name": "sitemap",
+      "category": "navigation",
+      "tags": [
+        "sitemap",
+        "hierarchy",
+        "structure",
+        "tree",
+        "org-chart",
+        "pages",
+        "navigation"
+      ]
+    },
+    {
       "name": "skip-back",
       "category": "media",
       "tags": [
@@ -4159,6 +4675,23 @@
       ]
     },
     {
+      "name": "star-half",
+      "category": "shapes",
+      "tags": [
+        "star",
+        "half",
+        "favorite",
+        "rating",
+        "bookmark",
+        "rate",
+        "featured",
+        "half-star",
+        "partial",
+        "review",
+        "score"
+      ]
+    },
+    {
       "name": "step-back",
       "category": "media",
       "tags": [
@@ -4315,6 +4848,18 @@
       ]
     },
     {
+      "name": "tabs",
+      "category": "navigation",
+      "tags": [
+        "tabs",
+        "browser",
+        "window",
+        "pages",
+        "tabbed",
+        "navigation"
+      ]
+    },
+    {
       "name": "tag",
       "category": "commerce",
       "tags": [
@@ -4450,6 +4995,21 @@
       ]
     },
     {
+      "name": "text-indent",
+      "category": "text",
+      "tags": [
+        "text",
+        "indent",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "increase-indent",
+        "paragraph",
+        "align"
+      ]
+    },
+    {
       "name": "text-initial",
       "category": "text",
       "tags": [
@@ -4477,6 +5037,21 @@
         "emphasis",
         "slant",
         "format"
+      ]
+    },
+    {
+      "name": "text-outdent",
+      "category": "text",
+      "tags": [
+        "text",
+        "outdent",
+        "type",
+        "font",
+        "typography",
+        "content",
+        "decrease-indent",
+        "paragraph",
+        "align"
       ]
     },
     {
@@ -4598,6 +5173,19 @@
         "approve",
         "agree",
         "upvote"
+      ]
+    },
+    {
+      "name": "ticket",
+      "category": "commerce",
+      "tags": [
+        "ticket",
+        "event",
+        "admission",
+        "pass",
+        "coupon",
+        "voucher",
+        "support-ticket"
       ]
     },
     {
@@ -5138,6 +5726,18 @@
         "offline",
         "disconnected",
         "no-internet"
+      ]
+    },
+    {
+      "name": "wind",
+      "category": "weather",
+      "tags": [
+        "wind",
+        "breeze",
+        "air",
+        "windy",
+        "weather",
+        "gust"
       ]
     },
     {
