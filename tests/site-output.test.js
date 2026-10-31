@@ -3,6 +3,7 @@ import { existsSync } from 'fs';
 import { readFile } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { gzipSync } from 'zlib';
 
 // Post-build checks for the generated website (runs after `npm run build`,
 // skipped when dist/ is absent - CI always builds first).
@@ -86,9 +87,33 @@ describe.skipIf(!hasDist)('site output', () => {
     expect(css).not.toContain('font-display: block');
   });
 
-  it('index.html stays under the size budget', async () => {
+  // Budgeted on gzipped bytes (what visitors download) and scaled by icon
+  // count, so adding icons never fails it; only a costlier tile or page
+  // chrome does. Measured at 417 icons: ~11.6 KB fixed + ~150 B per icon.
+  it('index.html stays under the gzipped size budget', async () => {
+    const FIXED = 16 * 1024;
+    const PER_ICON = 190;
+    const html = await readFile(join(DIST, 'index.html'));
+    const meta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
+    const budget = FIXED + PER_ICON * meta.icons.length;
+    expect(gzipSync(html).length).toBeLessThan(budget);
+  });
+
+  it('index.html links a complete bundle for every variant', async () => {
     const html = await readFile(join(DIST, 'index.html'), 'utf8');
-    expect(html.length).toBeLessThan(480 * 1024);
+    const meta = JSON.parse(await readFile(join(DIST, 'uiuxicons.json'), 'utf8'));
+    const match = html.match(/bundles: (\{[^}]*\})/);
+    expect(match, 'index.html should pass bundle URLs to uiuxInitIconTiles').not.toBeNull();
+    const bundles = JSON.parse(match[1]);
+    const variants = meta.styles.flatMap((s) => meta.weights.map((w) => `${s}-${w}`));
+    expect(Object.keys(bundles).sort()).toEqual([...variants].sort());
+    for (const variant of variants) {
+      expect(bundles[variant]).toMatch(new RegExp(`^/bundles/${variant}\\.[a-f0-9]{10}\\.json$`));
+      const map = JSON.parse(await readFile(join(DIST, bundles[variant].slice(1)), 'utf8'));
+      for (const icon of meta.icons) {
+        expect(map[icon.name], `${variant} bundle missing ${icon.name}`).toMatch(/^<svg/);
+      }
+    }
   });
 
   it('index.html has WebSite JSON-LD and Copy/View tile overlays', async () => {

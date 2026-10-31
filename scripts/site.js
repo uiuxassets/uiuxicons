@@ -11,10 +11,11 @@
  *   site/pages/*.js    - one module per generated page
  */
 
-import { readFile } from 'fs/promises';
+import { readFile, writeFile, mkdir } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
+import { createHash } from 'crypto';
 import { DIST, loadSvg } from './site/common.js';
 import { setSiteCssFile, setSiteVersion, setCloseIcon, themeToggleIcons } from './site/templates.js';
 import { writeSeoAuxFiles, writeLlmsTxt } from './site/seo.js';
@@ -25,6 +26,34 @@ import { generateExamples } from './site/pages/examples.js';
 import { generateChangelog } from './site/pages/changelog.js';
 import { generate404Page } from './site/pages/not-found.js';
 import { generateOgImages } from './og-images.js';
+
+/**
+ * One content-hashed JSON file per style-weight ({ name: svg }) so the
+ * homepage grid swaps variants with a single request instead of one per tile.
+ * Kept out of dist/uiuxicons/, which holds only per-variant SVG folders.
+ * Returns { 'line-regular': '/bundles/line-regular.<hash>.json', ... }.
+ */
+async function writeVariantBundles(meta, icons) {
+  const dir = join(DIST, 'bundles');
+  await mkdir(dir, { recursive: true });
+  const urls = {};
+  for (const style of meta.styles) {
+    for (const weight of meta.weights) {
+      const variant = `${style}-${weight}`;
+      const map = {};
+      for (const icon of icons) {
+        if (icon.svgs[variant]) map[icon.name] = icon.svgs[variant];
+      }
+      const json = JSON.stringify(map);
+      const hash = createHash('sha256').update(json).digest('hex').slice(0, 10);
+      const file = `${variant}.${hash}.json`;
+      await writeFile(join(dir, file), json);
+      urls[variant] = `/bundles/${file}`;
+    }
+  }
+  console.log(`  Generated ${Object.keys(urls).length} variant bundles (bundles/{variant}.{hash}.json)`);
+  return urls;
+}
 
 async function generateSite({ cssFile } = {}) {
   setSiteCssFile(cssFile);
@@ -68,7 +97,8 @@ async function generateSite({ cssFile } = {}) {
   };
 
   await generateOgImages(icons);
-  await generateIndex(meta, icons, shared);
+  const bundleUrls = await writeVariantBundles(meta, icons);
+  await generateIndex(meta, icons, shared, bundleUrls);
   await generateExamples(meta.total, shared);
   await generateChangelog(meta.total, shared);
   await generateDocs(meta, shared);

@@ -12,27 +12,71 @@ export const focusTrapRuntime = `(function(){function q(p){return[].slice.call(p
  * Icon tile runtime shared by the homepage grid and the related-icons grid on
  * icon detail pages. Only the line-regular variant is inlined in the HTML;
  * other variants are fetched on demand (same-origin static SVGs) and cached.
+ * When bundle URLs are registered, a variant loads as one JSON file for every
+ * icon instead of one request per tile, falling back to per-file on failure.
  *
  * Defines:
  * - window.uiuxVariantSvg(variant, name) → Promise<svg markup>
  * - window.uiuxUpdateTiles(rootSel, variant, isCurrent) → swap visible .icon-svg holders
  * - window.uiuxInitIconTiles(rootSel, opts) → seed cache, inject Copy button, wire click-to-copy
- *   opts: { getVariant, copyText, onCopy }
+ *   opts: { getVariant, copyText, onCopy, bundles? } (bundles: { variant: url })
  */
 export const iconTileRuntime = `
   (function () {
     const cache = new Map();
+    const bundleUrls = {};
+    const bundleLoads = new Map();
+
+    function isSvg(text) {
+      return typeof text === 'string' && text.trimStart().startsWith('<svg');
+    }
+
+    // Resolves once the variant's bundle is in the cache (true) or could not
+    // be loaded (false). Concurrent callers share one request; a failed load
+    // is forgotten so the next switch retries it.
+    function loadBundle(variant) {
+      const url = bundleUrls[variant];
+      if (!url) return Promise.resolve(false);
+      if (!bundleLoads.has(variant)) {
+        bundleLoads.set(variant, fetch(url)
+          .then((r) => {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+          })
+          .then((map) => {
+            for (const name of Object.keys(map)) {
+              if (isSvg(map[name])) cache.set(variant + '/' + name, map[name]);
+            }
+            return true;
+          })
+          .catch(() => {
+            bundleLoads.delete(variant);
+            return false;
+          }));
+      }
+      return bundleLoads.get(variant);
+    }
 
     function fetchVariantSvg(variant, name) {
       const key = variant + '/' + name;
       if (cache.has(key)) return Promise.resolve(cache.get(key));
+      if (bundleUrls[variant]) {
+        return loadBundle(variant).then(() =>
+          cache.has(key) ? cache.get(key) : fetchSvgFile(variant, name)
+        );
+      }
+      return fetchSvgFile(variant, name);
+    }
+
+    function fetchSvgFile(variant, name) {
+      const key = variant + '/' + name;
       return fetch('/uiuxicons/' + variant + '/' + name + '.svg')
         .then((r) => {
           if (!r.ok) throw new Error('HTTP ' + r.status);
           return r.text();
         })
         .then((text) => {
-          if (!text.trimStart().startsWith('<svg')) throw new Error('unexpected content');
+          if (!isSvg(text)) throw new Error('unexpected content');
           cache.set(key, text);
           return text;
         });
@@ -60,6 +104,7 @@ export const iconTileRuntime = `
     };
 
     window.uiuxInitIconTiles = function (rootSel, opts) {
+      if (opts.bundles) Object.assign(bundleUrls, opts.bundles);
       document.querySelectorAll(rootSel + ' .icon-item').forEach((tile) => {
         const holder = tile.querySelector('.icon-svg');
         if (holder) cache.set('line-regular/' + tile.dataset.name, holder.innerHTML);

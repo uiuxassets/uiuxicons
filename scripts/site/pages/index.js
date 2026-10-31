@@ -1,7 +1,7 @@
 /**
  * Homepage: searchable, filterable icon grid with style/weight/size/color
- * controls. Only the line-regular variant is inlined; other variants are
- * fetched on demand by the icon tile runtime.
+ * controls. Only the line-regular variant is inlined; other variants load on
+ * demand as one bundle per style-weight via the icon tile runtime.
  */
 
 import { writeFile } from 'fs/promises';
@@ -18,7 +18,7 @@ import {
   sidebarScrollFadeScript,
 } from '../../site-snippets.js';
 
-export async function generateIndex(meta, icons, shared) {
+export async function generateIndex(meta, icons, shared, bundleUrls = {}) {
   const { themeIcons, logoIcon, downloadIcon, menuIcon, listIcon, resetIcon } = shared;
 
   const indexTitle = 'UI/UX Icons - Free Icon Library';
@@ -473,6 +473,15 @@ export async function generateIndex(meta, icons, shared) {
       updateVariant();
     }
 
+    // Before the restore below: it may switch variant, which needs the
+    // bundle URLs registered and the inlined line-regular SVGs cached.
+    uiuxInitIconTiles('#icons', {
+      getVariant: () => currentStyle + '-' + currentWeight,
+      copyText,
+      onCopy: (ok) => showToast(ok ? 'Copied SVG' : 'Could not copy - try selecting the icon or use HTTPS'),
+      bundles: ${JSON.stringify(bundleUrls)},
+    });
+
     // Restore state from the URL and localStorage. URL params win over saved
     // preferences so shared links show exactly what the sender saw; unknown
     // values are ignored and the defaults stay. Must run after searchIndex
@@ -515,12 +524,6 @@ export async function generateIndex(meta, icons, shared) {
         syncUrl();
       }
     })();
-
-    uiuxInitIconTiles('#icons', {
-      getVariant: () => currentStyle + '-' + currentWeight,
-      copyText,
-      onCopy: (ok) => showToast(ok ? 'Copied SVG' : 'Could not copy - try selecting the icon or use HTTPS'),
-    });
 `,
   });
 
