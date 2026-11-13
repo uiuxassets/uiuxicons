@@ -290,4 +290,17 @@ describe.skipIf(!hasDist)('site output', () => {
       expect(js.startsWith('"use client";')).toBe(true);
     }
   });
+
+  it('package bundles and font CSS carry an @license header', async () => {
+    const version = JSON.parse(await readFile(join(ROOT, 'package.json'), 'utf8')).version;
+    for (const pkg of ['react', 'vue']) {
+      for (const file of ['index.js', 'index.cjs', 'icons/gear.js']) {
+        const js = await readFile(join(ROOT, 'packages', pkg, 'dist', file), 'utf8');
+        expect(js).toContain(`@license @uiuxicons/${pkg} v${version} - MIT`);
+      }
+    }
+    const css = await readFile(join(DIST, 'font', 'uiuxicons.css'), 'utf8');
+    expect(css.startsWith('/*!')).toBe(true);
+    expect(css).toContain(`@license @uiuxicons/core v${version} - MIT`);
+  });
 });

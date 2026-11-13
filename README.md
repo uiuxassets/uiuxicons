@@ -222,16 +222,27 @@ dist/             ← build output (gitignored)
 
 ## Contributing
 
-1. Fork the repo and create a branch
-2. Add or modify icons in `exports/{style}/{weight}/`
-3. Run `npm run sync` to update metadata
-4. Run `npm test` to verify nothing is broken
-5. Run `npm run build` to generate all outputs
-6. Open a pull request
+Every icon is drawn in-house to keep all 9 variants consistent, so icon pull requests are not accepted. Instead, [request an icon](https://github.com/uiuxassets/uiuxicons/issues/new?template=icon-request.yml) - concrete use cases help us prioritize.
+
+Bug fixes for the packages, build scripts, site, and docs are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
 MIT - free for personal and commercial use.
+
+The MIT License asks that the copyright and license notice stay with copies of the icons. The `LICENSE` file shipped with the npm packages and the ZIP covers this, and the React, Vue, and font CSS files carry an `@license` header that bundlers preserve automatically.
+
+### Credit
+
+Visible credit is appreciated, not required. If UI/UX Icons helped your project, a link back helps others find it:
+
+```html
+Icons by <a href="https://uiuxicons.com">UI/UX Icons</a>
+```
+
+### Trademarks
+
+The MIT License covers the icons and code, not the UI/UX Icons or UI/UX Assets names and logos. Forks must use their own name and branding. See [TRADEMARKS.md](TRADEMARKS.md).
 
 ---
 

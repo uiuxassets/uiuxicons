@@ -1,6 +1,11 @@
+import { readFileSync } from 'fs';
 import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { STYLES, WEIGHTS } from './optimize.js';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const VERSION = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')).version;
 
 const WEIGHT_VALUE = { light: 300, regular: 400, bold: 700 };
 
@@ -19,7 +24,14 @@ export async function generateFontCss(distDir, codepoints) {
   await mkdir(fontRoot, { recursive: true });
 
   const lines = [];
-  lines.push('/* UI/UX Icons - auto-generated. Do not edit. */');
+  lines.push('/*!');
+  lines.push(` * @license @uiuxicons/core v${VERSION} - MIT`);
+  lines.push(' *');
+  lines.push(' * Licensed under the MIT license. See the LICENSE file shipped with this package.');
+  lines.push(' * https://uiuxicons.com');
+  lines.push(' *');
+  lines.push(' * Auto-generated. Do not edit.');
+  lines.push(' */');
   lines.push('');
 
   for (const style of STYLES) {

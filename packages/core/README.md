@@ -90,7 +90,9 @@ want to build a port for another framework, generate from `svg/` and
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT — see [LICENSE](./LICENSE). Keep the `LICENSE` file (or the `@license` header in `uiuxicons.css`) with copies of the assets. Visible credit is appreciated, not required: `Icons by <a href="https://uiuxicons.com">UI/UX Icons</a>`.
+
+The UI/UX Icons name and logo are not covered by the MIT License — see [TRADEMARKS.md](https://github.com/uiuxassets/uiuxicons/blob/main/TRADEMARKS.md).
 
 ---
 

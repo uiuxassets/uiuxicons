@@ -31,8 +31,8 @@ The ZIP includes:
       <td>Icon id → decimal codepoint (same order as the fonts)</td>
     </tr>
     <tr>
-      <td><code>LICENSE</code>, <code>README.md</code></td>
-      <td>License and package readme</td>
+      <td><code>LICENSE</code>, <code>TRADEMARKS.md</code>, <code>README.md</code></td>
+      <td>License, trademark notice, and package readme</td>
     </tr>
   </tbody>
 </table>

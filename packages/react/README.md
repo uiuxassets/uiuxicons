@@ -67,7 +67,9 @@ import { IconGear } from "@uiuxicons/react/icons/gear";
 
 ## License
 
-MIT - free for personal and commercial use.
+MIT - free for personal and commercial use. Every built file carries an `@license` header that bundlers preserve, which keeps the required notice with your bundle. Visible credit is appreciated, not required: `Icons by <a href="https://uiuxicons.com">UI/UX Icons</a>`.
+
+The UI/UX Icons name and logo are not covered by the MIT License - see [TRADEMARKS.md](https://github.com/uiuxassets/uiuxicons/blob/main/TRADEMARKS.md).
 
 ---
 

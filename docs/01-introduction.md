@@ -32,6 +32,18 @@ Icon names are lowercase kebab-case and follow a few predictable rules, so you c
 
 Every icon also carries search tags (synonyms like "add" for `plus`), so searching by what an icon does will find it even if you don't know the exact name.
 
+### License and credit
+
+UI/UX Icons is MIT licensed and free for personal and commercial use. The license asks that the copyright and license notice stay with copies of the icons; the `LICENSE` file in the npm packages and ZIP, and the `@license` header in the React, Vue, and font CSS files, take care of this.
+
+Visible credit is appreciated, not required. If the icons helped your project, a link back helps others find them:
+
+```html
+Icons by <a href="https://uiuxicons.com">UI/UX Icons</a>
+```
+
+The MIT License covers the icons and code, not the UI/UX Icons name and logo. See the <a href="https://github.com/uiuxassets/uiuxicons/blob/main/TRADEMARKS.md" target="_blank" rel="noopener noreferrer">trademark notice</a>.
+
 ### Brand icons
 
 UI/UX Icons does not include brand or logo icons. Trademarks and brand assets carry legal constraints that are difficult to maintain in an open icon library. For brand icons, we recommend <a href="https://simpleicons.org/" target="_blank" rel="noopener noreferrer">Simple Icons</a>.

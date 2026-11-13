@@ -9,6 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..');
 const LICENSE_FILE = join(REPO_ROOT, 'LICENSE');
 const README_FILE = join(REPO_ROOT, 'README.md');
+const TRADEMARKS_FILE = join(REPO_ROOT, 'TRADEMARKS.md');
 
 export async function createDownloads(distDir) {
   const downloadsDir = join(distDir, 'downloads');
@@ -30,6 +31,9 @@ export async function createDownloads(distDir) {
     }
     if (existsSync(README_FILE)) {
       archive.file(README_FILE, { name: 'README.md' });
+    }
+    if (existsSync(TRADEMARKS_FILE)) {
+      archive.file(TRADEMARKS_FILE, { name: 'TRADEMARKS.md' });
     }
 
     const fontCss = join(distDir, 'font', 'uiuxicons.css');

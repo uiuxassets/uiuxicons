@@ -6,18 +6,28 @@ Thanks for helping make this icon library better.
 
 Open an [icon request](https://github.com/uiuxassets/uiuxicons/issues/new?template=icon-request.yml). Concrete use cases help us prioritize.
 
+Every icon is drawn in-house so all 9 variants stay visually consistent, so **pull requests that add or modify icons are not accepted** and will be closed. If an existing icon looks wrong, open a [bug report](https://github.com/uiuxassets/uiuxicons/issues/new?template=bug-report.yml) instead.
+
 ## Reporting a bug
 
 Open a [bug report](https://github.com/uiuxassets/uiuxicons/issues/new?template=bug-report.yml) with the affected package/area and version.
 
-## Contributing icons or code
+## Contributing code
+
+Fixes to the React/Vue packages, build scripts, site, docs, and search tags are welcome.
 
 1. Fork the repo and create a branch.
-2. For icons: add SVGs to all 9 variant folders under `exports/{style}/{weight}/` (line, duotone, solid x light, regular, bold). Icons are 24x24 with `currentColor` - see the [README specs](README.md#specs).
-3. Run `npm run sync` to update metadata, then review the generated entries in `icons.meta.json`. New icons get an inferred `category` and enriched search `tags` automatically - see [Search tags](#search-tags) below.
-4. Run `npm run build` - this assigns codepoints for new icons and regenerates the React/Vue package sources.
-5. Run `npm test` - this typechecks both packages and validates icon-set integrity (all 9 folders must contain identical icon sets). Run it after the build, since the integrity check only passes once `npm run build` has assigned codepoints.
-6. Open a pull request. CI must be green before merge.
+2. Make your change, then run `npm run build` and `npm test`.
+3. Open a pull request. CI must be green before merge.
+
+For anything larger than a small fix, open an issue first so we can agree on the approach.
+
+## Adding icons (maintainers)
+
+1. Add SVGs to all 9 variant folders under `exports/{style}/{weight}/` (line, duotone, solid x light, regular, bold). Icons are 24x24 with `currentColor` - see the [README specs](README.md#specs).
+2. Run `npm run sync` to update metadata, then review the generated entries in `icons.meta.json`. New icons get an inferred `category` and enriched search `tags` automatically - see [Search tags](#search-tags) below.
+3. Run `npm run build` - this assigns codepoints for new icons and regenerates the React/Vue package sources.
+4. Run `npm test` - this typechecks both packages and validates icon-set integrity (all 9 folders must contain identical icon sets). Run it after the build, since the integrity check only passes once `npm run build` has assigned codepoints.
 
 ## Search tags
 
@@ -76,4 +86,4 @@ git push origin main vX.Y.Z            # pushes BOTH refs: main (-> CI + site de
 
 ## License
 
-By contributing, you agree your contributions are licensed under the [MIT License](LICENSE).
+By contributing, you agree your contributions are licensed under the [MIT License](LICENSE). The UI/UX Icons name and logo are not covered by that license - see [TRADEMARKS.md](TRADEMARKS.md).
