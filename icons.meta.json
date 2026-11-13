@@ -620,6 +620,23 @@
       ]
     },
     {
+      "name": "badge-percent",
+      "category": "commerce",
+      "tags": [
+        "badge",
+        "percent",
+        "verified",
+        "seal",
+        "certified",
+        "award",
+        "percentage",
+        "discount",
+        "sale",
+        "rate",
+        "ratio"
+      ]
+    },
+    {
       "name": "bag",
       "category": "commerce",
       "tags": [
@@ -629,6 +646,42 @@
         "buy",
         "store",
         "tote"
+      ]
+    },
+    {
+      "name": "bag-check",
+      "category": "commerce",
+      "tags": [
+        "bag",
+        "check",
+        "shopping",
+        "purchase",
+        "buy",
+        "store",
+        "tote",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "bag-plus",
+      "category": "commerce",
+      "tags": [
+        "bag",
+        "plus",
+        "shopping",
+        "purchase",
+        "buy",
+        "store",
+        "tote",
+        "add",
+        "new",
+        "create",
+        "more"
       ]
     },
     {
@@ -642,6 +695,43 @@
         "institution",
         "building",
         "government"
+      ]
+    },
+    {
+      "name": "banknote",
+      "category": "commerce",
+      "tags": [
+        "banknote",
+        "money",
+        "cash",
+        "bill",
+        "currency",
+        "payment",
+        "finance"
+      ]
+    },
+    {
+      "name": "banknote-arrow-down",
+      "category": "commerce",
+      "tags": [
+        "banknote",
+        "arrow",
+        "down",
+        "direction",
+        "navigate",
+        "downward"
+      ]
+    },
+    {
+      "name": "banknote-arrow-up",
+      "category": "commerce",
+      "tags": [
+        "banknote",
+        "arrow",
+        "up",
+        "direction",
+        "navigate",
+        "upward"
       ]
     },
     {
@@ -876,6 +966,23 @@
       ]
     },
     {
+      "name": "bookmark-minus",
+      "category": "actions",
+      "tags": [
+        "bookmark",
+        "minus",
+        "save",
+        "favorite",
+        "ribbon",
+        "tag",
+        "saved",
+        "remove",
+        "subtract",
+        "delete",
+        "less"
+      ]
+    },
+    {
       "name": "bookmark-plus",
       "category": "actions",
       "tags": [
@@ -892,6 +999,25 @@
         "more",
         "add-bookmark",
         "save-for-later"
+      ]
+    },
+    {
+      "name": "bookmark-x",
+      "category": "actions",
+      "tags": [
+        "bookmark",
+        "x",
+        "save",
+        "favorite",
+        "ribbon",
+        "tag",
+        "saved",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
       ]
     },
     {
@@ -1004,6 +1130,21 @@
       ]
     },
     {
+      "name": "calendar-clock",
+      "category": "time",
+      "tags": [
+        "calendar",
+        "clock",
+        "date",
+        "schedule",
+        "event",
+        "month",
+        "day",
+        "time",
+        "watch"
+      ]
+    },
+    {
       "name": "calendar-minus",
       "category": "time",
       "tags": [
@@ -1035,6 +1176,24 @@
         "new",
         "create",
         "more"
+      ]
+    },
+    {
+      "name": "calendar-repeat",
+      "category": "time",
+      "tags": [
+        "calendar",
+        "repeat",
+        "date",
+        "schedule",
+        "event",
+        "month",
+        "day",
+        "loop",
+        "replay",
+        "again",
+        "cycle",
+        "recurring"
       ]
     },
     {
@@ -1108,6 +1267,78 @@
       ]
     },
     {
+      "name": "cart-check",
+      "category": "commerce",
+      "tags": [
+        "cart",
+        "check",
+        "shopping",
+        "basket",
+        "checkout",
+        "buy",
+        "store",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "cart-minus",
+      "category": "commerce",
+      "tags": [
+        "cart",
+        "minus",
+        "shopping",
+        "basket",
+        "checkout",
+        "buy",
+        "store",
+        "remove",
+        "subtract",
+        "delete",
+        "less"
+      ]
+    },
+    {
+      "name": "cart-plus",
+      "category": "commerce",
+      "tags": [
+        "cart",
+        "plus",
+        "shopping",
+        "basket",
+        "checkout",
+        "buy",
+        "store",
+        "add",
+        "new",
+        "create",
+        "more"
+      ]
+    },
+    {
+      "name": "cart-x",
+      "category": "commerce",
+      "tags": [
+        "cart",
+        "x",
+        "shopping",
+        "basket",
+        "checkout",
+        "buy",
+        "store",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
+      ]
+    },
+    {
       "name": "cast",
       "category": "connectivity",
       "tags": [
@@ -1163,6 +1394,61 @@
       ]
     },
     {
+      "name": "chart-bar-horizontal",
+      "category": "charts",
+      "tags": [
+        "chart",
+        "bar",
+        "horizontal",
+        "graph",
+        "analytics",
+        "statistics",
+        "data",
+        "report",
+        "x"
+      ]
+    },
+    {
+      "name": "chart-bar-stacked",
+      "category": "charts",
+      "tags": [
+        "chart",
+        "bar",
+        "stacked",
+        "graph",
+        "analytics",
+        "statistics",
+        "data",
+        "report"
+      ]
+    },
+    {
+      "name": "chart-candlestick",
+      "category": "charts",
+      "tags": [
+        "chart",
+        "candlestick",
+        "graph",
+        "analytics",
+        "statistics",
+        "data",
+        "report"
+      ]
+    },
+    {
+      "name": "chart-funnel",
+      "category": "charts",
+      "tags": [
+        "chart",
+        "funnel",
+        "graph",
+        "analytics",
+        "statistics",
+        "data",
+        "report"
+      ]
+    },
+    {
       "name": "chart-line",
       "category": "charts",
       "tags": [
@@ -1197,10 +1483,50 @@
       ]
     },
     {
+      "name": "chart-radar",
+      "category": "charts",
+      "tags": [
+        "chart",
+        "radar",
+        "graph",
+        "analytics",
+        "statistics",
+        "data",
+        "report"
+      ]
+    },
+    {
+      "name": "chart-scatter",
+      "category": "charts",
+      "tags": [
+        "chart",
+        "scatter",
+        "graph",
+        "analytics",
+        "statistics",
+        "data",
+        "report"
+      ]
+    },
+    {
       "name": "chat",
       "category": "communication",
       "tags": [
         "chat",
+        "message",
+        "conversation",
+        "talk",
+        "comment",
+        "bubble",
+        "speech"
+      ]
+    },
+    {
+      "name": "chat-dots",
+      "category": "communication",
+      "tags": [
+        "chat",
+        "dots",
         "message",
         "conversation",
         "talk",
@@ -1245,6 +1571,19 @@
         "typography",
         "content",
         "transcript"
+      ]
+    },
+    {
+      "name": "chats",
+      "category": "communication",
+      "tags": [
+        "chats",
+        "messages",
+        "conversation",
+        "chat",
+        "comments",
+        "discussion",
+        "bubbles"
       ]
     },
     {
@@ -1483,6 +1822,60 @@
         "dropdown",
         "sort",
         "unfold"
+      ]
+    },
+    {
+      "name": "chevrons-down",
+      "category": "arrows",
+      "tags": [
+        "chevrons",
+        "down",
+        "arrows",
+        "double",
+        "caret",
+        "skip",
+        "fast",
+        "downward"
+      ]
+    },
+    {
+      "name": "chevrons-left",
+      "category": "arrows",
+      "tags": [
+        "chevrons",
+        "left",
+        "arrows",
+        "double",
+        "caret",
+        "skip",
+        "fast"
+      ]
+    },
+    {
+      "name": "chevrons-right",
+      "category": "arrows",
+      "tags": [
+        "chevrons",
+        "right",
+        "arrows",
+        "double",
+        "caret",
+        "skip",
+        "fast"
+      ]
+    },
+    {
+      "name": "chevrons-up",
+      "category": "arrows",
+      "tags": [
+        "chevrons",
+        "up",
+        "arrows",
+        "double",
+        "caret",
+        "skip",
+        "fast",
+        "upward"
       ]
     },
     {
@@ -1789,6 +2182,24 @@
       ]
     },
     {
+      "name": "cloud-check",
+      "category": "connectivity",
+      "tags": [
+        "cloud",
+        "check",
+        "storage",
+        "sync",
+        "online",
+        "server",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
       "name": "cloud-fog",
       "category": "weather",
       "tags": [
@@ -2044,6 +2455,18 @@
       ]
     },
     {
+      "name": "contactless",
+      "category": "commerce",
+      "tags": [
+        "contactless",
+        "nfc",
+        "tap",
+        "pay",
+        "payment",
+        "wireless"
+      ]
+    },
+    {
       "name": "cookie",
       "category": "security",
       "tags": [
@@ -2093,6 +2516,76 @@
       ]
     },
     {
+      "name": "credit-card-check",
+      "category": "commerce",
+      "tags": [
+        "credit",
+        "card",
+        "check",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "credit-card-lock",
+      "category": "commerce",
+      "tags": [
+        "credit",
+        "card",
+        "lock",
+        "secure",
+        "security",
+        "password",
+        "padlock",
+        "private",
+        "protected"
+      ]
+    },
+    {
+      "name": "credit-card-plus",
+      "category": "commerce",
+      "tags": [
+        "credit",
+        "card",
+        "plus",
+        "add",
+        "new",
+        "create",
+        "more"
+      ]
+    },
+    {
+      "name": "credit-card-x",
+      "category": "commerce",
+      "tags": [
+        "credit",
+        "card",
+        "x",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
+      ]
+    },
+    {
+      "name": "credit-cards",
+      "category": "commerce",
+      "tags": [
+        "credit",
+        "cards",
+        "payment",
+        "wallet",
+        "finance",
+        "credit-card"
+      ]
+    },
+    {
       "name": "crop",
       "category": "images",
       "tags": [
@@ -2131,6 +2624,18 @@
       ]
     },
     {
+      "name": "currency-bitcoin",
+      "category": "commerce",
+      "tags": [
+        "currency",
+        "bitcoin",
+        "money",
+        "finance",
+        "price",
+        "payment"
+      ]
+    },
+    {
       "name": "currency-dollar",
       "category": "commerce",
       "tags": [
@@ -2142,6 +2647,136 @@
         "payment",
         "usd",
         "cash"
+      ]
+    },
+    {
+      "name": "currency-dollar-circle",
+      "category": "commerce",
+      "tags": [
+        "currency",
+        "dollar",
+        "circle",
+        "money",
+        "finance",
+        "price",
+        "payment",
+        "usd",
+        "cash",
+        "round",
+        "ring"
+      ]
+    },
+    {
+      "name": "currency-dollar-off",
+      "category": "commerce",
+      "tags": [
+        "currency",
+        "dollar",
+        "off",
+        "money",
+        "finance",
+        "price",
+        "payment",
+        "usd",
+        "cash",
+        "disabled",
+        "slash"
+      ]
+    },
+    {
+      "name": "currency-ethereum",
+      "category": "commerce",
+      "tags": [
+        "currency",
+        "ethereum",
+        "money",
+        "finance",
+        "price",
+        "payment"
+      ]
+    },
+    {
+      "name": "currency-euro",
+      "category": "commerce",
+      "tags": [
+        "currency",
+        "euro",
+        "money",
+        "finance",
+        "price",
+        "payment"
+      ]
+    },
+    {
+      "name": "currency-exchange",
+      "category": "commerce",
+      "tags": [
+        "currency",
+        "exchange",
+        "money",
+        "finance",
+        "price",
+        "payment"
+      ]
+    },
+    {
+      "name": "currency-pound",
+      "category": "commerce",
+      "tags": [
+        "currency",
+        "pound",
+        "money",
+        "finance",
+        "price",
+        "payment"
+      ]
+    },
+    {
+      "name": "currency-rupee",
+      "category": "commerce",
+      "tags": [
+        "currency",
+        "rupee",
+        "money",
+        "finance",
+        "price",
+        "payment"
+      ]
+    },
+    {
+      "name": "currency-won",
+      "category": "commerce",
+      "tags": [
+        "currency",
+        "won",
+        "money",
+        "finance",
+        "price",
+        "payment"
+      ]
+    },
+    {
+      "name": "currency-yen",
+      "category": "commerce",
+      "tags": [
+        "currency",
+        "yen",
+        "money",
+        "finance",
+        "price",
+        "payment"
+      ]
+    },
+    {
+      "name": "cursor",
+      "category": "system",
+      "tags": [
+        "cursor",
+        "pointer",
+        "mouse",
+        "select",
+        "click",
+        "arrow"
       ]
     },
     {
@@ -2168,6 +2803,17 @@
         "rhombus",
         "shape",
         "value"
+      ]
+    },
+    {
+      "name": "divide",
+      "category": "actions",
+      "tags": [
+        "divide",
+        "division",
+        "math",
+        "operator",
+        "calculate"
       ]
     },
     {
@@ -2244,6 +2890,18 @@
         "letter",
         "contact",
         "opened"
+      ]
+    },
+    {
+      "name": "equals",
+      "category": "actions",
+      "tags": [
+        "equals",
+        "equal",
+        "math",
+        "operator",
+        "result",
+        "calculate"
       ]
     },
     {
@@ -2389,6 +3047,22 @@
       ]
     },
     {
+      "name": "file-chart",
+      "category": "files",
+      "tags": [
+        "file",
+        "chart",
+        "document",
+        "page",
+        "paper",
+        "graph",
+        "analytics",
+        "statistics",
+        "data",
+        "report"
+      ]
+    },
+    {
       "name": "file-check",
       "category": "files",
       "tags": [
@@ -2422,6 +3096,23 @@
       ]
     },
     {
+      "name": "file-lock",
+      "category": "files",
+      "tags": [
+        "file",
+        "lock",
+        "document",
+        "page",
+        "paper",
+        "secure",
+        "security",
+        "password",
+        "padlock",
+        "private",
+        "protected"
+      ]
+    },
+    {
       "name": "file-minus",
       "category": "files",
       "tags": [
@@ -2449,6 +3140,17 @@
         "new",
         "create",
         "more"
+      ]
+    },
+    {
+      "name": "file-spreadsheet",
+      "category": "files",
+      "tags": [
+        "file",
+        "spreadsheet",
+        "document",
+        "page",
+        "paper"
       ]
     },
     {
@@ -2481,6 +3183,18 @@
         "delete",
         "clear",
         "no"
+      ]
+    },
+    {
+      "name": "film",
+      "category": "media",
+      "tags": [
+        "film",
+        "movie",
+        "video",
+        "cinema",
+        "reel",
+        "strip"
       ]
     },
     {
@@ -2636,6 +3350,22 @@
       ]
     },
     {
+      "name": "folder-lock",
+      "category": "files",
+      "tags": [
+        "folder",
+        "lock",
+        "directory",
+        "files",
+        "secure",
+        "security",
+        "password",
+        "padlock",
+        "private",
+        "protected"
+      ]
+    },
+    {
       "name": "folder-minus",
       "category": "files",
       "tags": [
@@ -2749,6 +3479,18 @@
       ]
     },
     {
+      "name": "gift-card",
+      "category": "commerce",
+      "tags": [
+        "gift",
+        "card",
+        "present",
+        "reward",
+        "birthday",
+        "surprise"
+      ]
+    },
+    {
       "name": "git-branch",
       "category": "development",
       "tags": [
@@ -2775,6 +3517,18 @@
         "revision",
         "version",
         "save"
+      ]
+    },
+    {
+      "name": "git-fork",
+      "category": "development",
+      "tags": [
+        "git",
+        "fork",
+        "version-control",
+        "repository",
+        "source",
+        "code"
       ]
     },
     {
@@ -2938,6 +3692,56 @@
       ]
     },
     {
+      "name": "hand",
+      "category": "system",
+      "tags": [
+        "hand",
+        "palm",
+        "stop",
+        "grab",
+        "pan",
+        "wave"
+      ]
+    },
+    {
+      "name": "hand-coins",
+      "category": "commerce",
+      "tags": [
+        "hand",
+        "coins",
+        "money",
+        "cash",
+        "currency",
+        "payment",
+        "finance",
+        "credits"
+      ]
+    },
+    {
+      "name": "hand-heart",
+      "category": "commerce",
+      "tags": [
+        "hand",
+        "heart",
+        "like",
+        "love",
+        "favorite",
+        "health"
+      ]
+    },
+    {
+      "name": "handshake",
+      "category": "commerce",
+      "tags": [
+        "handshake",
+        "deal",
+        "agreement",
+        "partnership",
+        "trust",
+        "greeting"
+      ]
+    },
+    {
       "name": "hard-drive",
       "category": "system",
       "tags": [
@@ -3064,6 +3868,21 @@
       ]
     },
     {
+      "name": "id-card-check",
+      "category": "users",
+      "tags": [
+        "id",
+        "card",
+        "check",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
       "name": "image",
       "category": "images",
       "tags": [
@@ -3073,6 +3892,42 @@
         "gallery",
         "media",
         "landscape"
+      ]
+    },
+    {
+      "name": "image-check",
+      "category": "images",
+      "tags": [
+        "image",
+        "check",
+        "picture",
+        "photo",
+        "gallery",
+        "media",
+        "landscape",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "image-minus",
+      "category": "images",
+      "tags": [
+        "image",
+        "minus",
+        "picture",
+        "photo",
+        "gallery",
+        "media",
+        "landscape",
+        "remove",
+        "subtract",
+        "delete",
+        "less"
       ]
     },
     {
@@ -3175,6 +4030,18 @@
       ]
     },
     {
+      "name": "infinity",
+      "category": "general",
+      "tags": [
+        "infinity",
+        "loop",
+        "forever",
+        "unlimited",
+        "endless",
+        "math"
+      ]
+    },
+    {
       "name": "info-circle",
       "category": "notifications",
       "tags": [
@@ -3186,6 +4053,18 @@
         "help",
         "round",
         "ring"
+      ]
+    },
+    {
+      "name": "invoice",
+      "category": "commerce",
+      "tags": [
+        "invoice",
+        "bill",
+        "receipt",
+        "payment",
+        "document",
+        "billing"
       ]
     },
     {
@@ -3502,6 +4381,25 @@
       ]
     },
     {
+      "name": "map-pin-minus",
+      "category": "location",
+      "tags": [
+        "map",
+        "pin",
+        "minus",
+        "location",
+        "navigation",
+        "marker",
+        "place",
+        "gps",
+        "address",
+        "remove",
+        "subtract",
+        "delete",
+        "less"
+      ]
+    },
+    {
       "name": "map-pin-plus",
       "category": "location",
       "tags": [
@@ -3541,6 +4439,18 @@
         "no",
         "remove-location",
         "unavailable"
+      ]
+    },
+    {
+      "name": "medal",
+      "category": "general",
+      "tags": [
+        "medal",
+        "award",
+        "prize",
+        "achievement",
+        "winner",
+        "badge"
       ]
     },
     {
@@ -3639,6 +4549,19 @@
       ]
     },
     {
+      "name": "money-bag",
+      "category": "commerce",
+      "tags": [
+        "money",
+        "bag",
+        "shopping",
+        "purchase",
+        "buy",
+        "store",
+        "tote"
+      ]
+    },
+    {
       "name": "monitor",
       "category": "system",
       "tags": [
@@ -3722,6 +4645,44 @@
         "delivery",
         "shipping",
         "product"
+      ]
+    },
+    {
+      "name": "package-check",
+      "category": "commerce",
+      "tags": [
+        "package",
+        "check",
+        "box",
+        "parcel",
+        "delivery",
+        "shipping",
+        "product",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "package-x",
+      "category": "commerce",
+      "tags": [
+        "package",
+        "x",
+        "box",
+        "parcel",
+        "delivery",
+        "shipping",
+        "product",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
       ]
     },
     {
@@ -3869,6 +4830,21 @@
       ]
     },
     {
+      "name": "pause-circle",
+      "category": "media",
+      "tags": [
+        "pause",
+        "circle",
+        "hold",
+        "media",
+        "video",
+        "audio",
+        "player",
+        "round",
+        "ring"
+      ]
+    },
+    {
       "name": "pencil",
       "category": "actions",
       "tags": [
@@ -3905,6 +4881,42 @@
       ]
     },
     {
+      "name": "phone-arrow-down-left",
+      "category": "communication",
+      "tags": [
+        "phone",
+        "arrow",
+        "down",
+        "left",
+        "call",
+        "telephone",
+        "contact",
+        "handset",
+        "dial",
+        "direction",
+        "navigate",
+        "downward"
+      ]
+    },
+    {
+      "name": "phone-arrow-up-right",
+      "category": "communication",
+      "tags": [
+        "phone",
+        "arrow",
+        "up",
+        "right",
+        "call",
+        "telephone",
+        "contact",
+        "handset",
+        "dial",
+        "direction",
+        "navigate",
+        "upward"
+      ]
+    },
+    {
       "name": "phone-off",
       "category": "communication",
       "tags": [
@@ -3920,6 +4932,19 @@
         "hang-up",
         "end-call",
         "mute"
+      ]
+    },
+    {
+      "name": "piggy-bank",
+      "category": "commerce",
+      "tags": [
+        "piggy",
+        "bank",
+        "savings",
+        "save",
+        "money",
+        "budget",
+        "finance"
       ]
     },
     {
@@ -3945,6 +4970,21 @@
         "video",
         "audio",
         "player"
+      ]
+    },
+    {
+      "name": "play-circle",
+      "category": "media",
+      "tags": [
+        "play",
+        "circle",
+        "start",
+        "media",
+        "video",
+        "audio",
+        "player",
+        "round",
+        "ring"
       ]
     },
     {
@@ -3986,6 +5026,22 @@
       ]
     },
     {
+      "name": "plus-minus",
+      "category": "actions",
+      "tags": [
+        "plus",
+        "minus",
+        "add",
+        "new",
+        "create",
+        "more",
+        "remove",
+        "subtract",
+        "delete",
+        "less"
+      ]
+    },
+    {
       "name": "plus-square",
       "category": "actions",
       "tags": [
@@ -4000,6 +5056,20 @@
       ]
     },
     {
+      "name": "pos-terminal",
+      "category": "commerce",
+      "tags": [
+        "pos",
+        "terminal",
+        "console",
+        "command",
+        "shell",
+        "cli",
+        "prompt",
+        "bash"
+      ]
+    },
+    {
       "name": "power",
       "category": "power",
       "tags": [
@@ -4009,6 +5079,18 @@
         "shutdown",
         "start",
         "switch"
+      ]
+    },
+    {
+      "name": "presentation",
+      "category": "charts",
+      "tags": [
+        "presentation",
+        "slides",
+        "board",
+        "meeting",
+        "chart",
+        "pitch"
       ]
     },
     {
@@ -4111,6 +5193,62 @@
         "order",
         "transaction",
         "purchase"
+      ]
+    },
+    {
+      "name": "receipt-check",
+      "category": "commerce",
+      "tags": [
+        "receipt",
+        "check",
+        "invoice",
+        "bill",
+        "order",
+        "transaction",
+        "purchase",
+        "tick",
+        "done",
+        "complete",
+        "success",
+        "ok",
+        "yes"
+      ]
+    },
+    {
+      "name": "receipt-percent",
+      "category": "commerce",
+      "tags": [
+        "receipt",
+        "percent",
+        "invoice",
+        "bill",
+        "order",
+        "transaction",
+        "purchase",
+        "percentage",
+        "discount",
+        "sale",
+        "rate",
+        "ratio"
+      ]
+    },
+    {
+      "name": "receipt-x",
+      "category": "commerce",
+      "tags": [
+        "receipt",
+        "x",
+        "invoice",
+        "bill",
+        "order",
+        "transaction",
+        "purchase",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
       ]
     },
     {
@@ -4247,6 +5385,76 @@
         "delete",
         "clear",
         "no"
+      ]
+    },
+    {
+      "name": "rss",
+      "category": "connectivity",
+      "tags": [
+        "rss",
+        "feed",
+        "subscribe",
+        "news",
+        "podcast",
+        "blog"
+      ]
+    },
+    {
+      "name": "scale",
+      "category": "general",
+      "tags": [
+        "scale",
+        "balance",
+        "justice",
+        "law",
+        "compare",
+        "weight"
+      ]
+    },
+    {
+      "name": "scan",
+      "category": "system",
+      "tags": [
+        "scan",
+        "scanner",
+        "scanning",
+        "frame",
+        "capture",
+        "focus"
+      ]
+    },
+    {
+      "name": "scan-barcode",
+      "category": "system",
+      "tags": [
+        "scan",
+        "barcode",
+        "scanner",
+        "scanning",
+        "frame",
+        "capture",
+        "focus",
+        "product",
+        "sku",
+        "inventory",
+        "checkout"
+      ]
+    },
+    {
+      "name": "scan-face",
+      "category": "security",
+      "tags": [
+        "scan",
+        "face",
+        "scanner",
+        "scanning",
+        "frame",
+        "capture",
+        "focus",
+        "face-id",
+        "recognition",
+        "biometric",
+        "authentication"
       ]
     },
     {
@@ -4414,6 +5622,44 @@
       ]
     },
     {
+      "name": "shield-lock",
+      "category": "security",
+      "tags": [
+        "shield",
+        "lock",
+        "security",
+        "protection",
+        "safe",
+        "guard",
+        "secure",
+        "defense",
+        "password",
+        "padlock",
+        "private",
+        "protected"
+      ]
+    },
+    {
+      "name": "shield-warning",
+      "category": "security",
+      "tags": [
+        "shield",
+        "warning",
+        "security",
+        "protection",
+        "safe",
+        "guard",
+        "secure",
+        "defense",
+        "alert",
+        "caution",
+        "danger",
+        "error",
+        "attention",
+        "exclamation"
+      ]
+    },
+    {
       "name": "shield-x",
       "category": "security",
       "tags": [
@@ -4464,6 +5710,29 @@
         "drawer",
         "layout",
         "navigation"
+      ]
+    },
+    {
+      "name": "signal",
+      "category": "connectivity",
+      "tags": [
+        "signal",
+        "strength",
+        "reception",
+        "bars",
+        "cellular",
+        "network"
+      ]
+    },
+    {
+      "name": "signature",
+      "category": "actions",
+      "tags": [
+        "signature",
+        "sign",
+        "autograph",
+        "handwriting",
+        "contract"
       ]
     },
     {
@@ -4663,6 +5932,17 @@
       ]
     },
     {
+      "name": "stamp",
+      "category": "actions",
+      "tags": [
+        "stamp",
+        "seal",
+        "approve",
+        "rubber-stamp",
+        "postage"
+      ]
+    },
+    {
       "name": "star",
       "category": "shapes",
       "tags": [
@@ -4729,6 +6009,22 @@
         "video",
         "audio",
         "player"
+      ]
+    },
+    {
+      "name": "stop-circle",
+      "category": "media",
+      "tags": [
+        "stop",
+        "circle",
+        "end",
+        "halt",
+        "media",
+        "video",
+        "audio",
+        "player",
+        "round",
+        "ring"
       ]
     },
     {
@@ -4868,6 +6164,23 @@
         "price",
         "category",
         "badge"
+      ]
+    },
+    {
+      "name": "tag-percent",
+      "category": "commerce",
+      "tags": [
+        "tag",
+        "percent",
+        "label",
+        "price",
+        "category",
+        "badge",
+        "percentage",
+        "discount",
+        "sale",
+        "rate",
+        "ratio"
       ]
     },
     {
@@ -5186,6 +6499,19 @@
         "coupon",
         "voucher",
         "support-ticket"
+      ]
+    },
+    {
+      "name": "ticket-percent",
+      "category": "commerce",
+      "tags": [
+        "ticket",
+        "percent",
+        "percentage",
+        "discount",
+        "sale",
+        "rate",
+        "ratio"
       ]
     },
     {
@@ -5540,6 +6866,18 @@
       ]
     },
     {
+      "name": "vault",
+      "category": "security",
+      "tags": [
+        "vault",
+        "safe",
+        "secure",
+        "storage",
+        "bank",
+        "lock"
+      ]
+    },
+    {
       "name": "video",
       "category": "media",
       "tags": [
@@ -5646,6 +6984,23 @@
       ]
     },
     {
+      "name": "wallet-plus",
+      "category": "commerce",
+      "tags": [
+        "wallet",
+        "plus",
+        "money",
+        "payment",
+        "finance",
+        "cash",
+        "purse",
+        "add",
+        "new",
+        "create",
+        "more"
+      ]
+    },
+    {
       "name": "warehouse",
       "category": "buildings",
       "tags": [
@@ -5684,6 +7039,20 @@
         "exclamation",
         "round",
         "ring"
+      ]
+    },
+    {
+      "name": "warning-octagon",
+      "category": "notifications",
+      "tags": [
+        "warning",
+        "octagon",
+        "alert",
+        "caution",
+        "danger",
+        "error",
+        "attention",
+        "exclamation"
       ]
     },
     {
@@ -5792,6 +7161,20 @@
         "no",
         "round",
         "ring"
+      ]
+    },
+    {
+      "name": "x-octagon",
+      "category": "status",
+      "tags": [
+        "x",
+        "octagon",
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "clear",
+        "no"
       ]
     },
     {

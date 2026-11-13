@@ -1,0 +1,20 @@
+// Auto-generated - DO NOT EDIT
+import { createIcon } from "../createIcon";
+
+export const IconFilm = /*#__PURE__*/ createIcon("film", {
+    line: {
+      light: <><path fill="currentColor" d="M5 2.5h14A2.5 2.5 0 0 1 21.5 5v14a2.5 2.5 0 0 1-2.5 2.5H5A2.5 2.5 0 0 1 2.5 19V5A2.5 2.5 0 0 1 5 2.5M3.5 7H7V3.5H5A1.5 1.5 0 0 0 3.5 5ZM16 3.5H8v17h8ZM20.5 5A1.5 1.5 0 0 0 19 3.5h-2V7h3.5Zm-17 6.5H7V8H3.5Zm17-3.5H17v3.5h3.5Zm-17 8H7v-3.5H3.5Zm17-3.5H17V16h3.5ZM3.5 19A1.5 1.5 0 0 0 5 20.5h2V17H3.5Zm17-2H17v3.5h2a1.5 1.5 0 0 0 1.5-1.5Z"/></>,
+      regular: <><path fill="currentColor" d="M5 2.25h14A2.75 2.75 0 0 1 21.75 5v14A2.75 2.75 0 0 1 19 21.75H5A2.75 2.75 0 0 1 2.25 19V5A2.75 2.75 0 0 1 5 2.25m-1.25 4.5h3v-3H5c-.69 0-1.25.56-1.25 1.25Zm12-3h-7.5v16.5h7.5ZM20.25 5c0-.69-.56-1.25-1.25-1.25h-1.75v3h3Zm-16.5 6.25h3v-3h-3Zm16.5-3h-3v3h3Zm-16.5 7.5h3v-3h-3Zm16.5-3h-3v3h3ZM3.75 19c0 .69.56 1.25 1.25 1.25h1.75v-3h-3Zm16.5-1.75h-3v3H19c.69 0 1.25-.56 1.25-1.25Z"/></>,
+      bold: <><path fill="currentColor" d="M5 2h14c1.656 0 3 1.344 3 3v14c0 1.656-1.344 3-3 3H5c-1.656 0-3-1.344-3-3V5c0-1.656 1.344-3 3-3M4 6.5h2.5V4H5c-.556 0-1 .444-1 1ZM15.5 4h-7v16h7ZM20 5c0-.556-.444-1-1-1h-1.5v2.5H20ZM4 11h2.5V8.5H4Zm16-2.5h-2.5V11H20Zm-16 7h2.5V13H4ZM20 13h-2.5v2.5H20ZM4 19c0 .556.444 1 1 1h1.5v-2.5H4Zm16-1.5h-2.5V20H19c.556 0 1-.444 1-1Z"/></>,
+    },
+    duotone: {
+      light: <><path fill="var(--uiux-accent, currentColor)" fillOpacity="0.25" d="M16.5 3v18h-9V3Z"/><path fill="currentColor" d="M5 2.5h14A2.5 2.5 0 0 1 21.5 5v14a2.5 2.5 0 0 1-2.5 2.5H5A2.5 2.5 0 0 1 2.5 19V5A2.5 2.5 0 0 1 5 2.5M3.5 7H7V3.5H5A1.5 1.5 0 0 0 3.5 5ZM16 3.5H8v17h8ZM20.5 5A1.5 1.5 0 0 0 19 3.5h-2V7h3.5Zm-17 6.5H7V8H3.5Zm17-3.5H17v3.5h3.5Zm-17 8H7v-3.5H3.5Zm17-3.5H17V16h3.5ZM3.5 19A1.5 1.5 0 0 0 5 20.5h2V17H3.5Zm17-2H17v3.5h2a1.5 1.5 0 0 0 1.5-1.5Z"/></>,
+      regular: <><path fill="var(--uiux-accent, currentColor)" fillOpacity="0.25" d="M16.5 3v18h-9V3Z"/><path fill="currentColor" d="M5 2.25h14A2.75 2.75 0 0 1 21.75 5v14A2.75 2.75 0 0 1 19 21.75H5A2.75 2.75 0 0 1 2.25 19V5A2.75 2.75 0 0 1 5 2.25m-1.25 4.5h3v-3H5c-.69 0-1.25.56-1.25 1.25Zm12-3h-7.5v16.5h7.5ZM20.25 5c0-.69-.56-1.25-1.25-1.25h-1.75v3h3Zm-16.5 6.25h3v-3h-3Zm16.5-3h-3v3h3Zm-16.5 7.5h3v-3h-3Zm16.5-3h-3v3h3ZM3.75 19c0 .69.56 1.25 1.25 1.25h1.75v-3h-3Zm16.5-1.75h-3v3H19c.69 0 1.25-.56 1.25-1.25Z"/></>,
+      bold: <><path fill="var(--uiux-accent, currentColor)" fillOpacity="0.25" d="M16.5 3v18h-9V3Z"/><path fill="currentColor" d="M5 2h14c1.656 0 3 1.344 3 3v14c0 1.656-1.344 3-3 3H5c-1.656 0-3-1.344-3-3V5c0-1.656 1.344-3 3-3M4 6.5h2.5V4H5c-.556 0-1 .444-1 1ZM15.5 4h-7v16h7ZM20 5c0-.556-.444-1-1-1h-1.5v2.5H20ZM4 11h2.5V8.5H4Zm16-2.5h-2.5V11H20Zm-16 7h2.5V13H4ZM20 13h-2.5v2.5H20ZM4 19c0 .556.444 1 1 1h1.5v-2.5H4Zm16-1.5h-2.5V20H19c.556 0 1-.444 1-1Z"/></>,
+    },
+    solid: {
+      light: <><path fill="currentColor" fillRule="evenodd" d="M5 2.5h14A2.5 2.5 0 0 1 21.5 5v14a2.5 2.5 0 0 1-2.5 2.5H5A2.5 2.5 0 0 1 2.5 19V5A2.5 2.5 0 0 1 5 2.5M3.5 7H7V3.5H5A1.5 1.5 0 0 0 3.5 5Zm17-2A1.5 1.5 0 0 0 19 3.5h-2V7h3.5Zm-17 6.5H7V8H3.5Zm17-3.5H17v3.5h3.5Zm-17 8H7v-3.5H3.5Zm17-3.5H17V16h3.5ZM3.5 19A1.5 1.5 0 0 0 5 20.5h2V17H3.5Zm17-2H17v3.5h2a1.5 1.5 0 0 0 1.5-1.5Z" clipRule="evenodd"/></>,
+      regular: <><path fill="currentColor" fillRule="evenodd" d="M5 2.25h14A2.75 2.75 0 0 1 21.75 5v14A2.75 2.75 0 0 1 19 21.75H5A2.75 2.75 0 0 1 2.25 19V5A2.75 2.75 0 0 1 5 2.25m-1.25 4.5h3v-3H5c-.69 0-1.25.56-1.25 1.25ZM20.25 5c0-.69-.56-1.25-1.25-1.25h-1.75v3h3Zm-16.5 6.25h3v-3h-3Zm16.5-3h-3v3h3Zm-16.5 7.5h3v-3h-3Zm16.5-3h-3v3h3ZM3.75 19c0 .69.56 1.25 1.25 1.25h1.75v-3h-3Zm16.5-1.75h-3v3H19c.69 0 1.25-.56 1.25-1.25Z" clipRule="evenodd"/></>,
+      bold: <><path fill="currentColor" fillRule="evenodd" d="M5 2h14c1.656 0 3 1.344 3 3v14c0 1.656-1.344 3-3 3H5c-1.656 0-3-1.344-3-3V5c0-1.656 1.344-3 3-3M4 6.5h2.5V4H5c-.556 0-1 .444-1 1ZM20 5c0-.556-.444-1-1-1h-1.5v2.5H20ZM4 11h2.5V8.5H4Zm16-2.5h-2.5V11H20Zm-16 7h2.5V13H4ZM20 13h-2.5v2.5H20ZM4 19c0 .556.444 1 1 1h1.5v-2.5H4Zm16-1.5h-2.5V20H19c.556 0 1-.444 1-1Z" clipRule="evenodd"/></>,
+    },
+});
