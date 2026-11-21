@@ -88,6 +88,20 @@ describe('inferCategory', () => {
     expect(inferCategory('unknown-thing')).toBe('general');
     expect(inferCategory('zzz-widget')).toBe('general');
   });
+
+  it('does not let a short prefix swallow a longer name', () => {
+    expect(inferCategory('address-book')).toBe('users');
+    expect(inferCategory('backpack')).toBe('education');
+    expect(inferCategory('devices')).toBe('system');
+    expect(inferCategory('router')).toBe('connectivity');
+    expect(inferCategory('pentagon')).toBe('shapes');
+    expect(inferCategory('pin-off')).toBe('general');
+    expect(inferCategory('rainbow')).toBe('weather');
+    expect(inferCategory('books')).toBe('education');
+    expect(inferCategory('bookmark')).toBe('actions');
+    expect(inferCategory('gear')).toBe('system');
+    expect(inferCategory('gears')).toBe('settings');
+  });
 });
 
 describe('generateTags', () => {
