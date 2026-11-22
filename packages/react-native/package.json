@@ -1,6 +1,6 @@
 {
   "name": "@uiuxicons/react-native",
-  "version": "0.8.12",
+  "version": "0.8.13",
   "description": "UI/UX Icons for React Native",
   "author": "UI/UX Icons <hello@uiuxicons.com>",
   "sideEffects": false,

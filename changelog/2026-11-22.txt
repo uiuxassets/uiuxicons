@@ -1,0 +1,1 @@
+Released v0.8.13: @uiuxicons/core, @uiuxicons/react, @uiuxicons/vue, and @uiuxicons/react-native at 0.8.13, 613 icons.
