@@ -273,6 +273,9 @@ describe.skipIf(!hasDist)('site output', () => {
     expect(html).toContain("params.get('style')");
     expect(html).toContain("params.get('weight')");
     expect(html).toContain("params.get('category')");
+    // Filtering resets the scroll; typing a query leaves the selected category
+    expect(html).toContain('function scrollToResults');
+    expect(html).toContain("search.value.trim()) setCategory('all')");
   });
 
   it('og.png exists and pages reference it', async () => {

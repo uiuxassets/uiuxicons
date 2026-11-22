@@ -114,6 +114,7 @@ export function setCloseIcon(svg) {
   }
 }
 
+const X_ICON_SVG = readFileSync(join(ROOT, 'assets/logo-x.svg'), 'utf8');
 const GITHUB_ICON_SVG = readFileSync(join(ROOT, 'assets/logo-github.svg'), 'utf8');
 
 export function sharedHeader(
@@ -143,19 +144,19 @@ export function sharedHeader(
   
   return `
   <header class="border-b border-border sticky top-0 bg-main/90 backdrop-blur-sm z-30">
-    <div class="max-w-7xl mx-auto p-3 flex items-center justify-between gap-3">
-      <div class="flex items-center gap-3 min-w-0">
+    <div class="max-w-7xl mx-auto p-3 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 min-w-0">
         <a href="/" class="flex items-center shrink-0" title="UI/UX Icons">
           <span class="inline-flex size-8">${logoIcon}</span>
         </a>
-        <nav class="hidden md:flex items-center gap-3" aria-label="Primary">
+        <nav class="hidden md:flex items-center gap-2" aria-label="Primary">
           ${navLinks.map(link => `
             <a href="${link.href}" class="inline-flex items-center gap-1.5 text-sm ${linkClass(link)}"><span class="shrink-0">${link.label}</span>${link.id === 'icons' ? badge : ''}</a>
           `).join('')}
         </nav>
       </div>
-      <div class="flex items-center gap-3 shrink-0">
-        <div class="hidden md:flex items-center gap-3 text-sm">
+      <div class="flex items-center gap-2 shrink-0">
+        <div class="hidden md:flex items-center gap-2 text-sm">
           ${SITE_VERSION ? `<span class="text-fg-muted tabular-nums">v${escapeHtmlText(SITE_VERSION)}</span>
           <span class="h-3 w-px bg-border" aria-hidden="true"></span>` : ''}
           <a href="https://uiuxassets.com" class="text-fg-muted hover:text-fg" target="_blank" rel="noopener noreferrer">By UI/UX Assets</a>
@@ -169,6 +170,16 @@ export function sharedHeader(
         >
           ${themeIcons}
         </button>
+        <a
+          href="https://x.com/uiuxassets"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex shrink-0 items-center justify-center p-2 rounded-md border border-border bg-main hover:bg-tertiary text-fg dark:bg-secondary"
+          title="Follow on X"
+          aria-label="Follow UI/UX Assets on X (opens in new tab)"
+        >
+          <span class="inline-flex size-4 shrink-0 [&>svg]:size-4" aria-hidden="true">${X_ICON_SVG}</span>
+        </a>
         <a
           href="https://github.com/uiuxassets/uiuxicons"
           target="_blank"

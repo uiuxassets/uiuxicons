@@ -214,6 +214,24 @@ export async function generateIndex(meta, icons, shared, bundleUrls = {}) {
     }
     updateCategoryLabels();
 
+    // Category buttons exist twice (mobile drawer + desktop sidebar), so
+    // highlight by category value, not by button identity.
+    function setCategory(slug) {
+      currentCategory = slug;
+      categoryBtns.forEach(b => {
+        const active = b.dataset.category === currentCategory;
+        b.classList.toggle('bg-tertiary', active);
+        b.classList.toggle('text-fg', active);
+        b.classList.toggle('text-fg-secondary', !active);
+      });
+      updateCategoryLabels();
+    }
+
+    // Filtering can shrink the grid far above a scrolled-down viewport.
+    function scrollToResults() {
+      if (window.scrollY > 0) window.scrollTo(0, 0);
+    }
+
     function updateVariant() {
       uiuxUpdateTiles('#icons', currentStyle + '-' + currentWeight, (v) => v === currentStyle + '-' + currentWeight);
     }
@@ -294,26 +312,23 @@ export async function generateIndex(meta, icons, shared, bundleUrls = {}) {
       updateThemeAndColor();
       
       // Reset category
-      currentCategory = 'all';
-      categoryBtns.forEach(b => {
-        b.classList.toggle('bg-tertiary', b.dataset.category === 'all');
-        b.classList.toggle('text-fg', b.dataset.category === 'all');
-        b.classList.toggle('text-fg-secondary', b.dataset.category !== 'all');
-      });
+      setCategory('all');
       
       // Reset search
       search.value = '';
       filter();
-      updateCategoryLabels();
       syncUrl();
+      scrollToResults();
 
       showToast('Reset to defaults');
     });
 
-    // Search
+    // Search always covers every icon, so typing leaves the selected category
     search.addEventListener('input', () => {
+      if (currentCategory !== 'all' && search.value.trim()) setCategory('all');
       filter();
       syncUrl();
+      scrollToResults();
     });
 
     // Color picker
@@ -378,19 +393,11 @@ export async function generateIndex(meta, icons, shared, bundleUrls = {}) {
       history.replaceState(null, '', qs ? location.pathname + '?' + qs : location.pathname);
     }
 
-    // Category filter (buttons exist twice: mobile drawer + desktop sidebar,
-    // so highlight by category value, not by button identity)
+    // Category filter
     categoryBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        currentCategory = btn.dataset.category;
-        categoryBtns.forEach(b => {
-          const active = b.dataset.category === currentCategory;
-          b.classList.toggle('bg-tertiary', active);
-          b.classList.toggle('text-fg', active);
-          b.classList.toggle('text-fg-secondary', !active);
-        });
+        setCategory(btn.dataset.category);
         filter();
-        updateCategoryLabels();
         syncUrl();
         const cd = document.getElementById('categories-drawer');
         const ct = document.getElementById('categories-toggle');
@@ -402,6 +409,7 @@ export async function generateIndex(meta, icons, shared, bundleUrls = {}) {
             document.body.style.overflow = '';
           }
         }
+        scrollToResults();
       });
     });
 
