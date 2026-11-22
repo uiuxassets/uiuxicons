@@ -9,8 +9,8 @@ body:
       label: Affected area
       options:
         - "@uiuxicons/react"
-        - "@uiuxicons/vue"
         - "@uiuxicons/react-native"
+        - "@uiuxicons/vue"
         - Web font
         - SVG files / download ZIP
         - Website (uiuxicons.com)

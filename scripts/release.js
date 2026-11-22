@@ -104,7 +104,7 @@ async function release() {
   const today = new Date().toISOString().slice(0, 10);
   const entryFile = join(ROOT, 'changelog', `${today}.txt`);
   const meta = JSON.parse(await readFile(join(ROOT, 'icons.meta.json'), 'utf8'));
-  const line = `Released ${tag}: @uiuxicons/core, @uiuxicons/react, @uiuxicons/vue, and @uiuxicons/react-native at ${next}, ${meta.icons.length} icons.\n`;
+  const line = `Released ${tag}: @uiuxicons/core, @uiuxicons/react, @uiuxicons/react-native, and @uiuxicons/vue at ${next}, ${meta.icons.length} icons.\n`;
   if (existsSync(entryFile)) {
     await appendFile(entryFile, line);
   } else {

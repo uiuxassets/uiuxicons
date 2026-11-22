@@ -3,7 +3,7 @@
 ## Supported Versions
 
 Only the latest published version of `@uiuxicons/core`, `@uiuxicons/react`,
-`@uiuxicons/vue`, and `@uiuxicons/react-native` receives security fixes. Older versions are not patched;
+`@uiuxicons/react-native`, and `@uiuxicons/vue` receives security fixes. Older versions are not patched;
 please upgrade to the latest release.
 
 ## Reporting a Vulnerability
@@ -27,6 +27,6 @@ package or site page if known.
 
 ## Scope
 
-- The npm packages `@uiuxicons/core`, `@uiuxicons/react`, `@uiuxicons/vue`, and `@uiuxicons/react-native`
+- The npm packages `@uiuxicons/core`, `@uiuxicons/react`, `@uiuxicons/react-native`, and `@uiuxicons/vue`
 - The build pipeline and generated assets in this repository
 - The [uiuxicons.com](https://uiuxicons.com) site

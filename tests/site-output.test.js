@@ -15,7 +15,7 @@ const DIST = join(ROOT, 'dist');
 const hasDist = existsSync(DIST);
 
 const PAGES = ['index.html', 'docs.html', 'examples.html', 'changelog.html'];
-const DOC_SECTIONS = ['introduction', 'download', 'react', 'vue', 'react-native', 'font', 'accessibility'];
+const DOC_SECTIONS = ['introduction', 'download', 'react', 'react-native', 'vue', 'font', 'accessibility'];
 
 describe.skipIf(!hasDist)('site output', () => {
   it.each(PAGES)('%s has full SEO head', async (page) => {

@@ -14,7 +14,7 @@ Open a [bug report](https://github.com/uiuxassets/uiuxicons/issues/new?template=
 
 ## Contributing code
 
-Fixes to the React/Vue/React Native packages, build scripts, site, docs, and search tags are welcome.
+Fixes to the React/React Native/Vue packages, build scripts, site, docs, and search tags are welcome.
 
 1. Fork the repo and create a branch.
 2. Make your change, then run `npm run build` and `npm test`.
@@ -26,7 +26,7 @@ For anything larger than a small fix, open an issue first so we can agree on the
 
 1. Add SVGs to all 9 variant folders under `exports/{style}/{weight}/` (line, duotone, solid x light, regular, bold). Icons are 24x24 with `currentColor` - see the [README specs](README.md#specs).
 2. Run `npm run sync` to update metadata, then review the generated entries in `icons.meta.json`. New icons get an inferred `category` and enriched search `tags` automatically - see [Search tags](#search-tags) below.
-3. Run `npm run build` - this assigns codepoints for new icons and regenerates the React/Vue/React Native package sources.
+3. Run `npm run build` - this assigns codepoints for new icons and regenerates the React/React Native/Vue package sources.
 4. Run `npm test` - this typechecks both packages and validates icon-set integrity (all 9 folders must contain identical icon sets). Run it after the build, since the integrity check only passes once `npm run build` has assigned codepoints.
 
 ## Search tags
@@ -49,7 +49,7 @@ Three targets get updated by Git pushes, driven by two independent triggers:
 |--------|---------|----------|
 | Repo on GitHub | push to `main` | - |
 | Live site ([uiuxicons.com](https://uiuxicons.com)) | push to `main` | [`deploy.yml`](.github/workflows/deploy.yml) |
-| npm packages (`@uiuxicons/core`, `@uiuxicons/react`, `@uiuxicons/vue`, `@uiuxicons/react-native`) | push a `vX.Y.Z` tag | [`publish.yml`](.github/workflows/publish.yml) |
+| npm packages (`@uiuxicons/core`, `@uiuxicons/react`, `@uiuxicons/react-native`, `@uiuxicons/vue`) | push a `vX.Y.Z` tag | [`publish.yml`](.github/workflows/publish.yml) |
 
 CI ([`ci.yml`](.github/workflows/ci.yml)) also runs on every push and PR to `main`.
 

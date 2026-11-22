@@ -43,25 +43,6 @@ Both `@uiuxicons/react` and `@uiuxicons/vue` handle this automatically:
 <IconGear title="Settings" />
 ```
 
-### Vue examples
-
-```vue
-<template>
-  <!-- Decorative -->
-  <button>
-    <IconGear /> Settings
-  </button>
-
-  <!-- Meaningful -->
-  <button aria-label="Settings">
-    <IconGear />
-  </button>
-
-  <!-- Using title -->
-  <IconGear title="Settings" />
-</template>
-```
-
 ### React Native
 
 `@uiuxicons/react-native` follows the same rule with native accessibility props: unlabeled icons are hidden from VoiceOver and TalkBack, and passing `accessibilityLabel` (or `aria-label`) exposes the icon as an image.
@@ -80,6 +61,25 @@ Both `@uiuxicons/react` and `@uiuxicons/vue` handle this automatically:
 
 {/* Standalone meaningful icon */}
 <IconGear accessibilityLabel="Settings" />
+```
+
+### Vue examples
+
+```vue
+<template>
+  <!-- Decorative -->
+  <button>
+    <IconGear /> Settings
+  </button>
+
+  <!-- Meaningful -->
+  <button aria-label="Settings">
+    <IconGear />
+  </button>
+
+  <!-- Using title -->
+  <IconGear title="Settings" />
+</template>
 ```
 
 ### Font icons

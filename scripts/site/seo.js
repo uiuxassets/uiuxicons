@@ -163,7 +163,7 @@ export async function writeLlmsTxt(meta) {
     '> Every icon uses a 24x24 viewBox with currentColor.',
     '',
     '- Website: https://uiuxicons.com',
-    '- Packages: @uiuxicons/core, @uiuxicons/react, @uiuxicons/vue, @uiuxicons/react-native',
+    '- Packages: @uiuxicons/core, @uiuxicons/react, @uiuxicons/react-native, @uiuxicons/vue',
     '- License: MIT',
     '',
     '',

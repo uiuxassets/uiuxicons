@@ -12,7 +12,7 @@ description: >-
 Two ways to ship changes in this repo, driven by two independent triggers:
 
 - Push to `main` -> CI + site deploy (uiuxicons.com).
-- Push a `vX.Y.Z` tag -> npm publish of `@uiuxicons/core`, `@uiuxicons/react`, `@uiuxicons/vue`, and `@uiuxicons/react-native` (OIDC, no tokens).
+- Push a `vX.Y.Z` tag -> npm publish of `@uiuxicons/core`, `@uiuxicons/react`, `@uiuxicons/react-native`, and `@uiuxicons/vue` (OIDC, no tokens).
 
 ## Pick the path
 
@@ -45,7 +45,7 @@ Run these in this exact order (do not run `npm test` before `npm run build`):
 
 ```bash
 npm run sync                  # update icons.meta.json from exports/ (auto-fills category + enriched tags)
-npm run build                 # assigns codepoints + regenerates React/Vue/React Native package sources
+npm run build                 # assigns codepoints + regenerates React/React Native/Vue package sources
 npm test                      # typecheck + integrity (passes only after build)
 npm run release -- patch      # see bump convention below; commits "Release vX.Y.Z" and tags
 git push origin main vX.Y.Z   # pushes BOTH refs: main (CI + deploy) and tag (npm publish)
@@ -68,7 +68,7 @@ during the icon build-out phase:
 - Runs a full `npm run build` and aborts if the build changed tracked files (stale codegen guard).
 - Bumps the version in `package.json`, `packages/core/package.json`, `packages/react/package.json`, `packages/vue/package.json`, and `packages/react-native/package.json` in lockstep, then syncs `package-lock.json` (`npm install --package-lock-only`).
 - Runs `npm test`.
-- Writes/appends a changelog entry to `changelog/<YYYY-MM-DD>.txt`, format: `Released vX.Y.Z: @uiuxicons/core, @uiuxicons/react, @uiuxicons/vue, and @uiuxicons/react-native at X.Y.Z, <N> icons.`
+- Writes/appends a changelog entry to `changelog/<YYYY-MM-DD>.txt`, format: `Released vX.Y.Z: @uiuxicons/core, @uiuxicons/react, @uiuxicons/react-native, and @uiuxicons/vue at X.Y.Z, <N> icons.`
 - Commits `Release vX.Y.Z` and creates the `vX.Y.Z` tag.
 - Does NOT push (pushing the tag is the deliberate publish trigger).
 
@@ -91,8 +91,8 @@ After the publish workflow finishes:
 ```bash
 npm view @uiuxicons/core version
 npm view @uiuxicons/react version
-npm view @uiuxicons/vue version
 npm view @uiuxicons/react-native version
+npm view @uiuxicons/vue version
 ```
 
 All four should report the new version.

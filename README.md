@@ -157,6 +157,26 @@ Icons are decorative by default (`aria-hidden="true"`). Add `aria-label` or `tit
 <IconGear aria-label="Settings" />
 ```
 
+## Using with React Native
+
+Install the React Native package with `react-native-svg` (requires **React Native 0.79** or later; works with Expo):
+
+```bash
+npm install @uiuxicons/react-native react-native-svg
+```
+
+Import and use icons:
+
+```tsx
+import { IconGear } from "@uiuxicons/react-native/icons/gear";
+
+<IconGear />
+<IconGear variant="duotone" weight="bold" color="#0a0a0a" accentColor="#8A38F5" />
+<IconGear variant="solid" size={32} accessibilityLabel="Settings" />
+```
+
+Same props as the React package, plus `accentColor` for the duotone layer (React Native has no CSS variables). Per-icon imports keep Metro bundles small. See [packages/react-native/README.md](packages/react-native/README.md) for full documentation.
+
 ## Using with Vue
 
 Install the Vue package (requires **Vue 3.5** or later):
@@ -180,26 +200,6 @@ import { IconGear, IconHouse, IconCalendar } from "@uiuxicons/vue";
 ```
 
 Same props as the React package (`variant`, `weight`, `size`, `color`), plus `title` for accessible labels. See [packages/vue/README.md](packages/vue/README.md) for full documentation.
-
-## Using with React Native
-
-Install the React Native package with `react-native-svg` (requires **React Native 0.79** or later; works with Expo):
-
-```bash
-npm install @uiuxicons/react-native react-native-svg
-```
-
-Import and use icons:
-
-```tsx
-import { IconGear } from "@uiuxicons/react-native/icons/gear";
-
-<IconGear />
-<IconGear variant="duotone" weight="bold" color="#0a0a0a" accentColor="#8A38F5" />
-<IconGear variant="solid" size={32} accessibilityLabel="Settings" />
-```
-
-Same props as the React package, plus `accentColor` for the duotone layer (React Native has no CSS variables). Per-icon imports keep Metro bundles small. See [packages/react-native/README.md](packages/react-native/README.md) for full documentation.
 
 ## Using the SVGs Directly
 
@@ -230,11 +230,11 @@ Icons use `currentColor` - set color via CSS:
 
 ```
 exports/          ← source SVGs from Figma (line/duotone/solid × light/regular/bold)
-scripts/          ← build pipeline (optimize, fonts, metadata, React/Vue/React Native codegen, site)
+scripts/          ← build pipeline (optimize, fonts, metadata, React/React Native/Vue codegen, site)
 packages/core/    ← @uiuxicons/core npm package (SVGs, web font, metadata; populated by the build)
 packages/react/   ← @uiuxicons/react npm package (TypeScript, dual ESM/CJS)
-packages/vue/     ← @uiuxicons/vue npm package (TypeScript, dual ESM/CJS)
 packages/react-native/ ← @uiuxicons/react-native npm package (react-native-svg, dual ESM/CJS)
+packages/vue/     ← @uiuxicons/vue npm package (TypeScript, dual ESM/CJS)
 docs/             ← markdown content for the docs site
 styles/           ← Tailwind CSS source for the docs site
 tests/            ← Vitest test suite
@@ -251,7 +251,7 @@ Bug fixes for the packages, build scripts, site, and docs are welcome. See [CONT
 
 MIT - free for personal and commercial use.
 
-The MIT License asks that the copyright and license notice stay with copies of the icons. The `LICENSE` file shipped with the npm packages and the ZIP covers this, and the React, Vue, React Native, and font CSS files carry an `@license` header that bundlers preserve automatically.
+The MIT License asks that the copyright and license notice stay with copies of the icons. The `LICENSE` file shipped with the npm packages and the ZIP covers this, and the React, React Native, Vue, and font CSS files carry an `@license` header that bundlers preserve automatically.
 
 ### Credit
 
