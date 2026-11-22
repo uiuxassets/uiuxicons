@@ -44,7 +44,7 @@
     "react-native": "^0.88.1",
     "react-native-svg": "^15.16.1",
     "tsup": "^8.5.1",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   },
   "scripts": {
     "build": "tsup",
