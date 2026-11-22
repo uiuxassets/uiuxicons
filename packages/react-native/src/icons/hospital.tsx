@@ -1,0 +1,21 @@
+// Auto-generated - DO NOT EDIT
+import { Path } from "react-native-svg";
+import { createIcon } from "../createIcon";
+
+export const IconHospital = /*#__PURE__*/ createIcon("hospital", {
+    line: {
+      light: () => <><Path fill="currentColor" d="M12 6.5a.5.5 0 0 1 .5.5v2.5H15a.5.5 0 0 1 0 1h-2.5V13a.5.5 0 0 1-1 0v-2.5H9a.5.5 0 0 1 0-1h2.5V7a.5.5 0 0 1 .5-.5" /><Path fill="currentColor" fillRule="evenodd" d="M17 2.5A2.5 2.5 0 0 1 19.5 5v15.5H21a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1h1.5V5A2.5 2.5 0 0 1 7 2.5zm-10 1A1.5 1.5 0 0 0 5.5 5v15.5h5v-3.25a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 .75.75v3.25h5V5A1.5 1.5 0 0 0 17 3.5z" clipRule="evenodd" /></>,
+      regular: () => <><Path fill="currentColor" d="M12 6.25a.75.75 0 0 1 .75.75v2.25H15a.75.75 0 0 1 0 1.5h-2.25V13a.75.75 0 0 1-1.5 0v-2.25H9a.75.75 0 0 1 0-1.5h2.25V7a.75.75 0 0 1 .75-.75" /><Path fill="currentColor" fillRule="evenodd" d="M17 2.25A2.75 2.75 0 0 1 19.75 5v15.25H21a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1 0-1.5h1.25V5A2.75 2.75 0 0 1 7 2.25zM7 3.75c-.69 0-1.25.56-1.25 1.25v15.25h4.5v-3a1 1 0 0 1 1-1h1.5a1 1 0 0 1 1 1v3h4.5V5c0-.69-.56-1.25-1.25-1.25z" clipRule="evenodd" /></>,
+      bold: () => <><Path fill="currentColor" d="M12 6a1 1 0 0 1 1 1v2h2a1 1 0 1 1 0 2h-2v2a1 1 0 1 1-2 0v-2H9a1 1 0 1 1 0-2h2V7a1 1 0 0 1 1-1" /><Path fill="currentColor" fillRule="evenodd" d="M17 2a3 3 0 0 1 3 3v15h1a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2h1V5a3 3 0 0 1 3-3zM7 4a1 1 0 0 0-1 1v15h4v-2.75c0-.69.56-1.25 1.25-1.25h1.5c.69 0 1.25.56 1.25 1.25V20h4V5a1 1 0 0 0-1-1z" clipRule="evenodd" /></>,
+    },
+    duotone: {
+      light: (accent) => <><Path fill={accent} fillOpacity="0.25" d="M5 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16H5z" /><Path fill="currentColor" d="M12 6.5a.5.5 0 0 1 .5.5v2.5H15a.5.5 0 0 1 0 1h-2.5V13a.5.5 0 0 1-1 0v-2.5H9a.5.5 0 0 1 0-1h2.5V7a.5.5 0 0 1 .5-.5" /><Path fill="currentColor" fillRule="evenodd" d="M17 2.5A2.5 2.5 0 0 1 19.5 5v15.5H21a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1h1.5V5A2.5 2.5 0 0 1 7 2.5zm-10 1A1.5 1.5 0 0 0 5.5 5v15.5h5v-3.25a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 .75.75v3.25h5V5A1.5 1.5 0 0 0 17 3.5z" clipRule="evenodd" /></>,
+      regular: (accent) => <><Path fill={accent} fillOpacity="0.25" d="M5 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16H5z" /><Path fill="currentColor" d="M12 6.25a.75.75 0 0 1 .75.75v2.25H15a.75.75 0 0 1 0 1.5h-2.25V13a.75.75 0 0 1-1.5 0v-2.25H9a.75.75 0 0 1 0-1.5h2.25V7a.75.75 0 0 1 .75-.75" /><Path fill="currentColor" fillRule="evenodd" d="M17 2.25A2.75 2.75 0 0 1 19.75 5v15.25H21a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1 0-1.5h1.25V5A2.75 2.75 0 0 1 7 2.25zM7 3.75c-.69 0-1.25.56-1.25 1.25v15.25h4.5v-3a1 1 0 0 1 1-1h1.5a1 1 0 0 1 1 1v3h4.5V5c0-.69-.56-1.25-1.25-1.25z" clipRule="evenodd" /></>,
+      bold: (accent) => <><Path fill={accent} fillOpacity="0.25" d="M5 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16H5z" /><Path fill="currentColor" d="M12 6a1 1 0 0 1 1 1v2h2a1 1 0 1 1 0 2h-2v2a1 1 0 1 1-2 0v-2H9a1 1 0 1 1 0-2h2V7a1 1 0 0 1 1-1" /><Path fill="currentColor" fillRule="evenodd" d="M17 2a3 3 0 0 1 3 3v15h1a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2h1V5a3 3 0 0 1 3-3zM7 4a1 1 0 0 0-1 1v15h4v-2.75c0-.69.56-1.25 1.25-1.25h1.5c.69 0 1.25.56 1.25 1.25V20h4V5a1 1 0 0 0-1-1z" clipRule="evenodd" /></>,
+    },
+    solid: {
+      light: () => <><Path fill="currentColor" fillRule="evenodd" d="M17 2.5A2.5 2.5 0 0 1 19.5 5v15.5H21a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1h1.5V5A2.5 2.5 0 0 1 7 2.5zm-5.75 14a.75.75 0 0 0-.75.75v3.25h3v-3.25a.75.75 0 0 0-.75-.75zm.75-10a.5.5 0 0 0-.5.5v2.5H9a.5.5 0 0 0 0 1h2.5V13a.5.5 0 0 0 1 0v-2.5H15a.5.5 0 0 0 0-1h-2.5V7a.5.5 0 0 0-.5-.5" clipRule="evenodd" /></>,
+      regular: () => <><Path fill="currentColor" fillRule="evenodd" d="M17 2.25A2.75 2.75 0 0 1 19.75 5v15.25H21a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1 0-1.5h1.25V5A2.75 2.75 0 0 1 7 2.25zm-5.75 14a1 1 0 0 0-1 1v3h3.5v-3a1 1 0 0 0-1-1zm.75-10a.75.75 0 0 0-.75.75v2.25H9a.75.75 0 0 0 0 1.5h2.25V13a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V7a.75.75 0 0 0-.75-.75" clipRule="evenodd" /></>,
+      bold: () => <><Path fill="currentColor" fillRule="evenodd" d="M17 2a3 3 0 0 1 3 3v15h1a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2h1V5a3 3 0 0 1 3-3zm-5.75 14c-.69 0-1.25.56-1.25 1.25V20h4v-2.75c0-.69-.56-1.25-1.25-1.25zM12 6a1 1 0 0 0-1 1v2H9a1 1 0 0 0 0 2h2v2a1 1 0 1 0 2 0v-2h2a1 1 0 1 0 0-2h-2V7a1 1 0 0 0-1-1" clipRule="evenodd" /></>,
+    },
+});

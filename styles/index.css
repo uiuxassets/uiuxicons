@@ -375,15 +375,20 @@ pre code.hljs,
 
 .docs-pkg-tabs-bar button {
   flex: 1;
-  padding: 0.375rem 0.75rem;
+  padding: 0.375rem 0.5rem;
   font-size: 0.8125rem;
   font-weight: 500;
+  white-space: nowrap;
   color: var(--color-fg-muted);
   background: transparent;
   border: none;
   border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .docs-pkg-tabs-bar button { padding-left: 0.75rem; padding-right: 0.75rem; }
 }
 
 .docs-pkg-tabs-bar button:last-child { border-right: none; }

@@ -38,6 +38,7 @@ const DEFAULT_DOC_TITLES = {
   download: 'Download',
   react: 'React',
   vue: 'Vue',
+  'react-native': 'React Native',
   font: 'Web Font',
   accessibility: 'Accessibility',
 };
@@ -104,7 +105,7 @@ export async function generateDocs(meta, shared) {
 
   const docsTitle = 'Docs - UI/UX Icons';
   const docsDescription =
-    'Documentation for UI/UX Icons - React (@uiuxicons/react) and Vue (@uiuxicons/vue) packages, core assets (@uiuxicons/core), SVG download, and web fonts (WOFF2/TTF).';
+    'Documentation for UI/UX Icons - React (@uiuxicons/react), Vue (@uiuxicons/vue), and React Native (@uiuxicons/react-native) packages, core assets (@uiuxicons/core), SVG download, and web fonts (WOFF2/TTF).';
 
   const html = layoutSitePage({
     headOptions: {

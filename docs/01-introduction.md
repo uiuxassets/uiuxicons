@@ -34,7 +34,7 @@ Every icon also carries search tags (synonyms like "add" for `plus`), so searchi
 
 ### License and credit
 
-UI/UX Icons is MIT licensed and free for personal and commercial use. The license asks that the copyright and license notice stay with copies of the icons; the `LICENSE` file in the npm packages and ZIP, and the `@license` header in the React, Vue, and font CSS files, take care of this.
+UI/UX Icons is MIT licensed and free for personal and commercial use. The license asks that the copyright and license notice stay with copies of the icons; the `LICENSE` file in the npm packages and ZIP, and the `@license` header in the React, Vue, React Native, and font CSS files, take care of this.
 
 Visible credit is appreciated, not required. If the icons helped your project, a link back helps others find them:
 

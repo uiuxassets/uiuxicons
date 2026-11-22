@@ -6,7 +6,7 @@ on:
       - "v*"
 
 # Auth uses npm Trusted Publishing (OIDC) - no tokens or secrets.
-# All three packages must have this repo + workflow configured as a trusted
+# All four packages must have this repo + workflow configured as a trusted
 # publisher on npmjs.com (package Settings -> Trusted publisher).
 permissions:
   contents: read
@@ -31,7 +31,7 @@ jobs:
       - name: Verify tag matches package versions
         run: |
           TAG_VERSION="${GITHUB_REF_NAME#v}"
-          for pkg in package.json packages/core/package.json packages/react/package.json packages/vue/package.json; do
+          for pkg in package.json packages/core/package.json packages/react/package.json packages/vue/package.json packages/react-native/package.json; do
             PKG_VERSION="$(node -p "require('./$pkg').version")"
             if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
               echo "::error::Version mismatch in $pkg ($PKG_VERSION) vs tag $TAG_VERSION"
@@ -61,3 +61,6 @@ jobs:
 
       - name: Publish @uiuxicons/vue
         run: npm publish -w @uiuxicons/vue --provenance --access public
+
+      - name: Publish @uiuxicons/react-native
+        run: npm publish -w @uiuxicons/react-native --provenance --access public

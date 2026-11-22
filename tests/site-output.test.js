@@ -15,7 +15,7 @@ const DIST = join(ROOT, 'dist');
 const hasDist = existsSync(DIST);
 
 const PAGES = ['index.html', 'docs.html', 'examples.html', 'changelog.html'];
-const DOC_SECTIONS = ['introduction', 'download', 'react', 'vue', 'font', 'accessibility'];
+const DOC_SECTIONS = ['introduction', 'download', 'react', 'vue', 'react-native', 'font', 'accessibility'];
 
 describe.skipIf(!hasDist)('site output', () => {
   it.each(PAGES)('%s has full SEO head', async (page) => {
@@ -258,6 +258,7 @@ describe.skipIf(!hasDist)('site output', () => {
     // Install tab blocks are replaced by their npm command in a bash fence
     expect(txt).toContain('```bash\nnpm install @uiuxicons/react\n```');
     expect(txt).toContain('```bash\nnpm install @uiuxicons/vue\n```');
+    expect(txt).toContain('```bash\nnpm install @uiuxicons/react-native react-native-svg\n```');
     // Fenced code examples pass through untouched (JSX div kept)
     expect(txt).toMatch(/<div>\s*<IconGear \/>/);
   });
@@ -296,7 +297,7 @@ describe.skipIf(!hasDist)('site output', () => {
 
   it('package bundles and font CSS carry an @license header', async () => {
     const version = JSON.parse(await readFile(join(ROOT, 'package.json'), 'utf8')).version;
-    for (const pkg of ['react', 'vue']) {
+    for (const pkg of ['react', 'vue', 'react-native']) {
       for (const file of ['index.js', 'index.cjs', 'icons/gear.js']) {
         const js = await readFile(join(ROOT, 'packages', pkg, 'dist', file), 'utf8');
         expect(js).toContain(`@license @uiuxicons/${pkg} v${version} - MIT`);

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Release helper: bumps the root and both package versions in lockstep,
+ * Release helper: bumps the root and all package versions in lockstep,
  * records a changelog entry, commits, and creates the version tag.
  *
  * Usage: npm run release -- patch|minor|major
@@ -24,6 +24,7 @@ const PACKAGE_FILES = [
   'packages/core/package.json',
   'packages/react/package.json',
   'packages/vue/package.json',
+  'packages/react-native/package.json',
 ];
 
 function run(cmd) {
@@ -103,7 +104,7 @@ async function release() {
   const today = new Date().toISOString().slice(0, 10);
   const entryFile = join(ROOT, 'changelog', `${today}.txt`);
   const meta = JSON.parse(await readFile(join(ROOT, 'icons.meta.json'), 'utf8'));
-  const line = `Released ${tag}: @uiuxicons/core, @uiuxicons/react, and @uiuxicons/vue at ${next}, ${meta.icons.length} icons.\n`;
+  const line = `Released ${tag}: @uiuxicons/core, @uiuxicons/react, @uiuxicons/vue, and @uiuxicons/react-native at ${next}, ${meta.icons.length} icons.\n`;
   if (existsSync(entryFile)) {
     await appendFile(entryFile, line);
   } else {

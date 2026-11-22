@@ -10,6 +10,7 @@ body:
       options:
         - "@uiuxicons/react"
         - "@uiuxicons/vue"
+        - "@uiuxicons/react-native"
         - Web font
         - SVG files / download ZIP
         - Website (uiuxicons.com)

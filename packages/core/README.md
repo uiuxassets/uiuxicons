@@ -6,8 +6,9 @@ framework, build tool, or none at all.
 
 **3 styles** (line, duotone, solid) × **3 weights** (light, regular, bold).
 
-Looking for components? Use [`@uiuxicons/react`](https://www.npmjs.com/package/@uiuxicons/react)
-or [`@uiuxicons/vue`](https://www.npmjs.com/package/@uiuxicons/vue).
+Looking for components? Use [`@uiuxicons/react`](https://www.npmjs.com/package/@uiuxicons/react),
+[`@uiuxicons/vue`](https://www.npmjs.com/package/@uiuxicons/vue), or
+[`@uiuxicons/react-native`](https://www.npmjs.com/package/@uiuxicons/react-native).
 
 ## Install
 

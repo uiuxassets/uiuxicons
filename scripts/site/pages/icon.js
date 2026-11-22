@@ -38,7 +38,7 @@ function relatedIcons(icon, icons, count = 8) {
 
 // Snippets are highlighted at build time with the same hljs setup the docs use.
 function iconSnippets(icon, pascalName, style, weight) {
-  // line-regular is the packages' default, so the React/Vue snippets omit props
+  // line-regular is the packages' default, so the component snippets omit props
   const isDefault = style === 'line' && weight === 'regular';
   const componentProps = isDefault ? '' : ` variant="${style}" weight="${weight}"`;
   return [
@@ -51,6 +51,11 @@ function iconSnippets(icon, pascalName, style, weight) {
       id: 'vue',
       label: 'Vue',
       code: highlightDocCode(`import { Icon${pascalName} } from "@uiuxicons/vue";\n\n<Icon${pascalName}${componentProps} />`, 'tsx'),
+    },
+    {
+      id: 'react-native',
+      label: 'React Native',
+      code: highlightDocCode(`import { Icon${pascalName} } from "@uiuxicons/react-native/icons/${icon.name}";\n\n<Icon${pascalName}${componentProps} />`, 'tsx'),
     },
     {
       id: 'font',
@@ -128,7 +133,7 @@ export async function generateIconPages(meta, icons, shared) {
     const pascalName = name.split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('');
     const title = `${display} Icon - UI/UX Icons`;
     const tagText = icon.tags.slice(0, 6).join(', ');
-    const description = `Free ${display} icon in 3 styles (line, duotone, solid) and 3 weights. Copy the SVG or use it via React, Vue, icon font, or CDN. Tags: ${tagText}. MIT licensed.`;
+    const description = `Free ${display} icon in 3 styles (line, duotone, solid) and 3 weights. Copy the SVG or use it via React, Vue, React Native, icon font, or CDN. Tags: ${tagText}. MIT licensed.`;
     const related = relatedIcons(icon, icons);
     const snippets = iconSnippets(icon, pascalName, 'line', 'regular');
     const snippetVariants = iconSnippetVariants(icon, pascalName, meta.styles, meta.weights);

@@ -62,6 +62,26 @@ Both `@uiuxicons/react` and `@uiuxicons/vue` handle this automatically:
 </template>
 ```
 
+### React Native
+
+`@uiuxicons/react-native` follows the same rule with native accessibility props: unlabeled icons are hidden from VoiceOver and TalkBack, and passing `accessibilityLabel` (or `aria-label`) exposes the icon as an image.
+
+```tsx
+{/* Decorative -- the Pressable's text is the label */}
+<Pressable>
+  <IconGear />
+  <Text>Settings</Text>
+</Pressable>
+
+{/* Meaningful -- icon-only button: label the Pressable */}
+<Pressable accessibilityRole="button" accessibilityLabel="Settings">
+  <IconGear />
+</Pressable>
+
+{/* Standalone meaningful icon */}
+<IconGear accessibilityLabel="Settings" />
+```
+
 ### Font icons
 
 When using the icon font, add `aria-hidden="true"` manually since font glyphs are always text nodes:

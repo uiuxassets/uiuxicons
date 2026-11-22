@@ -186,4 +186,16 @@ describe.skipIf(!hasDist)('build output', () => {
     expect(existsSync(join(ROOT, 'packages', 'vue', 'dist', 'index.cjs'))).toBe(true);
     expect(existsSync(join(ROOT, 'packages', 'vue', 'dist', 'index.d.ts'))).toBe(true);
   });
+
+  it('React Native package dist exists', () => {
+    expect(existsSync(join(ROOT, 'packages', 'react-native', 'dist', 'index.js'))).toBe(true);
+    expect(existsSync(join(ROOT, 'packages', 'react-native', 'dist', 'index.cjs'))).toBe(true);
+    expect(existsSync(join(ROOT, 'packages', 'react-native', 'dist', 'index.d.ts'))).toBe(true);
+  });
+
+  it('React Native duotone accents are a prop, not a CSS variable', async () => {
+    const js = await readFile(join(ROOT, 'packages', 'react-native', 'dist', 'icons', 'gear.js'), 'utf8');
+    expect(js).not.toContain('var(');
+    expect(js).toContain('fill: accent');
+  });
 });

@@ -12,6 +12,7 @@ import { createDownloads } from './zip.js';
 import { generateSite } from './site.js';
 import { generateReact } from './generate-react.js';
 import { generateVue } from './generate-vue.js';
+import { generateReactNative } from './generate-react-native.js';
 import { generateIconFonts } from './font.js';
 import { populateCorePackage } from './core-package.js';
 import { assertSafeIconName } from './icon-names.js';
@@ -76,6 +77,15 @@ async function build() {
   // Build Vue package
   console.log('  Building @uiuxicons/vue...');
   execSync('npm run build -w @uiuxicons/vue', { cwd: ROOT, stdio: 'inherit' });
+
+  await generateReactNative();
+
+  console.log('  Typechecking @uiuxicons/react-native...');
+  execSync('npx tsc --noEmit -p packages/react-native/tsconfig.json', { cwd: ROOT, stdio: 'inherit' });
+
+  // Build React Native package
+  console.log('  Building @uiuxicons/react-native...');
+  execSync('npm run build -w @uiuxicons/react-native', { cwd: ROOT, stdio: 'inherit' });
 
   // Copy assets (top-level files only; subdirectories like assets/og hold
   // build inputs that are not served)

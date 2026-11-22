@@ -38,6 +38,9 @@ jobs:
       - name: TypeScript check (Vue)
         run: npx tsc --noEmit -p packages/vue/tsconfig.json
 
+      - name: TypeScript check (React Native)
+        run: npx tsc --noEmit -p packages/react-native/tsconfig.json
+
       - name: Unit tests
         run: npx vitest run
 
